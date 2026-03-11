@@ -22,7 +22,7 @@ function App() {
       </div>
 
       <h3>Campeonato de Fútbol Intercomunal</h3>
-      <h4>San Lucas - 2026</h4>
+      <h4>Municipio San Lucas - 2026</h4>
 
       <p className="read-the-docs">
         Aquí encontrarás toda la información sobre los equipos, jugadores y
