@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +42,61 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.contact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #25d366;
+  font-weight: 600;
+  transition: transform 0.2s;
+}
+
+.contact a:hover {
+  transform: scale(1.05);
+}
+
+.whatsapp-icon {
+  font-size: 22px;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #666;
+}
+
+.call-up-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.call-up-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1e88e5;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.call-up-button:hover {
+  background-color: #1565c0;
+  transform: scale(1.05);
+}
+
+.call-up-button.download {
+  background-color: #2e7d32;
+}
+
+.call-up-button.download:hover {
+  background-color: #1b5e20;
 }
