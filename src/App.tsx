@@ -24,21 +24,15 @@ function App() {
         <img src={logo} className="logo" alt="Logo campeonato" />
       </div>
 
-      <h3>Campeonato de Fútbol Intercomunal</h3>
-      <h4>Municipio San Lucas - 2026</h4>
+      <h2>Campeonato de Fútbol Intercomunal</h2>
+      <h3>Municipio San Lucas - 2026</h3>
 
       <p className="read-the-docs">
         Aquí encontrarás toda la información sobre los equipos, jugadores y
         estadísticas del campeonato.
       </p>
 
-      <h5>Organiza:</h5>
-
-      <p className="read-the-docs">
-        Monte Pampa - Rodeo Cocha - Tambo K’asa - Sabala - Huayllani Grande
-      </p>
-
-      <h5>Contactos:</h5>
+      <h2>Contactos e inscripciones:</h2>
 
       {contacts.map((contact) => (
         <p key={contact.phone} className="contact">
@@ -75,10 +69,16 @@ function App() {
           Descargar
         </a>
       </div>
+      <h2>Organiza:</h2>
+
+      <p className="read-the-docs">
+        Monte Pampa - Rodeo Cocha - Tambo K’asa - Sabala - Huayllani Grande
+      </p>
 
       <p className="footer">
         Xavi Innovation Technology © 2026. All rights reserved.
       </p>
+      <p>Contact us at: 1130918821</p>
     </>
   );
 }
