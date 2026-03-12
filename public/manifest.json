@@ -3,8 +3,8 @@
   "short_name": "CAMP. SL-2026",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1abc9c",
-  "theme_color": "#1abc9c",
+  "background_color": "#22b7be",
+  "theme_color": "#22b7be",
   "icons": [
     {
       "src": "/logoChampionship.png",

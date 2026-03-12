@@ -1,0 +1,11 @@
+export { default as Home } from './Home';
+export { default as About } from './About';
+export { default as Teams } from './Teams';
+export { default as TeamDetail } from './TeamDetail';
+export { default as Fixture } from './Fixture';
+export { default as Table } from './Table';
+export { default as CallUp } from './CallUp';
+export { default as Inscriptions } from './Inscriptions';
+export { default as Notifications } from './Notifications';
+export { default as PlayerDetail } from './PlayerDetail';
+export { default as Credentials } from './Credentials';

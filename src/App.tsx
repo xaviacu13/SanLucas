@@ -1,7 +1,8 @@
-import logo from "../src/assets/images/logos/logo.png";
+import logo from "../src/assets/images/logos/logo2.png";
 import callUp from "../src/assets/documents/convocatoria.pdf";
 import "./App.css";
 import { FaWhatsapp, FaChromecast, FaCloudDownloadAlt } from "react-icons/fa";
+import { Header } from "./components";
 
 const message =
   "Hola me podria pasar mas informacion sobre el campeonato municipal de San Lucas por favor?";
@@ -15,8 +16,10 @@ const contacts = [
 ];
 
 function App() {
+  
   return (
     <>
+    <Header />
       <div>
         <img src={logo} className="logo" alt="Logo campeonato" />
       </div>
