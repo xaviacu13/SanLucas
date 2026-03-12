@@ -25,17 +25,18 @@ import {
 } from "./styles";
 
 const Credenciales: React.FC = () => {
-  const downloadCredencial = (id: string) => {
-    const node = document.getElementById(id);
-    if (node) {
-      htmlToImage.toPng(node).then((dataUrl: string) => {
-        const link = document.createElement("a");
-        link.download = `${id}.png`;
-        link.href = dataUrl;
-        link.click();
-      });
-    }
-  };
+const downloadCredencial = (id: string) => {
+  const node = document.getElementById(id);
+
+  if (!node) return;
+
+  htmlToImage.toPng(node).then((dataUrl: string) => {
+    const link = document.createElement("a");
+    link.download = `${id}.png`;
+    link.href = dataUrl;
+    link.click();
+  });
+};
 
   return (
     <GridContainer>
