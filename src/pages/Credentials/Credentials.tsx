@@ -28,7 +28,7 @@ const Credenciales: React.FC = () => {
   const downloadCredencial = (id: string) => {
     const node = document.getElementById(id);
     if (node) {
-      htmlToImage.toPng(node).then((dataUrl) => {
+      htmlToImage.toPng(node).then((dataUrl: string) => {
         const link = document.createElement("a");
         link.download = `${id}.png`;
         link.href = dataUrl;
@@ -46,7 +46,7 @@ const Credenciales: React.FC = () => {
             const exportId = `credencial-img-${team.id}-${subTeam.id}-${player.id}`;
 
             // URL ahora incluye categoría
-            const playerUrl = `https://campeonato-d6.netlify.app/player-detail?idPlayer=${player.id}&idTeam=${team.id}&category=${subTeam.category}`;
+            const playerUrl = `https://san-lucas.netlify.app/player-detail?idPlayer=${player.id}&idTeam=${team.id}&category=${subTeam.category}`;
 
             return (
               <div key={exportId} style={{ textAlign: "center" }}>
