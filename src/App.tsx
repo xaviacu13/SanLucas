@@ -60,7 +60,7 @@ function App() {
           className="call-up-button"
         >
           <FaChromecast />
-          Ver convocatoria
+          Convocatoria
         </a>
 
         <a
