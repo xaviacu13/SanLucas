@@ -1,6 +1,13 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
+export const PageContainer = styled("div")({
+  minHeight: "100vh",
+  display: "flex",
+  flexDirection: "column",
+});
+
+
 export const Title = styled("h1")(() => ({
   fontSize: "24px",
   color: "#333",
@@ -71,5 +78,17 @@ export const NotificationDot = styled("span")({
   borderRadius: "50%",
   border: "2px solid white",
 });
+
+export const FooterContainer = styled("div")({
+  marginTop: "auto",
+  display: "flex",
+  justifyContent: "center",
+  width: "100%",
+
+  "@media (max-width: 600px)": {
+    marginTop: "auto",
+  },
+});
+
 
 

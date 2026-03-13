@@ -29,22 +29,22 @@ const notifications: INotification[] = [
   //   status: "success",
   //   date: "13/08/2025 | 12:23"
   // },
-  {
-    id: 2,
-    title: "Partidos Cancelados del domingo 21/09/2025",
-    description: `Se informa a todos los equipos, jugadores y público en general que, debido a las intensas lluvias y con el fin de resguardar la seguridad de los participantes, queda suspendida la realización de los partidos correspondientes a las Fechas 2 y 3.
-      Próximamente se dará a conocer la reprogramación de dichos encuentros.
-      Agradecemos su comprensión y colaboración.`,
-    status: "warning",
-    date: "20/09/2025 | 11:00",
-  },
+  // {
+  //   id: 2,
+  //   title: "Partidos Cancelados del domingo 21/09/2025",
+  //   description: `Se informa a todos los equipos, jugadores y público en general que, debido a las intensas lluvias y con el fin de resguardar la seguridad de los participantes, queda suspendida la realización de los partidos correspondientes a las Fechas 2 y 3.
+  //     Próximamente se dará a conocer la reprogramación de dichos encuentros.
+  //     Agradecemos su comprensión y colaboración.`,
+  //   status: "success",
+  //   date: "11/03/2026 | 01:00",
+  // },
   {
     id: 1,
-    title: "Inauguración del Campeonato del Distrito 6",
+    title: "Inauguración del Campeonato Intercomunal Municipio San Lucas",
     description:
-      "¡Gran Inauguración del Campeonato del Distrito 6! 📅 14/09   ⏰ 10:00 AM   📍 Complejo Deportivo La Berraca ¡Se invita encarecidamente a todos los jugadores e hinchas de cada comunidad del Distrito 6! No faltes. Los esperamos para vivir juntos esta gran fiesta deportiva! 🎉",
+      "¡Gran Inauguración del Campeonato Intercomunal Municipio San Lucas! 📅 29/03/2026   ⏰ 08:00 AM   📍 Complejo Deportivo Sudamericano “Ex Company” ¡Se invita encarecidamente a todos los jugadores e hinchas de cada comunidad de municipio San Lucas! No faltes. Los esperamos para vivir juntos esta gran fiesta deportiva! 🎉",
     status: "success",
-    date: "9/08/2025 | 08:56",
+    date: "11/03/2026 | 00:35",
   },
 ];
 

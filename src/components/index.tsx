@@ -12,3 +12,4 @@ export { default as Title } from './Title';
 export { default as HeaderCategory } from './HeaderCategory';
 export { default as DelegateCard } from './DelegateCard';
 export { default as ScorerCard } from './ScorerCard';
+export { default as Home } from './Home';

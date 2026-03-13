@@ -46,7 +46,7 @@ export const ImageContent = styled('div')({
 export const RightsContainer = styled('div')({
   padding: '0 1rem',
   display: 'flex',
-  color: '#666',
+  color: '#1abc9c',
   fontSize: '0.875rem',
   alignItems: 'space-between',
   justifyContent: 'space-between',

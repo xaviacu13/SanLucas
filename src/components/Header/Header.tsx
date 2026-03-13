@@ -10,7 +10,9 @@ const Header: React.FC = () => {
 
 
   const handleSearch = (description: string) => {
-    console.log('navehgando a...', description);
+    if (description === "home") {
+      window.location.href = "/";
+    }
   };
 
   const onShare = () => {

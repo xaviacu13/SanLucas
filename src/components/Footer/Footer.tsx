@@ -1,21 +1,21 @@
 import React from "react";
-import { Root, Image, ImageContent, RightsContainer } from "./styles";
-import { useNavigate } from "react-router-dom";
-import { teams } from "../../constants/teams/teams";
-import { getLogo } from "../../tools/tools";
+import { Root, RightsContainer } from "./styles";
+// import { useNavigate } from "react-router-dom";
+// import { teams } from "../../constants/teams/teams";
+// import { getLogo } from "../../tools/tools";
 
 const Footer: React.FC = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const handleClick = (idTeam: number) => {
-    navigate(
-      `/team-detail?id=${idTeam}&category=${encodeURIComponent("Juvenil")}`
-    );
-  };
+  // const handleClick = (idTeam: number) => {
+  //   navigate(
+  //     `/team-detail?id=${idTeam}&category=${encodeURIComponent("Juvenil")}`
+  //   );
+  // };
  
   return (
     <Root>
-      <ImageContent>
+      {/* <ImageContent>
         {teams.map((team) => (
           <div key={team.name}>
             <Image
@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
             />
           </div>
         ))}
-      </ImageContent>
+      </ImageContent> */}
       <RightsContainer>
         <p>Xavi Innovation Technology © 2025. All rights reserved.</p>
         <p>Contact us at: 1130918821</p>

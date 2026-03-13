@@ -1,8 +1,8 @@
 // src/pages/CallUp/index.tsx
+
 import React from "react";
 import {
   Container,
-  Title,
   Subtitle,
   Paragraph,
   List,
@@ -11,138 +11,199 @@ import {
   Highlight,
   ButtonsContainer,
 } from "./styles";
+
 import { Button } from "@mui/material";
+import { Title as CallTitle } from "../../components";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import BorderColorIcon from "@mui/icons-material/BorderColor";
+// import BorderColorIcon from "@mui/icons-material/BorderColor";
+
 import convocatoria from "../../assets/documents/convocatoria.pdf";
 
 const CallUp: React.FC = () => {
   return (
     <Container>
-      <Title>🏆 CONVOCATORIA</Title>
-      <Subtitle>
-        Campeonato Intercomunal de Fútbol de Distrito 6 – Puca Loma 2025
-      </Subtitle>
+      <CallTitle title="Convocatoria Campeonato San Lucas 2026" />
 
       <Paragraph>
-        La comunidad de Puca Loma, en coordinación con su comité organizador,
-        convoca cordialmente a todas las comunidades del Distrito 6 a participar
-        del Campeonato Intercomunal de Fútbol 2025 en categorías{" "}
-        <strong>Juvenil, Senior, Damas y Niños</strong>, que se llevará a cabo
-        con el objetivo de fortalecer la unidad, la confraternidad y el deporte
-        entre los pueblos hermanos.
+        Las comunidades <strong>Monte Pampa, Rodeo Cocha, Tambo K’asa, Sabala y
+        Huayllani Grande</strong> convocan al Campeonato Intercomunal del
+        Municipio de San Lucas, en las categorías <strong>Varones, Damas,
+        Niños y Seniors</strong>.
       </Paragraph>
 
       <Paragraph>
-        <strong>📅 Fecha de comienzo de evento (Inauguración):</strong> Domingo
-        14 de septiembre de 2025
-      </Paragraph>
-      <Paragraph>
-        <strong>📍 Lugar:</strong> Buenos Aires – Longchamps, Complejo deportivo
-        “Berraca”.
+        Con el objetivo de fortalecer la amistad, la confraternidad y la unión
+        entre las familias de nuestro municipio, comunidades y distritos.
       </Paragraph>
 
-      <Subtitle>⚽ Bases del campeonato:</Subtitle>
+      <Subtitle>INSCRIPCIONES</Subtitle>
 
       <Paragraph>
-        <strong>Inscripciones:</strong>
+        Las inscripciones quedan abiertas desde la fecha hasta el{" "}
+        <Highlight>28 de marzo de 2026</Highlight>.
       </Paragraph>
+
+      <Subtitle>INAUGURACIÓN</Subtitle>
+
+      <Paragraph>
+        La inauguración del campeonato se realizará el día{" "}
+        <Highlight>domingo 29 de marzo de 2026 a horas 08:00 a.m.</Highlight>
+      </Paragraph>
+
+      <Subtitle>REUNIÓN DE DELEGADOS</Subtitle>
+
+      <Paragraph>
+        La reunión con los delegados de cada equipo se realizará el día{" "}
+        <Highlight>21 de marzo de 2026 a horas 15:00</Highlight> en el Complejo
+        Deportivo Sudamericano “Ex Company”.
+      </Paragraph>
+
+      <Paragraph>
+        En la misma reunión se realizará el sorteo del campeonato.
+      </Paragraph>
+
+      <Subtitle>COSTO DE INSCRIPCIONES</Subtitle>
+
+      <Paragraph>
+        <strong>1. Categoría Juvenil</strong>
+      </Paragraph>
+
       <List>
-        <ListItem>Fecha límite: hasta el 14 de septiembre de 2025</ListItem>
         <ListItem>
-          Cuota de inscripción por equipo:{" "}
-          <Highlight>$200.000 (Juvenil)</Highlight>,{" "}
-          <Highlight>$150.000 (Senior y Damas)</Highlight>,{" "}
-          <Highlight>$100.000 (Niños)</Highlight>
+          Costo de inscripción: <Highlight>$400.000</Highlight>
         </ListItem>
-        <ListItem>Contacto para inscripciones: +54 9 11 5979-7870</ListItem>
+        <ListItem>Mínimo: 11 jugadores</ListItem>
+        <ListItem>Máximo: 20 jugadores</ListItem>
       </List>
 
       <Paragraph>
-        <strong>Requisitos:</strong>
+        <strong>2. Categoría Damas y Senior</strong>
       </Paragraph>
+
       <List>
         <ListItem>
-          Cada equipo debe presentar una lista con los datos de los jugadores.
+          Costo de inscripción: <Highlight>$300.000</Highlight>
         </ListItem>
+        <ListItem>Mínimo: 7 jugadores</ListItem>
+        <ListItem>Máximo: 15 jugadores</ListItem>
+      </List>
+
+      <Paragraph>
+        <strong>3. Categoría Niños</strong>
+      </Paragraph>
+
+      <List>
         <ListItem>
-          Plantilla mínima: 11 jugadores / máxima: 20 jugadores (Juvenil).
+          Costo de inscripción: <Highlight>$200.000</Highlight>
         </ListItem>
+        <ListItem>Mínimo: 5 jugadores</ListItem>
+        <ListItem>Máximo: 10 jugadores</ListItem>
+        <ListItem>Categorías permitidas: 2015 / 2016 / 2017 / 2018</ListItem>
+      </List>
+
+      <Subtitle>PARTICIPACIÓN DE FAMILIARES</Subtitle>
+
+      <Paragraph>
+        Se permitirá <Highlight>1 yerno de nacionalidad boliviana</Highlight>.
+      </Paragraph>
+
+      <List>
         <ListItem>
-          Plantilla mínima: 7 jugadores / máxima: 15 jugadores (Senior, Damas y
-          Niños).
+          Presentar certificado de matrimonio o certificado de hijo/a.
         </ListItem>
+        <ListItem>DNI de papá y mamá.</ListItem>
+        <ListItem>No se aceptarán testigos.</ListItem>
+      </List>
+
+      <Paragraph>
+        También se permitirá la participación de <strong>padre, madre y
+        nietos</strong>.
+      </Paragraph>
+
+      <Paragraph>
+        Para la categoría damas se permitirán <Highlight>2 nueras</Highlight>
+        con los mismos requisitos.
+      </Paragraph>
+
+      <Subtitle>REGLAMENTOS</Subtitle>
+
+      <Paragraph>
+        <strong>Uniforme</strong>
+      </Paragraph>
+
+      <List>
         <ListItem>
-          Cada equipo debe tener uniforme deportivo más su balón
-          correspondiente.
+          Cada equipo debe presentarse con uniforme completo y numeración
+          visible.
+        </ListItem>
+        <ListItem>No se permitirá repetir números.</ListItem>
+      </List>
+
+      <Paragraph>
+        <strong>Accesorios</strong>
+      </Paragraph>
+
+      <List>
+        <ListItem>
+          Se prohíbe el uso de aretes, pulseras o collares durante el partido.
         </ListItem>
       </List>
 
       <Paragraph>
-        <strong>Premiación:</strong>
+        <strong>Canilleras</strong>
       </Paragraph>
+
       <List>
-        <ListItem>🥇 1er lugar</ListItem>
-        <ListItem>🥈 2do lugar</ListItem>
-        <ListItem>🥉 3er lugar</ListItem>
-        <ListItem>🏅 Reconocimiento al mejor jugador y mejor arquero</ListItem>
+        <ListItem>
+          Cada jugador debe presentarse con canilleras.
+        </ListItem>
+        <ListItem>
+          Multa por incumplimiento: <Highlight>$10.000</Highlight>
+        </ListItem>
       </List>
 
-      <Paragraph>
-        <strong>Reglamento:</strong> Se regirá a todos los reglamentos que emana
-        nuestra organización distrital.
-      </Paragraph>
+      <Subtitle>SANCIONES</Subtitle>
 
-      <Paragraph>
-        <strong>
-          📣 ¡Participa con tu equipo y representa a tu comunidad!
-        </strong>
-      </Paragraph>
+      <List>
+        <ListItem>Tarjeta amarilla: $3.000</ListItem>
+        <ListItem>Tarjeta roja: $6.000</ListItem>
+        <ListItem>Soborno a árbitro: multa $200.000</ListItem>
+        <ListItem>No asistir a reunión: multa $80.000</ListItem>
+      </List>
 
-      <Paragraph>
-        <em>¡Sí al deporte, no a las drogas!</em>
-      </Paragraph>
-      <Paragraph>Buenos Aires, 17 de agosto de 2025</Paragraph>
+      <Subtitle>INFORMACIÓN Y CONTACTO</Subtitle>
 
       <ContactInfo>
-        <strong>Firmas:</strong>
-        <br />
-        <br />
-        Yona Clemente – Strio. Actas
-        <br />
-        Sixto Flores – Strio. Economía
-        <br />
-        <br />
-        Xavier M. Acuña – Strio. Tecnología de la Información
-        <br />
-        Nestor A. Rodriguez – Vicepresidente
-        <br />
-        Oscar D. Moscoso – Presidente
+        Correa Delio – 1141957971 <br />
+        Rodríguez Hernán – 1150171880 <br />
+        Segarra Tomás – 1136531909 <br />
+        Acuña Gerardo – 1127305021 <br />
+        Alvarado Beto – 1151762134
       </ContactInfo>
 
+      <Paragraph>
+        🌐 Nuestro sitio web: https://san-lucas.netlify.app
+      </Paragraph>
+
       <ButtonsContainer>
-        <Button
-          onClick={() => {
-            window.open("/inscriptions");
-          }}
+        {/* <Button
           variant="contained"
           color="primary"
-          rel="noopener noreferrer"
           startIcon={<BorderColorIcon />}
+          onClick={() => window.open("/inscriptions")}
         >
-          Inscribirse Ahora
-        </Button>
+          Inscribirse
+        </Button> */}
 
         <Button
           variant="contained"
           color="primary"
           component="a"
           href={convocatoria}
-          download="Convocatoria_Campeonato_Puca_Loma_2025.pdf"
-          style={{ marginLeft: "10px" }}
+          download="Convocatoria_San_Lucas_2026.pdf"
           startIcon={<FileDownloadIcon />}
         >
-          Descargar
+          Descargar PDF
         </Button>
       </ButtonsContainer>
     </Container>
