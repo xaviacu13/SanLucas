@@ -83,8 +83,13 @@ export const CallUpButton = styled.a({
   },
 });
 
+export const ContactName = styled.span({
+  fontWeight: "bold",
+  color: "#0b0628",
+}); 
+
 export const Footer = styled.p({
   marginTop: "40px",
-  fontSize: "14px",
-  color: "#777",
+  fontSize: "12px",
+  color: "#1abc9c",
 });

@@ -1,6 +1,8 @@
 import logo from "../../assets/images/logos/logo2.png";
 import callUp from "../../assets/documents/convocatoria.pdf";
-import { FaWhatsapp, FaChromecast, FaCloudDownloadAlt } from "react-icons/fa";
+import { Stack, Button } from "@mui/material";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import { FaWhatsapp, FaChromecast } from "react-icons/fa";
 
 import {
   Container,
@@ -10,9 +12,8 @@ import {
   Description,
   SectionTitle,
   Contact,
-  CallUpContainer,
-  CallUpButton,
   Footer,
+  ContactName,
 } from "./styles";
 
 const message =
@@ -50,24 +51,39 @@ function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
+        <ContactName>{contact.name}: {""}</ContactName>
           <FaWhatsapp />
-          {contact.name} - {contact.phone}
+           {contact.phone}
         </Contact>
       ))}
 
       <SectionTitle>Convocatoria</SectionTitle>
 
-      <CallUpContainer>
-        <CallUpButton href='/call-up'>
-          <FaChromecast />
-          Mostrar
-        </CallUpButton>
+    <Stack
+  direction="row"
+  spacing={2}
+  justifyContent="center"
+  flexWrap="wrap"
+  sx={{ mb: 3 }}
+>
+  <Button
+    variant="contained"
+    startIcon={<FaChromecast />}
+    href="/call-up"
+  >
+    Mostrar
+  </Button>
 
-        <CallUpButton href={callUp} download="Convocatoria 2026.pdf">
-          <FaCloudDownloadAlt />
-          Descargar
-        </CallUpButton>
-      </CallUpContainer>
+  <Button
+    variant="contained"
+    startIcon={<FileDownloadIcon />}
+    href={callUp}
+    download="Convocatoria 2026.pdf"
+  >
+    Descargar
+  </Button>
+</Stack>
+
 
       <SectionTitle>Organiza</SectionTitle>
 
@@ -77,7 +93,6 @@ function Home() {
 
       <Footer>
         Xavi Innovation Technology © 2026. All rights reserved.
-        <br />
         Contact us at: 1130918821
       </Footer>
     </Container>
