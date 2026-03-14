@@ -61,3 +61,37 @@ export const ButtonsContainer = styled("div")({
   justifyContent: "center",
   marginTop: "1rem",
 });
+
+export const CallContainer = styled("div")(() => ({
+  marginTop: "1.5rem",
+  width: "100%",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+}));
+
+export const PdfWrapper = styled("div")(() => ({
+  backgroundColor: "#fff",
+  padding: "1rem",
+  borderRadius: "10px",
+  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+  maxWidth: "750px",
+  width: "100%",
+  display: "flex",
+  justifyContent: "center",
+
+  "& canvas": {
+    width: "100% !important",
+    height: "auto !important",
+  },
+}));
+
+export const PdfControls = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  gap: "1rem",
+  marginTop: "1rem",
+});
+
+
+

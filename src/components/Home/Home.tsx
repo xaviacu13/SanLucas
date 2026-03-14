@@ -58,7 +58,7 @@ function Home() {
       <SectionTitle>Convocatoria</SectionTitle>
 
       <CallUpContainer>
-        <CallUpButton href={callUp} target="_blank">
+        <CallUpButton href='/call-up'>
           <FaChromecast />
           Mostrar
         </CallUpButton>

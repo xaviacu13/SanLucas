@@ -5,7 +5,8 @@ import portada3 from "../../assets/images/portada/por3.png";
 import ArticleIcon from "@mui/icons-material/Article";
 //import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
 // import BorderColorIcon from "@mui/icons-material/BorderColor";
-import CallIcon from '@mui/icons-material/Call';
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
+// import CallIcon from '@mui/icons-material/Call';
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { Header, Hero, Footer } from "../../components";
 import notifications from "../../constants/notifications";
@@ -78,7 +79,7 @@ const Home: React.FC = () => {
         </Cards>
 
         <Cards to="/about">
-          <CallIcon fontSize="large" />
+          <QuestionAnswerIcon fontSize="large" />
           <span>Contactos</span>
         </Cards>
       </CardsContainer>
