@@ -19,7 +19,7 @@ export const Root = styled('div')<RootProps>(({ theme, width, height }) => ({
 export const Img = styled('img')({
   borderRadius: '25%',
   padding: '0.5rem',
-  width: '8rem',
+  width: '9rem',
   objectFit: 'cover',
   transition: 'transform 0.3s ease',
   '&:hover': {
@@ -29,9 +29,9 @@ export const Img = styled('img')({
     transform: 'scale(1)',
   },
   "@media (max-width: 600px)": {
-    width: '6rem',
+    width: '8rem',
   },
   "@media (max-width: 400px)": {
-    width: '5rem',
+    width: '6rem',
   },
 });

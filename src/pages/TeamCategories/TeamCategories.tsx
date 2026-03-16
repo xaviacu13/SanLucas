@@ -1,23 +1,26 @@
-import React, { useState, useEffect } from "react";
-import { DelegateCard, Title, HeaderCategory } from "../../components";
+import React, { useState } from "react";
+import { DelegateCard, HeaderCategory, Title } from "../../components";
 import logo from "../../assets/images/icons/logo1.png";
 import { juvenil } from "../../constants/teamCategories/juvenil";
 import { senior } from "../../constants/teamCategories/senior";
 import { damas } from "../../constants/teamCategories/damas";
 import { infantil } from "../../constants/teamCategories/infantil";
 import { categories } from "../../constants/categories";
-import { InfoContainer } from "./styles";
-import { useNavigate } from "react-router-dom";
+import { InfoContainer, Root, MessageNoTeams } from "./styles";
+import { useNavigate, useLocation } from "react-router-dom";
+import { Button, Typography } from "@mui/material";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
 const TeamCategories: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const queryParams = new URLSearchParams(location.search);
   const categoryParam = queryParams.get("category");
-  const [teamCategory, setTeamCategory] = useState(juvenil);
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil"
-  );
 
-  const navigate = useNavigate();
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categoryParam || "Juvenil",
+  );
 
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
@@ -26,50 +29,71 @@ const TeamCategories: React.FC = () => {
     });
   };
 
-  useEffect(() => {
+  const getTeamCategory = () => {
     switch (selectedCategory) {
       case "Juvenil":
-        setTeamCategory(juvenil);
-        break;
+        return juvenil;
       case "Senior":
-        setTeamCategory(senior);
-        break;
+        return senior;
       case "Damas":
-        setTeamCategory(damas);
-        break;
+        return damas;
       case "Infantil":
-        setTeamCategory(infantil);
-        break;
+        return infantil;
       default:
-        setTeamCategory(juvenil);
-        break;
+        return juvenil;
     }
-  }, [selectedCategory]);
+  };
+
+  const teams = getTeamCategory();
 
   return (
-    <>
+    <Root>
       <HeaderCategory
         img={logo}
-        color="#1abc9c"
+        color="#22b7be"
         category={categories}
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
       />
+
       <InfoContainer>
-        <Title title={`Equipos categoria: ${selectedCategory}`} />
-        {teamCategory.map((team) => (
-          <DelegateCard
-            key={team.id}
-            id={team.id}
-            img={team.logo}
-            url={team.url}
-            name={team.name}
-            category={selectedCategory}
-            delegates={team.delegates}
+        <Title title={`Equipos categoría: ${selectedCategory}`} />
+
+        {teams.length === 0 ? (
+          <MessageNoTeams>
+            <Typography variant="h4" align="center">
+              No hay equipos registrados en esta categoría.
+              <br />
+              Pronto se publicarán los equipos participantes del campeonato.
+              <br /> <br />
+              Si necesitas más información puedes comunicarte con los
+              organizadores.
+            </Typography>
+
+            <Button
+              variant="contained"
+              startIcon={<QuestionAnswerIcon />}
+              href="/about"
+              sx={{ mt: 2 }}
+            >
+              CONTACTOS
+            </Button>
+          </MessageNoTeams>
+        ) : (
+          teams.map((team) => (
+            <DelegateCard
+              key={team.id}
+              id={team.id}
+              img={team.logo}
+              url={team.url}
+              name={team.name}
+              category={selectedCategory}
+              delegates={team.delegates}
             />
-        ))}
+          ))
+        )}
       </InfoContainer>
-    </>
+    </Root>
   );
 };
 

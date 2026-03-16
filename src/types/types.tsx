@@ -1,4 +1,5 @@
-interface ITeamStanding {
+export interface ITeamStanding {
+  id: number;
   team: string;
   matchesPlayed: number;
   wins: number;
@@ -10,7 +11,7 @@ interface ITeamStanding {
   points: number;
 }
 
-interface INotification {
+export interface INotification {
   id: number;
   title: string;
   description: string;
@@ -18,7 +19,7 @@ interface INotification {
   date: string;
 }
 
-interface IPlayer {
+export interface IPlayer {
   id: number;
   name: string;
   fullName: string;
@@ -28,13 +29,13 @@ interface IPlayer {
   image?: string;
 }
 
-interface ITeamCategory {
+export interface ITeamCategory {
   id: number;
   category: string;
   players: IPlayer[];
 }
 
-interface ITeam {
+export interface ITeam {
   id: number;
   name: string;
   color: string;
@@ -43,7 +44,23 @@ interface ITeam {
   logo?: string;
   description?: string;
 }
-interface IMatch {
+
+export interface ITeamCategoryItem {
+  id: number;
+  name: string;
+  url: string;
+  logo: string;
+  delegates: IDelegate[];
+}
+
+export interface IDelegate {
+  id: number;
+  name: string;
+  contact: string;
+  category: string;
+}
+
+export interface IMatch {
   id: number;
   team1: string;
   team2: string;
@@ -57,7 +74,7 @@ interface IMatch {
   observation: string;
 }
 
-interface IFixtureCard {
+export interface IFixtureCard {
   id: number;
   team1: string;
   team2: string;
@@ -72,7 +89,7 @@ interface IFixtureCard {
   category: string;
 }
 
-interface IScorer {
+export interface IScorer {
   id: number;
   name: string;
   fullName: string;
@@ -84,5 +101,3 @@ interface IScorer {
   profile: string;
 }
 
-
-export type { ITeamStanding, INotification, IPlayer, ITeamCategory, ITeam, IMatch, IFixtureCard, IScorer };

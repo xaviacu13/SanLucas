@@ -1,17 +1,31 @@
 import React from "react";
 import logo from "../../assets/images/icons/logo1.png";
-import { Tooltip } from "@mui/material";
+import { Tooltip, Button, useMediaQuery } from "@mui/material";
+
 import ShareIcon from "@mui/icons-material/Share";
 import HomeIcon from "@mui/icons-material/Home";
-import { Container, Logo, SearchContainer, LogoContainer, HomeButton } from "./styles";
+import { Container, Logo, SearchContainer, LogoContainer, HomeButton, NavButtonStyle } from "./styles";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
+   const navigate = useNavigate();
+  const location = useLocation();
+  const isMobile = useMediaQuery("(max-width:600px)");
 
-
-
-  const handleSearch = (description: string) => {
-    if (description === "home") {
-      window.location.href = "/";
+   const handleNavigate = (description: string) => {
+    switch (description) {
+      case "fixture":
+        navigate(`/fixture?query=${description}`);
+        break;
+      case "table":
+        navigate(`/table?query=${description}`);
+        break;
+      case "teams":
+        navigate(`/team-categories?query=${description}`);
+        break;
+      default:
+        console.warn("Ruta no encontrada:", description);
+        break;
     }
   };
 
@@ -35,21 +49,41 @@ const Header: React.FC = () => {
 
   const isHomePage = location.pathname === "/";
 
-
   return (
-    <Container>
-      <LogoContainer onClick={() => handleSearch("home")}>
+     <Container>
+      <LogoContainer onClick={() => navigate("/")}>
         <Logo src={logo} alt="Logo" />
         <Tooltip title="Compartir">
           <HomeButton
             color="secondary"
-            onClick={() => (isHomePage ? onShare() : handleSearch("home"))}
+            onClick={() => (isHomePage ? onShare() : navigate("/"))}
           >
             {isHomePage ? <ShareIcon /> : <HomeIcon />}
           </HomeButton>
         </Tooltip>
       </LogoContainer>
       <SearchContainer>
+        <Button
+          onClick={() => handleNavigate("fixture")}
+          color="secondary"
+          sx={NavButtonStyle()}
+        >
+          FIXTURE
+        </Button>
+        <Button
+          onClick={() => handleNavigate("table")}
+          color="secondary"
+          sx={NavButtonStyle()}
+        >
+          {isMobile ? "TABLA" : "TABLA DE POSICIONES"}
+        </Button>
+        <Button
+          onClick={() => handleNavigate("teams")}
+          color="secondary"
+          sx={NavButtonStyle()}
+        >
+          EQUIPOS
+        </Button>
       </SearchContainer>
     </Container>
   );

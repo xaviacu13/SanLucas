@@ -1,5 +1,7 @@
 import { getLogo } from "../../tools/tools";
-export const infantil = [
+import type { ITeamCategoryItem } from "../../types/types";
+
+export const infantil: ITeamCategoryItem[] = [
   {
     id: 1,
     name: "Tira Hoyo",

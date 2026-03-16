@@ -51,3 +51,9 @@ export const TitleTeam = styled('div')({
   fontSize: '14px',
   lineHeight: '1.5',
 });
+
+export const ButtonContainer = styled('div')(() => ({
+  display: 'flex',
+  justifyContent: 'center',
+  marginTop: '1rem',
+}));

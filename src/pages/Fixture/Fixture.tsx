@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Root } from "./styles";
+import React, { useState, useMemo } from "react";
+import { MessageNoTeams, Root, MessageContainer } from "./styles";
 import {
   FixtureCard,
   SearchBox,
@@ -13,60 +13,55 @@ import { infantil } from "../../constants/fixture/infantil";
 import logo from "../../assets/images/icons/logo1.png";
 import { categories } from "../../constants/categories";
 import { useNavigate } from "react-router-dom";
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
 const Fixture: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const categoryParam = queryParams.get("category");
 
-  const initialFixture = juvenil;
-  const hasScheduledInitial = initialFixture.some(
-    (match) => match.status === "scheduled" || match.status === "canceled"
+  const getFixtureForCategory = (cat: string) => {
+    switch (cat) {
+      case "Juvenil":
+        return juvenil;
+      case "Senior":
+        return senior;
+      case "Damas":
+        return damas;
+      case "Infantil":
+        return infantil;
+      default:
+        return juvenil;
+    }
+  };
+
+  const [team, setTeam] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    categoryParam || "Juvenil",
   );
 
-  const [stGame, setStGame] = useState(
-    hasScheduledInitial ? "scheduled" : "played"
+  // Compute initial stGame based on initial category
+  const initialCategory = categoryParam || "Juvenil";
+  const initialFixture = getFixtureForCategory(initialCategory);
+  const hasScheduledInitial = initialFixture.some(
+    (match) => match.status === "scheduled" || match.status === "canceled",
   );
-  const [team, setTeam] = useState("all");
-  const [fixture, setFixture] = useState(initialFixture);
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil"
+  const [stGame, setStGame] = useState(
+    hasScheduledInitial ? "scheduled" : "played",
   );
 
   const navigate = useNavigate();
 
+  const fixture = useMemo(() => {
+    return getFixtureForCategory(selectedCategory);
+  }, [selectedCategory]);
+
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
-    navigate(`/fixture?category=${encodeURIComponent(cat)}`, {
-      replace: true,
-    });
-  };
-
-  useEffect(() => {
-    let newFixture;
-
-    switch (selectedCategory) {
-      case "Juvenil":
-        newFixture = juvenil;
-        break;
-      case "Senior":
-        newFixture = senior;
-        break;
-      case "Damas":
-        newFixture = damas;
-        break;
-      case "Infantil":
-        newFixture = infantil;
-        break;
-      default:
-        newFixture = juvenil;
-        break;
-    }
-
-    setFixture(newFixture);
-
+    // Reset stGame to default for the new category
+    const newFixture = getFixtureForCategory(cat);
     const hasScheduledOrCanceled = newFixture.some(
-      (match) => match.status === "scheduled" || match.status === "canceled"
+      (match) => match.status === "scheduled" || match.status === "canceled",
     );
     const hasPlayed = newFixture.some((match) => match.status === "played");
 
@@ -77,7 +72,10 @@ const Fixture: React.FC = () => {
     } else {
       setStGame("all");
     }
-  }, [selectedCategory]);
+    navigate(`/fixture?category=${encodeURIComponent(cat)}`, {
+      replace: true,
+    });
+  };
 
   const filteredMatches = fixture
     .filter((match) => {
@@ -118,20 +116,21 @@ const Fixture: React.FC = () => {
       <HeaderCategory
         img={logo}
         title={`Fixture ${selectedCategory}`}
-        color="#1abc9c"
+        color="#22b7be"
         category={categories}
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
       />
       <Title title={`Fixture ${selectedCategory}`} />
-
-      <SearchBox
-        setStGame={setStGame}
-        selectedCategory={selectedCategory}
-        stGame={stGame}
-        team={team}
-        setTeam={setTeam}
-      />
+      {filteredMatches.length > 0 && (
+        <SearchBox
+          setStGame={setStGame}
+          selectedCategory={selectedCategory}
+          stGame={stGame}
+          team={team}
+          setTeam={setTeam}
+        />
+      )}
 
       {filteredMatches.length > 0 ? (
         filteredMatches.map((match) => (
@@ -152,12 +151,31 @@ const Fixture: React.FC = () => {
           />
         ))
       ) : (
-        <Typography
-          variant="h3"
-          style={{ textAlign: "center", marginTop: "20px" }}
-        >
-          No hay partidos encontrados para este filtro.
-        </Typography>
+        <MessageContainer>
+        <MessageNoTeams>
+          <Typography
+            variant="h4"
+            style={{ textAlign: "center", marginTop: "20px" }}
+          >
+            Todavía no hay partidos programados.
+            <br />
+            Pronto se publicará el fixture del campeonato.
+            <br />
+            <br />
+            Si necesitas más información puedes comunicarte con los
+            organizadores.
+            <br />
+            <br />
+          </Typography>
+          <Button
+            variant="contained"
+            startIcon={<QuestionAnswerIcon />}
+            href="/about"
+          >
+            CONTACTOS
+          </Button>
+        </MessageNoTeams>
+        </MessageContainer>
       )}
     </Root>
   );

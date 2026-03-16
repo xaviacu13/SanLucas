@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import { styled }from '@mui/material/styles';
 import { Avatar, IconButton } from '@mui/material';
 
 export const HeroContainer = styled('div')({
@@ -7,25 +7,27 @@ export const HeroContainer = styled('div')({
   alignItems: 'center',
 });
 
-export const CarouselWrapper = styled('div')({
-  position: 'relative',
-  width: '100%',
-  maxHeight: 400,
-  overflow: 'hidden',
+export const CarouselWrapper = styled("div")({
+  position: "relative",
+  width: "100%",
+  overflow: "hidden",
+  height: "clamp(250px, 40vw, 500px)",
 });
 
-export const StyledImage = styled('img')({
-  width: '100%',
-  objectFit: 'cover',
-  height: 300,
-  '@media (max-width: 600px)': {
-    height: 200,
-  },
-  '@media (min-width: 960px)': {
-    height: 400,
-  },
-});
+export const StyledImage = styled("img")(({ theme }) => ({
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
 
+  [theme.breakpoints.up("md")]: {
+    height: "100%",
+  },
+
+  [theme.breakpoints.up("sm")]: {
+    height: "100%",
+  },
+
+}));
 export const ArrowButton = styled(IconButton, {
   shouldForwardProp: (prop) => prop !== 'left',
 })<{ left?: boolean }>(({ left }) => ({
