@@ -48,7 +48,7 @@ export const Title = styled("h1")({
   marginLeft: 10,
 });
 
-export const SearchContainer = styled("div")({
+export const ButtonContainer = styled("div")({
   display: "flex",
   marginLeft: "auto",
   gap: "1rem",
@@ -83,6 +83,7 @@ export const NavButtonStyle = () => ({
   fontWeight: 500,
   backgroundColor: "rgba(4, 47, 81, 0.1)",
   borderRadius: "12px",
+  lineHeight: "1",
   padding: "8px",
   "&:hover": {
     backgroundColor: "rgba(4, 47, 81, 0.2)",

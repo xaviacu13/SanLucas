@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo,useEffect } from "react";
 import { HeaderTeam, PlayerCard } from "../../components";
 import { useLocation, useNavigate } from "react-router-dom";
 import { teams } from "../../constants/teams/teams";
@@ -28,18 +28,17 @@ const DetailTeam: React.FC = () => {
       team?.teams
         .map((t) => t.category)
         .filter((cat, index, self) => cat && self.indexOf(cat) === index) ?? [],
-    [team]
+    [team],
   );
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
-
-  useEffect(() => {
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => {
     if (categoryParam && categories.includes(categoryParam)) {
-      setSelectedCategory(categoryParam);
-    } else if (!selectedCategory && categories.length > 0) {
-      setSelectedCategory(categories[0]);
+      return categoryParam;
+    } else if (categories.length > 0) {
+      return categories[0];
     }
-  }, [categoryParam, categories, selectedCategory]);
+    return "";
+  });
 
   const canGoBack = React.useMemo(() => {
     return location.key !== "default";
@@ -55,8 +54,8 @@ const DetailTeam: React.FC = () => {
   const onShare = () => {
     if (!team) return;
 
-    const shareUrl = `https://campeonato-d6.netlify.app/team-detail?id=${idTeam}&category=${encodeURIComponent(
-      selectedCategory
+    const shareUrl = `san-lucas.netlify.app/team-detail?id=${idTeam}&category=${encodeURIComponent(
+      selectedCategory,
     )}`;
 
     const shareData = {
@@ -103,7 +102,7 @@ const DetailTeam: React.FC = () => {
   }
 
   return (
-    <div>
+    <>
       <HeaderTeam
         img={getLogo(team.name)}
         name={team.name}
@@ -113,56 +112,55 @@ const DetailTeam: React.FC = () => {
         selectedCategory={selectedCategory}
       />
       <CardContainer>
+        {selectedPlayers.length > 0 ? (
+          <>
+            {selectedPlayers.map((player, index) => (
+              <PlayerCard
+                key={`${selectedCategory}-${player.id}`}
+                idTeam={idTeam ?? undefined}
+                category={selectedCategory}
+                id={player.id}
+                name={player.name}
+                fullName={player.fullName}
+                DNI={player.DNI}
+                number={player.number}
+                position={player.position}
+                index={index}
+                image={player.image || getLogo("Default")}
+              />
+            ))}
 
-      {selectedPlayers.length > 0 ? (
-        <>
-          {selectedPlayers.map((player, index) => (
-            <PlayerCard
-              key={`${selectedCategory}-${player.id}`}
-              idTeam={idTeam ?? undefined}
-              category={selectedCategory}
-              id={player.id}
-              name={player.name}
-              fullName={player.fullName}
-              DNI={player.DNI}
-              number={player.number}
-              position={player.position}
-              index={index}
-              image={player.image || getLogo("Default")}
-            />
-          ))}
-
-          <ButtonContainer>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={onShare}
-              startIcon={<ShareIcon />}
-            >
-              COMPARTIR
-            </Button>
-            <Button
-              variant="outlined"
-              color="secondary"
-              onClick={handleBack}
-              startIcon={canGoBack ? <ReplyIcon /> : <HomeIcon />}
-            >
-              {canGoBack ? "VOLVER" : "INICIO"}
-            </Button>
-          </ButtonContainer>
-        </>
-      ) : (
-        <MessageContent>
-          <Typography variant="h3">
-            Aun no hay jugadores registrados.
-          </Typography>
-          <Typography variant="h6">
-            Por favor contactar con el Delegado de su cominidad{" "}
-          </Typography>
-        </MessageContent>
-      )}
+            <ButtonContainer>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={onShare}
+                startIcon={<ShareIcon />}
+              >
+                COMPARTIR
+              </Button>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={handleBack}
+                startIcon={canGoBack ? <ReplyIcon /> : <HomeIcon />}
+              >
+                {canGoBack ? "VOLVER" : "INICIO"}
+              </Button>
+            </ButtonContainer>
+          </>
+        ) : (
+          <MessageContent>
+            <Typography variant="h3">
+              Aun no hay jugadores registrados.
+            </Typography>
+            <Typography variant="h6">
+              Por favor contactar con el Delegado de su cominidad{" "}
+            </Typography>
+          </MessageContent>
+        )}
       </CardContainer>
-    </div>
+    </>
   );
 };
 

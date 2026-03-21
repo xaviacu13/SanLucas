@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
 import { Divider } from '@mui/material';
-import { IconButton } from '@mui/material';
 
 export const Root = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -29,15 +28,9 @@ export const ButtonContainer = styled("div")(() => ({
   gap: "40px",
   "@media (max-width: 600px)": {
     width: "100%",
+    flexDirection: "column",
     justifyContent: "center",
+    gap: "10px",
     alignItems: "center",
   },
 }));
-export const HomeButton = styled(IconButton)({
-  backgroundColor: "rgba(4, 47, 81, 0.1)",
-  borderRadius: "12px",
-  padding: "10px",
-  "&:hover": {
-    backgroundColor: "rgba(4, 47, 81, 0.2)",
-  },
-});

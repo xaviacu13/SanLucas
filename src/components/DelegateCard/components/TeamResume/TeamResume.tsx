@@ -38,34 +38,10 @@ const TeamResume: FC<TeamResumeProps> = ({
     navigate(`/team-detail?id=${getIdTeam(name)}&category=${encodeURIComponent(category)}`);
   };
 
-
-
-  // const onShare = () => {
-  //   if (!url) return;
-
-  //   const shareUrl = url;
-
-  //   const shareData = {
-  //     title: `Comunidad: ${title}`,
-  //     text: `Formulario de pre-inscripción para la comunidad ${title}`,
-  //     url: shareUrl,
-  //   };
-
-  //   if (navigator.share) {
-  //     navigator.share(shareData).catch((error) => {
-  //       console.error("Error sharing:", error);
-  //     });
-  //   } else {
-  //     navigator.clipboard.writeText(shareUrl).then(() => {
-  //       alert("URL copiada al portapapeles!");
-  //     });
-  //   }
-  // };
-
   return (
     <Root>
       <div>
-        <Typography variant="h1">
+        <Typography variant="h2" color="secondary">
           #{id}
           {" - "}
           {title}
@@ -92,35 +68,26 @@ const TeamResume: FC<TeamResumeProps> = ({
           <Typography variant="body1">No disponible</Typography>
         )}
       </div>
-      {!url && (<ButtonContainer>
+      <ButtonContainer>
         <Button
           onClick={() => handleShowTeam(title, category)}
           variant="outlined"
           startIcon={<ContactsIcon />}
         >
-          VER PLANTEL
+        VER PLANTEL
         </Button>
-      </ButtonContainer>
-      )}
       {url && (
-        <ButtonContainer>
           <Button
             onClick={() => {
               window.open(url);
             }}
-            variant="outlined"
+            variant="contained"
             startIcon={<BorderColorIcon />}
           >
             PRE-INSCRIPCION
           </Button>
-
-          {/* <Tooltip title="Compartir">
-          <HomeButton color="secondary" onClick={onShare}>
-             <ShareIcon/>
-          </HomeButton>
-        </Tooltip> */}
-        </ButtonContainer>
       )}
+      </ButtonContainer>
     </Root>
   );
 };

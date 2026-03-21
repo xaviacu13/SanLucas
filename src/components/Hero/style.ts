@@ -13,6 +13,17 @@ export const CarouselWrapper = styled("div")({
   overflow: "hidden",
   height: "clamp(250px, 40vw, 500px)",
 });
+// export const CarouselWrapper = styled("div")(({ theme }) => ({
+//   position: "relative",
+//   width: "100%",
+//   aspectRatio: "4 / 3",
+
+//   [theme.breakpoints.up("md")]: {
+//     aspectRatio: "16 / 9",
+//   },
+
+//   overflow: "hidden",
+// }));
 
 export const StyledImage = styled("img")(({ theme }) => ({
   width: "100%",

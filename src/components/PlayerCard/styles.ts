@@ -26,8 +26,8 @@ export const PlayerCardWrapper = styled("div")({
 
 export const PlayerImage = styled("img")({
  justifyItems: "center",
-  width: "5.5rem",
-  height: "5.5rem",
+  width: "6rem",
+  height: "6rem",
   objectFit: "cover",
   marginLeft: "5rem",
   borderRadius: "50%",

@@ -6,7 +6,6 @@ export const CardContainer = styled("div") ({
   alignItems: 'center',
   height: '100%',
   padding: '10px',
-  backgroundColor: '#f5f5f5',
 });
 
 export const Container = styled("div") ({

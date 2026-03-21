@@ -4,7 +4,7 @@ import { Tooltip, Button, useMediaQuery } from "@mui/material";
 
 import ShareIcon from "@mui/icons-material/Share";
 import HomeIcon from "@mui/icons-material/Home";
-import { Container, Logo, SearchContainer, LogoContainer, HomeButton, NavButtonStyle } from "./styles";
+import { Container, Logo, ButtonContainer, LogoContainer, HomeButton, NavButtonStyle } from "./styles";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Header: React.FC = () => {
@@ -62,7 +62,7 @@ const Header: React.FC = () => {
           </HomeButton>
         </Tooltip>
       </LogoContainer>
-      <SearchContainer>
+      <ButtonContainer>
         <Button
           onClick={() => handleNavigate("fixture")}
           color="secondary"
@@ -84,7 +84,7 @@ const Header: React.FC = () => {
         >
           EQUIPOS
         </Button>
-      </SearchContainer>
+      </ButtonContainer>
     </Container>
   );
 };

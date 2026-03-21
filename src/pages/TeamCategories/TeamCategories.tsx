@@ -57,7 +57,7 @@ const TeamCategories: React.FC = () => {
       />
 
       <InfoContainer>
-        <Title title={`Equipos categoría: ${selectedCategory}`} />
+        <Title title={`Equipos categoría ${selectedCategory}`} />
 
         {teams.length === 0 ? (
           <MessageNoTeams>

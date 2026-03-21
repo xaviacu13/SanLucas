@@ -46,44 +46,45 @@ function Home() {
         <Contact
           key={contact.phone}
           href={`https://wa.me/${contact.phone}?text=${encodeURIComponent(
-            message
+            message,
           )}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-        <ContactName>{contact.name}: {""}</ContactName>
+          <ContactName>
+            {contact.name}: {""}
+          </ContactName>
           <FaWhatsapp />
-           {contact.phone}
+          {contact.phone}
         </Contact>
       ))}
 
       <SectionTitle>Convocatoria</SectionTitle>
 
-    <Stack
-  direction="row"
-  spacing={2}
-  justifyContent="center"
-  flexWrap="wrap"
-  sx={{ mb: 3 }}
->
-  <Button
-    variant="contained"
-    startIcon={<FaChromecast />}
-    href="/call-up"
-  >
-    Mostrar
-  </Button>
+      <Stack
+        direction="row"
+        spacing={2}
+        justifyContent="center"
+        flexWrap="wrap"
+        sx={{ mb: 3 }}
+      >
+        <Button
+          variant="contained"
+          startIcon={<FaChromecast />}
+          href="/call-up"
+        >
+          Mostrar
+        </Button>
 
-  <Button
-    variant="contained"
-    startIcon={<FileDownloadIcon />}
-    href={callUp}
-    download="Convocatoria 2026.pdf"
-  >
-    Descargar
-  </Button>
-</Stack>
-
+        <Button
+          variant="contained"
+          startIcon={<FileDownloadIcon />}
+          href={callUp}
+          download="Convocatoria 2026.pdf"
+        >
+          Descargar
+        </Button>
+      </Stack>
 
       <SectionTitle>Organiza</SectionTitle>
 
@@ -92,8 +93,8 @@ function Home() {
       </Description>
 
       <Footer>
-        Xavi Innovation Technology © 2026. All rights reserved.
-        Contact us at: 1130918821
+        Xavi Innovation Technology © 2026. All rights reserved. Contact us at:
+        1130918821
       </Footer>
     </Container>
   );

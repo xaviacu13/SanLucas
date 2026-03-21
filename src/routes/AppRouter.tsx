@@ -12,7 +12,7 @@ import {
   Notifications,
   Inscriptions,
   PlayerDetail,
-  //Credentials,
+  Credentials,
 } from "../pages";
 import TeamCategories from "../pages/TeamCategories";
 import TopScorerTable from "../pages/TopScorerTable";
@@ -30,7 +30,7 @@ const AppRouter: React.FC = () => {
       </Route>
       <Route path="/team-detail" element={<TeamDetail />} />
       <Route path="/player-detail" element={<PlayerDetail />} />
-      {/* <Route path="/credentials" element={<Credentials />} /> */}
+      <Route path="/credentials" element={<Credentials />} />
       <Route path="/fixture" element={<Fixture />} />
       <Route path="/table" element={<Table />} />
       <Route path="/team-categories" element={<TeamCategories />} />

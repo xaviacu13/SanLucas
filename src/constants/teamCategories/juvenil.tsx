@@ -1,4 +1,4 @@
-// import { getLogo } from "../../tools/tools";
+import { getLogo } from "../../tools/tools";
 import type { ITeamCategoryItem } from "../../types/types";
 
 export const juvenil: ITeamCategoryItem[] = [
@@ -31,16 +31,16 @@ export const juvenil: ITeamCategoryItem[] = [
   //     { id: 1, name: "Moises Moscoso", contact: "", category: "Juvenil" },
   //   ],
   // },
-  // {
-  //   id: 4,
-  //   name: "Monte Pampa",
-  //   url: "",
-  //   logo: getLogo("Monte Pampa"),
-  //   delegates: [
-  //     { id: 1, name: "Feliciano Alvarado", contact: "", category: "Juvenil" },
-  //     { id: 2, name: "Jorge Luis Alvarado", contact: "", category: "Juvenil" },
-  //   ],
-  // },
+  {
+    id: 4,
+    name: "Monte Pampa",
+    url: "https://forms.gle/LBVLLRNRYxRfXMKS9",
+    logo: getLogo("Monte Pampa"),
+    delegates: [
+      { id: 1, name: "Feliciano Alvarado", contact: "", category: "Juvenil" },
+      { id: 2, name: "Jorge Luis Alvarado", contact: "", category: "Juvenil" },
+    ],
+  },
   // {
   //   id: 5,
   //   name: "Sivinga Mayu",

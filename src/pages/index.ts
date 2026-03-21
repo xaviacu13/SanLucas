@@ -8,4 +8,4 @@ export { default as CallUp } from './CallUp';
 export { default as Inscriptions } from './Inscriptions';
 export { default as Notifications } from './Notifications';
 export { default as PlayerDetail } from './PlayerDetail';
-// export { default as Credentials } from './Credentials';
+export { default as Credentials } from './Credentials';

@@ -1,9 +1,11 @@
-import styled from '@emotion/styled';
+import { styled } from '@mui/material/styles';
+import theme from '../../theme';
+import { IconButton } from "@mui/material";
 
 export const Container = styled("div") ({
   maxWidth: "60rem",
-  margin: "32px auto",
-  padding: "24px",
+  padding: "10px",
+  alignItems: 'center',
   backgroundColor: "#ffffff",
   borderRadius: "12px",
   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
@@ -16,7 +18,7 @@ export const Image = styled("img") ({
   height: "auto",
   objectFit: "contain",
   borderRadius: "10%",
-  marginBottom: "24px",
+  marginBottom: "0.5rem",
 
   "@media (max-width: 600px)": {
     maxWidth: "10rem",
@@ -112,3 +114,37 @@ export const NoValid = styled('div')({
   alignItems: 'center',
   gap: '1.5rem',
 });
+
+export const HeaderCard = styled('div')({
+  backgroundColor: theme.palette.primary.main,
+  display: 'flex',
+  alignItems: 'space-between',
+  gap: '4rem',
+  justifyContent: 'center',
+  width: '100%',
+  "@media (max-width: 600px)": {
+    gap: '1rem',
+  },
+}); 
+
+export const HomeButton = styled(IconButton)({
+  backgroundColor: "rgba(4, 47, 81, 0.1)",
+  borderRadius: "12px",
+  padding: "10px",
+  "&:hover": {
+    backgroundColor: "rgba(4, 47, 81, 0.2)",
+  },
+});
+export const Root = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+});
+export const EnabledPlayer = styled("div")({  
+  backgroundColor: "#05f519",
+  padding: "0.5rem 1rem",
+  borderRadius: "12px",
+  fontWeight: "bold",
+  display: "inline-block",
+})

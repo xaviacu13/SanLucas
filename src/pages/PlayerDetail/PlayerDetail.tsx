@@ -1,12 +1,14 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { teams as equipos } from "../../constants/teams/teams";
+import logo from "../../assets/images/icons/logo1.png";
 import { getLogo } from "../../tools/tools";
-import { Button, Divider, Tooltip, Typography } from "@mui/material";
+import { Button, Divider, Tooltip, Typography, Alert } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import HomeIcon from "@mui/icons-material/Home";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import {
   Container,
   Image,
@@ -19,6 +21,9 @@ import {
   ImageBox,
   Logo,
   NoValid,
+  HeaderCard,
+  HomeButton,
+  Root,
 } from "./styles";
 
 const PlayerDetail: React.FC = () => {
@@ -40,11 +45,11 @@ const PlayerDetail: React.FC = () => {
 
   const team = equipos.find((t) => t.id === Number(idTeam));
   const subTeam = team?.teams.find(
-    (sub) => sub.category.toLowerCase() === category?.toLowerCase()
+    (sub) => sub.category.toLowerCase() === category?.toLowerCase(),
   );
   const player = subTeam?.players.find((p) => p.id === Number(idPlayer));
 
-  const playerUrl = `https://campeonato-d6.netlify.app/player-detail?idPlayer=${idPlayer}&idTeam=${idTeam}&category=${category}`;
+  const playerUrl = `https://san-lucas.netlify.app/player-detail?idPlayer=${idPlayer}&idTeam=${idTeam}&category=${category}`;
 
   const onContact = () => {
     const phone = "5491130918821";
@@ -78,14 +83,13 @@ const PlayerDetail: React.FC = () => {
   if (!team || !player) {
     return (
       <NoValid>
-
         <Typography variant="h2" color="primary">
-          El jugador no esta habilitado para jugar el Campeonato de Puca Loma |
-          2025.
+          El jugador no esta habilitado para jugar el Campeonato intercomunal de
+          San Lucas 2026
         </Typography>
         <Typography variant="h6">
-          Por favor contactarse con el delegado de su comunidad o con el personal
-          administrativo de campeonato!
+          Por favor contactarse con el delegado de su comunidad o con el
+          personal administrativo de campeonato!
         </Typography>
         ;
         <Button
@@ -101,69 +105,87 @@ const PlayerDetail: React.FC = () => {
   }
 
   return (
-    <Container>
-      <Image src={player.image || getLogo("Default")} alt={player.name} />
-      <Title>
-        {player.name}
-        {" - "}
-        {player.number}
-      </Title>
-      <Typography variant="h2" color="primary">
-        {player.fullName}
-      </Typography>
-      <Divider style={{ margin: "10px 0", color: "gray" }} />
-      <InfoContainer>
-        <InfoBox>
-          <InfoText>
-            <Label>CODIGO:</Label> {String(player.DNI).slice(-5)}
-          </InfoText>
-          <InfoText>
-            <Label>Posición:</Label> {player.position}
-          </InfoText>
-          <InfoText>
-            <Label>Equipo:</Label> {team.name}
-          </InfoText>
-          <InfoText>
-            <Label>Categoria:</Label> {subTeam?.category}
-          </InfoText>
-        </InfoBox>
-        <ImageBox>
-          <Logo src={getLogo(team.name)} alt={team.name} />
-        </ImageBox>
-      </InfoContainer>
-      <Divider style={{ margin: "1px 0", color: "gray" }} />
-      <ButtonContainer>
-        <Tooltip title="Próximamente">
+    <Root>
+      <HeaderCard>
+        <Logo src={logo} alt={team.name} />
+        <HomeButton color="secondary" onClick={() => navigate("/")}>
+          <HomeIcon />
+        </HomeButton>
+      </HeaderCard>
+      <Container>
+        <Image src={player.image || getLogo("Default")} alt={player.name} />
+        <Title>
+          {player.name}
+          {" - "}
+          {player.number}
+        </Title>
+        <Typography variant="h2" color="primary">
+          {player.fullName}
+        </Typography>
+        <Divider style={{ margin: "10px 0", color: "gray" }} />
+        <Alert
+          iconMapping={{
+            success: <CheckCircleOutlineIcon fontSize="inherit" />,
+          }}
+        >
+          <Typography variant="body2" color="secondary">
+            HABILITADO PARA JUGAR EL CAMPEONATO INTERCOMUNAL DE SAN LUCAS 2026
+          </Typography>
+        </Alert>
+        <Divider style={{ margin: "10px 0", color: "gray" }} />
+        <InfoContainer>
+          <InfoBox>
+            <InfoText>
+              <Label>CODIGO:</Label> {String(player.DNI).slice(-5)}
+            </InfoText>
+            <InfoText>
+              <Label>Posición:</Label> {player.position}
+            </InfoText>
+            <InfoText>
+              <Label>Equipo:</Label> {team.name}
+            </InfoText>
+            <InfoText>
+              <Label>Categoria:</Label> {subTeam?.category}
+            </InfoText>
+          </InfoBox>
+          <ImageBox>
+            <Logo src={getLogo(team.name)} alt={team.name} />
+          </ImageBox>
+        </InfoContainer>
+        <Divider style={{ margin: "1px 0", color: "gray" }} />
+        <ButtonContainer>
+          <Tooltip title="Próximamente">
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<WhatsAppIcon />}
+              onClick={onContact}
+              disabled
+            >
+              CONTACTAR
+            </Button>
+          </Tooltip>
+
           <Button
             variant="contained"
             color="primary"
-            startIcon={<WhatsAppIcon />}
-            onClick={onContact}
-            disabled
+            onClick={onShare}
+            startIcon={<ShareIcon />}
           >
-            CONTACTAR
+            COMPARTIR
           </Button>
-        </Tooltip>
 
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={onShare}
-          startIcon={<ShareIcon />}
-        >
-          COMPARTIR
-        </Button>
-
-        <Button
-          variant="outlined"
-          color="secondary"
-          onClick={handleBack}
-          startIcon={canGoBack ? <ReplyIcon /> : <HomeIcon />}
-        >
-          {canGoBack ? "VOLVER" : "INICIO"}
-        </Button>
-      </ButtonContainer>
-    </Container>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={handleBack}
+            startIcon={canGoBack ? <ReplyIcon /> : <HomeIcon />}
+          >
+            {canGoBack ? "VOLVER" : "INICIO"}
+          </Button>
+        </ButtonContainer>
+      </Container>
+    </Root>
   );
 };
 
