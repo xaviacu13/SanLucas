@@ -80,7 +80,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
 
       <SelectContainer>
         <FormControl fullWidth>
-          <InputLabel sx={{ fontSize: "14px" }}>Comunidad/Equipo</InputLabel>
+          <InputLabel sx={{ fontSize: "14px" }}>Equipo</InputLabel>
           <Select
             value={team}
             onChange={(e) => setTeam(e.target.value)}

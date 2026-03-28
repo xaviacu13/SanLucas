@@ -65,7 +65,7 @@ const TeamResume: FC<TeamResumeProps> = ({
             </div>
           ))
         ) : (
-          <Typography variant="body1">No disponible</Typography>
+          <Typography variant="body1">No Registrados</Typography>
         )}
       </div>
       <ButtonContainer>

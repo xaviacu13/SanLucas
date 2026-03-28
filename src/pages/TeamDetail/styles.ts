@@ -9,7 +9,7 @@ export const CardContainer = styled("div") ({
 });
 
 export const Container = styled("div") ({
-  maxWidth: "60rem",
+  maxWidth: "120rem",
   margin: "32px auto",
   padding: "24px",
   backgroundColor: "#ffffff",
@@ -18,7 +18,7 @@ export const Container = styled("div") ({
   textAlign: "center",
 });
 export const MessageContent = styled("div") ({
-  maxWidth: "60rem",
+  maxWidth: "120rem",
   margin: "32px auto",
   padding: "24px",
   backgroundColor: "#ffffff",

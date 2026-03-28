@@ -1,4 +1,4 @@
-import logoPucaLoma from "../assets/images/logoEquipos/pucaloma.png";
+import logoPucaLoma from "../assets/images/logoEquipos/pucaloma.webp";
 import logoMiskaMayu from "../assets/images/logoEquipos/miscamayu.png";
 import logoPunquina from "../assets/images/logoEquipos/punquina.png";
 import logoMontePampa from "../assets/images/logoEquipos/montepampa.png";
@@ -14,6 +14,16 @@ import churquiPampa  from  "../assets/images/logoEquipos/churquiPampa.png";
 import miscamayuB from "../assets/images/logoEquipos/miscamayuB.png"
 import andajaba from "../assets/images/logoEquipos/andajaba.png"
 import pucaLomaB from "../assets/images/logoEquipos/pucaLomaB.png"
+import quirpini from "../assets/images/logoEquipos/quirpini.png";
+import malliri from "../assets/images/logoEquipos/malliri.png";
+import japo from "../assets/images/logoEquipos/japo.png";
+import avichuca from "../assets/images/logoEquipos/avichuca.webp";
+import palacio from "../assets/images/logoEquipos/palacio.png";
+import condoriri from "../assets/images/logoEquipos/condoriri.webp";
+import huayllani from "../assets/images/logoEquipos/huayllani.png";
+import tambokasa from "../assets/images/logoEquipos/tambokasa.png";
+import rodeo from "../assets/images/logoEquipos/rodeo.webp";
+import andamarca from "../assets/images/logoEquipos/andamarca.png";
 
 export const getLogo = (name: string) => {
   switch (name) {
@@ -45,6 +55,28 @@ export const getLogo = (name: string) => {
       return pucaLomaB;
     case "Andajaba":
       return andajaba;
+    case "Quirpini":
+      return quirpini;
+    case "Malliri":
+      return malliri;
+    case "Japo":
+      return japo;
+    case "Avichuca":
+      return avichuca;
+    case "Palacio":
+      return palacio;
+    case "Condoriri":
+      return condoriri;
+    case "Huayllani C.":
+      return huayllani;
+    case "Tambo Kasa":
+      return tambokasa;
+     case "Rodeo":
+      return rodeo;
+    case "Rodeo B.":
+      return rodeo;
+    case "Andamarca":
+      return andamarca;
     case "Default":
       return defaultProfile;
     default:

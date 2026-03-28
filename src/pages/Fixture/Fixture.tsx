@@ -13,8 +13,7 @@ import { infantil } from "../../constants/fixture/infantil";
 import logo from "../../assets/images/icons/logo1.png";
 import { categories } from "../../constants/categories";
 import { useNavigate } from "react-router-dom";
-import { Typography, Button } from "@mui/material";
-import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import { Typography } from "@mui/material";
 
 const Fixture: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
@@ -122,7 +121,6 @@ const Fixture: React.FC = () => {
         selectedCategory={selectedCategory}
       />
       <Title title={`Fixture ${selectedCategory}`} />
-      {filteredMatches.length > 0 && (
         <SearchBox
           setStGame={setStGame}
           selectedCategory={selectedCategory}
@@ -130,7 +128,6 @@ const Fixture: React.FC = () => {
           team={team}
           setTeam={setTeam}
         />
-      )}
 
       {filteredMatches.length > 0 ? (
         filteredMatches.map((match) => (
@@ -157,23 +154,8 @@ const Fixture: React.FC = () => {
             variant="h4"
             style={{ textAlign: "center", marginTop: "20px" }}
           >
-            Todavía no hay partidos programados.
-            <br />
-            Pronto se publicará el fixture del campeonato.
-            <br />
-            <br />
-            Si necesitas más información puedes comunicarte con los
-            organizadores.
-            <br />
-            <br />
+            No se econtro resultados para este filtro.
           </Typography>
-          <Button
-            variant="contained"
-            startIcon={<QuestionAnswerIcon />}
-            href="/about"
-          >
-            CONTACTOS
-          </Button>
         </MessageNoTeams>
         </MessageContainer>
       )}

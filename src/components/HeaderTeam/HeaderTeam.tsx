@@ -19,10 +19,9 @@ interface HeaderTeamChipsProps {
   category: string[];
   selectedCategory: string;
   onCategoryChange: (cat: string) => void;
-  shareUrl?: string;
 }
 
-const   HeaderTeam: React.FC<HeaderTeamChipsProps> = ({
+const HeaderTeam: React.FC<HeaderTeamChipsProps> = ({
   img,
   name,
   color,
@@ -31,6 +30,7 @@ const   HeaderTeam: React.FC<HeaderTeamChipsProps> = ({
   onCategoryChange,
 }) => {
   const navigate = useNavigate();
+
   return (
     <BoxContainer color={color}>
       <TitleContainer>
@@ -51,6 +51,7 @@ const   HeaderTeam: React.FC<HeaderTeamChipsProps> = ({
           justifyContent: "center",
           gap: 1,
           flexWrap: "wrap",
+          mt: 1,
         }}
       >
         {category.map((cat) => (

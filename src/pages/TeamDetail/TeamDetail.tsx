@@ -151,10 +151,10 @@ const DetailTeam: React.FC = () => {
           </>
         ) : (
           <MessageContent>
-            <Typography variant="h3">
+            <Typography variant="h3" color="primary">
               Aun no hay jugadores registrados.
             </Typography>
-            <Typography variant="h6">
+            <Typography variant="h6" color="secondary">
               Por favor contactar con el Delegado de su cominidad{" "}
             </Typography>
           </MessageContent>

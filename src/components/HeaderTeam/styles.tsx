@@ -1,25 +1,6 @@
 import styled from "@emotion/styled";
-import { Chip, IconButton }from "@mui/material";
-import { Box } from "@mui/material";
-
-const darken = (color: string, amount: number) => {
-  try {
-    let col = color.startsWith("#") ? color.slice(1) : color;
-    if (col.length === 3) {
-      col = col.split("").map((c) => c + c).join("");
-    }
-    const num = parseInt(col, 16);
-    let r = (num >> 16) - amount;
-    let g = ((num >> 8) & 0x00ff) - amount;
-    let b = (num & 0x0000ff) - amount;
-    r = Math.max(0, r);
-    g = Math.max(0, g);
-    b = Math.max(0, b);
-    return `rgb(${r}, ${g}, ${b})`;
-  } catch {
-    return color;
-  }
-};
+import { Chip, IconButton, Box } from "@mui/material";
+import { darken, getContrastRatio } from "@mui/material/styles";
 
 interface ContainerProps {
   color?: string;
@@ -57,7 +38,6 @@ export const LogoContainer = styled("div")({
   display: "flex",
   alignItems: "center",
   cursor: "pointer",
-  textDecoration: "none",
 
   "@media (max-width: 600px)": {
     justifyContent: "center",
@@ -85,21 +65,27 @@ export const StyledChip = styled(Chip, {
   shouldForwardProp: (prop) => prop !== "activecolor" && prop !== "selected",
 })<{ activecolor?: string; selected?: boolean }>(({ activecolor, selected }) => {
   const base = activecolor || "#1976d2";
-  const normal = darken(base, 30);
-  const active = darken(base, 60);
+
+  const normal = darken(base, 0.2);
+  const active = darken(base, 0.35);
+
+  const textColor =
+    getContrastRatio(base, "#fff") > 4.5 ? "#fff" : "#000";
 
   return {
     borderRadius: "20px",
-    padding: "4px 10px",
+    padding: "4px 12px",
     fontWeight: 500,
     cursor: "pointer",
-    transition: "all 0.3s ease",
+    transition: "all 0.25s ease",
     boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
     backgroundColor: selected ? active : normal,
-    color: selected ? "rgba(10, 77, 129, 0.9)" : "rgba(4, 47, 81, 0.6)",
+    color: textColor,
 
     "&:hover": {
-      backgroundColor: selected ? darken(base, 80) : darken(base, 50),
+      backgroundColor: selected
+        ? darken(base, 0.45)
+        : darken(base, 0.3),
       transform: "scale(1.05)",
     },
   };
