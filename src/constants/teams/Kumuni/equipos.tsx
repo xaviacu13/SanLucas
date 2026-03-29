@@ -4,12 +4,12 @@ import type { ITeam } from "../../../types/types";
 
 export const kumuni: ITeam[] = [
   {
-    id: 10,
+    id: 1,
     grupo: "A",
     name: "Kumuni",
     logo: getLogo("Kumuni"),
     description: "Equipo de fútbol senior del grupo A",
-    color: "#f17cf0ff",
+    color: "rgb(249, 54, 54)",
     teams: [
       {
         id: 1,

@@ -4,7 +4,7 @@ import { getProfile } from "./images/tools";
 
 export const montePampa: ITeam[] = [
   {
-    id: 4,
+    id: 44,
     grupo: "A",
     name: "Monte Pampa",
     logo: getLogo("Monte Pampa"),

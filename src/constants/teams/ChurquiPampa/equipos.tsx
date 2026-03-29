@@ -5,12 +5,12 @@ import type { ITeam } from "../../../types/types";
 
 export const churquiPampa: ITeam[] = [
   {
-    id: 6,
+    id: 12,
     grupo: "A",
     name: "Churqui Pampa",
     logo: getLogo("Churqui Pampa"),
     description: "Equipo de fútbol senior del grupo A",
-    color: "#8fcff4ff",
+    color: "rgb(9, 195, 247)",
     teams: [
       {
         id: 1,

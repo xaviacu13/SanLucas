@@ -4,7 +4,7 @@ import { getProfile } from "./images/tools";
 
 export const miscaMayu: ITeam[] = [
   {
-    id: 3,
+    id: 33,
     grupo: "A",
     name: "Miska Mayu",
     logo: getLogo("Miska Mayu"),

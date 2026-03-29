@@ -4,12 +4,12 @@ import type { ITeam } from "../../../types/types";
 
 export const sivingaMayu: ITeam[] = [
   {
-    id: 5,
+    id: 16,
     grupo: "A",
     name: "Sivinga Mayu",
     logo: getLogo("Sivinga Mayu"),
     description: "Equipo de fútbol senior del grupo A",
-    color: "#807ce6ff",
+    color: "rgb(83, 160, 243)",
     teams: [
       {
         id: 1,
