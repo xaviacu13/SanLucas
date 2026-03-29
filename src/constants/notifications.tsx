@@ -35,7 +35,7 @@ const notifications: INotification[] = [
     description: `Se informa a todos los equipos, jugadores y público en general que, debido a las intensas lluvias y con el fin de resguardar la seguridad de los participantes, queda suspendida la realización de los partidos correspondientes a las Fechas 1.
       Próximamente se dará a conocer la reprogramación de dichos encuentros.
       Agradecemos su comprensión`,
-    status: "success",
+    status: "warning",
     date: "29/03/2026 | 09:00",
   },
   {
