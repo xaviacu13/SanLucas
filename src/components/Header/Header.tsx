@@ -29,23 +29,23 @@ const Header: React.FC = () => {
     }
   };
 
-  const onShare = () => {
-    if (!navigator.share) {
-      alert("La función de compartir no está disponible en este navegador.");
-      return;
-    }
+const onShare = () => {
+  if (!navigator.share) {
+    alert("La función de compartir no está disponible en este navegador.");
+    return;
+  }
 
-    const shareUrl = "https://san-lucas.netlify.app";
-    const shareData = {
-      title: "Campeonato San Lucas 2026",
-      text: "¡Mira el Campeonato San Lucas 2026! Toda la información sobre equipos, jugadores y estadísticas.",
-      url: shareUrl,
-    };
-
-    navigator
-      .share(shareData)
-      .catch((error) => console.error("Error sharing:", error));
+  const shareData = {
+    title: "Campeonato San Lucas 2026",
+    text: "¡Mira el Campeonato San Lucas 2026! Toda la información sobre equipos, jugadores y estadísticas.",
+    url: window.location.href,
   };
+
+  navigator
+    .share(shareData)
+    .catch((error) => console.error("Error sharing:", error));
+};
+
 
   const isHomePage = location.pathname === "/";
 
