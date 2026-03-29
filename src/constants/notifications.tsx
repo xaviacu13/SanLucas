@@ -29,15 +29,15 @@ const notifications: INotification[] = [
   //   status: "success",
   //   date: "13/08/2025 | 12:23"
   // },
-  // {
-  //   id: 2,
-  //   title: "Partidos Cancelados del domingo 21/09/2025",
-  //   description: `Se informa a todos los equipos, jugadores y público en general que, debido a las intensas lluvias y con el fin de resguardar la seguridad de los participantes, queda suspendida la realización de los partidos correspondientes a las Fechas 2 y 3.
-  //     Próximamente se dará a conocer la reprogramación de dichos encuentros.
-  //     Agradecemos su comprensión y colaboración.`,
-  //   status: "success",
-  //   date: "11/03/2026 | 01:00",
-  // },
+  {
+    id: 2,
+    title: "Partidos suspendidos por lluvia",
+    description: `Se informa a todos los equipos, jugadores y público en general que, debido a las intensas lluvias y con el fin de resguardar la seguridad de los participantes, queda suspendida la realización de los partidos correspondientes a las Fechas 1.
+      Próximamente se dará a conocer la reprogramación de dichos encuentros.
+      Agradecemos su comprensión`,
+    status: "success",
+    date: "29/03/2026 | 09:00",
+  },
   {
     id: 1,
     title: "Inauguración del Campeonato Intercomunal Municipio San Lucas",
