@@ -68,9 +68,9 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 8,
-    name: "Huayllani C.",
+    name: "Huayllany",
     url: "",
-    logo: getLogo("Huayllani C."),
+    logo: getLogo("Huayllany"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],
@@ -102,7 +102,7 @@ export const juvenil: ITeamCategoryItem[] = [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],
   },
-    {
+  {
     id: 12,
     name: "Churqui Pampa",
     url: "",
@@ -124,8 +124,45 @@ export const juvenil: ITeamCategoryItem[] = [
   {
     id: 14,
     name: 'Rodeo "B"',
-    url: '',
+    url: "",
     logo: getLogo('Rodeo "B"'),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+  {
+    id: 15,
+    name: "Churisaya",
+    url: "",
+    logo: getLogo("Churisaya"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+  {
+    id: 16,
+    name: "Sivinga Mayu",
+    url: "",
+    logo: getLogo("Sivinga Mayu"),
+    delegates: [
+      { id: 1, name: "Wilber Apaza", contact: "", category: "Juvenil" },
+      { id: 2, name: "Enzo Quira", contact: "", category: "Juvenil" },
+    ],
+  },
+  {
+    id: 17,
+    name: "San Jose T.",
+    url: "",
+    logo: getLogo("San Jose T."),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+  {
+    id: 18,
+    name: "Murifaya",
+    url: "",
+    logo: getLogo("Murifaya"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],

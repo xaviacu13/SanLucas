@@ -24,6 +24,8 @@ import huayllani from "../assets/images/logoEquipos/huayllani.png";
 import tambokasa from "../assets/images/logoEquipos/tambokasa.png";
 import rodeo from "../assets/images/logoEquipos/rodeo.webp";
 import andamarca from "../assets/images/logoEquipos/andamarca.png";
+import churisaya from "../assets/images/logoEquipos/churisaya.png";
+import sanjose from "../assets/images/logoEquipos/sanjose.webp";
 
 export const getLogo = (name: string) => {
   switch (name) {
@@ -67,7 +69,7 @@ export const getLogo = (name: string) => {
       return palacio;
     case "Condoriri":
       return condoriri;
-    case "Huayllani C.":
+    case "Huayllany":
       return huayllani;
     case "Tambo Kasa":
       return tambokasa;
@@ -77,6 +79,10 @@ export const getLogo = (name: string) => {
       return rodeo;
     case "Andamarca":
       return andamarca;
+    case "Churisaya":
+      return churisaya;
+    case "San Jose T.":
+      return sanjose;
     case "Default":
       return defaultProfile;
     default:

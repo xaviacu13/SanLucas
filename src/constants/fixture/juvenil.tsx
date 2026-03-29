@@ -7,7 +7,7 @@ export const getTeamName = (id: number): string => {
 };
 
 export const juvenil: IMatch[] = [
- // FECHA 1
+  // FECHA 1
   {
     id: 1,
     team1: getTeamName(1),
@@ -73,7 +73,7 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
   },
-    {
+  {
     id: 6,
     team1: getTeamName(11),
     scorerTeam1: 0,
@@ -86,7 +86,7 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
   },
-    {
+  {
     id: 7,
     team1: getTeamName(13),
     scorerTeam1: 0,
@@ -95,6 +95,32 @@ export const juvenil: IMatch[] = [
     date: "29-03-2026",
     time: "14:30",
     location: "A",
+    status: "scheduled",
+    group: 1,
+    observation: "",
+  },
+  {
+    id: 8,
+    team1: getTeamName(15),
+    scorerTeam1: 0,
+    scorerTeam2: 6,
+    team2: getTeamName(16),
+    date: "29-03-2026",
+    time: "16:00",
+    location: "A",
+    status: "scheduled",
+    group: 1,
+    observation: "",
+  },
+  {
+    id: 9,
+    team1: getTeamName(17),
+    scorerTeam1: 0,
+    scorerTeam2: 6,
+    team2: getTeamName(18),
+    date: "29-03-2026",
+    time: "16:00",
+    location: "B",
     status: "scheduled",
     group: 1,
     observation: "",
