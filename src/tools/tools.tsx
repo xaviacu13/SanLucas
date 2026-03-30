@@ -26,6 +26,7 @@ import rodeo from "../assets/images/logoEquipos/rodeo.webp";
 import andamarca from "../assets/images/logoEquipos/andamarca.png";
 import churisaya from "../assets/images/logoEquipos/churisaya.png";
 import sanjose from "../assets/images/logoEquipos/sanjose.webp";
+import murifaya from "../assets/images/logoEquipos/murifaya.webp";
 
 export const getLogo = (name: string) => {
   switch (name) {
@@ -85,6 +86,8 @@ export const getLogo = (name: string) => {
       return sanjose;
     case "Default":
       return defaultProfile;
+    case "Murifaya":
+      return murifaya;
     default:
       return logoDefault;
   }

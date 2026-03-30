@@ -59,21 +59,21 @@ const SearchBox: React.FC<SearchBoxProps> = ({
               control={<Radio />}
               label="Finalizados"
             />
-            {/* <FormControlLabel
+            <FormControlLabel
               value="scheduled"
               control={<Radio />}
               label="Programados"
-            /> */}
+            />
             {/* <FormControlLabel
               value="playing"
               control={<Radio />}
               label="En juego"
             /> */}
-            {/* <FormControlLabel
+            <FormControlLabel
               value="willPlay"
               control={<Radio />}
               label="Por jugar"
-            /> */}
+            />
           </RadioGroup>
         </RadioGroupContainer>
       </FormControl>

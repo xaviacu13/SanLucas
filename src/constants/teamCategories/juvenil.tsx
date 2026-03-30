@@ -161,7 +161,7 @@ export const juvenil: ITeamCategoryItem[] = [
   {
     id: 18,
     name: "Murifaya",
-    url: "",
+    url: "https://forms.gle/eTU6yXKJ7Le9RNQ8A",
     logo: getLogo("Murifaya"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
