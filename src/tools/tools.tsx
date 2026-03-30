@@ -14,7 +14,7 @@ import churquiPampa  from  "../assets/images/logoEquipos/churquiPampa.png";
 import miscamayuB from "../assets/images/logoEquipos/miscamayuB.png"
 import andajaba from "../assets/images/logoEquipos/andajaba.png"
 import pucaLomaB from "../assets/images/logoEquipos/pucaLomaB.png"
-import quirpini from "../assets/images/logoEquipos/quirpini.png";
+import quirpini from "../assets/images/logoEquipos/quirpini.webp";
 import malliri from "../assets/images/logoEquipos/malliri.png";
 import japo from "../assets/images/logoEquipos/japo.png";
 import avichuca from "../assets/images/logoEquipos/avichuca.webp";
@@ -27,6 +27,7 @@ import andamarca from "../assets/images/logoEquipos/andamarca.png";
 import churisaya from "../assets/images/logoEquipos/churisaya.png";
 import sanjose from "../assets/images/logoEquipos/sanjose.webp";
 import murifaya from "../assets/images/logoEquipos/murifaya.webp";
+import rodeoB from "../assets/images/logoEquipos/rodeoB.webp";
 
 export const getLogo = (name: string) => {
   switch (name) {
@@ -76,18 +77,18 @@ export const getLogo = (name: string) => {
       return tambokasa;
      case "Rodeo":
       return rodeo;
-    case "Rodeo B.":
-      return rodeo;
+    case 'Rodeo "B"':
+      return rodeoB;
     case "Andamarca":
       return andamarca;
     case "Churisaya":
       return churisaya;
     case "San Jose T.":
       return sanjose;
-    case "Default":
-      return defaultProfile;
     case "Murifaya":
       return murifaya;
+    case "Default":
+      return defaultProfile;
     default:
       return logoDefault;
   }
