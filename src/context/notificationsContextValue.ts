@@ -1,4 +1,9 @@
 import { createContext } from "react";
-import type { UseNotificationsResult } from "../hooks/useNotifications";
+import type { INotification } from "../types/types";
 
-export const NotificationsContext = createContext<UseNotificationsResult | null>(null);
+type NotificationsContextType = {
+  notifications: INotification[];
+  loading: boolean;
+};
+
+export const NotificationsContext = createContext<NotificationsContextType | null>(null);

@@ -1,17 +1,12 @@
-import type { ReactNode } from "react";
-import { useNotifications } from "../hooks/useNotifications";
+import { useContext } from "react";
 import { NotificationsContext } from "./notificationsContextValue";
 
-type NotificationsProviderProps = {
-  children: ReactNode;
-};
+export const useNotificationsContext = () => {
+  const context = useContext(NotificationsContext);
 
-export const NotificationsProvider = ({ children }: NotificationsProviderProps) => {
-  const data = useNotifications();
+  if (!context) {
+    throw new Error("useNotificationsContext debe usarse dentro de NotificationsProvider");
+  }
 
-  return (
-    <NotificationsContext.Provider value={data}>
-      {children}
-    </NotificationsContext.Provider>
-  );
+  return context;
 };
