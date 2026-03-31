@@ -40,7 +40,7 @@ const notifications: INotification[] = [
   },
   {
     id: 1,
-    title: "Inauguración del Campeonato Intercomunal Municipio San Lucas",
+    title: "Inauguración del Campeonato",
     description:
       "¡Gran Inauguración del Campeonato Intercomunal Municipio San Lucas! 📅 29/03/2026   ⏰ 08:00 AM   📍 Complejo Deportivo Sudamericano “Ex Company” ¡Se invita encarecidamente a todos los jugadores e hinchas de cada comunidad de municipio San Lucas! No faltes. Los esperamos para vivir juntos esta gran fiesta deportiva! 🎉",
     status: "success",

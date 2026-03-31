@@ -1,15 +1,38 @@
 import React from "react";
-import notifications from "../../constants/notifications";
 import type { INotification } from "../../types/types";
 import { NotificationContainer, StyledAlert, DateContent } from "./styles";
 import AlertTitle from "@mui/material/AlertTitle";
-import { Divider } from "@mui/material";
+import { Divider, Skeleton, Box, Typography } from "@mui/material";
+
+import { useNotifications } from "../../hooks/useNotifications";
 
 const Notifications: React.FC = () => {
+  const { notifications, loading } = useNotifications();
+
+  if (loading) {
+    return (
+      <NotificationContainer>
+        {[1, 2, 3, 4, 5].map((item) => (
+          <Box key={item} sx={{ mb: 2 }}>
+            <Skeleton variant="rounded" height={120} />
+          </Box>
+        ))}
+      </NotificationContainer>
+    );
+  }
+
+  if (!notifications.length) {
+    return (
+      <NotificationContainer>
+        <Typography>No hay notificaciones todavía</Typography>
+      </NotificationContainer>
+    );
+  }
+
   return (
     <NotificationContainer>
-      {notifications.map((notification: INotification, index: number) => (
-        <StyledAlert key={index} severity={notification.status}>
+      {notifications.map((notification: INotification) => (
+        <StyledAlert key={notification.id} severity={notification.status}>
           <AlertTitle>{notification.title}</AlertTitle>
           {notification.description}
           <Divider sx={{ marginTop: "0.75rem" }} />

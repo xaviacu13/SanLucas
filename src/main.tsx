@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from '@mui/material';
+import { Toaster } from "react-hot-toast";
 import App from "./App";
 import theme from './theme'; 
 
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <CssBaseline />
       <BrowserRouter>
         <App />
+        <Toaster position="top-right" />
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>

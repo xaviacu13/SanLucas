@@ -9,7 +9,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import AddToHomeScreenIcon from "@mui/icons-material/AddToHomeScreen";
 
 import { Header, Hero, Footer } from "../../components";
-import notifications from "../../constants/notifications";
+import { useNotifications } from "../../hooks/useNotifications";
 import type { BeforeInstallPromptEvent } from "../../types/types";
 
 import {
@@ -30,6 +30,8 @@ const portada = [portada1, portada2, portada3];
 const LAST_SEEN_KEY = "lastSeenNotificationId";
 
 const Home: React.FC = () => {
+  const { notifications } = useNotifications();
+
   const [lastSeenId, setLastSeenId] = useState<number | null>(() => {
     const storedId = localStorage.getItem(LAST_SEEN_KEY);
     return storedId ? Number(storedId) : null;
@@ -37,9 +39,10 @@ const Home: React.FC = () => {
 
   const [deferredPrompt, setDeferredPrompt] =
     useState<BeforeInstallPromptEvent | null>(null);
+
   const [showInstall, setShowInstall] = useState(() => {
     const isStandalone = window.matchMedia(
-      "(display-mode: standalone)",
+      "(display-mode: standalone)"
     ).matches;
     return !isStandalone;
   });
@@ -56,20 +59,23 @@ const Home: React.FC = () => {
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handler as EventListener,
+        handler as EventListener
       );
     };
   }, []);
 
   const hasNewNotifications = (() => {
-    if (notifications.length === 0) return false;
-    const latestId = notifications[notifications.length - 1].id;
+    if (!notifications.length) return false;
+
+    const latestId = Math.max(...notifications.map((n) => n.id));
+
     return !lastSeenId || latestId > lastSeenId;
   })();
 
   const handleOpenNotifications = () => {
     if (notifications.length > 0) {
-      const latestId = notifications[notifications.length - 1].id;
+      const latestId = Math.max(...notifications.map((n) => n.id));
+
       setLastSeenId(latestId);
       localStorage.setItem(LAST_SEEN_KEY, String(latestId));
     }
