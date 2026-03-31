@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import { Toaster } from "react-hot-toast";
+import { NotificationsProvider } from "./context/NotificationsContext";
+
 import App from "./App";
 import theme from './theme'; 
 
@@ -11,8 +13,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
+      <NotificationsProvider>
         <App />
         <Toaster position="top-right" />
+      </NotificationsProvider>
       </BrowserRouter>
     </ThemeProvider>
   </React.StrictMode>

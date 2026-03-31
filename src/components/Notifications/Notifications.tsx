@@ -12,7 +12,7 @@ const Notifications: React.FC = () => {
   if (loading) {
     return (
       <NotificationContainer>
-        {[1, 2, 3, 4, 5].map((item) => (
+        {[1, 2, 3, 4].map((item) => (
           <Box key={item} sx={{ mb: 2 }}>
             <Skeleton variant="rounded" height={120} />
           </Box>

@@ -3,7 +3,12 @@ import { supabase } from "../lib/supabase";
 import toast from "react-hot-toast";
 import type { INotification } from "../types/types";
 
-export const useNotifications = () => {
+export type UseNotificationsResult = {
+  notifications: INotification[];
+  loading: boolean;
+};
+
+export const useNotifications = (): UseNotificationsResult => {
   const [notifications, setNotifications] = useState<INotification[]>([]);
   const [loading, setLoading] = useState(true);
 
