@@ -4,7 +4,8 @@ import { Title } from "../../components";
 
 const LiveMatch: React.FC = () => {
   // ✅ URL correcta
-  const videoUrl = "https://www.youtube.com/embed/X5fUggy6SGM";
+  const videoUrl = "";
+  // const videoUrl = "https://www.youtube.com/embed/X5fUggy6SGM";
 
   return (
     <Box sx={{ p: 2 }}>

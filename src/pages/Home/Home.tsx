@@ -136,7 +136,7 @@ const Home: React.FC = () => {
             <QuestionAnswerIcon fontSize="large" />
             <span>Contactos</span>
           </Cards>
-          <Cards to="/live-match">
+          {/* <Cards to="/live-match">
             <Box
               display="flex"
               flexDirection="column"
@@ -162,7 +162,7 @@ const Home: React.FC = () => {
 
               <span style={{ fontWeight: 500 }}>Bolivia vs Irak</span>
             </Box>
-          </Cards>
+          </Cards> */}
         </CardsContainer>
 
         {showInstall && (
