@@ -3,11 +3,11 @@ import { Box, Typography } from "@mui/material";
 import { Title } from "../../components";
 
 const LiveMatch: React.FC = () => {
-  // ✅ URL correcta para iframe
-  const videoUrl = "https://www.youtube.com/embed/_HmrhCrDAYo";
+  // ✅ URL correcta
+  const videoUrl = "https://www.youtube.com/embed/TjSw9uCQVIw";
 
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box sx={{ p: 2 }}>
       <Title title="🔴 Partido en Vivo" />
 
       <Typography
@@ -34,8 +34,7 @@ const LiveMatch: React.FC = () => {
           allowFullScreen
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
+            inset: 0,
             width: "100%",
             height: "100%",
             border: "none",
