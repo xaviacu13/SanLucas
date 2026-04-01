@@ -42,7 +42,7 @@ const Home: React.FC = () => {
 
   const [showInstall, setShowInstall] = useState(() => {
     const isStandalone = window.matchMedia(
-      "(display-mode: standalone)"
+      "(display-mode: standalone)",
     ).matches;
     return !isStandalone;
   });
@@ -59,7 +59,7 @@ const Home: React.FC = () => {
     return () => {
       window.removeEventListener(
         "beforeinstallprompt",
-        handler as EventListener
+        handler as EventListener,
       );
     };
   }, []);
@@ -135,6 +135,33 @@ const Home: React.FC = () => {
           <Cards to="/about">
             <QuestionAnswerIcon fontSize="large" />
             <span>Contactos</span>
+          </Cards>
+          <Cards to="/live-match">
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              gap={0.5}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Box
+                  sx={{
+                    width: 10,
+                    height: 10,
+                    borderRadius: "50%",
+                    backgroundColor: "red",
+                    animation: "pulse 1.5s infinite",
+                  }}
+                />
+                <span
+                  style={{ fontWeight: "bold", color: "red", fontSize: 12 }}
+                >
+                  EN VIVO
+                </span>
+              </Box>
+
+              <span style={{ fontWeight: 500 }}>Bolivia vs Irak</span>
+            </Box>
           </Cards>
         </CardsContainer>
 

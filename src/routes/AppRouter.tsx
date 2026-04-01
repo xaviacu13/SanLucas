@@ -13,6 +13,7 @@ import {
   Inscriptions,
   PlayerDetail,
   Credentials,
+  LiveMatch,
 } from "../pages";
 import TeamCategories from "../pages/TeamCategories";
 import TopScorerTable from "../pages/TopScorerTable";
@@ -35,6 +36,7 @@ const AppRouter: React.FC = () => {
       <Route path="/table" element={<Table />} />
       <Route path="/team-categories" element={<TeamCategories />} />
       <Route path="/top-scorers-table" element={<TopScorerTable />} />
+      <Route path="/live-match" element={<LiveMatch />} />
     </Routes>
   );
 };
