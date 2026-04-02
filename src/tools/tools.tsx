@@ -31,7 +31,7 @@ import rodeoB from "../assets/images/logoEquipos/rodeoB.webp";
 import phullaya from "../assets/images/logoEquipos/phullaya.webp";
 import sakaPampa from "../assets/images/logoEquipos/sakaPampa.png";
 import orcoyo from "../assets/images/logoEquipos/orcoyo.webp";
-import huayllanyGrande from "../assets/images/logoEquipos/huayllanyG.webp";
+import huayllanyGrande from "../assets/images/logoEquipos/huayllanyGrande.webp";
 import sabalaJr from "../assets/images/logoEquipos/sabalaJr.webp";
 
 export const getLogo = (name: string) => {
