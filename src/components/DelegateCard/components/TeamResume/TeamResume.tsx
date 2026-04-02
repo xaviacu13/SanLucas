@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { Root, DividerLine, ButtonContainer } from "./styles";
+import { Root, DividerLine, ButtonContainer, TitleContainer } from "./styles";
 //import ShareIcon from "@mui/icons-material/Share";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import ContactsIcon from '@mui/icons-material/Contacts';
@@ -40,14 +40,14 @@ const TeamResume: FC<TeamResumeProps> = ({
 
   return (
     <Root>
-      <div>
+      <TitleContainer>
         <Typography variant="h2" color="secondary">
           #{id}
           {" - "}
           {title}
         </Typography>
-        <DividerLine />
-      </div>
+      </TitleContainer>
+      <DividerLine />
       <div>
         <Typography
           variant="h4"
@@ -58,7 +58,7 @@ const TeamResume: FC<TeamResumeProps> = ({
         </Typography>
         {delegates.length > 0 ? (
           delegates.map((del) => (
-            <div key={del.id} style={{ marginTop: 2, marginBottom: 2 }}>
+            <div key={del.id}>
               <Typography variant="body1">
                 {del.name} <strong>Categoría:</strong> {del.category}
               </Typography>

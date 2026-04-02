@@ -22,7 +22,7 @@ export const Root = styled('div')(({ theme }) => ({
     width: '700px',
   },
   [theme.breakpoints.down('md')]: {   
-    // flexDirection: 'column', 
+    gap: '5px',
     width: '500px',
   },
   [theme.breakpoints.down('sm')]: {
