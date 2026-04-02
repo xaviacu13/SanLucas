@@ -31,7 +31,4 @@ export const Img = styled('img')({
   "@media (max-width: 600px)": {
     width: '8rem',
   },
-  "@media (max-width: 400px)": {
-    width: '6rem',
-  },
 });
