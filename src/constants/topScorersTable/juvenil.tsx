@@ -1,8 +1,6 @@
 import { getLogo } from "../../tools/tools";
 import { getProfile as getProfileMP } from "../teams/MontePampa/images/tools";
-import { getProfile as getProfileMM } from "../teams/MiscaMayu/images/tools";
 import { getProfile as getProfileCP } from "../teams/ChurquiPampa/images/tools";
-import { getProfile as getProfileRC } from "../teams/RioChico/images/tools";
 import { getProfile as getProfileTH } from "../teams/TiraHoyo/images/tools";
 import { getProfile as getProfileKM } from "../teams/Kumuni/images/tools";
 import { getProfile as getProfilePL } from "../teams/PucaLoma/images/tools";
@@ -32,39 +30,6 @@ const juvenilRaw = [
     profile: getProfileCP("17"),
   },
   {
-    id: 2,
-    name: "Polo",
-    fullName: "Diego Moscoso",
-    number: 11,
-    team: "Miska Mayu",
-    logoteam: getLogo("Miska Mayu"),
-    goals: 6,
-    gamesPlayed: 3,
-    profile: getProfileMM("11"),
-  },
-  // {
-  //   id: 4,
-  //   name: "Ezequiel",
-  //   fullName: "Ezequiel Mollo",
-  //   number: 11,
-  //   team: "Rio Chico",
-  //   logoteam: getLogo("Rio Chico"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfileRC("17"),
-  // },
-  {
-    id: 5,
-    name: "Elvis",
-    fullName: "Elvis Mollo",
-    number: 10,
-    team: "Rio Chico",
-    logoteam: getLogo("Rio Chico"),
-    goals: 10,
-    gamesPlayed: 1,
-    profile: getProfileRC("16"),
-  },
-  {
     id: 6,
     name: "Walter",
     fullName: "Walter Cruz",
@@ -74,17 +39,6 @@ const juvenilRaw = [
     goals: 8,
     gamesPlayed: 1,
     profile: getProfileTH("4"),
-  },
-  {
-    id: 7,
-    name: "Willian",
-    fullName: "Willian Mamani",
-    number: 19,
-    team: "Miska Mayu",
-    logoteam: getLogo("Miska Mayu"),
-    goals: 20,
-    gamesPlayed: 1,
-    profile: getProfileMM("15"),
   },
   //
   {
@@ -109,28 +63,6 @@ const juvenilRaw = [
     gamesPlayed: 1,
     profile: getProfilePL("97200"),
   },
-  //   {
-  //   id: 10,
-  //   name: "Brayan",
-  //   fullName: "Brayan Moscoso Villca",
-  //   number: 8,
-  //   team: "Puca Loma",
-  //   logoteam: getLogo("Puca Loma"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfilePL("brayan"),
-  // },
-  //   {
-  //   id: 11,
-  //   name: "Daniel",
-  //   fullName: "Daniel Quira",
-  //   number: 10,
-  //   team: "Sivinga Mayu",
-  //   logoteam: getLogo("Sivinga Mayu"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfileSM("6"),
-  // },
   {
     id: 12,
     name: "Gabriel",

@@ -3,7 +3,6 @@ import { getProfile as getProfilePL } from "../teams/PucaLoma/images/tools";
 import { getProfile as getProfileMP } from "../teams/MontePampa/images/tools";
 import { getProfile as getProfileSM } from "../teams/SivingaMayu/images/tools";
 import { getProfile as getProfileCP } from "../teams/ChurquiPampa/images/tools";
-import { getProfile as getProfileRC } from "../teams/RioChico/images/tools";
 // import { getProfile as getProfileMM} from "../teams/MiscaMayu/images/tools";
 
 export const seniorRaw = [
@@ -51,17 +50,6 @@ export const seniorRaw = [
     gamesPlayed: 3,
     profile: getProfileCP("xavi"),
   },
-  {
-    id: 5,
-    name: "Rosendo",
-    fullName: "Rosendo Quispe",
-    number: 10,
-    team: "Rio Chico",
-    logoteam: getLogo("Rio Chico"),
-    goals: 5,
-    gamesPlayed: 3,
-    profile: getProfileRC("rosendo"),
-  },
     {
     id: 6,
     name: "Gabriel",
@@ -84,17 +72,6 @@ export const seniorRaw = [
     gamesPlayed: 1,
     profile: getProfilePL("30"),
   },
-  //   {
-  //   id: 8,
-  //   name: "Ruiz",
-  //   fullName: "Sabino Ruiz",
-  //   number: 6,
-  //   team: "Miska Mayu",
-  //   logoteam: getLogo("Miska Mayu"),
-  //   goals: 2,
-  //   gamesPlayed: 1,
-  //   profile: getProfileMM("120"),
-  // },
   {
     id: 9,
     name: "Mosqui",
@@ -117,50 +94,6 @@ export const seniorRaw = [
     gamesPlayed: 1,
     profile: getProfilePL("rojas"),
   },
-  // {
-  //   id: 11,
-  //   name: "Guido",
-  //   fullName: "Guido Gomez",
-  //   number: 14,
-  //   team: "Sivinga Mayu",
-  //   logoteam: getLogo("Sivinga Mayu"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfilePL("guido"),
-  // },
-  // {
-  //   id: 12,
-  //   name: "Daniel",
-  //   fullName: "Daniel Moscoso",
-  //   number: 14,
-  //   team: "Miska Mayu",
-  //   logoteam: getLogo("Miska Mayu"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfilePL("guido"),
-  // },
-  // {
-  //   id: 13,
-  //   name: "A. Villca",
-  //   fullName: "Alejandro Villca",
-  //   number: 11,
-  //   team: "Padcoyo",
-  //   logoteam: getLogo("Padcoyo"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfilePL("guido"),
-  // },
-  // {
-  //   id: 14,
-  //   name: "Gualberto",
-  //   fullName: "Gualberto Mamani",
-  //   number: 18,
-  //   team: "Puca Loma",
-  //   logoteam: getLogo("Puca Loma"),
-  //   goals: 4,
-  //   gamesPlayed: 1,
-  //   profile: getProfilePL("42"),
-  // },
   {
     id: 15,
     name: "Sergio",

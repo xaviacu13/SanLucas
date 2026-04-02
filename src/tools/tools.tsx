@@ -1,19 +1,11 @@
 import logoPucaLoma from "../assets/images/logoEquipos/pucaloma.webp";
-import logoMiskaMayu from "../assets/images/logoEquipos/miscamayu.png";
-import logoPunquina from "../assets/images/logoEquipos/punquina.png";
 import logoMontePampa from "../assets/images/logoEquipos/montePampa.webp";
-import logoRioChico from "../assets/images/logoEquipos/riochico.png";
 import logoSivingaMayu from "../assets/images/logoEquipos/sivingamayu.png";
-import logoPadcoyo from "../assets/images/logoEquipos/padcoyo.png";
 import logoMiguelito from "../assets/images/logoEquipos/miguel.png";
 import logoDefault from "../assets/images/logoEquipos/default.png";
 import defaultProfile from "../assets/images/logoEquipos/defauldProfile.webp"
 import logoKumuni from "../assets/images/logoEquipos/kumuni.webp";
-import logoTiraHoyo from "../assets/images/logoEquipos/tiraHoyo.png";
 import churquiPampa  from  "../assets/images/logoEquipos/churquiPampa.webp";
-import miscamayuB from "../assets/images/logoEquipos/miscamayuB.png"
-import andajaba from "../assets/images/logoEquipos/andajaba.png"
-import pucaLomaB from "../assets/images/logoEquipos/pucaLomaB.png"
 import quirpini from "../assets/images/logoEquipos/quirpini.webp";
 import malliri from "../assets/images/logoEquipos/malliri.webp";
 import japo from "../assets/images/logoEquipos/japo.png";
@@ -38,32 +30,16 @@ export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
       return logoPucaLoma;
-    case "Miska Mayu":
-      return logoMiskaMayu;
-    case "Punquina":
-      return logoPunquina;
     case "Monte Pampa":
       return logoMontePampa;
-    case "Rio Chico":
-      return logoRioChico;
     case "Sivinga Mayu":
       return logoSivingaMayu;
-    case "Padcoyo":
-      return logoPadcoyo;
     case "Kumuni":
       return logoKumuni;
-    case "Tira Hoyo":
-      return logoTiraHoyo;
     case "Miguelito":
       return logoMiguelito;
     case "Churqui Pampa":
       return churquiPampa;
-    case "Miska Mayu 'B'":
-      return miscamayuB;
-    case "Puca Loma 'B'":
-      return pucaLomaB;
-    case "Andajaba":
-      return andajaba;
     case "Quirpini":
       return quirpini;
     case "Malliri":
