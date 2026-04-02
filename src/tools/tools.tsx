@@ -8,7 +8,7 @@ import logoKumuni from "../assets/images/logoEquipos/kumuni.webp";
 import churquiPampa  from  "../assets/images/logoEquipos/churquiPampa.webp";
 import quirpini from "../assets/images/logoEquipos/quirpini.webp";
 import malliri from "../assets/images/logoEquipos/malliri.webp";
-import japo from "../assets/images/logoEquipos/japo.png";
+import japo from "../assets/images/logoEquipos/japo.webp";
 import avichuca from "../assets/images/logoEquipos/avichuca.webp";
 import palacio from "../assets/images/logoEquipos/palacio.png";
 import condoriri from "../assets/images/logoEquipos/condoriri.webp";
