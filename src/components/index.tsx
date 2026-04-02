@@ -13,3 +13,4 @@ export { default as HeaderCategory } from './HeaderCategory';
 export { default as DelegateCard } from './DelegateCard';
 export { default as ScorerCard } from './ScorerCard';
 export { default as Home } from './Home';
+export { default as Menu } from './Menu';

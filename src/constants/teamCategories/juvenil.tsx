@@ -167,91 +167,58 @@ export const juvenil: ITeamCategoryItem[] = [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],
   },
-  // {
-  //   id: 4,
-  //   name: "Monte Pampa",
-  //   url: "https://forms.gle/LBVLLRNRYxRfXMKS9",
-  //   logo: getLogo("Monte Pampa"),
-  //   delegates: [
-  //     { id: 1, name: "Feliciano Alvarado", contact: "", category: "Juvenil" },
-  //     { id: 2, name: "Jorge Luis Alvarado", contact: "", category: "Juvenil" },
-  //   ],
-  // },
-  // {
-  //   id: 5,
-  //   name: "Sivinga Mayu",
-  //   url: "",
-  //   logo: getLogo("Sivinga Mayu"),
-  //   delegates: [
-  //     { id: 1, name: "Wilber Apaza", contact: "", category: "Juvenil" },
-  //     { id: 2, name: "Enzo Quira", contact: "", category: "Juvenil"}
-  //   ],
-  // },
-  // {
-  //   id: 6,
-  //   name: "Churqui Pampa",
-  //   url: "",
-  //   logo: getLogo("Churqui Pampa"),
-  //   delegates: [
-  //     { id: 1, name: "Sebastian Cruz", contact: "", category: "Juvenil" },
-  //   ],
-  // },
-  //   {
-  //   id: 7,
-  //   name: "Padcoyo",
-  //   url: "",
-  //   logo: getLogo("Padcoyo"),
-  //   delegates: [
-  //     { id: 1, name: "Wilfredo Mamani", contact: "", category: "Juvenil" },
-  //   ],
-  // },
-  //  {
-  //   id: 8,
-  //   name: "Rio Chico",
-  //   url: '',
-  //   logo: getLogo("Rio Chico"),
-  //   delegates: [
-  //     { id: 1, name: "Iver Condori F.", contact: "", category: "Juvenil" },
-  //   ],
-  // },
-  // {
-  //   id: 9,
-  //   name: "Punquina",
-  //   url: "",
-  //   logo: getLogo("Punquina"),
-  //   delegates: [
-  //     {
-  //       id: 1,
-  //       name: "Gustavo Ninaja Quispe",
-  //       contact: "",
-  //       category: "Juvenil",
-  //     },
-  //     {
-  //       id: 2,
-  //       name: "Vicmar Paco Mollo",
-  //       contact: "",
-  //       category: "Juvenil",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 10,
-  //   name: "Kumuni",
-  //   url: "",
-  //   logo: getLogo("Kumuni"),
-  //   delegates: [
-  //     { id: 1, name: "Modesto Huallpa", contact: "", category: "Juvenil" },
-  //     { id: 2, name: "Fredy Condori", contact: "", category: "Juvenil" },
-  //   ],
-  // },
-
-  //   {
-  //   id: 11,
-  //   name: "Miska Mayu 'B'",
-  //   url: '',
-  //   logo: getLogo("Miska Mayu 'B'"),
-  //   delegates: [
-  //     { id: 2, name: "Ismael Moscoso", contact: "", category: "Juvenil" },
-  //   ],
-  // },
+   {
+    id: 19,
+    name: "Sabala Jr.",
+    url: "",
+    logo: getLogo("Sabala Jr."),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+   {
+    id: 20,
+    name: "Phullaya",
+    url: "",
+    logo: getLogo("Phullaya"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+     {
+    id: 21,
+    name: "Saka Pampa",
+    url: "",
+    logo: getLogo("Saka Pampa"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+     {
+    id: 22,
+    name: "Orcoyo",
+    url: "",
+    logo: getLogo("Orcoyo"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+     {
+    id: 23,
+    name: "Huayllany Grande",
+    url: "",
+    logo: getLogo("Huayllany Grande"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+     {
+    id: 24,
+    name: "Monte Pampa",
+    url: "",
+    logo: getLogo("Monte Pampa"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
 ];
