@@ -1,6 +1,5 @@
 import { kumuni } from "../teams/Kumuni/equipos";
 import { montePampa } from "../teams/MontePampa/equipos";
-import { miscaMayu } from "../teams/MiscaMayu/equipos";
 import { pucaLoma } from "../teams/PucaLoma/equipos";
 import { sivingaMayu } from "../teams/SivingaMayu/equipos";
 import { tiraHoyo } from "../teams/TiraHoyo/equipos";
@@ -22,7 +21,6 @@ import { murifaya } from "../teams/Murifaya/equipo";
 export const teams = [
   tiraHoyo,
   pucaLoma,
-  miscaMayu,
   montePampa,
   sivingaMayu,
   churquiPampa,
