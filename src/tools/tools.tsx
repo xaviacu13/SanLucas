@@ -1,7 +1,6 @@
 import logoPucaLoma from "../assets/images/logoEquipos/pucaloma.webp";
 import logoMontePampa from "../assets/images/logoEquipos/montePampa.webp";
-import logoSivingaMayu from "../assets/images/logoEquipos/sivingamayu.png";
-import logoMiguelito from "../assets/images/logoEquipos/miguel.png";
+import logoSivingaMayu from "../assets/images/logoEquipos/sivingamayu.webp";
 import logoDefault from "../assets/images/logoEquipos/default.png";
 import defaultProfile from "../assets/images/logoEquipos/defauldProfile.webp";
 import logoKumuni from "../assets/images/logoEquipos/kumuni.webp";
@@ -27,6 +26,7 @@ import huayllaniGrande from "../assets/images/logoEquipos/huayllanigrande.webp";
 import sabalaJr from "../assets/images/logoEquipos/sabalaJr.webp";
 import cinteno from "../assets/images/logoEquipos/cinteno.webp";
 import ocuri from "../assets/images/logoEquipos/ocuri.png";
+import corma from "../assets/images/logoEquipos/corma.webp";
 
 export const getLogo = (name: string) => {
   switch (name) {
@@ -38,8 +38,6 @@ export const getLogo = (name: string) => {
       return logoSivingaMayu;
     case "Kumuni":
       return logoKumuni;
-    case "Miguelito":
-      return logoMiguelito;
     case "Churqui Pampa":
       return churquiPampa;
     case "Quirpini":
@@ -86,6 +84,8 @@ export const getLogo = (name: string) => {
       return cinteno;
     case "Ocuri":
       return ocuri;
+    case "Corma":
+      return corma;
     default:
       return logoDefault;
   }
