@@ -72,6 +72,8 @@ export interface IMatch {
   status:"played"| "willPlay" | "playing" | "finished" | "scheduled" | "canceled" | ""; 
   group: number,
   observation: string;
+  serie?: string;
+
 }
 
 export interface IFixtureCard {
@@ -87,6 +89,7 @@ export interface IFixtureCard {
   group: number,
   observation: string;
   category: string;
+  serie?: string;
 }
 
 export interface IScorer {

@@ -105,13 +105,45 @@ export const DetailItem = styled("p")(() => ({
 }));
 
 export const TitleItem = styled("p")(() => ({
+  display: "flex",
   margin: 0,
   color: "#1abc9c",
+  gap: "1rem",
   fontSize: "1rem",
   "@media (max-width: 600px)": {
     fontSize: "0.6rem",
+    gap: "0.5rem",
   },
 }));
+export const SerieLabel = styled("span")<{ serie?: string }>(({ serie }) => {
+  let color = "#1abc9c"; // default
+
+  if (serie === "A") {
+    color = "#eaae17"; // azul
+  } else if (serie === "B") {
+    color = "#bb085c"; // verde
+  }if (serie === "C") {
+    color = "#0af812"; // naranja
+  }
+
+  return {
+    display: "inline-block",
+    padding: "4px 10px",
+    borderRadius: "999px", // 🔥 totalmente redondeado (tipo chip)
+    border: `1.5px solid ${color}`, // 🔥 contorno del mismo color
+    color: color,
+    fontSize: "0.85rem",
+    fontWeight: 600,
+    lineHeight: 1,
+    backgroundColor: "transparent", // estilo outlined
+    transition: "all 0.2s ease",
+
+    "@media (max-width: 600px)": {
+      fontSize: "0.65rem",
+      padding: "3px 8px",
+    },
+  };
+});
 
 export const StatusLabel = styled("span")<{ statusType: string }>(
   ({ statusType }) => {

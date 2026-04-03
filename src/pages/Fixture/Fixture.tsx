@@ -145,6 +145,7 @@ const Fixture: React.FC = () => {
             group={match.group}
             observation={match.observation}
             category={selectedCategory}
+            serie={match.serie}
           />
         ))
       ) : (

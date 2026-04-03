@@ -3,9 +3,9 @@ import logoMontePampa from "../assets/images/logoEquipos/montePampa.webp";
 import logoSivingaMayu from "../assets/images/logoEquipos/sivingamayu.png";
 import logoMiguelito from "../assets/images/logoEquipos/miguel.png";
 import logoDefault from "../assets/images/logoEquipos/default.png";
-import defaultProfile from "../assets/images/logoEquipos/defauldProfile.webp"
+import defaultProfile from "../assets/images/logoEquipos/defauldProfile.webp";
 import logoKumuni from "../assets/images/logoEquipos/kumuni.webp";
-import churquiPampa  from  "../assets/images/logoEquipos/churquiPampa.webp";
+import churquiPampa from "../assets/images/logoEquipos/churquiPampa.webp";
 import quirpini from "../assets/images/logoEquipos/quirpini.webp";
 import malliri from "../assets/images/logoEquipos/malliri.webp";
 import japo from "../assets/images/logoEquipos/japo.webp";
@@ -23,8 +23,10 @@ import rodeoB from "../assets/images/logoEquipos/rodeoB.webp";
 import phullaya from "../assets/images/logoEquipos/phullaya.webp";
 import sakaPampa from "../assets/images/logoEquipos/sakaPampa.png";
 import orcoyo from "../assets/images/logoEquipos/orcoyo.webp";
-import huayllanyGrande from "../assets/images/logoEquipos/huayllanigrande.webp";
+import huayllaniGrande from "../assets/images/logoEquipos/huayllanigrande.webp";
 import sabalaJr from "../assets/images/logoEquipos/sabalaJr.webp";
+import cinteno from "../assets/images/logoEquipos/cinteno.webp";
+import ocuri from "../assets/images/logoEquipos/ocuri.png";
 
 export const getLogo = (name: string) => {
   switch (name) {
@@ -56,7 +58,7 @@ export const getLogo = (name: string) => {
       return huayllani;
     case "Tambo Kasa":
       return tambokasa;
-     case "Rodeo":
+    case 'Rodeo "A"':
       return rodeo;
     case 'Rodeo "B"':
       return rodeoB;
@@ -74,12 +76,16 @@ export const getLogo = (name: string) => {
       return sakaPampa;
     case "Orcoyo":
       return orcoyo;
-    case "Huayllany Grande":
-      return huayllanyGrande;
+    case "Huayllani Grande":
+      return huayllaniGrande;
     case "Sabala Jr.":
       return sabalaJr;
     case "Default":
       return defaultProfile;
+    case "Cinteño":
+      return cinteno;
+    case "Ocuri":
+      return ocuri;
     default:
       return logoDefault;
   }
@@ -97,7 +103,7 @@ export const orderTable = (
     goalsAgainst: number;
     goalDifference: number;
     points: number;
-  }[]
+  }[],
 ) => {
   return [...arr].sort((a, b) => {
     if (b.points !== a.points) {
@@ -111,8 +117,7 @@ export const orderTable = (
     if (b.goalsFor !== a.goalsFor) {
       return b.goalsFor - a.goalsFor;
     }
-    
+
     return a.team.localeCompare(b.team);
   });
 };
-

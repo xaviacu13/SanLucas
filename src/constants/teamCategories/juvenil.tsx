@@ -86,9 +86,9 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 10,
-    name: "Rodeo",
+    name: 'Rodeo "A"',
     url: "https://forms.gle/g5pETa7hFviWtJpe7",
-    logo: getLogo("Rodeo"),
+    logo: getLogo('Rodeo "A"'),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],
@@ -205,9 +205,9 @@ export const juvenil: ITeamCategoryItem[] = [
   },
      {
     id: 23,
-    name: "Huayllany Grande",
+    name: "Huayllani Grande",
     url: "",
-    logo: getLogo("Huayllany Grande"),
+    logo: getLogo("Huayllani Grande"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],
@@ -217,6 +217,25 @@ export const juvenil: ITeamCategoryItem[] = [
     name: "Monte Pampa",
     url: "",
     logo: getLogo("Monte Pampa"),
+    delegates: [
+      { id: 1, name: "Feliciano Alvarado", contact: "", category: "Todos" },
+      { id: 2, name: "Jorge Luis Alvarado", contact: "", category: "Todos" },
+    ],
+  },
+  {
+    id: 25,
+    name: "Cinteño",
+    url: "",
+    logo: getLogo("Cinteño"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+       {
+    id: 26,
+    name: "Corma",
+    url: "",
+    logo: getLogo("Corma"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],

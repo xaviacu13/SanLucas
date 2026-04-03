@@ -11,6 +11,7 @@ import {
   Root,
   StatusLabel,
   TitleItem,
+  SerieLabel,
 } from "./styles";
 import { getLogo } from "../../tools/tools";
 import type { IFixtureCard } from "../../types/types";
@@ -27,6 +28,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
   group,
   observation,
   category,
+  serie,
 }) => {
   const renderStatusLabel = () => {
     if (!status || status.trim() === "") return null;
@@ -59,9 +61,22 @@ const FixtureCard: React.FC<IFixtureCard> = ({
           <ScorerColumn align="left">{scorerTeam1}</ScorerColumn>
         )}
         <DetailsColumn>
+           { group=== 0 && (
           <TitleItem>
-            <strong>Fecha: {group}</strong>
-          </TitleItem>
+            <strong>
+              RE-COPA
+            </strong>
+            <SerieLabel serie={"C"}>FINAL</SerieLabel>
+            </TitleItem>
+        )}
+          {group > 0 && serie && (
+            <TitleItem>
+              <strong>
+                Fecha: {group}
+              </strong>
+              {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
+            </TitleItem>
+          )}
           <DetailItem>
             <strong>Hora:</strong> {time || "__:__"} <strong>|</strong>{" "}
             {date || "__/__/____"}
