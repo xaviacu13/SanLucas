@@ -12,12 +12,13 @@ export const Root = styled("div")(({ theme }) => ({
   width: "100%",
   margin: "0 auto",
   flexWrap: "wrap",
+  gap: "10px",
 
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
     alignItems: "stretch",
-    padding: "15px",
-    gap: "12px",
+    padding: "8px",
+    gap: "10px",
   },
 }));
 

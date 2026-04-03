@@ -14,3 +14,4 @@ export { default as DelegateCard } from './DelegateCard';
 export { default as ScorerCard } from './ScorerCard';
 export { default as Home } from './Home';
 export { default as Menu } from './Menu';
+export { default as SearchSerie } from './SearchSerie';

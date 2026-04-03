@@ -4,6 +4,7 @@ import type { ITeamCategoryItem } from "../../types/types";
 export const juvenil: ITeamCategoryItem[] = [
   {
     id: 1,
+    series: "A",
     name: "Kumuni",
     url: "https://forms.gle/zoSUGwagH68hq1kt8",
     logo: getLogo("Kumuni"),
@@ -14,6 +15,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 2,
+    series: "A",
     name: "Quirpini",
     url: "https://forms.gle/yMSv8uFU6rwbx5Q89",
     logo: getLogo("Quirpini"),
@@ -23,6 +25,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 3,
+    series: "B",
     name: "Malliri",
     url: "https://forms.gle/CV7qX2HyFeRqjEkk6",
     logo: getLogo("Malliri"),
@@ -32,6 +35,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 4,
+    series: "B",
     name: "Japo",
     url: "https://forms.gle/oFc8NRooGwgwomUR8",
     logo: getLogo("Japo"),
@@ -41,6 +45,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 5,
+    series: "A",
     name: "Avichuca",
     url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
     logo: getLogo("Avichuca"),
@@ -50,6 +55,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 6,
+    series: "A",
     name: "Palacio",
     url: "https://forms.gle/kuXGysPJVMphh9eD8",
     logo: getLogo("Palacio"),
@@ -59,6 +65,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 7,
+    series: "B",
     name: "Condoriri",
     url: "https://forms.gle/3xnmCEFhWyQzvKqX8",
     logo: getLogo("Condoriri"),
@@ -68,6 +75,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 8,
+    series: "B",
     name: "Huayllany",
     url: "https://forms.gle/mR86DAwtSSQ3TBT47",
     logo: getLogo("Huayllany"),
@@ -77,6 +85,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 9,
+    series: "A",
     name: "Tambo Kasa",
     url: "https://forms.gle/ejmYwJseCk5S9SaK8",
     logo: getLogo("Tambo Kasa"),
@@ -86,6 +95,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 10,
+    series: "A",
     name: 'Rodeo "A"',
     url: "https://forms.gle/g5pETa7hFviWtJpe7",
     logo: getLogo('Rodeo "A"'),
@@ -95,6 +105,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 11,
+    series: "B",
     name: "Andamarca",
     url: "https://forms.gle/NTignF759P7pm9wA7",
     logo: getLogo("Andamarca"),
@@ -104,6 +115,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 12,
+    series: "B",
     name: "Churqui Pampa",
     url: "https://forms.gle/Jzr9ZWMbv1k2k9o96",
     logo: getLogo("Churqui Pampa"),
@@ -113,6 +125,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 13,
+    series: "A",
     name: "Puca Loma",
     url: "https://forms.gle/tw7nRre5rnCPey378",
     logo: getLogo("Puca Loma"),
@@ -123,6 +136,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 14,
+    series: "A",
     name: 'Rodeo "B"',
     url: "https://forms.gle/g5pETa7hFviWtJpe7",
     logo: getLogo('Rodeo "B"'),
@@ -132,6 +146,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 15,
+    series: "B",
     name: "Churisaya",
     url: "https://forms.gle/Rk77ZJiaETRuNDAT6",
     logo: getLogo("Churisaya"),
@@ -141,6 +156,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 16,
+    series: "B",
     name: "Sivinga Mayu",
     url: "https://forms.gle/dZHmKKGcUF8rcXtm6",
     logo: getLogo("Sivinga Mayu"),
@@ -151,6 +167,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 17,
+    series: "A",
     name: "San Jose T.",
     url: "https://forms.gle/67RnQV2cxQymA5h3A",
     logo: getLogo("San Jose T."),
@@ -160,6 +177,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 18,
+    series: "A",
     name: "Murifaya",
     url: "https://forms.gle/eTU6yXKJ7Le9RNQ8A",
     logo: getLogo("Murifaya"),
@@ -169,6 +187,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
    {
     id: 19,
+    series: "B",
     name: "Sabala Jr.",
     url: "",
     logo: getLogo("Sabala Jr."),
@@ -178,6 +197,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
    {
     id: 20,
+    series: "B",
     name: "Phullaya",
     url: "",
     logo: getLogo("Phullaya"),
@@ -187,6 +207,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
      {
     id: 21,
+    series: "A",
     name: "Saka Pampa",
     url: "",
     logo: getLogo("Saka Pampa"),
@@ -196,6 +217,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
      {
     id: 22,
+    series: "A",
     name: "Orcoyo",
     url: "",
     logo: getLogo("Orcoyo"),
@@ -205,6 +227,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
      {
     id: 23,
+    series: "B",
     name: "Huayllani Grande",
     url: "",
     logo: getLogo("Huayllani Grande"),
@@ -214,6 +237,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
      {
     id: 24,
+    series: "B",
     name: "Monte Pampa",
     url: "",
     logo: getLogo("Monte Pampa"),
@@ -224,6 +248,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
   {
     id: 25,
+    series: "A",
     name: "Cinteño",
     url: "",
     logo: getLogo("Cinteño"),
@@ -233,6 +258,7 @@ export const juvenil: ITeamCategoryItem[] = [
   },
        {
     id: 26,
+    series: "B",
     name: "Corma",
     url: "",
     logo: getLogo("Corma"),

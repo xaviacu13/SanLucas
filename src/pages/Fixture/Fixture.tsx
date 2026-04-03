@@ -1,5 +1,9 @@
 import React, { useState, useMemo } from "react";
-import { MessageNoTeams, Root, MessageContainer } from "./styles";
+import {
+  MessageNoTeams,
+  Root,
+  MessageContainer,
+} from "./styles";
 import {
   FixtureCard,
   SearchBox,
@@ -14,6 +18,7 @@ import logo from "../../assets/images/icons/logo1.png";
 import { categories } from "../../constants/categories";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
+import type { SerieType } from "../../types/types";
 
 const Fixture: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
@@ -35,18 +40,9 @@ const Fixture: React.FC = () => {
   };
 
   const [team, setTeam] = useState("all");
+  const [serie, setSerie] = useState<SerieType>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil",
-  );
-
-  // Compute initial stGame based on initial category
-  const initialCategory = categoryParam || "Juvenil";
-  const initialFixture = getFixtureForCategory(initialCategory);
-  const hasScheduledInitial = initialFixture.some(
-    (match) => match.status === "scheduled" || match.status === "canceled",
-  );
-  const [stGame, setStGame] = useState(
-    hasScheduledInitial ? "scheduled" : "played",
+    categoryParam || "Juvenil"
   );
 
   const navigate = useNavigate();
@@ -55,14 +51,26 @@ const Fixture: React.FC = () => {
     return getFixtureForCategory(selectedCategory);
   }, [selectedCategory]);
 
+  const hasScheduledInitial = fixture.some(
+    (match) => match.status === "scheduled" || match.status === "canceled"
+  );
+
+  const [stGame, setStGame] = useState(
+    hasScheduledInitial ? "scheduled" : "played"
+  );
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
-    // Reset stGame to default for the new category
+    setSerie("all");
+    setTeam("all");
+
     const newFixture = getFixtureForCategory(cat);
+
     const hasScheduledOrCanceled = newFixture.some(
-      (match) => match.status === "scheduled" || match.status === "canceled",
+      (match) => match.status === "scheduled" || match.status === "canceled"
     );
-    const hasPlayed = newFixture.some((match) => match.status === "played");
+    const hasPlayed = newFixture.some(
+      (match) => match.status === "played"
+    );
 
     if (hasScheduledOrCanceled) {
       setStGame("scheduled");
@@ -71,44 +79,68 @@ const Fixture: React.FC = () => {
     } else {
       setStGame("all");
     }
+
     navigate(`/fixture?category=${encodeURIComponent(cat)}`, {
       replace: true,
     });
   };
+  const filteredMatches = useMemo(() => {
+    return fixture
+      .filter((match) => {
+        let matchStatusOk = false;
 
-  const filteredMatches = fixture
-    .filter((match) => {
-      let matchStatusOk = false;
+        if (stGame === "all") {
+          matchStatusOk = true;
+        } else if (stGame === "willPlay") {
+          matchStatusOk =
+            match.status === "willPlay" ||
+            match.status === "" ||
+            match.status === "scheduled";
+        } else if (stGame === "scheduled") {
+          matchStatusOk =
+            match.status === "scheduled" ||
+            match.status === "canceled";
+        } else if (stGame === "played") {
+          matchStatusOk = match.status === "played";
+        } else {
+          matchStatusOk = match.status === stGame;
+        }
+        const matchTeamOk =
+          team === "all" ||
+          match.team1 === team ||
+          match.team2 === team;
+          
+        let matchSerieOk = true;
 
-      if (stGame === "all") {
-        matchStatusOk = true;
-      } else if (stGame === "willPlay") {
-        matchStatusOk =
-          match.status === "willPlay" ||
-          match.status === "" ||
-          match.status === "scheduled";
-      } else if (stGame === "scheduled") {
-        matchStatusOk =
-          match.status === "scheduled" || match.status === "canceled";
-      } else if (stGame === "played") {
-        matchStatusOk = match.status === "played";
-      } else {
-        matchStatusOk = match.status === stGame;
-      }
+        if (serie === "A") {
+          matchSerieOk = match.serie
+            ? match.serie === "A"
+            : match.id % 2 === 0;
+        }
 
-      const matchTeamOk =
-        team === "all" || match.team1 === team || match.team2 === team;
+        if (serie === "B") {
+          matchSerieOk = match.serie
+            ? match.serie === "B"
+            : match.id % 2 !== 0;
+        }
 
-      return matchStatusOk && matchTeamOk;
-    })
-    .sort((a, b) => {
-      if (stGame === "played") {
-        const groupA = parseInt(String(a.group).replace(/\D/g, "") || "0", 10);
-        const groupB = parseInt(String(b.group).replace(/\D/g, "") || "0", 10);
-        return groupB - groupA;
-      }
-      return 0;
-    });
+        return matchStatusOk && matchTeamOk && matchSerieOk;
+      })
+      .sort((a, b) => {
+        if (stGame === "played") {
+          const groupA = parseInt(
+            String(a.group).replace(/\D/g, "") || "0",
+            10
+          );
+          const groupB = parseInt(
+            String(b.group).replace(/\D/g, "") || "0",
+            10
+          );
+          return groupB - groupA;
+        }
+        return 0;
+      });
+  }, [fixture, stGame, team, serie]);
 
   return (
     <Root>
@@ -120,19 +152,23 @@ const Fixture: React.FC = () => {
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
       />
+
       <Title title={`Fixture ${selectedCategory}`} />
-        <SearchBox
-          setStGame={setStGame}
-          selectedCategory={selectedCategory}
-          stGame={stGame}
-          team={team}
-          setTeam={setTeam}
-        />
+
+      <SearchBox
+        setStGame={setStGame}
+        selectedCategory={selectedCategory}
+        stGame={stGame}
+        team={team}
+        setTeam={setTeam}
+        serie={serie}
+        setSerie={setSerie}
+      />
 
       {filteredMatches.length > 0 ? (
-        filteredMatches.map((match) => (
+        filteredMatches.map((match, index) => (
           <FixtureCard
-            key={match.id}
+            key={`${match.id}-${index}`} // 🔥 evita error de keys duplicadas
             id={match.id}
             team1={match.team1}
             team2={match.team2}
@@ -150,14 +186,14 @@ const Fixture: React.FC = () => {
         ))
       ) : (
         <MessageContainer>
-        <MessageNoTeams>
-          <Typography
-            variant="h4"
-            style={{ textAlign: "center", marginTop: "20px" }}
-          >
-            No se econtro resultados para este filtro.
-          </Typography>
-        </MessageNoTeams>
+          <MessageNoTeams>
+            <Typography
+              variant="h4"
+              style={{ textAlign: "center", marginTop: "20px" }}
+            >
+              No se encontraron resultados para este filtro.
+            </Typography>
+          </MessageNoTeams>
         </MessageContainer>
       )}
     </Root>

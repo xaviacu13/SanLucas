@@ -38,6 +38,7 @@ export const MessageNoTeams = styled("div")(({ theme }) => ({
     width: "100%",
   },
 }));
+
 export const MessageContainer = styled("div")(() => ({
   display: "flex",
   justifyContent: "center",

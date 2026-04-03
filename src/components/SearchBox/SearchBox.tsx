@@ -1,52 +1,86 @@
-import React from "react";
-import { Root, RadioGroupContainer, SelectContainer } from "./styles";
+import React, { useEffect } from "react";
 import {
   Radio,
   RadioGroup,
   FormControlLabel,
   FormControl,
-  FormLabel,
   Select,
   MenuItem,
-  InputLabel,
 } from "@mui/material";
+
+import { Root, RadioGroupContainer, SelectContainer } from "./styles";
+import SearchSerie from "../SearchSerie/SearchSerie";
+import FilterIcon from "@mui/icons-material/Filter";
+
 import { juvenil } from "../../constants/teamCategories/juvenil";
 import { senior } from "../../constants/teamCategories/senior";
 import { damas } from "../../constants/teamCategories/damas";
-// import { infantil as teams } from "../../constants/teamCategories/infantil";
-import FilterIcon from "@mui/icons-material/Filter";
-import { getLogo } from "../../tools/tools";
 
-interface SearchBoxProps {
+import { getLogo } from "../../tools/tools";
+import type { SerieType, ITeamCategoryItem } from "../../types/types";
+
+interface ISearchBoxProps {
   stGame: string;
   selectedCategory: string;
   setStGame: (value: string) => void;
   team: string;
   setTeam: (value: string) => void;
+  serie: SerieType;
+  setSerie: React.Dispatch<React.SetStateAction<SerieType>>;
 }
 
-const SearchBox: React.FC<SearchBoxProps> = ({
+const SearchBox: React.FC<ISearchBoxProps> = ({
   stGame,
   selectedCategory,
   setStGame,
   team,
   setTeam,
+  serie,
+  setSerie,
 }) => {
-  const getTeamsLabel =()=>{
-    if (selectedCategory === "Juvenil"){
-      return juvenil
+  const teamsSelected = (serie: SerieType, teams: ITeamCategoryItem[]) => {
+    if (serie === "all") return teams;
+    return teams.filter((t) => t.series === serie);
+  };
+
+  const getTeamsLabel = () => {
+    if (selectedCategory === "Juvenil") {
+      return teamsSelected(serie, juvenil);
     }
-    if (selectedCategory === "Senior"){
-      return senior
-    }if (selectedCategory === "Damas"){
-      return damas
-    } else return juvenil
+    if (selectedCategory === "Senior") return senior;
+    if (selectedCategory === "Damas") return damas;
+
+    return juvenil;
+  };
+
+useEffect(() => {
+  let teams: ITeamCategoryItem[] = [];
+
+  if (selectedCategory === "Juvenil") {
+    teams =
+      serie === "all"
+        ? juvenil
+        : juvenil.filter((t) => t.series === serie);
+  } else if (selectedCategory === "Senior") {
+    teams = senior;
+  } else if (selectedCategory === "Damas") {
+    teams = damas;
   }
+
+  const exists = teams.some((t) => t.name === team);
+
+  if (!exists) {
+    setTeam("all");
+  }
+}, [serie, selectedCategory, team, setTeam]);
+
+  // console.log("=====Teams for select:", getTeamsLabel());
 
   return (
     <Root>
-      <FormControl component="fieldset">
-        <FormLabel component="legend">Partidos</FormLabel>
+      <SearchSerie serie={serie} setSerie={setSerie} />
+
+      <FormControl>
         <RadioGroupContainer>
           <RadioGroup
             row
@@ -64,11 +98,6 @@ const SearchBox: React.FC<SearchBoxProps> = ({
               control={<Radio />}
               label="Programados"
             />
-            {/* <FormControlLabel
-              value="playing"
-              control={<Radio />}
-              label="En juego"
-            /> */}
             <FormControlLabel
               value="willPlay"
               control={<Radio />}
@@ -80,7 +109,6 @@ const SearchBox: React.FC<SearchBoxProps> = ({
 
       <SelectContainer>
         <FormControl fullWidth>
-          <InputLabel sx={{ fontSize: "14px" }}>Equipo</InputLabel>
           <Select
             value={team}
             onChange={(e) => setTeam(e.target.value)}

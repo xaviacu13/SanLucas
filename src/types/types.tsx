@@ -47,6 +47,7 @@ export interface ITeam {
 
 export interface ITeamCategoryItem {
   id: number;
+  series: string;
   name: string;
   url: string;
   logo: string;
@@ -107,4 +108,21 @@ export interface IScorer {
 export interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<{ outcome: 'accepted' | 'dismissed' }>;
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
+export type SerieType = "A" | "B" | "all" | undefined | "";
+
+export interface ISearchBoxProps {
+  stGame: string;
+  selectedCategory: string;
+  setStGame: (value: string) => void;
+  team: string;
+  setTeam: (value: string) => void;
+  setSerie: (value: string) => void;
+  serie?: SerieType;
+}
+
+export interface ISearchSerieProp {
+  serie: SerieType;
+  selectedCategory: string;
+  setSerie: (value: SerieType) => void;
 }
