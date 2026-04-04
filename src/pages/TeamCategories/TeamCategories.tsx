@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DelegateCard, HeaderCategory, Title } from "../../components";
+import { DelegateCard, HeaderCategory, SearchSerie, Title } from "../../components";
 import logo from "../../assets/images/icons/logo1.png";
 import { juvenil } from "../../constants/teamCategories/juvenil";
 import { senior } from "../../constants/teamCategories/senior";
@@ -10,6 +10,7 @@ import { InfoContainer, Root, MessageNoTeams } from "./styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
+import type { ITeamCategoryItem, SerieType } from "../../types/types";
 
 const TeamCategories: React.FC = () => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ const TeamCategories: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>(
     categoryParam || "Juvenil",
   );
+  const [serie, setSerie] = useState<SerieType>("all");
 
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
@@ -28,6 +30,21 @@ const TeamCategories: React.FC = () => {
       replace: true,
     });
   };
+
+    const teamsSelected = (serie: SerieType, teams: ITeamCategoryItem[]) => {
+      if (serie === "all") return teams;
+      return teams.filter((t) => t.series === serie);
+    };
+
+   const getTeamsLabel = () => {
+      if (selectedCategory === "Juvenil") {
+        return teamsSelected(serie, juvenil);
+      }
+      if (selectedCategory === "Senior") return senior;
+      if (selectedCategory === "Damas") return damas;
+  
+      return juvenil;
+    };
 
   const getTeamCategory = () => {
     switch (selectedCategory) {
@@ -58,6 +75,7 @@ const TeamCategories: React.FC = () => {
 
       <InfoContainer>
         <Title title={`Equipos categoría ${selectedCategory}`} />
+        <SearchSerie serie={serie} setSerie={setSerie} />
 
         {teams.length === 0 ? (
           <MessageNoTeams>
@@ -80,7 +98,7 @@ const TeamCategories: React.FC = () => {
             </Button>
           </MessageNoTeams>
         ) : (
-          teams.map((team) => (
+          getTeamsLabel().map((team) => (
             <DelegateCard
               key={team.id}
               id={team.id}

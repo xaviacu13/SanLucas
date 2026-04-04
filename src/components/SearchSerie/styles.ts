@@ -12,6 +12,7 @@ export const Root = styled("div")(({ theme }) => ({
   width: "100%",
   margin: "0 auto",
   flexWrap: "wrap",
+  maxWidth: '1250px',
 
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",

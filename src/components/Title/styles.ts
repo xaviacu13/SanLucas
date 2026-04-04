@@ -5,7 +5,8 @@ export const TitleContainer = styled("div")(() => ({
   width: "100%",
   display: "flex",
   alignItems: "center",
-  padding: '0.6rem'
+  padding: '0.6rem',
+  maxWidth: '1250px',
 }));
 
 export const DividerLine = styled(Divider)(() => ({

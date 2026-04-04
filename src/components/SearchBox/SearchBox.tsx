@@ -53,28 +53,24 @@ const SearchBox: React.FC<ISearchBoxProps> = ({
     return juvenil;
   };
 
-useEffect(() => {
-  let teams: ITeamCategoryItem[] = [];
+  useEffect(() => {
+    let teams: ITeamCategoryItem[] = [];
 
-  if (selectedCategory === "Juvenil") {
-    teams =
-      serie === "all"
-        ? juvenil
-        : juvenil.filter((t) => t.series === serie);
-  } else if (selectedCategory === "Senior") {
-    teams = senior;
-  } else if (selectedCategory === "Damas") {
-    teams = damas;
-  }
+    if (selectedCategory === "Juvenil") {
+      teams =
+        serie === "all" ? juvenil : juvenil.filter((t) => t.series === serie);
+    } else if (selectedCategory === "Senior") {
+      teams = senior;
+    } else if (selectedCategory === "Damas") {
+      teams = damas;
+    }
 
-  const exists = teams.some((t) => t.name === team);
+    const exists = teams.some((t) => t.name === team);
 
-  if (!exists) {
-    setTeam("all");
-  }
-}, [serie, selectedCategory, team, setTeam]);
-
-  // console.log("=====Teams for select:", getTeamsLabel());
+    if (!exists) {
+      setTeam("all");
+    }
+  }, [serie, selectedCategory, team, setTeam]);
 
   return (
     <Root>

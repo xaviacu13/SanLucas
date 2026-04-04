@@ -4,16 +4,20 @@ export const Title = styled("h1")(() => ({
   fontSize: "24px",
   color: "#333",
 }));
-export const InfoContainer = styled("div")({
+export const InfoContainer = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
   height: "100%",
   width: "100%",
-  gap: "15px",
+  gap: "10px",
   padding: "10px",
-});
+  [theme.breakpoints.down("sm")]: {
+    gap: "6px",
+    padding: "0 8px 8px",
+  },  
+}));
 
 export const Root = styled("div")(() => ({
 }));

@@ -9,6 +9,7 @@ export const Root = styled('div')(({ theme }) => ({
   maxWidth: '1250px',
   height: '100%',
   gap: '20px',
+  padding: '10px',
   backgroundColor: theme.palette.background.paper,
   borderRadius: '8px',
   boxShadow: theme.shadows[1],
@@ -17,13 +18,13 @@ export const Root = styled('div')(({ theme }) => ({
     boxShadow: theme.shadows[4],
   },
 [theme.breakpoints.down('lg')]: {
-    padding: '10px',
     gap: '10px',
     width: '700px',
   },
-  [theme.breakpoints.down('md')]: {   
+  [theme.breakpoints.down('md')]: { 
+    padding: "0px 8px 5px",
     gap: '5px',
-    width: '500px',
+    width: '100%',
   },
   [theme.breakpoints.down('sm')]: {
     width: '100%',
