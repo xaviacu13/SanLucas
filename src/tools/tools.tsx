@@ -27,7 +27,8 @@ import sabalaJr from "../assets/images/logoEquipos/sabalaJr.webp";
 import cinteno from "../assets/images/logoEquipos/cinteno.webp";
 import ocuri from "../assets/images/logoEquipos/ocuri.png";
 import corma from "../assets/images/logoEquipos/corma.webp";
-
+import lajaKasa from "../assets/images/logoEquipos/lajaKasa.webp";
+import chillagua from "../assets/images/logoEquipos/chillagua.webp";
 export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
@@ -86,6 +87,10 @@ export const getLogo = (name: string) => {
       return ocuri;
     case "Corma":
       return corma;
+    case "Laja Kasa":
+      return lajaKasa;
+    case "Chillagua":
+      return chillagua;
     default:
       return logoDefault;
   }

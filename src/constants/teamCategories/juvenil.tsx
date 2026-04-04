@@ -258,10 +258,30 @@ export const juvenil: ITeamCategoryItem[] = [
   },
        {
     id: 26,
-    series: "B",
+    series: "A",
     name: "Corma",
     url: "",
     logo: getLogo("Corma"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+         {
+    id: 27,
+    series: "B",
+    name: "Chillagua",
+    url: "",
+    logo: getLogo("Chillagua"),
+    delegates: [
+      // { id: 1, name: "", contact: "", category: "Juvenil" },
+    ],
+  },
+         {
+    id: 28,
+    series: "B",
+    name: "Laja Kasa",
+    url: "",
+    logo: getLogo("Laja Kasa"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
     ],
