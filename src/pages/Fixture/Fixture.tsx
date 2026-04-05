@@ -168,7 +168,7 @@ const Fixture: React.FC = () => {
       {filteredMatches.length > 0 ? (
         filteredMatches.map((match, index) => (
           <FixtureCard
-            key={`${match.id}-${index}`} // 🔥 evita error de keys duplicadas
+            key={`${match.id}-${index}`}
             id={match.id}
             team1={match.team1}
             team2={match.team2}

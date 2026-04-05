@@ -15,6 +15,7 @@ import {
 } from "./styles";
 import { getLogo } from "../../tools/tools";
 import type { IFixtureCard } from "../../types/types";
+//import { teams }from "../../constants/teams/teams";
 
 const FixtureCard: React.FC<IFixtureCard> = ({
   team1,
@@ -48,6 +49,10 @@ const FixtureCard: React.FC<IFixtureCard> = ({
         return null;
     }
   };
+  // const getTeamId = (teamName: string): number | null => {
+  //   const team = teams.find((t: { name: string; id: number }) => t.name === teamName);
+  //   return team ? team.id : null;
+  // };
 
   return (
     <Root>
@@ -82,7 +87,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
             {date || "__/__/____"}
           </DetailItem>
           <DetailItem>
-            <strong>Cancha:</strong> {location}
+            <strong>Cancha:</strong> {location || "--"}
           </DetailItem>
           <DetailItem>{renderStatusLabel()}</DetailItem>
         </DetailsColumn>

@@ -5,6 +5,7 @@ export const Title = styled('h1')(() => ({
   color: '#333',
 }));
 export const Root = styled('div')(() => ({
+  gap:"30px",
 }));
 export const MessageNoTeams = styled("div")(({ theme }) => ({
   display: "flex",

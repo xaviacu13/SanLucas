@@ -21,6 +21,9 @@ export const FixtureContainer = styled("div")<RootProps>(({ category }) => ({
         : category === "Damas"
           ? "#f8f2f9ff"
           : "#ffffff",
+  "@media (max-width: 600px)": {
+    margin: "0",
+  },
 }));
 
 export const Root = styled("div")(() => ({
@@ -30,6 +33,9 @@ export const Root = styled("div")(() => ({
   borderRadius: "8px",
   margin: "0.7rem 0",
   backgroundColor: "#fff",
+  "@media (max-width: 600px)": {
+    margin: "0.25rem 0",
+  },
 }));
 
 export const TeamColumn = styled("div")({

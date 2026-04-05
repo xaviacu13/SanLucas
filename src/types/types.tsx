@@ -1,5 +1,6 @@
 export interface ITeamStanding {
   id: number;
+  serie? : SerieType;
   team: string;
   matchesPlayed: number;
   wins: number;
@@ -47,7 +48,7 @@ export interface ITeam {
 
 export interface ITeamCategoryItem {
   id: number;
-  series: string;
+  series: SerieType;
   name: string;
   url: string;
   logo: string;
