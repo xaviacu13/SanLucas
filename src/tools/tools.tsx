@@ -73,7 +73,7 @@ export const getLogo = (name: string) => {
       return phullaya;
     case "Saka Pampa":
       return sakaPampa;
-    case "Orcoyo":
+    case "Orkoyo":
       return orcoyo;
     case "Huayllani Grande":
       return huayllaniGrande;
