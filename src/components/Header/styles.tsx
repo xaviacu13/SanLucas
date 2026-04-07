@@ -17,7 +17,7 @@ export const Container = styled("header")(({ theme }: { theme?: Theme }) => ({
 
   "@media (max-width: 400px)": {
     display: "flow",
-    padding: "2px 10px",
+    padding: "5px 10px",
     justifyContent: "space-between",
   },
 }));

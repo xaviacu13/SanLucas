@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import portada1 from "../../assets/images/portada/por1.png";
-import portada2 from "../../assets/images/portada/por2.png";
+//import portada2 from "../../assets/images/portada/por2.png";
 import portada3 from "../../assets/images/portada/por3.png";
 
 import ArticleIcon from "@mui/icons-material/Article";
@@ -25,7 +25,7 @@ import {
 
 import { Button, Box } from "@mui/material";
 
-const portada = [portada1, portada2, portada3];
+const portada = [portada1, portada3];
 
 const LAST_SEEN_KEY = "lastSeenNotificationId";
 
