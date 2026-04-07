@@ -1,18 +1,12 @@
-import type {
-  IMatch,
-  ITeamStanding,
-  SerieType,
-  ITeamCategoryItem,
-} from "../types/types";
+import type { IMatch, ITeamStanding, SerieType } from "../types/types";
 
-// 🔥 tabla inicial desde equipos
-export const generateInitialTable = (
-  teams: ITeamCategoryItem[]
+export const generateTable = (
+  matches: IMatch[],
+  baseTable: ITeamStanding[]
 ): ITeamStanding[] => {
-  return teams.map((team) => ({
-    id: team.id,
-    team: team.name,
-    serie: team.series as SerieType,
+
+  const table: ITeamStanding[] = baseTable.map((t) => ({
+    ...t,
     matchesPlayed: 0,
     wins: 0,
     draws: 0,
@@ -20,31 +14,19 @@ export const generateInitialTable = (
     goalsFor: 0,
     goalsAgainst: 0,
     goalDifference: 0,
-    points: 0,
+    points: t.points || 0,
   }));
-};
 
-// 🔥 generar tabla desde fixture
-export const generateTable = (
-  matches: IMatch[],
-  baseTable: ITeamStanding[]
-): ITeamStanding[] => {
-  // 🧠 clonamos para no mutar el original
-  const table: ITeamStanding[] = baseTable.map((t) => ({ ...t }));
-
-  // 🔍 buscar equipo
   const getTeam = (name: string, serie?: SerieType) => {
     return table.find((t) => {
       if (t.team !== name) return false;
 
-      // sin serie (damas, infantil)
       if (!t.serie || !serie || serie === "all") return true;
 
       return t.serie === serie;
     });
   };
 
-  // 🔥 recorrer partidos
   matches.forEach((match) => {
     if (match.status !== "played") return;
 
@@ -86,7 +68,6 @@ export const generateTable = (
     }
   });
 
-  // 🔥 diferencia de gol
   table.forEach((t) => {
     t.goalDifference = t.goalsFor - t.goalsAgainst;
   });

@@ -1,4 +1,6 @@
-export const juvenil = [
+import type { ITeamStanding } from "../../types/types";
+
+export const juvenil: ITeamStanding[] = [
   {
     id: 1,
     team: "Kumuni",

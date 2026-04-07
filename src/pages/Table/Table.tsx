@@ -1,23 +1,37 @@
 import React, { useState } from "react";
-import { StandingsTable, Title, HeaderCategory, SearchSerie } from "../../components";
+import {
+  StandingsTable,
+  Title,
+  HeaderCategory,
+  SearchSerie,
+} from "../../components";
 import logo from "../../assets/images/icons/logo1.png";
+
 import { juvenil } from "../../constants/table/juvenil";
 import { senior } from "../../constants/table/senior";
 import { damas } from "../../constants/table/damas";
 import { infantil } from "../../constants/table/infantil";
+
+import { juvenil as fixtureJuvenil } from "../../constants/fixture/juvenil";
+import { senior as fixtureSenior } from "../../constants/fixture/senior";
+import { damas as fixtureDamas } from "../../constants/fixture/damas";
+import { infantil as fixtureInfantil } from "../../constants/fixture/infantil";
+
 import { categories } from "../../constants/categories";
 import { orderTable } from "../../tools/tools";
 import type { ITeamStanding, SerieType } from "../../types/types";
-import { Root } from './styles'
+import { generateTable } from "../../utils/generateTable";
+import { Root } from "./styles";
 
 import { useNavigate } from "react-router-dom";
 
-const Fixture: React.FC = () => {
+const Table: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const categoryParam = queryParams.get("category");
+
   const [serie, setSerie] = useState<SerieType>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil",
+    categoryParam || "Juvenil"
   );
 
   const navigate = useNavigate();
@@ -29,40 +43,45 @@ const Fixture: React.FC = () => {
     });
   };
 
+  // 🔥 GENERA TABLA DESDE FIXTURE
   const table = React.useMemo<ITeamStanding[]>(() => {
     switch (selectedCategory) {
       case "Juvenil":
-        return orderTable(juvenil);
+        return orderTable(generateTable(fixtureJuvenil, juvenil));
+
       case "Senior":
-        return orderTable(senior);
+        return orderTable(generateTable(fixtureSenior, senior));
+
       case "Damas":
-        return orderTable(damas);
+        return orderTable(generateTable(fixtureDamas, damas));
+
       case "Infantil":
-        return orderTable(infantil);
+        return orderTable(generateTable(fixtureInfantil, infantil));
+
       default:
-        return orderTable(juvenil);
+        return [];
     }
   }, [selectedCategory]);
 
-const filterTableBySerie = (
-  table: ITeamStanding[],
-  serie: SerieType
-): ITeamStanding[] => {
-  if (serie === "all") return table;
+  // 🔥 FILTRO POR SERIE (MEJORADO)
+  const filterTableBySerie = (
+    table: ITeamStanding[],
+    serie: SerieType
+  ): ITeamStanding[] => {
+    if (!serie || serie === "all") return table;
 
-  return table.filter((team) => {
-    // equipos sin serie → mostrar siempre (ej: damas)
-    if (!team.serie) return true;
+    return table.filter((team) => {
+      // equipos sin serie → siempre visibles
+      if (!team.serie) return true;
 
-    return team.serie === serie;
-  });
-};
+      return team.serie === serie;
+    });
+  };
 
-const filteredTable = React.useMemo(() => {
-  const baseTable = table;
-
-  return filterTableBySerie(baseTable, serie);
-}, [table, serie]);
+  // 🔥 TABLA FINAL FILTRADA
+  const filteredTable = React.useMemo(() => {
+    return filterTableBySerie(table, serie);
+  }, [table, serie]);
 
   return (
     <Root>
@@ -75,10 +94,15 @@ const filteredTable = React.useMemo(() => {
       />
 
       <Title title={`Tabla de posiciones: ${selectedCategory}`} />
-      <SearchSerie serie={serie} setSerie={setSerie}/>
+
+      <SearchSerie
+        serie={serie}
+        setSerie={setSerie}
+      />
+
       <StandingsTable standings={filteredTable} />
     </Root>
   );
 };
 
-export default Fixture;
+export default Table;

@@ -74,7 +74,7 @@ export interface IMatch {
   status:"played"| "willPlay" | "playing" | "finished" | "scheduled" | "canceled" | ""; 
   group: number,
   observation: string;
-  serie?: string;
+  serie?: SerieType;
 
 }
 
@@ -91,7 +91,7 @@ export interface IFixtureCard {
   group: number,
   observation: string;
   category: string;
-  serie?: string;
+  serie?: SerieType;
 }
 
 export interface IScorer {
@@ -110,7 +110,7 @@ export interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<{ outcome: 'accepted' | 'dismissed' }>;
   userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
-export type SerieType = "A" | "B" | "all" | undefined | "";
+export type SerieType = "A" | "B" | "C" |"all" | undefined | "";
 
 export interface ISearchBoxProps {
   stGame: string;
