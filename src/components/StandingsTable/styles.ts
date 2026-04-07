@@ -3,7 +3,7 @@ import styled  from '@emotion/styled';
 export const TableContainer = styled('div')( ({
   width: '100%',
   overflowX: 'auto',
-  marginTop: '1rem',
+  marginTop: '0.6rem',
 }));
 
 export const Table = styled('table') ({

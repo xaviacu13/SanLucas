@@ -26,7 +26,6 @@ export const Logo = styled("img")({
   height: 55,
   objectFit: "contain",
   borderRadius: "10%",
-  padding: "5px 20px",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
 });
 export const LogoContainer = styled("div")({
