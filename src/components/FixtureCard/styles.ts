@@ -161,7 +161,7 @@ export const StatusLabel = styled("span")<{ statusType: string }>(({
   let extraStyles: React.CSSProperties = {};
 
   if (statusType === "played") {
-    bg = "#b71c1c";
+    bg = "#cf6363";
     color = "#fff";
   } else if (statusType === "playing") {
     bg = "#4caf50";

@@ -49,10 +49,6 @@ const FixtureCard: React.FC<IFixtureCard> = ({
         return null;
     }
   };
-  // const getTeamId = (teamName: string): number | null => {
-  //   const team = teams.find((t: { name: string; id: number }) => t.name === teamName);
-  //   return team ? team.id : null;
-  // };
 
   return (
     <Root>

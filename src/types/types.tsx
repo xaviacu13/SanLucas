@@ -127,3 +127,22 @@ export interface ISearchSerieProp {
   selectedCategory: string;
   setSerie: (value: SerieType) => void;
 }
+export type CategoryType = "Juvenil" | "Senior" | "Damas" | "Infantil";
+
+export interface IPlayerDB {
+  id?: number;
+  name: string;
+  full_name: string;
+  dni: string;
+  image_url?: string;
+  number: number;
+  position: string;
+  nationality: "boliviana" | "argentina";
+  status: "enabled" | "disabled";
+  birthdate: string; // YYYY-MM-DD
+  team: string;
+  category: "Juvenil" | "Senior" | "Damas" | "Infantil";
+  likes: number;
+  rating: number;
+  created_at?: string;
+}

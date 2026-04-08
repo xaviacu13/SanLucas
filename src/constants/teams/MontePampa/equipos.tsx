@@ -83,9 +83,16 @@ export const montePampa: ITeam[] = [
             name: "Betto",
             fullName: "Norberto Alvarado",
             DNI: "39226",
-            image: getProfile("8"),
+            image: getProfile("8"),// quiero guardar la foto
             number: 17,
             position: "Defensor",
+            // nationality: "boliviana" // or argentino
+            // status: "enabled" // or desabled
+            // birthdate: '21/04/1992'
+            // team: "Puca Loma"// quiero que sea un select
+            // category: 'Juvenil'// select = Juvenil | Senior | Damas | Infantil
+            // likes: 299 // numero de me gustas
+            // rating: 7 // para calificar y mostrar en estrellas
           },
         //   {
         //     id: 9,

@@ -4,9 +4,10 @@ import {
   Form,
   StyledField,
 } from "./styles";
-import { Button, MenuItem, Typography } from "@mui/material";
+import { Button, MenuItem } from "@mui/material";
 import { createNotification } from "../../services/notifications.service";
 import toast from "react-hot-toast";
+import { Title } from "../../components";
 
 type NotificationStatus = "success" | "info" | "warning" | "error";
 
@@ -47,9 +48,8 @@ const NotificationsAdmin: React.FC = () => {
         date: new Date().toLocaleString(),
       });
 
-      toast.success("Notificación creada 🚀");
+      toast.success("Notificación creada ");
 
-      // limpiar form
       setForm({
         title: "",
         description: "",
@@ -65,9 +65,7 @@ const NotificationsAdmin: React.FC = () => {
 
   return (
     <Container>
-      <Typography variant="h5" mb={2}>
-        Crear Notificación
-      </Typography>
+      <Title title="Administrador de Notificaciones"/>
 
       <Form onSubmit={handleSubmit}>
         <StyledField

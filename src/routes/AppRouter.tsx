@@ -16,6 +16,7 @@ import {
   LiveMatch,
   Dashboard,
   NotificationsAdmin,
+  PlayersAdmin,
 } from "../pages";
 import TeamCategories from "../pages/TeamCategories";
 import TopScorerTable from "../pages/TopScorerTable";
@@ -41,6 +42,7 @@ const AppRouter: React.FC = () => {
       <Route path="/live-match" element={<LiveMatch />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/notifications-admin" element={<NotificationsAdmin />} />
+      <Route path="/players-admin" element={<PlayersAdmin />} />
     </Routes>
   );
 };
