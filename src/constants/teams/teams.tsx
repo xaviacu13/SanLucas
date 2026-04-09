@@ -13,6 +13,7 @@ import { condoriri } from "../teams/Condoriri/equipo";
 import { huayllany } from "../teams/Huayllany/equipo";
 import { tamboKasa } from "../teams/TamboKasa/equipo";
 import { rodeo } from "../teams/Rodeo/equipo";
+import { rodeoB } from "../teams/RodeoB/equipo";
 import { andamarca } from "../teams/Andamarca/equipo";
 import { churisaya } from "../teams/Churisaya/equipo";
 import { sanJoseT } from "../teams/SanJose/equipo";  
@@ -43,6 +44,7 @@ export const teams = [
   huayllany,
   tamboKasa,
   rodeo,
+  rodeoB,
   andamarca,
   churisaya,
   sanJoseT,

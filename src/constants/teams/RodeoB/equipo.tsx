@@ -1,13 +1,13 @@
 import { getLogo } from "../../../tools/tools";
 import type { ITeam } from "../../../types/types";
 //import { getProfile } from "./images/tools";
-export const rodeo: ITeam[] = [
+export const rodeoB: ITeam[] = [
   {
-    id: 10,
+    id: 14,
     grupo: "A",
-    name: 'Rodeo "A"',
-    logo: getLogo('Rodeo "A"'),
-    color: "rgb(57, 220, 7)",
+    name: 'Rodeo "B"',
+    logo: getLogo('Rodeo "B"'),
+    color: "rgb(42, 97, 249)",
     teams: [
       {
         id: 1,

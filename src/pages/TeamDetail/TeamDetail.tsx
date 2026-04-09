@@ -1,13 +1,17 @@
 import React, { useEffect, useMemo } from "react";
 import { HeaderTeam, PlayerCard } from "../../components";
 import { useLocation, useNavigate } from "react-router-dom";
-// import { teams } from "../../constants/teams/teams";
 import { getLogo } from "../../tools/tools";
 import { Button, Typography, Box, Skeleton } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
 import HomeIcon from "@mui/icons-material/Home";
-import { ButtonContainer, MessageContent, CardContainer, PlayerCardWrapper } from "./styles";
+import {
+  ButtonContainer,
+  MessageContent,
+  CardContainer,
+  PlayerCardWrapper,
+} from "./styles";
 import type { IPlayer } from "../../types/types";
 import { useTeamsWithPlayers } from "../../hooks/useTeamsWithPlayers";
 
@@ -19,7 +23,7 @@ const DetailTeam: React.FC = () => {
   const idTeamParam = queryParams.get("id");
   const categoryParam = queryParams.get("category");
 
-const { teams, loading } = useTeamsWithPlayers();
+  const { teams, loading } = useTeamsWithPlayers();
 
   const idTeam =
     idTeamParam && !isNaN(Number(idTeamParam)) ? Number(idTeamParam) : null;
@@ -55,7 +59,7 @@ const { teams, loading } = useTeamsWithPlayers();
   const onShare = () => {
     if (!team) return;
 
-const shareUrl = `${window.location.origin}/team-detail?id=${idTeam}&category=${encodeURIComponent(selectedCategory)}`;
+    const shareUrl = `${window.location.origin}/team-detail?id=${idTeam}&category=${encodeURIComponent(selectedCategory)}`;
 
     const shareData = {
       title: `Comunidad: ${team.name}`,
@@ -95,32 +99,32 @@ const shareUrl = `${window.location.origin}/team-detail?id=${idTeam}&category=${
       navigate("/");
     }
   };
-if (loading) {
-  return (
-    <PlayerCardWrapper>
-      {[...Array(6)].map((_, index) => (
-        <Box
-          key={index}
-          sx={{
-            display: "flex",
-            gap: 2,
-            alignItems: "center",
-            mb: 2,
-            p: 2,
-            borderRadius: "16px",
-            boxShadow: 1,
-          }}
-        >
-          <Skeleton variant="circular" width={60} height={60} />
-          <Box width="100%">
-            <Skeleton width="60%" height={20} />
-            <Skeleton width="40%" height={20} />
+  if (loading) {
+    return (
+      <PlayerCardWrapper>
+        {[...Array(6)].map((_, index) => (
+          <Box
+            key={index}
+            sx={{
+              display: "flex",
+              gap: 2,
+              alignItems: "center",
+              mb: 2,
+              p: 2,
+              borderRadius: "16px",
+              boxShadow: 1,
+            }}
+          >
+            <Skeleton variant="circular" width={60} height={60} />
+            <Box width="100%">
+              <Skeleton width="60%" height={20} />
+              <Skeleton width="40%" height={20} />
+            </Box>
           </Box>
-        </Box>
-      ))}
-    </PlayerCardWrapper>
-  );
-}
+        ))}
+      </PlayerCardWrapper>
+    );
+  }
   if (!team) {
     return <Typography variant="h3">Equipo no encontrado.</Typography>;
   }
