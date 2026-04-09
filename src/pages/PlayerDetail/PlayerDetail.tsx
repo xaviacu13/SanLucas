@@ -71,7 +71,7 @@ const PlayerDetail: React.FC = () => {
     (sub) => sub.category.toLowerCase() === category?.toLowerCase(),
   );
 
-  const playerUrl = `${window.location.origin}/player-detail?idPlayer=${params}`;
+const playerUrl = `${window.location.origin}/player-detail?${params}`;
 
   const onShare = () => {
     if (navigator.share) {
