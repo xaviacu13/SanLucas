@@ -53,3 +53,24 @@ export const ButtonContainer = styled("div")({
     },
   },
 });
+export const PlayerCardWrapper = styled("div")({
+  backgroundColor: "#ffffff",
+  border: "1px solid #ddd",
+  alignItems: "center",
+  borderRadius: "8px",
+  overflow: "hidden",
+  marginBottom: "16px",
+  width: "100%",
+  maxWidth: "1200px",
+  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
+  margin: "8px",
+  ":hover": {
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
+    transform: "scale(1.02)",
+    transition: "transform 0.2s ease-in-out",
+  },
+  paddingLeft: "5rem",
+  "@media (max-width: 600px)": {
+    paddingLeft: 0,
+  }
+});

@@ -2,8 +2,21 @@ import { supabase } from "../lib/supabase";
 import type { IPlayerDB } from "../types/types";
 
 // GET
-export const getPlayers = async (): Promise<IPlayerDB[]> => {
-  const { data, error } = await supabase.from("players").select("*");
+export const getPlayers = async (filters?: {
+  team?: string;
+  category?: string;
+}): Promise<IPlayerDB[]> => {
+  let query = supabase.from("players").select("*");
+
+  if (filters?.team) {
+    query = query.eq("team", filters.team);
+  }
+
+  if (filters?.category) {
+    query = query.eq("category", filters.category);
+  }
+
+  const { data, error } = await query;
 
   if (error) {
     console.error("Error fetching players:", error);
@@ -67,4 +80,19 @@ export const uploadPlayerImage = async (file: File) => {
     .getPublicUrl(fileName);
 
   return data.publicUrl;
+};
+
+export const getPlayerById = async (id: string | number) => {
+  const { data, error } = await supabase
+    .from("players")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  if (error) {
+    console.error("Error fetching player:", error);
+    return null;
+  }
+
+  return data as IPlayerDB;
 };

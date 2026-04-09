@@ -1,14 +1,15 @@
-import React, { useState, useMemo,useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { HeaderTeam, PlayerCard } from "../../components";
 import { useLocation, useNavigate } from "react-router-dom";
-import { teams } from "../../constants/teams/teams";
+// import { teams } from "../../constants/teams/teams";
 import { getLogo } from "../../tools/tools";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Box, Skeleton } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
 import HomeIcon from "@mui/icons-material/Home";
-import { ButtonContainer, MessageContent, CardContainer } from "./styles";
+import { ButtonContainer, MessageContent, CardContainer, PlayerCardWrapper } from "./styles";
 import type { IPlayer } from "../../types/types";
+import { useTeamsWithPlayers } from "../../hooks/useTeamsWithPlayers";
 
 const DetailTeam: React.FC = () => {
   const location = useLocation();
@@ -17,6 +18,8 @@ const DetailTeam: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const idTeamParam = queryParams.get("id");
   const categoryParam = queryParams.get("category");
+
+const { teams, loading } = useTeamsWithPlayers();
 
   const idTeam =
     idTeamParam && !isNaN(Number(idTeamParam)) ? Number(idTeamParam) : null;
@@ -31,21 +34,19 @@ const DetailTeam: React.FC = () => {
     [team],
   );
 
-  const [selectedCategory, setSelectedCategory] = useState<string>(() => {
+  const selectedCategory = useMemo(() => {
+    if (!categories.length) return "";
     if (categoryParam && categories.includes(categoryParam)) {
       return categoryParam;
-    } else if (categories.length > 0) {
-      return categories[0];
     }
-    return "";
-  });
+    return categories[0] || "";
+  }, [categories, categoryParam]);
 
   const canGoBack = React.useMemo(() => {
     return location.key !== "default";
   }, [location.key]);
 
   const handleCategoryChange = (cat: string) => {
-    setSelectedCategory(cat);
     navigate(`/team-detail?id=${idTeam}&category=${encodeURIComponent(cat)}`, {
       replace: true,
     });
@@ -54,7 +55,7 @@ const DetailTeam: React.FC = () => {
   const onShare = () => {
     if (!team) return;
 
-    const shareUrl = `san-lucas.netlify.app/team-detail?id=${idTeam}&category=${encodeURIComponent(
+    const shareUrl = `san-lucas.vercel.app/team-detail?id=${idTeam}&category=${encodeURIComponent(
       selectedCategory,
     )}`;
 
@@ -96,7 +97,32 @@ const DetailTeam: React.FC = () => {
       navigate("/");
     }
   };
-
+if (loading) {
+  return (
+    <PlayerCardWrapper>
+      {[...Array(6)].map((_, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: "flex",
+            gap: 2,
+            alignItems: "center",
+            mb: 2,
+            p: 2,
+            borderRadius: "16px",
+            boxShadow: 1,
+          }}
+        >
+          <Skeleton variant="circular" width={60} height={60} />
+          <Box width="100%">
+            <Skeleton width="60%" height={20} />
+            <Skeleton width="40%" height={20} />
+          </Box>
+        </Box>
+      ))}
+    </PlayerCardWrapper>
+  );
+}
   if (!team) {
     return <Typography variant="h3">Equipo no encontrado.</Typography>;
   }

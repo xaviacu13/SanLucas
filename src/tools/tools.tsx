@@ -1,3 +1,4 @@
+// import { ITeam, IPlayerDB } from '../types/types'
 import logoPucaLoma from "../assets/images/logoEquipos/pucaloma.webp";
 import logoMontePampa from "../assets/images/logoEquipos/montePampa.webp";
 import logoSivingaMayu from "../assets/images/logoEquipos/sivingamayu.webp";
@@ -126,3 +127,20 @@ export const orderTable = (
     return a.team.localeCompare(b.team);
   });
 };
+
+// export const attachPlayersToTeam = (
+//   teams: ITeam[],
+//   players: IPlayerDB[]
+// ): ITeam[] => {
+//   return teams.map((team) => ({
+//     ...team,
+//     teams: team.teams.map((cat) => ({
+//       ...cat,
+//       players: players.filter(
+//         (p) =>
+//           p.team === team.name &&
+//           p.category === cat.category
+//       ),
+//     })),
+//   }));
+// };

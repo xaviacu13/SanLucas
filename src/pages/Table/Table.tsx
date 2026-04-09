@@ -43,7 +43,6 @@ const Table: React.FC = () => {
     });
   };
 
-  // 🔥 GENERA TABLA DESDE FIXTURE
   const table = React.useMemo<ITeamStanding[]>(() => {
     switch (selectedCategory) {
       case "Juvenil":
@@ -63,7 +62,6 @@ const Table: React.FC = () => {
     }
   }, [selectedCategory]);
 
-  // 🔥 FILTRO POR SERIE (MEJORADO)
   const filterTableBySerie = (
     table: ITeamStanding[],
     serie: SerieType
@@ -71,14 +69,12 @@ const Table: React.FC = () => {
     if (!serie || serie === "all") return table;
 
     return table.filter((team) => {
-      // equipos sin serie → siempre visibles
       if (!team.serie) return true;
 
       return team.serie === serie;
     });
   };
 
-  // 🔥 TABLA FINAL FILTRADA
   const filteredTable = React.useMemo(() => {
     return filterTableBySerie(table, serie);
   }, [table, serie]);

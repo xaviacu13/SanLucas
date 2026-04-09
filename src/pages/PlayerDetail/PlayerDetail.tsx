@@ -1,13 +1,14 @@
-import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, createSearchParams } from "react-router-dom";
 import { teams as equipos } from "../../constants/teams/teams";
 import logo from "../../assets/images/icons/logo1.png";
 import { getLogo } from "../../tools/tools";
-import { Button, Divider, Tooltip, Typography, Alert } from "@mui/material";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Button, Divider, Typography, Alert, Skeleton } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
+import { getPlayerById } from "../../services/players.service";
+import type { IPlayerDB } from "../../types/types";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import {
   Container,
@@ -35,6 +36,28 @@ const PlayerDetail: React.FC = () => {
   const idPlayer = queryParams.get("idPlayer");
   const category = queryParams.get("category");
 
+  const [player, setPlayer] = useState<IPlayerDB | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  const params = createSearchParams({
+  idPlayer: String(idPlayer),
+  idTeam: String(idTeam),
+  category: String(category),
+});
+
+  useEffect(() => {
+    const fetchPlayer = async () => {
+      if (!idPlayer) return;
+
+      setLoading(true);
+      const data = await getPlayerById(idPlayer);
+      setPlayer(data);
+      setLoading(false);
+    };
+
+    fetchPlayer();
+  }, [idPlayer]);
+
   const canGoBack = React.useMemo(() => {
     return location.key !== "default";
   }, [location.key]);
@@ -47,16 +70,8 @@ const PlayerDetail: React.FC = () => {
   const subTeam = team?.teams.find(
     (sub) => sub.category.toLowerCase() === category?.toLowerCase(),
   );
-  const player = subTeam?.players.find((p) => p.id === Number(idPlayer));
 
-  const playerUrl = `https://san-lucas.netlify.app/player-detail?idPlayer=${idPlayer}&idTeam=${idTeam}&category=${category}`;
-
-  const onContact = () => {
-    const phone = "5491130918821";
-    const message = `Hola, quiero contactar por el jugador ${player?.name} del equipo ${team?.name}`;
-    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank");
-  };
+  const playerUrl = `${window.location.origin}/player-detail?idPlayer=${params}`;
 
   const onShare = () => {
     if (navigator.share) {
@@ -79,6 +94,54 @@ const PlayerDetail: React.FC = () => {
       navigate("/");
     }
   };
+
+  if (loading){
+  return (
+    <Root>
+      <HeaderCard>
+        <Skeleton variant="circular" width={40} height={40} />
+      </HeaderCard>
+
+      <Container>
+        <Skeleton
+          variant="rounded"
+          sx={{
+            width: "100%",
+            maxWidth: "35rem",
+            height: "200px",
+            margin: "0 auto 0.5rem",
+            borderRadius: "10%",
+          }}
+        />
+
+        <Skeleton width="60%" height={40} sx={{ margin: "0 auto" }} />
+        <Skeleton width="40%" height={30} sx={{ margin: "0 auto" }} />
+
+        <Divider sx={{ my: 2 }} />
+
+        <InfoContainer>
+          <InfoBox>
+            <Skeleton width="80%" />
+            <Skeleton width="70%" />
+            <Skeleton width="60%" />
+            <Skeleton width="50%" />
+          </InfoBox>
+
+          <ImageBox>
+            <Skeleton variant="circular" width={80} height={80} />
+          </ImageBox>
+        </InfoContainer>
+
+        <Divider sx={{ my: 2 }} />
+
+        <ButtonContainer>
+          <Skeleton variant="rounded" width={150} height={40} />
+          <Skeleton variant="rounded" width={150} height={40} />
+        </ButtonContainer>
+      </Container>
+    </Root>
+  );
+};
 
   if (!team || !player) {
     return (
@@ -113,14 +176,14 @@ const PlayerDetail: React.FC = () => {
         </HomeButton>
       </HeaderCard>
       <Container>
-        <Image src={player.image || getLogo("Default")} alt={player.name} />
+        <Image src={player.image_url || getLogo("Default")} alt={player.name} />
         <Title>
           {player.name}
           {" - "}
           {player.number}
         </Title>
         <Typography variant="h2" color="primary">
-          {player.fullName}
+          {player.full_name}
         </Typography>
         <Divider style={{ margin: "10px 0", color: "gray" }} />
         <Alert
@@ -136,7 +199,7 @@ const PlayerDetail: React.FC = () => {
         <InfoContainer>
           <InfoBox>
             <InfoText>
-              <Label>CODIGO:</Label> {String(player.DNI).slice(-5)}
+              <Label>CODIGO:</Label> {String(player.dni).slice(-5)}
             </InfoText>
             <InfoText>
               <Label>Posición:</Label> {player.position}
@@ -154,18 +217,6 @@ const PlayerDetail: React.FC = () => {
         </InfoContainer>
         <Divider style={{ margin: "1px 0", color: "gray" }} />
         <ButtonContainer>
-          <Tooltip title="Próximamente">
-            <Button
-              variant="contained"
-              color="primary"
-              startIcon={<WhatsAppIcon />}
-              onClick={onContact}
-              disabled
-            >
-              CONTACTAR
-            </Button>
-          </Tooltip>
-
           <Button
             variant="contained"
             color="primary"

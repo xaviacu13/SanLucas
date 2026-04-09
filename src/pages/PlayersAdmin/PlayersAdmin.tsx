@@ -12,29 +12,53 @@ import {
   Rating,
 } from "@mui/material";
 
-import { uploadPlayerImage, createPlayer } from "../../services/players.service";
+import {
+  uploadPlayerImage,
+  createPlayer,
+} from "../../services/players.service";
 import type { IPlayerDB } from "../../types/types";
 
 type PlayerFormType = Omit<IPlayerDB, "id" | "created_at">;
 
-const PlayerForm: React.FC = () => {
-  const [form, setForm] = useState<PlayerFormType>({
-    name: "",
-    full_name: "",
-    dni: "",
-    number: 0,
-    position: "",
-    nationality: "boliviana",
-    status: "enabled",
-    birthdate: "",
-    team: "",
-    category: "Juvenil",
-    likes: 0,
-    rating: 0,
-    image_url: "",
-  });
+const initialState: PlayerFormType = {
+  name: "",
+  full_name: "",
+  dni: "",
+  number: 0,
+  position: "",
+  nationality: "boliviana",
+  status: "enabled",
+  birthdate: "",
+  team: "",
+  category: "Juvenil",
+  likes: 0,
+  rating: 0,
+  image_url: "",
+};
 
+const PlayerForm: React.FC = () => {
+  const [form, setForm] = useState<PlayerFormType>(initialState);
   const [file, setFile] = useState<File | null>(null);
+  const [preview, setPreview] = useState<string>("");
+
+  // 📸 Manejo de imagen + preview
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedFile = e.target.files?.[0];
+    if (!selectedFile) return;
+
+    setFile(selectedFile);
+
+    // generar preview
+    const imageUrl = URL.createObjectURL(selectedFile);
+    setPreview(imageUrl);
+  };
+
+  // 🔄 Resetear formulario
+  const resetForm = () => {
+    setForm(initialState);
+    setFile(null);
+    setPreview("");
+  };
 
   const handleSubmit = async () => {
     try {
@@ -50,6 +74,9 @@ const PlayerForm: React.FC = () => {
       });
 
       alert("Jugador creado 🚀");
+
+      // 🔥 reset automático
+      resetForm();
     } catch (error) {
       console.error(error);
     }
@@ -191,7 +218,7 @@ const PlayerForm: React.FC = () => {
           </Select>
         </FormControl>
 
-        {/* Rating ⭐ */}
+        {/* Rating */}
         <Box>
           <Typography>Rating</Typography>
           <Rating
@@ -206,19 +233,42 @@ const PlayerForm: React.FC = () => {
         {/* Imagen */}
         <Button variant="outlined" component="label">
           Subir Imagen
-          <input
-            hidden
-            type="file"
-            onChange={(e) => {
-              const file = e.target.files?.[0];
-              if (file) setFile(file);
-            }}
-          />
+          <input hidden type="file" onChange={handleFileChange} />
         </Button>
 
-        <Button variant="contained" onClick={handleSubmit}>
-          Guardar Jugador
-        </Button>
+        {/* 👇 PREVIEW */}
+        {preview && (
+          <Box textAlign="center">
+            <Typography variant="body2">Vista previa:</Typography>
+            <img
+              src={preview}
+              alt="preview"
+              style={{
+                width: 120,
+                height: 120,
+                objectFit: "cover",
+                borderRadius: 10,
+                marginTop: 8,
+              }}
+            />
+          </Box>
+        )}
+
+        {/* BOTONES */}
+        <Stack direction="row" spacing={2}>
+          <Button variant="contained" onClick={handleSubmit} fullWidth>
+            Guardar
+          </Button>
+
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={resetForm}
+            fullWidth
+          >
+            Limpiar
+          </Button>
+        </Stack>
       </Stack>
     </Box>
   );
