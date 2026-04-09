@@ -55,9 +55,7 @@ const { teams, loading } = useTeamsWithPlayers();
   const onShare = () => {
     if (!team) return;
 
-    const shareUrl = `san-lucas.vercel.app/team-detail?id=${idTeam}&category=${encodeURIComponent(
-      selectedCategory,
-    )}`;
+const shareUrl = `${window.location.origin}/team-detail?id=${idTeam}&category=${encodeURIComponent(selectedCategory)}`;
 
     const shareData = {
       title: `Comunidad: ${team.name}`,
