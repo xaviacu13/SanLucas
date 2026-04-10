@@ -75,7 +75,7 @@ const TeamCategories: React.FC = () => {
 
       <InfoContainer>
         <Title title={`Equipos categoría ${selectedCategory}`} />
-        <SearchSerie serie={serie} setSerie={setSerie} />
+       {selectedCategory === "Juvenil" && <SearchSerie serie={serie} setSerie={setSerie} />}
 
         {teams.length === 0 ? (
           <MessageNoTeams>
