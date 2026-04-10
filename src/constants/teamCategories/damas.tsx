@@ -62,39 +62,34 @@ export const damas: ITeamCategoryItem[] = [
       { id: 2, name: "Reina Mollo", contact: "", category: "Damas" },
     ],
   },
-  // {
-  //   id: 7,
-  //   name: "Tira Hoyo",
-  //   url: "",
-  //   logo: getLogo("Tira Hoyo"),
-  //   delegates: [
-  //     { id: 1, name: "Beatriz Moscoso", contact: "", category: "Damas" },
-  //     { id: 2, name: "Noelia Villca", contact: "", category: "Damas" },
-  //   ],
-  // },
-  // {
-  //   id: 8,
-  //   name: "Churqui Pampa",
-  //   url: "",
-  //   logo: getLogo("Churqui Pampa"),
-  //   delegates: [
-  //     { id: 1, name: "Sebastian Cruz", contact: "", category: "Todos" },
-  //   ],
-  // },
-  // {
-  //   id: 9,
-  //   name: "Padcoyo",
-  //   url: "",
-  //   logo: getLogo("Padcoyo"),
-  //   delegates: [
-  //     { id: 1, name: "Roxana Villca", contact: "", category: "Damas" },
-  //   ],
-  // },
-  // {
-  //   id: 10,
-  //   name: "Kumuni",
-  //   url: "",
-  //   logo: getLogo("Kumuni"),
-  //   delegates: [{ id: 1, name: "Eva Colque", contact: "", category: "Damas" }],
-  // },
+  {
+    id: 7,
+    series: "",
+    name: "Sabala Jr.",
+    url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
+    logo: getLogo("Sabala Jr."),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+    {
+    id: 8,
+    series: "",
+    name: "Cruz Mayu",
+    url: "https://forms.gle/dXv7PTmpnLZGYZ3i9",
+    logo: getLogo("Cruz Mayu"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+    {
+    id: 9,
+    series: "",
+    name: "Quirpini",
+    url: "https://forms.gle/yMSv8uFU6rwbx5Q89",
+    logo: getLogo("Quirpini"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
 ];

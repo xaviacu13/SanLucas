@@ -70,7 +70,7 @@ export const juvenil: ITeamCategoryItem[] = [
     url: "https://forms.gle/3xnmCEFhWyQzvKqX8",
     logo: getLogo("Condoriri"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Iver Carmona", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -161,8 +161,8 @@ export const juvenil: ITeamCategoryItem[] = [
     url: "https://forms.gle/dZHmKKGcUF8rcXtm6",
     logo: getLogo("Sivinga Mayu"),
     delegates: [
-      { id: 1, name: "Wilber Apaza", contact: "", category: "Juvenil" },
-      { id: 2, name: "Enzo Quira", contact: "", category: "Juvenil" },
+      { id: 1, name: "Carlos Roberto Albarado", contact: "", category: "Juvenil" },
+      { id: 2, name: "Norberto Carmona Quira", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -172,7 +172,7 @@ export const juvenil: ITeamCategoryItem[] = [
     url: "https://forms.gle/67RnQV2cxQymA5h3A",
     logo: getLogo("San Jose T."),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Ismael Apaza", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -242,8 +242,8 @@ export const juvenil: ITeamCategoryItem[] = [
     url: "https://forms.gle/GEUtsAV1BZiHAjax5",
     logo: getLogo("Monte Pampa"),
     delegates: [
-      { id: 1, name: "Feliciano Alvarado", contact: "", category: "Todos" },
-      { id: 2, name: "Jorge Luis Alvarado", contact: "", category: "Todos" },
+      { id: 1, name: "Ariel Alvarado", contact: "", category: "Juvenil" },
+      { id: 2, name: "Grover Alvarado", contact: "", category: "Juvenil" },
     ],
   },
   {

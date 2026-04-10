@@ -155,7 +155,7 @@ const Fixture: React.FC = () => {
 
       <Title title={`Fixture ${selectedCategory}`} />
 
-      <SearchBox
+      {selectedCategory === "Juvenil" && <SearchBox
         setStGame={setStGame}
         selectedCategory={selectedCategory}
         stGame={stGame}
@@ -163,7 +163,7 @@ const Fixture: React.FC = () => {
         setTeam={setTeam}
         serie={serie}
         setSerie={setSerie}
-      />
+      />}
 
       {filteredMatches.length > 0 ? (
         filteredMatches.map((match, index) => (

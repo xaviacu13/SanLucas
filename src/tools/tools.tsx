@@ -30,6 +30,7 @@ import ocuri from "../assets/images/logoEquipos/ocuri.png";
 import corma from "../assets/images/logoEquipos/corma.webp";
 import lajaKasa from "../assets/images/logoEquipos/lajaKasa.webp";
 import chillagua from "../assets/images/logoEquipos/chillagua.webp";
+import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp"
 export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
@@ -92,6 +93,8 @@ export const getLogo = (name: string) => {
       return lajaKasa;
     case "Chillagua":
       return chillagua;
+    case "Cruz Mayu":
+      return cruzMayu
     default:
       return logoDefault;
   }

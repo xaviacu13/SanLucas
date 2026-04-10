@@ -26,7 +26,8 @@ import { sakaPampa } from "../teams/SakaPampa/equipo";
 import { orcoyo } from "../teams/Orcoyo/equipo";
 import { huayllaniGrande } from "../teams/HuayllaniGrande/equipo";
 import { sabalaJr } from "../teams/Sabala/equipo";  
-import {chillagua} from "../teams/Chillagua/equipo";
+import { chillagua } from "../teams/Chillagua/equipo";
+import { cruzMayu } from "../teams/CruzMayu/equipo";
 
 export const teams = [
   tiraHoyo,
@@ -57,5 +58,6 @@ export const teams = [
   corma,
   lajaKasa,
   cinteno,
-  chillagua
+  chillagua,
+  cruzMayu,
 ].flat();
