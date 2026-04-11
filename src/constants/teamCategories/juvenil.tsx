@@ -40,7 +40,7 @@ export const juvenil: ITeamCategoryItem[] = [
     url: "",
     logo: getLogo("Japo"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+       { id: 1, name: "Cruz Quiroga Bruno", contact: "", category: "Juvenil" },
     ],
   },
   {
