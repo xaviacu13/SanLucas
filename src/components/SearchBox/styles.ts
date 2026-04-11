@@ -10,6 +10,7 @@ export const Root = styled("div")(({ theme }) => ({
   borderRadius: "8px",
   boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
   width: "100%",
+  maxWidth: "1250px",
   margin: "0 auto",
   flexWrap: "wrap",
   gap: "10px",
