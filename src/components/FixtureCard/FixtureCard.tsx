@@ -70,7 +70,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
             <SerieLabel serie={"C"}>FINAL</SerieLabel>
             </TitleItem>
         )}
-          {group > 0 && serie && (
+          {group > 0 && (
             <TitleItem>
               <strong>
                 Fecha: {group}
@@ -78,12 +78,17 @@ const FixtureCard: React.FC<IFixtureCard> = ({
               {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
             </TitleItem>
           )}
+          {status==="played" &&
+            <DetailItem>
+            <strong>{date || "__/__/____"}</strong> 
+          </DetailItem>
+          }
           <DetailItem>
             <strong>Hora:</strong> {time || "__:__"} <strong>|</strong>{" "}
             {date || "__/__/____"}
           </DetailItem>
           <DetailItem>
-            <strong>Cancha:</strong> {location || "--"}
+            <strong>Cancha:</strong> {location || "___"}
           </DetailItem>
           <DetailItem>{renderStatusLabel()}</DetailItem>
         </DetailsColumn>

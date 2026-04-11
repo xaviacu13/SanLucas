@@ -12,7 +12,6 @@ export const FixtureContainer = styled("div")<RootProps>(({ category }) => ({
   padding: "0.5rem",
   border: "1px solid #ccc",
   borderRadius: "8px",
-  margin: "0.7rem 0",
   backgroundColor:
     category === "Juvenil"
       ? "#f1f9f5ff"
@@ -31,10 +30,10 @@ export const Root = styled("div")(() => ({
   padding: "0.5rem",
   border: "1px solid #ccc",
   borderRadius: "8px",
-  margin: "0.7rem 0",
+  width: "100%",
+  maxWidth: '1250px',
   backgroundColor: "#fff",
   "@media (max-width: 600px)": {
-    margin: "0.25rem 0",
   },
 }));
 

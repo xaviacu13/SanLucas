@@ -3,6 +3,7 @@ import {
   MessageNoTeams,
   Root,
   MessageContainer,
+  InfoContainer,
 } from "./styles";
 import {
   FixtureCard,
@@ -154,7 +155,7 @@ const Fixture: React.FC = () => {
       />
 
       <Title title={`Fixture ${selectedCategory}`} />
-
+      <InfoContainer>
       {selectedCategory === "Juvenil" && <SearchBox
         setStGame={setStGame}
         selectedCategory={selectedCategory}
@@ -196,6 +197,7 @@ const Fixture: React.FC = () => {
           </MessageNoTeams>
         </MessageContainer>
       )}
+      </InfoContainer>
     </Root>
   );
 };

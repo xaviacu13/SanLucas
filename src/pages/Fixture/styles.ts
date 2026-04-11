@@ -7,6 +7,21 @@ export const Title = styled('h1')(() => ({
 export const Root = styled('div')(() => ({
   gap:"30px",
 }));
+export const InfoContainer = styled('div')(({ theme }) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100%",
+  width: "100%",
+  gap: "8px",
+  padding: "10px",
+  [theme.breakpoints.down("sm")]: {
+    gap: "5px",
+    padding: "0 8px 8px",
+  },  
+}));
+
 export const MessageNoTeams = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "center",

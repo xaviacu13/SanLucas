@@ -12,6 +12,8 @@ const Footer: React.FC = () => {
   //     `/team-detail?id=${idTeam}&category=${encodeURIComponent("Juvenil")}`
   //   );
   // };
+
+const year = new Date().getFullYear();
  
   return (
     <Root>
@@ -29,7 +31,7 @@ const Footer: React.FC = () => {
         ))}
       </ImageContent> */}
       <RightsContainer>
-        <p>Xavi Innovation Technology © 2025. All rights reserved.</p>
+        <p>Xavi Innovation Technology © {year}. All rights reserved.</p>
         <p>Contact us at: 1130918821</p>
       </RightsContainer>
     </Root>

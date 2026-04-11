@@ -31,7 +31,7 @@ const Table: React.FC = () => {
 
   const [serie, setSerie] = useState<SerieType>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil"
+    categoryParam || "Juvenil",
   );
 
   const navigate = useNavigate();
@@ -64,7 +64,7 @@ const Table: React.FC = () => {
 
   const filterTableBySerie = (
     table: ITeamStanding[],
-    serie: SerieType
+    serie: SerieType,
   ): ITeamStanding[] => {
     if (!serie || serie === "all") return table;
 
@@ -88,14 +88,10 @@ const Table: React.FC = () => {
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
       />
-
       <Title title={`Tabla de posiciones: ${selectedCategory}`} />
-
-      <SearchSerie
-        serie={serie}
-        setSerie={setSerie}
-      />
-
+      {selectedCategory === "Juvenil" && (
+        <SearchSerie serie={serie} setSerie={setSerie} />
+      )}
       <StandingsTable standings={filteredTable} />
     </Root>
   );

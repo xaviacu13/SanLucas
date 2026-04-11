@@ -92,4 +92,34 @@ export const damas: ITeamCategoryItem[] = [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
     ],
   },
+      {
+    id: 10,
+    series: "",
+    name: "Huayllany",
+    url: "https://forms.gle/mR86DAwtSSQ3TBT47",
+    logo: getLogo("Huayllany"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+      {
+    id: 11,
+    series: "",
+    name: "Palacio",
+    url: "https://forms.gle/kuXGysPJVMphh9eD8",
+    logo: getLogo("Palacio"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+      {
+    id: 12,
+    series: "",
+    name: "Kumuni",
+    url: "https://forms.gle/zoSUGwagH68hq1kt8",
+    logo: getLogo("Kumuni"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
 ];
