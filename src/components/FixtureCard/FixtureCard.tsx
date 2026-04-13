@@ -70,7 +70,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
           )}
           {group > 0 && (
             <TitleItem>
-              <strong>Fecha: {group}</strong>
+              <strong>{status === "played" ? "F - ": "Fecha:"} {group}</strong>
               {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
             </TitleItem>
           )}
