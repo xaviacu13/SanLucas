@@ -62,31 +62,28 @@ const FixtureCard: React.FC<IFixtureCard> = ({
           <ScorerColumn align="left">{scorerTeam1}</ScorerColumn>
         )}
         <DetailsColumn>
-           { group=== 0 && (
-          <TitleItem>
-            <strong>
-              RE-COPA
-            </strong>
-            <SerieLabel serie={"C"}>FINAL</SerieLabel>
+          {group === 0 && (
+            <TitleItem>
+              <strong>RE-COPA</strong>
+              <SerieLabel serie={"C"}>FINAL</SerieLabel>
             </TitleItem>
-        )}
+          )}
           {group > 0 && (
             <TitleItem>
-              <strong>
-                Fecha: {group}
-              </strong>
+              <strong>Fecha: {group}</strong>
               {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
             </TitleItem>
           )}
-          {status==="played" &&
+          {status === "played" ? (
             <DetailItem>
-            <strong>{date || "__/__/____"}</strong> 
-          </DetailItem>
-          }
-          <DetailItem>
-            <strong>Hora:</strong> {time || "__:__"} <strong>|</strong>{" "}
-            {date || "__/__/____"}
-          </DetailItem>
+              <strong>{date || "__/__/____"}</strong>
+            </DetailItem>
+          ) : (
+            <DetailItem>
+              <strong>Hora:</strong> {time || "__:__"} <strong>|</strong>{" "}
+              {date || "__/__/____"}
+            </DetailItem>
+          )}
           <DetailItem>
             <strong>Cancha:</strong> {location || "___"}
           </DetailItem>

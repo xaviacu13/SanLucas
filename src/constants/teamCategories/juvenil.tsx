@@ -182,7 +182,7 @@ export const juvenil: ITeamCategoryItem[] = [
     url: "https://forms.gle/eTU6yXKJ7Le9RNQ8A",
     logo: getLogo("Murifaya"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Mario Gonzales Santos", contact: "", category: "Juvenil" },
     ],
   },
    {

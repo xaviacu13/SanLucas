@@ -69,7 +69,7 @@ const PlayerForm: React.FC = () => {
     if (!form.name) newErrors.name = "Nombre requerido";
     if (!form.full_name) newErrors.full_name = "Nombre completo requerido";
     if (!form.dni) newErrors.dni = "DNI requerido";
-    if (!form.number) newErrors.number = "Número requerido";
+    // if (!form.number) newErrors.number = "Número requerido";
     if (!form.position) newErrors.position = "Posición requerida";
     if (!form.birthdate) newErrors.birthdate = "Fecha requerida";
     if (!form.team) newErrors.team = "Equipo requerido";
@@ -261,7 +261,11 @@ const PlayerForm: React.FC = () => {
             }}
           >
             <MenuItem value="">Seleccionar</MenuItem>
-            <MenuItem value="Japo">Japo</MenuItem>
+             <MenuItem value="San Jose T.">San Jose T.</MenuItem>
+             <MenuItem value="Cinteño">Cinteño</MenuItem>
+             <MenuItem value="Chillagua">Chillagua</MenuItem>
+            <MenuItem value="Puca Loma">Puca Loma</MenuItem>
+            <MenuItem value="Laja Kasa">Laja Kasa</MenuItem>
             <MenuItem value="Puca Loma">Puca Loma</MenuItem>
             <MenuItem value='Rodeo "A"'>Rodeo "A"</MenuItem>
             <MenuItem value='Rodeo "B"'>Rodeo "B"</MenuItem>
