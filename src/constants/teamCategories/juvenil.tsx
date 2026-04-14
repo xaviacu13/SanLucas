@@ -215,8 +215,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 21,
     series: "A",
     name: "Saka Pampa",
-    url: "",
-    // url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
+    //url: "",
+    url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
     logo: getLogo("Saka Pampa"),
     delegates: [
        { id: 1, name: "Fermin Colque", contact: "", category: "Juvenil" },
