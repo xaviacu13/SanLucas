@@ -92,17 +92,20 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 9,
     series: "A",
     name: "Tambo Kasa",
-    url: "https://forms.gle/ejmYwJseCk5S9SaK8",
+    url: "",
+   // url: "https://forms.gle/ejmYwJseCk5S9SaK8",
     logo: getLogo("Tambo Kasa"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+     { id: 1, name: "Fidel Quispe", contact: "", category: "Juvenil" },
+     { id: 2, name: "Rene Janko", contact: "", category: "Juvenil" },
     ],
   },
   {
     id: 10,
     series: "A",
     name: 'Rodeo "A"',
-    url: "https://forms.gle/g5pETa7hFviWtJpe7",
+    url: "",
+    //url: "https://forms.gle/g5pETa7hFviWtJpe7",
     logo: getLogo('Rodeo "A"'),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },

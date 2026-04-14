@@ -261,7 +261,7 @@ const PlayerForm: React.FC = () => {
             }}
           >
             <MenuItem value="">Seleccionar</MenuItem>
-             <MenuItem value="Tambo Kasa">Tambo Kasa</MenuItem>
+             <MenuItem value="Quirpini">Quirpini</MenuItem>
              <MenuItem value="Sabala Jr.">Sabala Jr.</MenuItem>
              <MenuItem value="Cinteño">Cinteño</MenuItem>
              <MenuItem value="Chillagua">Chillagua</MenuItem>
