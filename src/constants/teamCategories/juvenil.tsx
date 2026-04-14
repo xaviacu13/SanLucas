@@ -6,7 +6,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 1,
     series: "A",
     name: "Kumuni",
-    url: "https://forms.gle/zoSUGwagH68hq1kt8",
+    url: "",
+    // url: "https://forms.gle/zoSUGwagH68hq1kt8",
     logo: getLogo("Kumuni"),
     delegates: [
       { id: 1, name: "Modesto Huallpa", contact: "", category: "Juvenil" },
@@ -47,7 +48,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 5,
     series: "A",
     name: "Avichuca",
-    url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
+    url: "",
+    // url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
     logo: getLogo("Avichuca"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
@@ -130,7 +132,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 13,
     series: "A",
     name: "Puca Loma",
-    url: "https://forms.gle/tw7nRre5rnCPey378",
+    url: "",
+    // url: "https://forms.gle/tw7nRre5rnCPey378",
     logo: getLogo("Puca Loma"),
     delegates: [
       { id: 1, name: "Oscar Diaz Moscoso", contact: "", category: "Juvenil" },

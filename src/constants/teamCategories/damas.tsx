@@ -9,7 +9,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
     logo: getLogo("Avichuca"),
     delegates: [
-      // { id: 1, name: "Marizol Moscoso", contact: "", category: "Damas" },
+      { id: 1, name: "Zaida Colque Gomez", contact: "", category: "Damas" },
     ],
   },
   {
