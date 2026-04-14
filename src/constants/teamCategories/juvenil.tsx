@@ -61,7 +61,8 @@ export const juvenil: ITeamCategoryItem[] = [
     // url: "https://forms.gle/kuXGysPJVMphh9eD8",
     logo: getLogo("Palacio"),
     delegates: [
-      { id: 1, name: "Juan Santos", contact: "", category: "Juvenil" },
+      { id: 1, name: "Dionatan Villca Condori ", contact: "", category: "Juvenil" },
+      { id: 2, name: "Elzon Rivera Cruz", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -211,10 +212,12 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 21,
     series: "A",
     name: "Saka Pampa",
-    url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
+    url: "",
+    // url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
     logo: getLogo("Saka Pampa"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+       { id: 1, name: "Fermin Colque", contact: "", category: "Juvenil" },
+       { id: 2, name: "Juan Colque", contact: "", category: "Juvenil" },
     ],
   },
      {
