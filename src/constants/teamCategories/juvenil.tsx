@@ -154,7 +154,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 14,
     series: "A",
     name: 'Rodeo "B"',
-    url: "https://forms.gle/g5pETa7hFviWtJpe7",
+    url: "",
+    //url: "https://forms.gle/g5pETa7hFviWtJpe7",
     logo: getLogo('Rodeo "B"'),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
