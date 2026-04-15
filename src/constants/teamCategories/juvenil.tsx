@@ -122,8 +122,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 11,
     series: "B",
     name: "Andamarca",
-    url: "",
-    //url: "https://forms.gle/NTignF759P7pm9wA7",
+    //url: "",
+    url: "https://forms.gle/NTignF759P7pm9wA7",
     logo: getLogo("Andamarca"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
