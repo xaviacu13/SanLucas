@@ -41,7 +41,6 @@ export const PlayerPhoto = styled("img")(() => ({
   borderRadius: "10%",
   objectFit: "cover",
   // border: "2px solid #fff",
-  margin: "5px 0",
 }));
 
 export const PlayerName = styled("h2")(() => ({
@@ -136,10 +135,17 @@ export const ChampionshipLogo = styled("img")(() => ({
   width: "120px",
 }));
 
-export const PhotoWrapper = styled("div")(() => ({
+export const PhotoWrapper = styled("div")<{ bg: string }>(({ bg }) => ({
   position: "relative",
   display: "inline-block",
+  backgroundImage: `url(${bg})`,
+  backgroundSize: "cover",
+  width:"100%",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  backgroundBlendMode: "lighten",
 }));
+
 export const PlayerInfo = styled("div")(() => ({
   display: "flex",
   justifyContent: "space-between",

@@ -5,6 +5,7 @@ import { getLogo } from "../../tools/tools";
 import logo from "../../assets/images/icons/logo1.png";
 import watermarker from "../../assets/images/logos/logo2.png";
 import signature from "../../assets/images/logos/signature.png";
+import flag from "../../assets/images/logos/flag.png";
 import * as htmlToImage from "html-to-image";
 import {
   GridContainer,
@@ -65,64 +66,73 @@ const Credenciales: React.FC = () => {
                       </div>
                     </HederCredential>
                     <BodyCredential>
-                    <Watermark src={watermarker} alt="watermark" />
+                      <Watermark src={watermarker} alt="watermark" />
 
-                    <TeamName>
-                      {team.name} - {subTeam.category}
-                    </TeamName>
+                      <TeamName>
+                        {team.name} - {subTeam.category}
+                      </TeamName>
 
-                    <PhotoWrapper>
-                      <PlayerPhoto
-                        src={player.image}
-                        alt={player.name}
-                      />
-                      <DNI>{player.DNI?.toString().slice(-5)}</DNI>
-                    </PhotoWrapper>
-                    <PlayerInfo>
-                      <div
-                        style={{
-                          justifyContent: "center",
-                          alignItems: "center",
-                          width: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                        }}
-                      >
+                      <PhotoWrapper bg={flag}>
+                        <PlayerPhoto src={player.image} alt={player.name} />
+                        <DNI>{player.DNI?.toString().slice(-5)}</DNI>
+                      </PhotoWrapper>
+                      <PlayerInfo>
                         <div
                           style={{
-                            display: "flex",
                             justifyContent: "center",
                             alignItems: "center",
-                            gap: "8px",
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "column",
                           }}
                         >
-                          <PlayerName>{player.name}</PlayerName>
-                          <PlayerNumber>{player.number}</PlayerNumber>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                              gap: "8px",
+                            }}
+                          >
+                            <PlayerName>{player.name}</PlayerName>
+                            <PlayerNumber>{player.number}</PlayerNumber>
+                          </div>
+                          <PlayerFullName>{player.fullName}</PlayerFullName>
+
+                          <PlayerPosition>{player.position}</PlayerPosition>
                         </div>
-                        <PlayerFullName>{player.fullName}</PlayerFullName>
+                        <div>
+                          <TeamLogo src={getLogo(team.name)} alt={team.name} />
+                        </div>
+                      </PlayerInfo>
 
-                        <PlayerPosition>{player.position}</PlayerPosition>
-                      </div>
-                      <div>
-                        <TeamLogo src={getLogo(team.name)} alt={team.name} />
-                      </div>
-                    </PlayerInfo>
-
-                    <QRWrapper>
-                      <QRCodeCanvas
-                        value={playerUrl}
-                        size={90}
-                        bgColor="#fff"
-                      />
-                      <div style={{ gap: "4px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                        <img src={signature} alt="signature" style={{ width: "100px"}} />
-                        <p style={{ fontSize: "10px", margin: "0" }}>
-                          STRIO. DE TEGNOLOGIA<br/>
-                          Beto Alvarado
-                        </p>
-                      </div>
-                      {/* <TeamLogo src={getLogo(team.name)} alt={team.name} /> */}
-                    </QRWrapper>
+                      <QRWrapper>
+                        <QRCodeCanvas
+                          value={playerUrl}
+                          size={90}
+                          bgColor="#fff"
+                        />
+                        <div
+                          style={{
+                            gap: "4px",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                          }}
+                        >
+                          <img
+                            src={signature}
+                            alt="signature"
+                            style={{ width: "80px" }}
+                          />
+                          <p style={{ fontSize: "10px", margin: "0" }}>
+                            STRIO. DE TEGNOLOGIA
+                            <br />
+                            Beto Alvarado
+                          </p>
+                        </div>
+                        {/* <TeamLogo src={getLogo(team.name)} alt={team.name} /> */}
+                      </QRWrapper>
                     </BodyCredential>
                   </CardContent>
                 </Card>

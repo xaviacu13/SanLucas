@@ -122,8 +122,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 11,
     series: "B",
     name: "Andamarca",
-    //url: "",
-    url: "https://forms.gle/NTignF759P7pm9wA7",
+    url: "",
+    //url: "https://forms.gle/NTignF759P7pm9wA7",
     logo: getLogo("Andamarca"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
@@ -133,8 +133,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 12,
     series: "B",
     name: "Churqui Pampa",
-    // url: "",
-    url: "https://forms.gle/Jzr9ZWMbv1k2k9o96",
+    url: "",
+    //url: "https://forms.gle/Jzr9ZWMbv1k2k9o96",
     logo: getLogo("Churqui Pampa"),
     delegates: [
       { id: 1, name: "Leo Cruz", contact: "", category: "Juvenil" },
