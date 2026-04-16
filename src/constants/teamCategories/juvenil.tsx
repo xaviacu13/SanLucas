@@ -29,10 +29,11 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 3,
     series: "B",
     name: "Malliri",
-    url: "https://forms.gle/CV7qX2HyFeRqjEkk6",
+    url: "",
+    // url: "https://forms.gle/CV7qX2HyFeRqjEkk6",
     logo: getLogo("Malliri"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Walter", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -115,7 +116,7 @@ export const juvenil: ITeamCategoryItem[] = [
     //url: "https://forms.gle/g5pETa7hFviWtJpe7",
     logo: getLogo('Rodeo "A"'),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+       { id: 1, name: "Wilfredo Estrada Condori", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -160,14 +161,15 @@ export const juvenil: ITeamCategoryItem[] = [
     //url: "https://forms.gle/g5pETa7hFviWtJpe7",
     logo: getLogo('Rodeo "B"'),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Vicmar Mamani", contact: "", category: "Juvenil" },
     ],
   },
   {
     id: 15,
     series: "B",
     name: "Churisaya",
-    url: "https://forms.gle/Rk77ZJiaETRuNDAT6",
+    //url: "https://forms.gle/Rk77ZJiaETRuNDAT6",
+    url: "",
     logo: getLogo("Churisaya"),
     delegates: [
       { id: 1, name: "Tomas Mamani", contact: "", category: "Juvenil" },
@@ -177,7 +179,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 16,
     series: "B",
     name: "Sivinga Mayu",
-    url: "https://forms.gle/dZHmKKGcUF8rcXtm6",
+    url: "",
+    //url: "https://forms.gle/dZHmKKGcUF8rcXtm6",
     logo: getLogo("Sivinga Mayu"),
     delegates: [
       {
@@ -198,7 +201,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 17,
     series: "A",
     name: "San Jose T.",
-    url: "https://forms.gle/67RnQV2cxQymA5h3A",
+    //url: "https://forms.gle/67RnQV2cxQymA5h3A",
+    url: "",
     logo: getLogo("San Jose T."),
     delegates: [
       { id: 1, name: "Ismael Apaza", contact: "", category: "Juvenil" },
@@ -208,7 +212,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 18,
     series: "A",
     name: "Murifaya",
-    url: "https://forms.gle/eTU6yXKJ7Le9RNQ8A",
+    url: "",
+    //url: "https://forms.gle/eTU6yXKJ7Le9RNQ8A",
     logo: getLogo("Murifaya"),
     delegates: [
       {
@@ -223,7 +228,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 19,
     series: "B",
     name: "Sabala Jr.",
-    url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
+    //url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
+    url: "",
     logo: getLogo("Sabala Jr."),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
@@ -233,10 +239,11 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 20,
     series: "B",
     name: "Phullaya",
-    url: "https://forms.gle/gi2xaYg2g3vBYpBP7",
+    url: "",
+    // url: "https://forms.gle/gi2xaYg2g3vBYpBP7",
     logo: getLogo("Phullaya"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Teofilo Chavarria", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -255,7 +262,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 22,
     series: "A",
     name: "Orkoyo",
-    url: "https://forms.gle/p1q64Hyuv6WHR9WY8",
+    // url: "https://forms.gle/p1q64Hyuv6WHR9WY8",
+    url: "",
     logo: getLogo("Orkoyo"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
@@ -265,7 +273,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 23,
     series: "B",
     name: "Huayllani Grande",
-    url: "https://forms.gle/8DBtQNkFQ5rbQFKT7",
+    url: "",
+    //https://forms.gle/8DBtQNkFQ5rbQFKT7",
     logo: getLogo("Huayllani Grande"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
@@ -275,7 +284,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 24,
     series: "B",
     name: "Monte Pampa",
-    url: "https://forms.gle/GEUtsAV1BZiHAjax5",
+    url: "",
+    // url: "https://forms.gle/GEUtsAV1BZiHAjax5",
     logo: getLogo("Monte Pampa"),
     delegates: [
       { id: 1, name: "Ariel Alvarado", contact: "", category: "Juvenil" },
@@ -286,10 +296,11 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 25,
     series: "A",
     name: "Cinteño",
-    url: "https://forms.gle/k3bYzDJ2kmbgs63YA",
+    //url: "https://forms.gle/k3bYzDJ2kmbgs63YA",
+    url: "",
     logo: getLogo("Cinteño"),
     delegates: [
-      // { id: 1, name: "", contact: "", category: "Juvenil" },
+      { id: 1, name: "Willy Puma", contact: "", category: "Juvenil" },
     ],
   },
   {
@@ -307,7 +318,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 27,
     series: "B",
     name: "Chillagua",
-    url: "https://forms.gle/apirFgSQM6UBt8Z19",
+    url: "",
+    // url: "https://forms.gle/apirFgSQM6UBt8Z19",
     logo: getLogo("Chillagua"),
     delegates: [
       { id: 1, name: "Jhoni Flores", contact: "", category: "Juvenil" },
@@ -317,7 +329,8 @@ export const juvenil: ITeamCategoryItem[] = [
     id: 28,
     series: "B",
     name: "Laja Kasa",
-    url: "https://forms.gle/Hom2W1MDqhbW4yPp8",
+    //url: "https://forms.gle/Hom2W1MDqhbW4yPp8",
+    url: "",
     logo: getLogo("Laja Kasa"),
     delegates: [
       // { id: 1, name: "", contact: "", category: "Juvenil" },
