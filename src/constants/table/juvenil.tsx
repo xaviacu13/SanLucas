@@ -94,7 +94,7 @@ export const juvenil: ITeamStanding[] = [
   },
   {
     id: 8,
-    team: "Huayllany",
+    team: "Huayllani",
     serie: "B",
     matchesPlayed: 0,
     wins: 0,
