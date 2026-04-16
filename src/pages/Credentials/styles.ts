@@ -10,7 +10,7 @@ export const GridContainer = styled("div")(() => ({
 export const Card = styled("div")(({ theme }) => ({
   borderRadius: "15px",
   overflow: "hidden",
-  width: "280px",
+  width: "270px",
   background: "linear-gradient(135deg, #f5fafaff 0%, #43ccd3 100%)",
   textAlign: "center",
   boxShadow: theme.shadows[6],
@@ -23,9 +23,11 @@ export const CardContent = styled("div")(() => ({
 }));
 
 export const TeamLogo = styled("img")(() => ({
-  width: "85px",
+  width: "80px",
+  height: "80px",           // 👈 tamaño fijo
+  objectFit: "contain",     // 👈 mantiene proporción sin deformar
   marginBottom: "5px",
-  borderRadius: "40%",
+  borderRadius: "10%",
 }));
 
 export const TeamName = styled("h3")(() => ({
@@ -40,12 +42,12 @@ export const PlayerPhoto = styled("img")(() => ({
   height: "150px",
   borderRadius: "10%",
   objectFit: "cover",
-  // border: "2px solid #fff",
+  border: "2.5px solid #fff",
 }));
 
 export const PlayerName = styled("h2")(() => ({
   fontWeight: "bold",
-  fontSize: "20px",
+  fontSize: "15px",
   margin: "2px 0",
   textTransform: "uppercase",
 }));
@@ -70,10 +72,17 @@ export const PlayerFullName = styled("h2")(() => ({
   overflow: "hidden",
 }));
 
-export const PlayerNumber = styled("h1")(() => ({
-  fontSize: "24px",
+export const PlayerNumber = styled("h1")<{
+  role?: "delegado" | "dt";
+}>(({ role }) => ({
+  fontSize: "20px",
   background: "rgb(244, 238, 210)",
-  color: "#000",
+  color:
+    role === "delegado"
+      ? "red"
+      : role === "dt"
+      ? "green"
+      : "#000",
   display: "inline-block",
   padding: "0 8px",
   borderRadius: "6px",

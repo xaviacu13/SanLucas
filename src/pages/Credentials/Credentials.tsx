@@ -1,15 +1,18 @@
-import React from "react";
-import { teams as equipos } from "../../constants/teams/teams";
+import React, { useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import { getLogo } from "../../tools/tools";
 import logo from "../../assets/images/icons/logo1.png";
 import watermarker from "../../assets/images/logos/logo2.png";
 import signature from "../../assets/images/logos/signature.png";
 import flag from "../../assets/images/logos/flag.png";
+import { useTeamsWithPlayers } from "../../hooks/useTeamsWithPlayers";
+import { categories } from "../../constants/categories";
+import { Select, MenuItem } from "@mui/material";
 import * as htmlToImage from "html-to-image";
 
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import type { IPlayer } from "../../types/types";
 
 import {
   GridContainer,
@@ -35,6 +38,9 @@ import {
 } from "./styles";
 
 const Credenciales: React.FC = () => {
+  const { teams: equipos, loading } = useTeamsWithPlayers();
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+
   // 📸 descargar una sola credencial
   const downloadCredencial = (id: string) => {
     const node = document.getElementById(id);
@@ -48,158 +54,205 @@ const Credenciales: React.FC = () => {
     }
   };
 
-  // 📄 descargar TODO en PDF (A4 con 9 por hoja)
+  // 📄 PDF por lotes (100 en 100)
   const downloadPDF = async () => {
-  const pdf = new jsPDF("p", "mm", "a4");
+    const allCards = Array.from(
+      document.querySelectorAll("[id^='credencial-img-']")
+    );
 
-  const cards = document.querySelectorAll("[id^='credencial-img-']");
+    const BATCH_SIZE = 99;
 
-  const cardsPerRow = 3;
-  const cardsPerColumn = 3;
-  const cardsPerPage = cardsPerRow * cardsPerColumn;
+    const cardsPerRow = 3;
+    const cardsPerColumn = 3;
+    const cardsPerPage = cardsPerRow * cardsPerColumn;
 
-  const cardWidth = 60;
-  const cardHeight = 92;
+    const cardWidth = 56;
+    const cardHeight = 94;
 
-  const pageWidth = 210; // A4 mm
+    const pageWidth = 210;
+    const marginX = (pageWidth - cardsPerRow * cardWidth) / 2;
+    const marginY = 10;
 
-  const marginX = (pageWidth - cardsPerRow * cardWidth) / 2;
-  const marginY = 10;
+    for (let start = 0; start < allCards.length; start += BATCH_SIZE) {
+      const batch = allCards.slice(start, start + BATCH_SIZE);
 
-  for (let i = 0; i < cards.length; i++) {
-    const element = cards[i] as HTMLElement;
+      const pdf = new jsPDF("p", "mm", "a4");
 
-    const canvas = await html2canvas(element, {
-      scale: 2,
-    });
+      for (let i = 0; i < batch.length; i++) {
+        const element = batch[i] as HTMLElement;
 
-    const imgData = canvas.toDataURL("image/png");
+        const canvas = await html2canvas(element, {
+          scale: 1.5,
+          useCORS: true,       // ✅ FIX imágenes
+          allowTaint: true,
+        });
 
-    // 👉 calcular fila y columna
-    const indexOnPage = i % cardsPerPage;
-    const col = indexOnPage % cardsPerRow;
-    const row = Math.floor(indexOnPage / cardsPerRow);
+        const imgData = canvas.toDataURL("image/png", 0.1);
 
-    const x = marginX + col * cardWidth;
-    const y = marginY + row * cardHeight;
+        // 👉 posición
+        const indexOnPage = i % cardsPerPage;
+        const col = indexOnPage % cardsPerRow;
+        const row = Math.floor(indexOnPage / cardsPerRow);
 
-    pdf.addImage(imgData, "PNG", x, y, cardWidth, cardHeight);
+        const x = marginX + col * cardWidth;
+        const y = marginY + row * cardHeight;
 
-    // 👉 nueva página
-    if ((i + 1) % cardsPerPage === 0 && i !== cards.length - 1) {
-      pdf.addPage();
+        pdf.addImage(imgData, "JPEG", x, y, cardWidth, cardHeight);
+
+        // 👉 nueva página
+        if ((i + 1) % cardsPerPage === 0 && i !== batch.length - 1) {
+          pdf.addPage();
+        }
+
+        // 🧹 liberar memoria
+        canvas.width = 0;
+        canvas.height = 0;
+      }
+
+      pdf.save(`credenciales_${start}-${start + batch.length}.pdf`);
     }
-  }
+  };
 
-  pdf.save("credenciales.pdf");
-};
+  const getRole = (position: string) => {
+    if (position === "Delegado") return "delegado";
+    if (position === "DT") return "dt";
+    return undefined;
+  };
+
+  const getLabel = (player: IPlayer) => {
+    if (player.position === "Delegado") return "DL";
+    if (player.position === "DT") return "DT";
+    return player.number;
+  };
+
+  if (loading) return <div>Cargando credenciales...</div>;
 
   return (
     <>
-      {/* 🔥 BOTÓN PDF GLOBAL */}
+      {/* 🔥 CONTROLES */}
       <div style={{ textAlign: "center", margin: "20px" }}>
+        <Select
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+          size="small"
+          style={{ marginRight: "10px", minWidth: "200px" }}
+        >
+          <MenuItem value="all">Todas las categorías</MenuItem>
+          {categories.map((cat) => (
+            <MenuItem key={cat} value={cat}>
+              {cat}
+            </MenuItem>
+          ))}
+        </Select>
+
         <DownloadButton onClick={downloadPDF}>
-          Descargar TODO en PDF
+          Descargar PDF
         </DownloadButton>
       </div>
 
+      {/* 📋 CARDS */}
       <GridContainer>
         {equipos.map((team) =>
-          team.teams.map((subTeam) =>
-            subTeam.players.map((player) => {
-              const exportId = `credencial-img-${team.id}-${subTeam.id}-${player.id}`;
+          team.teams
+            .filter((subTeam) =>
+              selectedCategory === "all"
+                ? true
+                : subTeam.category === selectedCategory
+            )
+            .map((subTeam) =>
+              subTeam.players.map((player) => {
+                const exportId = `credencial-img-${team.id}-${subTeam.id}-${player.id}`;
 
-              const playerUrl = `https://san-lucas.netlify.app/player-detail?idPlayer=${player.id}&idTeam=${team.id}&category=${subTeam.category}`;
+                const playerUrl = `https://san-lucas.vercel.app/player-detail?idPlayer=${player.id}&idTeam=${team.id}&category=${subTeam.category}`;
 
-              return (
-                <div key={exportId} style={{ textAlign: "center" }}>
-                  <Card id={exportId}>
-                    <CardContent>
-                      <HederCredential>
-                        <ChampionshipLogo src={logo} alt="Logo" />
-                        <div>
+                return (
+                  <div key={exportId} style={{ textAlign: "center" }}>
+                    <Card id={exportId}>
+                      <CardContent>
+                        <HederCredential>
+                          <ChampionshipLogo src={logo} />
                           <CardTitle>SAN LUCA 2026</CardTitle>
-                        </div>
-                      </HederCredential>
+                        </HederCredential>
 
-                      <BodyCredential>
-                        <Watermark src={watermarker} alt="watermark" />
+                        <BodyCredential>
+                          <Watermark src={watermarker} />
 
-                        <TeamName>
-                          {team.name} - {subTeam.category}
-                        </TeamName>
+                          <TeamName>
+                            {team.name} - {subTeam.category}
+                          </TeamName>
 
-                        {/* 👇 bandera de fondo */}
-                        <PhotoWrapper bg={flag}>
-                          <PlayerPhoto src={player.image} alt={player.name} />
-                          <DNI>{player.DNI?.toString().slice(-5)}</DNI>
-                        </PhotoWrapper>
+                          <PhotoWrapper bg={flag}>
+                            <PlayerPhoto src={player.image} />
+                            <DNI>{player.DNI?.toString().slice(-5)}</DNI>
+                          </PhotoWrapper>
 
-                        <PlayerInfo>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "center",
-                              width: "100%",
-                            }}
-                          >
+                          <PlayerInfo>
                             <div
                               style={{
                                 display: "flex",
-                                gap: "8px",
+                                flexDirection: "column",
+                                alignItems: "center",
+                                width: "100%",
                               }}
                             >
-                              <PlayerName>{player.name}</PlayerName>
-                              <PlayerNumber>{player.number}</PlayerNumber>
+                              <div
+                                style={{
+                                  display: "flex",
+                                  gap: "8px",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <PlayerName>{player.name}</PlayerName>
+
+                                <PlayerNumber role={getRole(player.position)}>
+                                  {getLabel(player)}
+                                </PlayerNumber>
+                              </div>
+
+                              <PlayerFullName>
+                                {player.fullName}
+                              </PlayerFullName>
+
+                              <PlayerPosition>
+                                {player.position}
+                              </PlayerPosition>
                             </div>
 
-                            <PlayerFullName>{player.fullName}</PlayerFullName>
+                            <TeamLogo src={getLogo(team.name)} />
+                          </PlayerInfo>
 
-                            <PlayerPosition>{player.position}</PlayerPosition>
-                          </div>
+                          <QRWrapper>
+                            <QRCodeCanvas value={playerUrl} size={90} />
 
-                          <TeamLogo src={getLogo(team.name)} alt={team.name} />
-                        </PlayerInfo>
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                alignItems: "center",
+                              }}
+                            >
+                              <img src={signature} style={{ width: "80px" }} />
 
-                        <QRWrapper>
-                          <QRCodeCanvas
-                            value={playerUrl}
-                            size={90}
-                            bgColor="#fff"
-                          />
+                              <p style={{ fontSize: "10px", margin: 0 }}>
+                                <strong>STRIO. DE TEGNOLOGIA</strong>
+                                <br />
+                                Beto Alvarado
+                              </p>
+                            </div>
+                          </QRWrapper>
+                        </BodyCredential>
+                      </CardContent>
+                    </Card>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "column",
-                              alignItems: "center",
-                            }}
-                          >
-                            <img
-                              src={signature}
-                              alt="signature"
-                              style={{ width: "80px" }}
-                            />
-                            <p style={{ fontSize: "10px", margin: 0, gap: 0, color: "darkslategray"}}>
-                              <strong>STRIO. DE TEGNOLOGIA</strong>
-                              <br />
-                              Beto Alvarado
-                            </p>
-                          </div>
-                        </QRWrapper>
-                      </BodyCredential>
-                    </CardContent>
-                  </Card>
-
-                  {/* 👇 descarga individual */}
-                  <DownloadButton onClick={() => downloadCredencial(exportId)}>
-                    Descargar
-                  </DownloadButton>
-                </div>
-              );
-            }),
-          ),
+                    <DownloadButton
+                      onClick={() => downloadCredencial(exportId)}
+                    >
+                      Descargar
+                    </DownloadButton>
+                  </div>
+                );
+              })
+            )
         )}
       </GridContainer>
     </>
