@@ -10,7 +10,7 @@ export const GridContainer = styled("div")(() => ({
 export const Card = styled("div")(({ theme }) => ({
   borderRadius: "15px",
   overflow: "hidden",
-  width: "270px",
+  width: "280px",
   background: "linear-gradient(135deg, #f5fafaff 0%, #43ccd3 100%)",
   textAlign: "center",
   boxShadow: theme.shadows[6],

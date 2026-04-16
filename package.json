@@ -16,6 +16,8 @@
     "@mui/material": "^7.3.9",
     "@supabase/supabase-js": "^2.101.0",
     "html-to-image": "^1.11.13",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.1",
     "pdfjs-dist": "^5.4.296",
     "qrcode.react": "^4.2.0",
     "react": "^19.2.0",
