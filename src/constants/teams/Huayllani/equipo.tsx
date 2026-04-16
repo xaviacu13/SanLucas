@@ -1,12 +1,12 @@
 import { getLogo } from "../../../tools/tools";
 import type { ITeam } from "../../../types/types";
 //import { getProfile } from "./images/tools";
-export const huayllany: ITeam[] = [
+export const huayllani: ITeam[] = [
   {
     id: 8,
     grupo: "A",
-    name: "Huayllany",
-    logo: getLogo("Huayllany"),
+    name: "Huayllani",
+    logo: getLogo("Huayllani"),
     color: "rgb(248, 233, 23)",
     teams: [
       {

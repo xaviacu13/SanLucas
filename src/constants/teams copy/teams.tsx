@@ -10,7 +10,7 @@ import { japo } from "../teams/Japo/equipo";
 import { avichuca } from "../teams/Avichuca/equipo";
 import { palacio } from "../teams/Palacio/equipo";
 import { condoriri } from "../teams/Condoriri/equipo";
-import { huayllani } from "../teams/Huayllani/equipo";
+import { huayllany } from "../teams/Huayllani/equipo";
 import { tamboKasa } from "../teams/TamboKasa/equipo";
 import { rodeo } from "../teams/Rodeo/equipo";
 import { rodeoB } from "../teams/RodeoB/equipo";
@@ -26,8 +26,7 @@ import { sakaPampa } from "../teams/SakaPampa/equipo";
 import { orcoyo } from "../teams/Orcoyo/equipo";
 import { huayllaniGrande } from "../teams/HuayllaniGrande/equipo";
 import { sabalaJr } from "../teams/Sabala/equipo";  
-import { chillagua } from "../teams/Chillagua/equipo";
-import { cruzMayu } from "../teams/CruzMayu/equipo";
+import {chillagua} from "../teams/Chillagua/equipo";
 
 export const teams = [
   tiraHoyo,
@@ -42,7 +41,7 @@ export const teams = [
   avichuca,
   palacio,
   condoriri,
-  huayllani,
+  huayllany,
   tamboKasa,
   rodeo,
   rodeoB,
@@ -58,6 +57,5 @@ export const teams = [
   corma,
   lajaKasa,
   cinteno,
-  chillagua,
-  cruzMayu,
+  chillagua
 ].flat();

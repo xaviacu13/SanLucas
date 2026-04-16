@@ -55,7 +55,7 @@ export const getLogo = (name: string) => {
       return palacio;
     case "Condoriri":
       return condoriri;
-    case "Huayllany":
+    case "Huayllani":
       return huayllani;
     case "Tambo Kasa":
       return tambokasa;

@@ -392,7 +392,7 @@ const PlayerForm: React.FC = () => {
               label="Equipo"
               onChange={(e) => setFilterTeam(e.target.value)}
             >
-              <MenuItem value="">Todos</MenuItem>
+              <MenuItem value="">Todos</MenuItem>   
               {teams.map((t) => (
                 <MenuItem key={t.id} value={t.name}>
                   {t.name}
