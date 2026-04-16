@@ -122,4 +122,64 @@ export const damas: ITeamCategoryItem[] = [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
     ],
   },
+        {
+    id: 13,
+    series: "",
+    name: "Tuntoco",
+    url: "",
+    logo: getLogo("Tuntoco"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+        {
+    id: 14,
+    series: "",
+    name: "Punquina",
+    url: "https://forms.gle/8gncaLo682biWj1q9",
+    logo: getLogo("Punquina"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+        {
+    id: 15,
+    series: "",
+    name: "Malliri",
+    url: "https://forms.gle/CV7qX2HyFeRqjEkk6",
+    logo: getLogo("Malliri"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+        {
+    id: 16,
+    series: "",
+    name: "Tambo Kasa",
+    url: "https://forms.gle/ejmYwJseCk5S9SaK8",
+    logo: getLogo("Tambo Kasa"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+        {
+    id: 17,
+    series: "",
+    name: "Rodeo",
+    url: "https://forms.gle/g5pETa7hFviWtJpe7",
+    logo: getLogo("Rodeo"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
+        {
+    id: 18,
+    series: "",
+    name: "Ocuri",
+    url: "",
+    logo: getLogo("Ocuri"),
+    delegates: [
+      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+    ],
+  },
 ];
