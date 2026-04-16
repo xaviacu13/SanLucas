@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   TextField,
@@ -10,13 +10,23 @@ import {
   InputLabel,
   FormControl,
   Rating,
+  Card,
+  CardContent,
+  IconButton,
 } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import toast from "react-hot-toast";
 
 import {
   uploadPlayerImage,
   createPlayer,
+  getPlayers,
+  deletePlayer,
+  updatePlayer,
 } from "../../services/players.service";
+
+import { teams } from "../../constants/teams/teams";
 import type { IPlayerDB } from "../../types/types";
 
 type PlayerFormType = Omit<IPlayerDB, "id" | "created_at">;
@@ -40,146 +50,220 @@ const initialState: PlayerFormType = {
 const PlayerForm: React.FC = () => {
   const [form, setForm] = useState<PlayerFormType>(initialState);
   const [file, setFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string>("");
+  const [preview, setPreview] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [editingPlayer, setEditingPlayer] = useState<IPlayerDB | null>(null);
 
-  // 📸 Imagen + preview
+  const [players, setPlayers] = useState<IPlayerDB[]>([]);
+  const [searchId, setSearchId] = useState("");
+  const [filterTeam, setFilterTeam] = useState("");
+
+  // ================= FETCH =================
+  const fetchPlayers = async () => {
+    const data = await getPlayers();
+    setPlayers(data);
+  };
+
+  useEffect(() => {
+    const loadPlayers = async () => {
+      const data = await getPlayers();
+      setPlayers(data);
+    };
+
+    loadPlayers();
+  }, []);
+
+  // ================= HANDLE CHANGE =================
+  const handleChange = (field: keyof PlayerFormType, value: string | number) => {
+    setForm((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+
+    setErrors((prev) => ({
+      ...prev,
+      [field]: "",
+    }));
+  };
+
+  // ================= IMAGE =================
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const selectedFile = e.target.files?.[0];
-    if (!selectedFile) return;
+    const f = e.target.files?.[0];
+    if (!f) return;
 
-    setFile(selectedFile);
-    setPreview(URL.createObjectURL(selectedFile));
+    setFile(f);
+    setPreview(URL.createObjectURL(f));
 
     setErrors((prev) => ({ ...prev, image: "" }));
   };
 
-  // 🔄 Reset
+  // ================= EDIT =================
+  const handleEdit = (player: IPlayerDB) => {
+    setEditingPlayer(player);
+
+    setForm({
+      name: player.name,
+      full_name: player.full_name,
+      dni: player.dni,
+      number: player.number,
+      position: player.position,
+      nationality: player.nationality,
+      status: player.status,
+      birthdate: player.birthdate,
+      team: player.team,
+      category: player.category,
+      likes: player.likes,
+      rating: player.rating,
+      image_url: player.image_url,
+    });
+
+    setPreview(player.image_url ?? "");
+  };
+
+  // ================= RESET =================
   const resetForm = () => {
     setForm(initialState);
     setFile(null);
     setPreview("");
     setErrors({});
+    setEditingPlayer(null);
   };
 
-  // ✅ Validación
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
+  // ================= VALIDATION =================
+  const validate = () => {
+    const err: Record<string, string> = {};
 
-    if (!form.name) newErrors.name = "Nombre requerido";
-    if (!form.full_name) newErrors.full_name = "Nombre completo requerido";
-    if (!form.dni) newErrors.dni = "DNI requerido";
-    // if (!form.number) newErrors.number = "Número requerido";
-    if (!form.position) newErrors.position = "Posición requerida";
-    if (!form.birthdate) newErrors.birthdate = "Fecha requerida";
-    if (!form.team) newErrors.team = "Equipo requerido";
-    if (!form.category) newErrors.category = "Categoría requerida";
+    if (!form.name.trim()) err.name = "Nombre requerido";
+    if (!form.full_name.trim()) err.full_name = "Nombre completo requerido";
+    if (!form.dni.trim()) err.dni = "DNI requerido";
 
-    if (!file) newErrors.image = "Imagen obligatoria";
+    if (!form.number || form.number <= 0)
+      err.number = "Número válido requerido";
 
-    setErrors(newErrors);
+    if (!form.position) err.position = "Posición requerida";
+    if (!form.birthdate) err.birthdate = "Fecha requerida";
+    if (!form.team) err.team = "Equipo requerido";
+    if (!form.category) err.category = "Categoría requerida";
+    if (!form.nationality) err.nationality = "Nacionalidad requerida";
+    if (!form.status) err.status = "Estado requerido";
 
-    return Object.keys(newErrors).length === 0;
+    if (!file && !editingPlayer) {
+      err.image = "Imagen obligatoria";
+    }
+
+    setErrors(err);
+    return Object.keys(err).length === 0;
   };
 
-  // 🚀 Submit
+  // ================= SUBMIT =================
   const handleSubmit = async () => {
-    try {
-      if (!validateForm()) return;
+    if (!validate()) return;
 
-      let image_url = "";
+    try {
+      let image_url = form.image_url;
 
       if (file) {
         image_url = await uploadPlayerImage(file);
       }
 
-      await createPlayer({
-        ...form,
-        image_url,
-      });
-
-      toast.success("Jugador registrado 🚀");
+      if (editingPlayer) {
+        await updatePlayer(editingPlayer.id!, {
+          ...form,
+          image_url,
+        });
+        toast.success("Jugador actualizado ✏️");
+      } else {
+        await createPlayer({
+          ...form,
+          image_url,
+        });
+        toast.success("Jugador registrado 🚀");
+      }
 
       resetForm();
+      fetchPlayers();
     } catch (error) {
       console.error(error);
-      toast.error("Error al registrar jugador ❌");
+      toast.error("Error al guardar");
     }
   };
 
+  // ================= DELETE =================
+  const handleDelete = async (id: number) => {
+    try {
+      await deletePlayer(id);
+      toast.success("Jugador eliminado");
+      fetchPlayers();
+    } catch {
+      toast.error("Error al eliminar");
+    }
+  };
+
+  // ================= FILTER =================
+  const filteredPlayers = players.filter((p) => {
+    if (!p.id) return false;
+
+    const matchId = searchId
+      ? String(p.id).includes(searchId)
+      : true;
+
+    const matchTeam = filterTeam
+      ? p.team === filterTeam
+      : true;
+
+    return matchId && matchTeam;
+  });
+
   return (
-    <Box maxWidth={500} mx="auto" mt={4}>
+    <Box maxWidth={700} mx="auto" mt={4}>
       <Typography variant="h5" mb={2}>
-        Registrar Jugador
+        {editingPlayer ? "Editar Jugador" : "Registrar Jugador"}
       </Typography>
 
+      {/* ================= FORM ================= */}
       <Stack spacing={2}>
-        {/* Nombre corto */}
         <TextField
-          label="Nombre corto"
+          label="Nombre"
           value={form.name}
-          onChange={(e) => {
-            setForm({ ...form, name: e.target.value });
-            setErrors({ ...errors, name: "" });
-          }}
+          onChange={(e) => handleChange("name", e.target.value)}
           error={!!errors.name}
           helperText={errors.name}
-          fullWidth
         />
 
-        {/* Nombre completo */}
         <TextField
           label="Nombre completo"
           value={form.full_name}
-          onChange={(e) => {
-            setForm({ ...form, full_name: e.target.value });
-            setErrors({ ...errors, full_name: "" });
-          }}
+          onChange={(e) => handleChange("full_name", e.target.value)}
           error={!!errors.full_name}
           helperText={errors.full_name}
-          fullWidth
         />
 
-        {/* DNI */}
         <TextField
           label="DNI"
           value={form.dni}
-          onChange={(e) => {
-            setForm({ ...form, dni: e.target.value });
-            setErrors({ ...errors, dni: "" });
-          }}
+          onChange={(e) => handleChange("dni", e.target.value)}
           error={!!errors.dni}
           helperText={errors.dni}
-          fullWidth
         />
 
-        {/* Número */}
         <TextField
           label="Número"
           type="number"
           value={form.number}
-          onChange={(e) => {
-            setForm({ ...form, number: Number(e.target.value) });
-            setErrors({ ...errors, number: "" });
-          }}
+          onChange={(e) =>
+            handleChange("number", Number(e.target.value))
+          }
           error={!!errors.number}
           helperText={errors.number}
-          fullWidth
         />
 
-        {/* Posición */}
+        {/* POSICIÓN */}
         <FormControl fullWidth error={!!errors.position}>
           <InputLabel>Posición</InputLabel>
           <Select
             value={form.position}
             label="Posición"
-            onChange={(e) => {
-              setForm({
-                ...form,
-                position: e.target.value as IPlayerDB["position"],
-              });
-              setErrors({ ...errors, position: "" });
-            }}
+            onChange={(e) => handleChange("position", e.target.value)}
           >
             <MenuItem value="Defensor">Defensor</MenuItem>
             <MenuItem value="Delantero">Delantero</MenuItem>
@@ -198,17 +282,14 @@ const PlayerForm: React.FC = () => {
           )}
         </FormControl>
 
-        {/* Nacionalidad */}
-        <FormControl fullWidth>
+        {/* NACIONALIDAD */}
+        <FormControl fullWidth error={!!errors.nationality}>
           <InputLabel>Nacionalidad</InputLabel>
           <Select
             value={form.nationality}
             label="Nacionalidad"
             onChange={(e) =>
-              setForm({
-                ...form,
-                nationality: e.target.value as IPlayerDB["nationality"],
-              })
+              handleChange("nationality", e.target.value)
             }
           >
             <MenuItem value="boliviana">Boliviana</MenuItem>
@@ -216,154 +297,148 @@ const PlayerForm: React.FC = () => {
           </Select>
         </FormControl>
 
-        {/* Estado */}
-        <FormControl fullWidth>
+        {/* ESTADO */}
+        <FormControl fullWidth error={!!errors.status}>
           <InputLabel>Estado</InputLabel>
           <Select
             value={form.status}
             label="Estado"
-            onChange={(e) =>
-              setForm({
-                ...form,
-                status: e.target.value as IPlayerDB["status"],
-              })
-            }
+            onChange={(e) => handleChange("status", e.target.value)}
           >
             <MenuItem value="enabled">Activo</MenuItem>
             <MenuItem value="disabled">Inactivo</MenuItem>
           </Select>
         </FormControl>
 
-        {/* Fecha */}
+        {/* FECHA */}
         <TextField
           label="Fecha de nacimiento"
           type="date"
           InputLabelProps={{ shrink: true }}
           value={form.birthdate}
-          onChange={(e) => {
-            setForm({ ...form, birthdate: e.target.value });
-            setErrors({ ...errors, birthdate: "" });
-          }}
+          onChange={(e) =>
+            handleChange("birthdate", e.target.value)
+          }
           error={!!errors.birthdate}
           helperText={errors.birthdate}
-          fullWidth
         />
 
-        {/* Equipo */}
+        {/* EQUIPO */}
         <FormControl fullWidth error={!!errors.team}>
           <InputLabel>Equipo</InputLabel>
           <Select
             value={form.team}
             label="Equipo"
-            onChange={(e) => {
-              setForm({ ...form, team: e.target.value });
-              setErrors({ ...errors, team: "" });
-            }}
+            onChange={(e) => handleChange("team", e.target.value)}
           >
-            <MenuItem value="">Seleccionar</MenuItem>
-            <MenuItem value="Sabala Jr.">Sabala Jr.</MenuItem>
-             <MenuItem value="Malliri">Malliri</MenuItem>
-             <MenuItem value="Corma">Corma</MenuItem>
-             <MenuItem value="Sabala Jr.">Sabala Jr.</MenuItem>
-             <MenuItem value="Cinteño">Cinteño</MenuItem>
-             <MenuItem value="Chillagua">Chillagua</MenuItem>
-            <MenuItem value="Puca Loma">Puca Loma</MenuItem>
-            <MenuItem value="Puca Loma">Puca Loma</MenuItem>
-            <MenuItem value='Rodeo "A"'>Rodeo "A"</MenuItem>
-            <MenuItem value='Rodeo "B"'>Rodeo "B"</MenuItem>
-            <MenuItem value="Kumuni">Kumuni</MenuItem>
+            {teams.map((t) => (
+              <MenuItem key={t.id} value={t.name}>
+                {t.name}
+              </MenuItem>
+            ))}
           </Select>
-          {errors.team && (
-            <Typography color="error" variant="caption">
-              {errors.team}
-            </Typography>
-          )}
         </FormControl>
 
-        {/* Categoría */}
-        <FormControl fullWidth error={!!errors.category}>
-          <InputLabel>Categoría</InputLabel>
-          <Select
-            value={form.category}
-            label="Categoría"
-            onChange={(e) => {
-              setForm({
-                ...form,
-                category: e.target.value as IPlayerDB["category"],
-              });
-              setErrors({ ...errors, category: "" });
-            }}
-          >
-            <MenuItem value="Juvenil">Juvenil</MenuItem>
-            <MenuItem value="Senior">Senior</MenuItem>
-            <MenuItem value="Damas">Damas</MenuItem>
-            <MenuItem value="Infantil">Infantil</MenuItem>
-          </Select>
-          {errors.category && (
-            <Typography color="error" variant="caption">
-              {errors.category}
-            </Typography>
-          )}
-        </FormControl>
-
-        {/* Rating */}
+        {/* RATING */}
         <Box>
           <Typography>Rating</Typography>
           <Rating
             value={form.rating}
             max={10}
-            onChange={(_, value) =>
-              setForm({ ...form, rating: value || 0 })
-            }
+            onChange={(_, v) => handleChange("rating", v || 0)}
           />
         </Box>
 
-        {/* Imagen */}
+        {/* IMAGE */}
         <Button variant="outlined" component="label">
           Subir Imagen
           <input hidden type="file" onChange={handleFileChange} />
         </Button>
 
         {errors.image && (
-          <Typography color="error" variant="caption">
-            {errors.image}
-          </Typography>
+          <Typography color="error">{errors.image}</Typography>
         )}
 
-        {/* Preview */}
         {preview && (
-          <Box textAlign="center">
-            <Typography variant="body2">Vista previa:</Typography>
-            <img
-              src={preview}
-              alt="preview"
-              style={{
-                width: 120,
-                height: 120,
-                objectFit: "cover",
-                borderRadius: 10,
-                marginTop: 8,
-              }}
-            />
-          </Box>
+          <img src={preview} style={{ width: 120 }} />
         )}
 
-        {/* Botones */}
         <Stack direction="row" spacing={2}>
-          <Button variant="contained" onClick={handleSubmit} fullWidth>
-            Guardar
+          <Button variant="contained" onClick={handleSubmit}>
+            {editingPlayer ? "Actualizar" : "Guardar"}
           </Button>
 
-          <Button
-            variant="outlined"
-            color="error"
-            onClick={resetForm}
-            fullWidth
-          >
+          <Button color="error" onClick={resetForm}>
             Limpiar
           </Button>
         </Stack>
       </Stack>
+
+      {/* ================= FILTROS ================= */}
+      <Box mt={5}>
+        <Typography variant="h6">Buscar jugadores</Typography>
+
+        <Stack direction="row" spacing={2} mt={2}>
+          <TextField
+            label="Buscar por ID"
+            value={searchId}
+            onChange={(e) => setSearchId(e.target.value)}
+          />
+
+          <FormControl sx={{ minWidth: 200 }}>
+            <InputLabel>Equipo</InputLabel>
+            <Select
+              value={filterTeam}
+              label="Equipo"
+              onChange={(e) => setFilterTeam(e.target.value)}
+            >
+              <MenuItem value="">Todos</MenuItem>
+              {teams.map((t) => (
+                <MenuItem key={t.id} value={t.name}>
+                  {t.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Stack>
+      </Box>
+
+      {/* ================= LISTA ================= */}
+      <Box mt={3}>
+        {filteredPlayers.map((player) => (
+          <Card key={player.id} sx={{ mb: 2 }}>
+            <CardContent
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              <Box>
+                <Typography>{player.id}- {player.full_name}</Typography>
+                <Typography variant="body2">
+                  {player.team} - {player.category}
+                </Typography>
+              </Box>
+
+              <Box>
+                <IconButton
+                  color="primary"
+                  onClick={() => handleEdit(player)}
+                >
+                  <EditIcon />
+                </IconButton>
+
+                <IconButton
+                  color="error"
+                  onClick={() => handleDelete(player.id!)}
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </Box>
+            </CardContent>
+          </Card>
+        ))}
+      </Box>
     </Box>
   );
 };
