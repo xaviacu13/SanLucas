@@ -1,7 +1,6 @@
 import { getLogo } from "../../tools/tools";
 import { getProfile as getProfileMP } from "../teams/MontePampa/images/tools";
 import { getProfile as getProfileCP } from "../teams/ChurquiPampa/images/tools";
-import { getProfile as getProfileTH } from "../teams/TiraHoyo/images/tools";
 import { getProfile as getProfileKM } from "../teams/Kumuni/images/tools";
 import { getProfile as getProfilePL } from "../teams/PucaLoma/images/tools";
 import { getProfile as getProfileSM } from "../teams/SivingaMayu/images/tools";
@@ -28,17 +27,6 @@ const juvenilRaw = [
     goals: 7,
     gamesPlayed: 1,
     profile: getProfileCP("17"),
-  },
-  {
-    id: 6,
-    name: "Walter",
-    fullName: "Walter Cruz",
-    number: 6,
-    team: "Tira Hoyo",
-    logoteam: getLogo("Tira Hoyo"),
-    goals: 8,
-    gamesPlayed: 1,
-    profile: getProfileTH("4"),
   },
   //
   {

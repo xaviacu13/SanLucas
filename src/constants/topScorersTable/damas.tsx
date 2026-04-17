@@ -1,20 +1,8 @@
 import { getLogo } from "../../tools/tools";
 import { getProfile as getProfilePL } from "../teams/PucaLoma/images/tools";
-import { getProfile as getProfileTH } from "../teams/TiraHoyo/images/tools";
 import { getProfile as getProfileKM } from "../teams/Kumuni/images/tools";
 
 export const seniorRaw = [
-  {
-    id: 1,
-    name: "Noelia",
-    fullName: "Noelia Villca",
-    number: 14,
-    team: "Tira Hoyo",
-    logoteam: getLogo("Tira Hoyo"),
-    goals: 12,
-    gamesPlayed: 1,
-    profile: getProfileTH("62"),
-  },
   // {
   //   id: 2,
   //   name: "Surita",
@@ -26,17 +14,6 @@ export const seniorRaw = [
   //   gamesPlayed: 1,
   //   profile: getProfileMP("69"),
   // },
-  {
-    id: 3,
-    name: "Marisol",
-    fullName: "Marisol Romero Mollo",
-    number: 7,
-    team: "Tira Hoyo",
-    logoteam: getLogo("Tira Hoyo"),
-    goals: 9,
-    gamesPlayed: 1,
-    profile: getProfileTH("67"),
-  },
   {
     id: 6,
     name: "Noelia",

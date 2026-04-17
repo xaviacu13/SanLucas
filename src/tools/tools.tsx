@@ -26,11 +26,13 @@ import orcoyo from "../assets/images/logoEquipos/orcoyo.webp";
 import huayllaniGrande from "../assets/images/logoEquipos/huayllanigrande.webp";
 import sabalaJr from "../assets/images/logoEquipos/sabalaJr.webp";
 import cinteno from "../assets/images/logoEquipos/cinteno.webp";
-import ocuri from "../assets/images/logoEquipos/ocuri.png";
+import ocuri from "../assets/images/logoEquipos/ocuri.webp";
 import corma from "../assets/images/logoEquipos/corma.webp";
 import lajaKasa from "../assets/images/logoEquipos/lajaKasa.webp";
 import chillagua from "../assets/images/logoEquipos/chillagua.webp";
 import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp"
+import punquina from "../assets/images/logoEquipos/punquina.png"
+import tuntoco from "../assets/images/logoEquipos/tuntoco.webp"
 export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
@@ -95,6 +97,10 @@ export const getLogo = (name: string) => {
       return chillagua;
     case "Cruz Mayu":
       return cruzMayu
+    case "Punquina":
+      return punquina
+    case "Tuntoco":
+      return tuntoco
     default:
       return logoDefault;
   }

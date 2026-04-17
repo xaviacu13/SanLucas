@@ -2,7 +2,6 @@ import { kumuni } from "../teams/Kumuni/equipos";
 import { montePampa } from "../teams/MontePampa/equipos";
 import { pucaLoma } from "../teams/PucaLoma/equipos";
 import { sivingaMayu } from "../teams/SivingaMayu/equipos";
-import { tiraHoyo } from "../teams/TiraHoyo/equipos";
 import { churquiPampa } from "../teams/ChurquiPampa/equipos";
 import { quirpini } from "../teams/Quirpini/equipo";
 import { malliri } from "../teams/Malliri/equipo";
@@ -28,9 +27,11 @@ import { huayllaniGrande } from "../teams/HuayllaniGrande/equipo";
 import { sabalaJr } from "../teams/Sabala/equipo";  
 import { chillagua } from "../teams/Chillagua/equipo";
 import { cruzMayu } from "../teams/CruzMayu/equipo";
+import { ocuri } from "../teams/Ocuri/equipo";
+import { punquina } from "../teams/Punquina/equipo";
+import { tuntoco } from "../teams/Tuntoco/equipo";
 
 export const teams = [
-  tiraHoyo,
   pucaLoma,
   montePampa,
   sivingaMayu,
@@ -60,4 +61,7 @@ export const teams = [
   cinteno,
   chillagua,
   cruzMayu,
+  punquina,
+  tuntoco,
+  ocuri,
 ].flat();

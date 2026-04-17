@@ -95,9 +95,9 @@ export const damas: ITeamCategoryItem[] = [
       {
     id: 10,
     series: "",
-    name: "Huayllany",
+    name: "Huayllani",
     url: "https://forms.gle/mR86DAwtSSQ3TBT47",
-    logo: getLogo("Huayllany"),
+    logo: getLogo("Huayllani"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
     ],
@@ -126,7 +126,7 @@ export const damas: ITeamCategoryItem[] = [
     id: 13,
     series: "",
     name: "Tuntoco",
-    url: "",
+    url: "https://forms.gle/nE2tYNpz4HYuLErj8",
     logo: getLogo("Tuntoco"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -165,9 +165,9 @@ export const damas: ITeamCategoryItem[] = [
         {
     id: 17,
     series: "",
-    name: "Rodeo",
+    name: 'Rodeo "A"',
     url: "https://forms.gle/g5pETa7hFviWtJpe7",
-    logo: getLogo("Rodeo"),
+    logo: getLogo('Rodeo "A"'),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
     ],
@@ -176,7 +176,7 @@ export const damas: ITeamCategoryItem[] = [
     id: 18,
     series: "",
     name: "Ocuri",
-    url: "",
+    url: "https://forms.gle/M9nt3KrmDKBg15ov5",
     logo: getLogo("Ocuri"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
