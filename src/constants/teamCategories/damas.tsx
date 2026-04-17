@@ -9,7 +9,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
     logo: getLogo("Avichuca"),
     delegates: [
-      { id: 1, name: "Zaida Colque Gomez", contact: "", category: "Damas" },
+      // { id: 1, name: "Zaida Colque Gomez", contact: "", category: "Damas" },
     ],
   },
   {
@@ -59,7 +59,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/8DBtQNkFQ5rbQFKT7",
     logo: getLogo("Huayllani Grande"),
     delegates: [
-      { id: 2, name: "Reina Mollo", contact: "", category: "Damas" },
+     // { id: 2, name: "Reina Mollo", contact: "", category: "Damas" },
     ],
   },
   {
@@ -69,7 +69,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
     logo: getLogo("Sabala Jr."),
     delegates: [
-      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+       { id: 1, name: "Rosalia Felix Mamani", contact: "", category: "Damas" }
     ],
   },
     {

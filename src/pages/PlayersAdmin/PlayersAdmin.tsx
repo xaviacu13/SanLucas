@@ -42,7 +42,7 @@ const initialState: PlayerFormType = {
   status: "enabled",
   birthdate: "",
   team: "",
-  category: "Juvenil",
+  category: "Damas",
   likes: 0,
   rating: 0,
   image_url: "",
@@ -58,6 +58,7 @@ const PlayerForm: React.FC = () => {
   const [players, setPlayers] = useState<IPlayerDB[]>([]);
   const [searchId, setSearchId] = useState("");
   const [filterTeam, setFilterTeam] = useState("");
+  const [filterCategory, setFilterCategory] = useState("");
 
   // ================= FETCH =================
   const fetchPlayers = async () => {
@@ -193,15 +194,30 @@ const PlayerForm: React.FC = () => {
   };
 
   // ================= DELETE =================
-  const handleDelete = async (id: number) => {
-    try {
-      await deletePlayer(id);
-      toast.success("Jugador eliminado");
-      fetchPlayers();
-    } catch {
-      toast.error("Error al eliminar");
-    }
-  };
+
+const handleDelete = async (id: number) => {
+  toast((t) => (
+    <div>
+      <p>¿Eliminar jugador? {id}</p>
+      <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
+        <button
+          onClick={async () => {
+            toast.dismiss(t.id);
+            await deletePlayer(id);
+            toast.success("Eliminado 🗑️");
+            fetchPlayers();
+          }}
+        >
+          Sí
+        </button>
+
+        <button onClick={() => toast.dismiss(t.id)}>
+          Cancelar
+        </button>
+      </div>
+    </div>
+  ));
+};
 
   // ================= FILTER =================
   const filteredPlayers = players.filter((p) => {
@@ -409,6 +425,39 @@ const PlayerForm: React.FC = () => {
               {teams.map((t) => (
                 <MenuItem key={t.id} value={t.name}>
                   {t.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          {/* FILTRO EQUIPO */}
+          <FormControl sx={{ minWidth: 180 }}>
+            <InputLabel>Equipo</InputLabel>
+            <Select
+              value={filterTeam}
+              label="Equipo"
+              onChange={(e) => setFilterTeam(e.target.value)}
+            >
+              <MenuItem value="">Todos</MenuItem>
+              {teams.map((t) => (
+                <MenuItem key={t.id} value={t.name}>
+                  {t.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
+          {/* 🆕 FILTRO CATEGORÍA */}
+          <FormControl sx={{ minWidth: 180 }}>
+            <InputLabel>Categoría</InputLabel>
+            <Select
+              value={filterCategory}
+              label="Categoría"
+              onChange={(e) => setFilterCategory(e.target.value)}
+            >
+              <MenuItem value="">Todas</MenuItem>
+              {categories.map((cat) => (
+                <MenuItem key={cat} value={cat}>
+                  {cat}
                 </MenuItem>
               ))}
             </Select>
