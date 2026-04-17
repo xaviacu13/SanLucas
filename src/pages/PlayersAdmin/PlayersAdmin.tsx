@@ -17,6 +17,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import toast from "react-hot-toast";
+import { categories } from "../../constants/categories";
 
 import {
   uploadPlayerImage,
@@ -74,7 +75,10 @@ const PlayerForm: React.FC = () => {
   }, []);
 
   // ================= HANDLE CHANGE =================
-  const handleChange = (field: keyof PlayerFormType, value: string | number) => {
+  const handleChange = (
+    field: keyof PlayerFormType,
+    value: string | number,
+  ) => {
     setForm((prev) => ({
       ...prev,
       [field]: value,
@@ -203,13 +207,9 @@ const PlayerForm: React.FC = () => {
   const filteredPlayers = players.filter((p) => {
     if (!p.id) return false;
 
-    const matchId = searchId
-      ? String(p.id).includes(searchId)
-      : true;
+    const matchId = searchId ? String(p.id).includes(searchId) : true;
 
-    const matchTeam = filterTeam
-      ? p.team === filterTeam
-      : true;
+    const matchTeam = filterTeam ? p.team === filterTeam : true;
 
     return matchId && matchTeam;
   });
@@ -250,9 +250,7 @@ const PlayerForm: React.FC = () => {
           label="Número"
           type="number"
           value={form.number}
-          onChange={(e) =>
-            handleChange("number", Number(e.target.value))
-          }
+          onChange={(e) => handleChange("number", Number(e.target.value))}
           error={!!errors.number}
           helperText={errors.number}
         />
@@ -288,9 +286,7 @@ const PlayerForm: React.FC = () => {
           <Select
             value={form.nationality}
             label="Nacionalidad"
-            onChange={(e) =>
-              handleChange("nationality", e.target.value)
-            }
+            onChange={(e) => handleChange("nationality", e.target.value)}
           >
             <MenuItem value="boliviana">Boliviana</MenuItem>
             <MenuItem value="argentina">Argentina</MenuItem>
@@ -316,9 +312,7 @@ const PlayerForm: React.FC = () => {
           type="date"
           InputLabelProps={{ shrink: true }}
           value={form.birthdate}
-          onChange={(e) =>
-            handleChange("birthdate", e.target.value)
-          }
+          onChange={(e) => handleChange("birthdate", e.target.value)}
           error={!!errors.birthdate}
           helperText={errors.birthdate}
         />
@@ -339,6 +333,29 @@ const PlayerForm: React.FC = () => {
           </Select>
         </FormControl>
 
+        {/* CATEGORY */}
+        <FormControl fullWidth error={!!errors.category}>
+          <InputLabel>Categoría</InputLabel>
+
+          <Select
+            value={form.category}
+            label="Categoría"
+            onChange={(e) => handleChange("category", e.target.value)}
+          >
+            {categories.map((cat) => (
+              <MenuItem key={cat} value={cat}>
+                {cat}
+              </MenuItem>
+            ))}
+          </Select>
+
+          {errors.category && (
+            <Typography color="error" variant="caption">
+              {errors.category}
+            </Typography>
+          )}
+        </FormControl>
+
         {/* RATING */}
         <Box>
           <Typography>Rating</Typography>
@@ -355,13 +372,9 @@ const PlayerForm: React.FC = () => {
           <input hidden type="file" onChange={handleFileChange} />
         </Button>
 
-        {errors.image && (
-          <Typography color="error">{errors.image}</Typography>
-        )}
+        {errors.image && <Typography color="error">{errors.image}</Typography>}
 
-        {preview && (
-          <img src={preview} style={{ width: 120 }} />
-        )}
+        {preview && <img src={preview} style={{ width: 120 }} />}
 
         <Stack direction="row" spacing={2}>
           <Button variant="contained" onClick={handleSubmit}>
@@ -392,7 +405,7 @@ const PlayerForm: React.FC = () => {
               label="Equipo"
               onChange={(e) => setFilterTeam(e.target.value)}
             >
-              <MenuItem value="">Todos</MenuItem>   
+              <MenuItem value="">Todos</MenuItem>
               {teams.map((t) => (
                 <MenuItem key={t.id} value={t.name}>
                   {t.name}
@@ -414,17 +427,16 @@ const PlayerForm: React.FC = () => {
               }}
             >
               <Box>
-                <Typography>{player.id}- {player.full_name}</Typography>
+                <Typography>
+                  {player.id}- {player.full_name}
+                </Typography>
                 <Typography variant="body2">
                   {player.team} - {player.category}
                 </Typography>
               </Box>
 
               <Box>
-                <IconButton
-                  color="primary"
-                  onClick={() => handleEdit(player)}
-                >
+                <IconButton color="primary" onClick={() => handleEdit(player)}>
                   <EditIcon />
                 </IconButton>
 
