@@ -1,4 +1,6 @@
-export const damas = [
+import type { ITeamStanding } from "../../types/types";
+
+export const damas: ITeamStanding[] = [
  {
     id: 1,
     team: "Avichuca",

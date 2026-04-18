@@ -1,4 +1,6 @@
-export const senior = [
+import type { ITeamStanding } from "../../types/types";
+
+export const senior: ITeamStanding[] = [
   // {
   //   id: 1,
   //   team: "Puca Loma",

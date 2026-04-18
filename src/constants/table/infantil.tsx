@@ -1,4 +1,6 @@
-export const infantil = [
+import type { ITeamStanding } from "../../types/types";
+
+export const infantil: ITeamStanding[] = [
    {
     id: 1,
     team: 'Tira Hoyo',
