@@ -43,7 +43,7 @@ const Fixture: React.FC = () => {
   const [team, setTeam] = useState("all");
   const [serie, setSerie] = useState<SerieType>("all");
   const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil"
+    categoryParam || "Juvenil",
   );
 
   const navigate = useNavigate();
@@ -53,11 +53,11 @@ const Fixture: React.FC = () => {
   }, [selectedCategory]);
 
   const hasScheduledInitial = fixture.some(
-    (match) => match.status === "scheduled" || match.status === "canceled"
+    (match) => match.status === "scheduled" || match.status === "canceled",
   );
 
   const [stGame, setStGame] = useState(
-    hasScheduledInitial ? "scheduled" : "played"
+    hasScheduledInitial ? "scheduled" : "played",
   );
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
@@ -67,11 +67,9 @@ const Fixture: React.FC = () => {
     const newFixture = getFixtureForCategory(cat);
 
     const hasScheduledOrCanceled = newFixture.some(
-      (match) => match.status === "scheduled" || match.status === "canceled"
+      (match) => match.status === "scheduled" || match.status === "canceled",
     );
-    const hasPlayed = newFixture.some(
-      (match) => match.status === "played"
-    );
+    const hasPlayed = newFixture.some((match) => match.status === "played");
 
     if (hasScheduledOrCanceled) {
       setStGame("scheduled");
@@ -99,30 +97,23 @@ const Fixture: React.FC = () => {
             match.status === "scheduled";
         } else if (stGame === "scheduled") {
           matchStatusOk =
-            match.status === "scheduled" ||
-            match.status === "canceled";
+            match.status === "scheduled" || match.status === "canceled";
         } else if (stGame === "played") {
           matchStatusOk = match.status === "played";
         } else {
           matchStatusOk = match.status === stGame;
         }
         const matchTeamOk =
-          team === "all" ||
-          match.team1 === team ||
-          match.team2 === team;
-          
+          team === "all" || match.team1 === team || match.team2 === team;
+
         let matchSerieOk = true;
 
         if (serie === "A") {
-          matchSerieOk = match.serie
-            ? match.serie === "A"
-            : match.id % 2 === 0;
+          matchSerieOk = match.serie ? match.serie === "A" : match.id % 2 === 0;
         }
 
         if (serie === "B") {
-          matchSerieOk = match.serie
-            ? match.serie === "B"
-            : match.id % 2 !== 0;
+          matchSerieOk = match.serie ? match.serie === "B" : match.id % 2 !== 0;
         }
 
         return matchStatusOk && matchTeamOk && matchSerieOk;
@@ -131,11 +122,11 @@ const Fixture: React.FC = () => {
         if (stGame === "played") {
           const groupA = parseInt(
             String(a.group).replace(/\D/g, "") || "0",
-            10
+            10,
           );
           const groupB = parseInt(
             String(b.group).replace(/\D/g, "") || "0",
-            10
+            10,
           );
           return groupB - groupA;
         }
@@ -156,47 +147,47 @@ const Fixture: React.FC = () => {
 
       <Title title={`Fixture ${selectedCategory}`} />
       <InfoContainer>
-      {selectedCategory === "Juvenil" && <SearchBox
-        setStGame={setStGame}
-        selectedCategory={selectedCategory}
-        stGame={stGame}
-        team={team}
-        setTeam={setTeam}
-        serie={serie}
-        setSerie={setSerie}
-      />}
+        <SearchBox
+          setStGame={setStGame}
+          selectedCategory={selectedCategory}
+          stGame={stGame}
+          team={team}
+          setTeam={setTeam}
+          serie={serie}
+          setSerie={setSerie}
+        />
 
-      {filteredMatches.length > 0 ? (
-        filteredMatches.map((match, index) => (
-          <FixtureCard
-            key={`${match.id}-${index}`}
-            id={match.id}
-            team1={match.team1}
-            team2={match.team2}
-            scorerTeam1={match.scorerTeam1}
-            scorerTeam2={match.scorerTeam2}
-            date={match.date}
-            time={match.time}
-            location={match.location}
-            status={match.status}
-            group={match.group}
-            observation={match.observation}
-            category={selectedCategory}
-            serie={match.serie}
-          />
-        ))
-      ) : (
-        <MessageContainer>
-          <MessageNoTeams>
-            <Typography
-              variant="h4"
-              style={{ textAlign: "center", marginTop: "20px" }}
-            >
-              No se encontraron resultados para este filtro.
-            </Typography>
-          </MessageNoTeams>
-        </MessageContainer>
-      )}
+        {filteredMatches.length > 0 ? (
+          filteredMatches.map((match, index) => (
+            <FixtureCard
+              key={`${match.id}-${index}`}
+              id={match.id}
+              team1={match.team1}
+              team2={match.team2}
+              scorerTeam1={match.scorerTeam1}
+              scorerTeam2={match.scorerTeam2}
+              date={match.date}
+              time={match.time}
+              location={match.location}
+              status={match.status}
+              group={match.group}
+              observation={match.observation}
+              category={selectedCategory}
+              serie={match.serie}
+            />
+          ))
+        ) : (
+          <MessageContainer>
+            <MessageNoTeams>
+              <Typography
+                variant="h4"
+                style={{ textAlign: "center", marginTop: "20px" }}
+              >
+                No se encontraron resultados para este filtro.
+              </Typography>
+            </MessageNoTeams>
+          </MessageContainer>
+        )}
       </InfoContainer>
     </Root>
   );

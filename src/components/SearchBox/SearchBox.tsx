@@ -74,7 +74,9 @@ const SearchBox: React.FC<ISearchBoxProps> = ({
 
   return (
     <Root>
-      <SearchSerie serie={serie} setSerie={setSerie} />
+      {selectedCategory === "Juvenil" && (
+        <SearchSerie serie={serie} setSerie={setSerie} />
+      )}
 
       <FormControl>
         <RadioGroupContainer>
