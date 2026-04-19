@@ -1,7 +1,7 @@
 import type { ITeamStanding } from "../../types/types";
 
 export const damas: ITeamStanding[] = [
- {
+  {
     id: 1,
     team: "Avichuca",
     serie: "",
@@ -120,7 +120,7 @@ export const damas: ITeamStanding[] = [
   },
   {
     id: 10,
-    team: 'Huayllani',
+    team: "Huayllani",
     serie: "",
     matchesPlayed: 0,
     wins: 0,
