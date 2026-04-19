@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocation, useNavigate, createSearchParams } from "react-router-dom";
 import { teams as equipos } from "../../constants/teams/teams";
 import logo from "../../assets/images/icons/logo1.png";
 import { getLogo } from "../../tools/tools";
-import { Button, Divider, Typography, Alert, Skeleton } from "@mui/material";
+import {
+  Button,
+  Divider,
+  Typography,
+  Alert,
+  Skeleton,
+} from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
-import { getPlayerById } from "../../services/players.service";
-import type { IPlayerDB } from "../../types/types";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import {
   Container,
@@ -26,37 +30,24 @@ import {
   HomeButton,
   Root,
 } from "./styles";
+import { usePlayer } from "../../hooks/usePlayer";
 
 const PlayerDetail: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
   const queryParams = new URLSearchParams(location.search);
 
   const idTeam = queryParams.get("idTeam");
   const idPlayer = queryParams.get("idPlayer");
-  const category = queryParams.get("category");
+  const category = queryParams.get("category") ?? "";
 
-  const [player, setPlayer] = useState<IPlayerDB | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  const params = createSearchParams({
-  idPlayer: String(idPlayer),
-  idTeam: String(idTeam),
-  category: String(category),
-});
-
-  useEffect(() => {
-    const fetchPlayer = async () => {
-      if (!idPlayer) return;
-
-      setLoading(true);
-      const data = await getPlayerById(idPlayer);
-      setPlayer(data);
-      setLoading(false);
-    };
-
-    fetchPlayer();
-  }, [idPlayer]);
+  // 🚀 hook optimizado
+  const {
+    data: player,
+    isLoading: loading,
+    isError,
+  } = usePlayer(idPlayer || undefined);
 
   const canGoBack = React.useMemo(() => {
     return location.key !== "default";
@@ -67,32 +58,37 @@ const PlayerDetail: React.FC = () => {
   }
 
   const team = equipos.find((t) => t.id === Number(idTeam));
+
   const subTeam = team?.teams.find(
-    (sub) => sub.category.toLowerCase() === category?.toLowerCase(),
+    (sub) => sub.category.toLowerCase() === category.toLowerCase()
   );
 
-const playerUrl = `${window.location.origin}/player-detail?${params}`;
+  const params = createSearchParams({
+    idPlayer,
+    idTeam,
+    category,
+  });
+
+  const playerUrl = `${window.location.origin}/player-detail?${params}`;
 
   const onShare = () => {
+    if (!player || !team) return;
+
     if (navigator.share) {
-      navigator
-        .share({
-          title: `Jugador: ${player?.name}`,
-          text: `Información del jugador ${player?.name} del equipo ${team?.name}`,
-          url: playerUrl,
-        })
-        .catch((error) => console.error("Error sharing:", error));
+      navigator.share({
+        title: `Jugador: ${player.name}`,
+        text: `Información del jugador ${player.name} del equipo ${team.name}`,
+        url: playerUrl,
+      });
     } else {
-      alert("Compartir no está soportado en este navegador.");
+      navigator.clipboard.writeText(playerUrl);
+      alert("Link copiado!");
     }
   };
 
   const handleBack = () => {
-    if (canGoBack) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
+    if (canGoBack) navigate(-1);
+    else navigate("/");
   };
 
   if (loading){
@@ -143,18 +139,18 @@ const playerUrl = `${window.location.origin}/player-detail?${params}`;
   );
 };
 
-  if (!team || !player) {
+  // ================= ERROR =================
+  if (isError || !player || !team) {
     return (
       <NoValid>
         <Typography variant="h2" color="primary">
-          El jugador no esta habilitado para jugar el Campeonato intercomunal de
-          San Lucas 2026
+          Jugador no válido o no habilitado
         </Typography>
+
         <Typography variant="h6">
-          Por favor contactarse con el delegado de su comunidad o con el
-          personal administrativo de campeonato!
+          Contacte con el delegado o administración
         </Typography>
-        ;
+
         <Button
           variant="outlined"
           color="secondary"
@@ -167,6 +163,7 @@ const playerUrl = `${window.location.origin}/player-detail?${params}`;
     );
   }
 
+  // ================= UI =================
   return (
     <Root>
       <HeaderCard>
@@ -175,47 +172,59 @@ const playerUrl = `${window.location.origin}/player-detail?${params}`;
           <HomeIcon />
         </HomeButton>
       </HeaderCard>
+
       <Container>
-        <Image src={player.image_url || getLogo("Default")} alt={player.name} />
+        <Image src={player.image_url || getLogo("Default")} />
+
         <Title>
-          {player.name}
-          {" - "}
-          {player.number}
+          {player.name} - {player.number}
         </Title>
+
         <Typography variant="h2" color="primary">
           {player.full_name}
         </Typography>
-        <Divider style={{ margin: "10px 0", color: "gray" }} />
+
+        <Divider sx={{ my: 2 }} />
+
         <Alert
           iconMapping={{
             success: <CheckCircleOutlineIcon fontSize="inherit" />,
           }}
         >
           <Typography variant="body2" color="secondary">
-            HABILITADO PARA JUGAR EL CAMPEONATO INTERCOMUNAL DE SAN LUCAS 2026
+            HABILITADO PARA JUGAR EL CAMPEONATO
           </Typography>
         </Alert>
-        <Divider style={{ margin: "10px 0", color: "gray" }} />
+
+        <Divider sx={{ my: 2 }} />
+
         <InfoContainer>
           <InfoBox>
             <InfoText>
-              <Label>CODIGO:</Label> {String(player.dni).slice(-5)}
+              <Label>CÓDIGO:</Label>{" "}
+              {player.dni ? String(player.dni).slice(-5) : "-"}
             </InfoText>
+
             <InfoText>
               <Label>Posición:</Label> {player.position}
             </InfoText>
+
             <InfoText>
               <Label>Equipo:</Label> {team.name}
             </InfoText>
+
             <InfoText>
-              <Label>Categoria:</Label> {subTeam?.category}
+              <Label>Categoría:</Label> {subTeam?.category || "-"}
             </InfoText>
           </InfoBox>
+
           <ImageBox>
-            <Logo src={getLogo(team.name)} alt={team.name} />
+            <Logo src={getLogo(team.name)} />
           </ImageBox>
         </InfoContainer>
-        <Divider style={{ margin: "1px 0", color: "gray" }} />
+
+        <Divider sx={{ my: 2 }} />
+
         <ButtonContainer>
           <Button
             variant="contained"

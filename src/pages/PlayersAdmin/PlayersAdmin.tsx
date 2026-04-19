@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   TextField,
@@ -19,10 +19,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import toast from "react-hot-toast";
 import { categories } from "../../constants/categories";
 
+import { usePlayers } from "../../hooks/usePlayers";
+import { useQueryClient } from "@tanstack/react-query";
+
 import {
   uploadPlayerImage,
   createPlayer,
-  getPlayers,
   deletePlayer,
   updatePlayer,
 } from "../../services/players.service";
@@ -55,25 +57,17 @@ const PlayerForm: React.FC = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [editingPlayer, setEditingPlayer] = useState<IPlayerDB | null>(null);
 
-  const [players, setPlayers] = useState<IPlayerDB[]>([]);
   const [searchId, setSearchId] = useState("");
-  const [filterTeam, setFilterTeam] = useState("");
-  const [filterCategory, setFilterCategory] = useState("");
+  const [filterTeam, setFilterTeam] = useState("Quirpini");
+  const [filterCategory, setFilterCategory] = useState("Damas");
 
   // ================= FETCH =================
-  const fetchPlayers = async () => {
-    const data = await getPlayers();
-    setPlayers(data);
-  };
+ const queryClient = useQueryClient();
 
-  useEffect(() => {
-    const loadPlayers = async () => {
-      const data = await getPlayers();
-      setPlayers(data);
-    };
-
-    loadPlayers();
-  }, []);
+const { data: players = [], isLoading } = usePlayers({
+  team: filterTeam,
+  category: filterCategory,
+});
 
   // ================= HANDLE CHANGE =================
   const handleChange = (
@@ -186,7 +180,9 @@ const PlayerForm: React.FC = () => {
       }
 
       resetForm();
-      fetchPlayers();
+      queryClient.invalidateQueries({
+  queryKey: ["players"],
+});
     } catch (error) {
       console.error(error);
       toast.error("Error al guardar");
@@ -204,8 +200,12 @@ const handleDelete = async (id: number) => {
           onClick={async () => {
             toast.dismiss(t.id);
             await deletePlayer(id);
+
+            queryClient.invalidateQueries({
+              queryKey: ["players"],
+            });
+
             toast.success("Eliminado 🗑️");
-            fetchPlayers();
           }}
         >
           Sí
@@ -219,16 +219,10 @@ const handleDelete = async (id: number) => {
   ));
 };
 
-  // ================= FILTER =================
-  const filteredPlayers = players.filter((p) => {
-    if (!p.id) return false;
 
-    const matchId = searchId ? String(p.id).includes(searchId) : true;
-
-    const matchTeam = filterTeam ? p.team === filterTeam : true;
-
-    return matchId && matchTeam;
-  });
+  if (isLoading) {
+  return <div>Cargando jugadores...</div>;
+}
 
   return (
     <Box maxWidth={700} mx="auto" mt={4}>
@@ -413,22 +407,6 @@ const handleDelete = async (id: number) => {
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
           />
-
-          <FormControl sx={{ minWidth: 200 }}>
-            <InputLabel>Equipo</InputLabel>
-            <Select
-              value={filterTeam}
-              label="Equipo"
-              onChange={(e) => setFilterTeam(e.target.value)}
-            >
-              <MenuItem value="">Todos</MenuItem>
-              {teams.map((t) => (
-                <MenuItem key={t.id} value={t.name}>
-                  {t.name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
           {/* FILTRO EQUIPO */}
           <FormControl sx={{ minWidth: 180 }}>
             <InputLabel>Equipo</InputLabel>
@@ -467,7 +445,7 @@ const handleDelete = async (id: number) => {
 
       {/* ================= LISTA ================= */}
       <Box mt={3}>
-        {filteredPlayers.map((player) => (
+        {players.map((player) => (
           <Card key={player.id} sx={{ mb: 2 }}>
             <CardContent
               sx={{
