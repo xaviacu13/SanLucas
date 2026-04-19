@@ -6,14 +6,17 @@ import { Button, Typography, Box, Skeleton } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
 import HomeIcon from "@mui/icons-material/Home";
+
 import {
   ButtonContainer,
   MessageContent,
   CardContainer,
   PlayerCardWrapper,
 } from "./styles";
-import type { IPlayer } from "../../types/types";
-import { useTeamsWithPlayers } from "../../hooks/useTeamsWithPlayers";
+
+import { usePlayers } from "../../hooks/usePlayers";
+import { teams } from "../../constants/teams/teams";
+import type { CategoryType, IPlayerDB } from "../../types/types";
 
 const DetailTeam: React.FC = () => {
   const location = useLocation();
@@ -23,43 +26,56 @@ const DetailTeam: React.FC = () => {
   const idTeamParam = queryParams.get("id");
   const categoryParam = queryParams.get("category");
 
-  const { teams, loading } = useTeamsWithPlayers();
-
   const idTeam =
     idTeamParam && !isNaN(Number(idTeamParam)) ? Number(idTeamParam) : null;
 
   const team = teams.find((t) => t.id === idTeam);
 
-  const categories = useMemo(
-    () =>
-      team?.teams
-        .map((t) => t.category)
-        .filter((cat, index, self) => cat && self.indexOf(cat) === index) ?? [],
-    [team],
-  );
+  const { data: players = [], isLoading } = usePlayers({
+    team: team?.name,
+    category: categoryParam || undefined,
+  });
 
-  const selectedCategory = useMemo(() => {
-    if (!categories.length) return "";
-    if (categoryParam && categories.includes(categoryParam)) {
-      return categoryParam;
+const categories = useMemo((): CategoryType[] => {
+  if (!team) return [];
+
+  return team.teams.map((t) => t.category as CategoryType);
+}, [team]);
+
+  const selectedCategory = useMemo((): CategoryType => {
+    if (!categories.length) return "Juvenil"; // Default fallback
+
+    if (categoryParam && categories.includes(categoryParam as CategoryType)) {
+      return categoryParam as CategoryType;
     }
-    return categories[0] || "";
+
+    return categories[0] as CategoryType;
   }, [categories, categoryParam]);
 
-  const canGoBack = React.useMemo(() => {
-    return location.key !== "default";
-  }, [location.key]);
+  const selectedPlayers: IPlayerDB[] = players.filter(
+    (p) => p.category === selectedCategory
+  );
 
-  const handleCategoryChange = (cat: string) => {
-    navigate(`/team-detail?id=${idTeam}&category=${encodeURIComponent(cat)}`, {
-      replace: true,
-    });
+  const canGoBack = location.key !== "default";
+
+  const handleBack = () => {
+    if (canGoBack) navigate(-1);
+    else navigate("/");
+  };
+
+  const handleCategoryChange = (cat: CategoryType) => {
+    navigate(
+      `/team-detail?id=${idTeam}&category=${encodeURIComponent(cat)}`,
+      { replace: true }
+    );
   };
 
   const onShare = () => {
     if (!team) return;
 
-    const shareUrl = `${window.location.origin}/team-detail?id=${idTeam}&category=${encodeURIComponent(selectedCategory)}`;
+    const shareUrl = `${window.location.origin}/team-detail?id=${idTeam}&category=${encodeURIComponent(
+      selectedCategory
+    )}`;
 
     const shareData = {
       title: `Comunidad: ${team.name}`,
@@ -68,38 +84,24 @@ const DetailTeam: React.FC = () => {
     };
 
     if (navigator.share) {
-      navigator.share(shareData).catch((error) => {
-        console.error("Error sharing:", error);
-      });
+      navigator.share(shareData).catch(console.error);
     } else {
-      navigator.clipboard.writeText(shareUrl).then(() => {
-        alert("URL copiada al portapapeles!");
-      });
+      navigator.clipboard.writeText(shareUrl);
+      alert("URL copiada al portapapeles!");
     }
   };
 
-  const selectedPlayers: IPlayer[] =
-    team?.teams.find((t) => t.category === selectedCategory)?.players ?? [];
-
   useEffect(() => {
     if (team) {
-      const title = selectedCategory
+      document.title = selectedCategory
         ? `${team.name} - ${selectedCategory}`
         : team.name;
-      document.title = title;
     } else {
       document.title = "Detalle de equipo";
     }
   }, [team, selectedCategory]);
 
-  const handleBack = () => {
-    if (canGoBack) {
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
-  };
-  if (loading) {
+  if (isLoading) {
     return (
       <PlayerCardWrapper>
         {[...Array(6)].map((_, index) => (
@@ -125,6 +127,8 @@ const DetailTeam: React.FC = () => {
       </PlayerCardWrapper>
     );
   }
+
+  // ❌ no team
   if (!team) {
     return <Typography variant="h3">Equipo no encontrado.</Typography>;
   }
@@ -139,22 +143,23 @@ const DetailTeam: React.FC = () => {
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
       />
+
       <CardContainer>
         {selectedPlayers.length > 0 ? (
           <>
             {selectedPlayers.map((player, index) => (
               <PlayerCard
-                key={`${selectedCategory}-${player.id}`}
+                key={`${selectedCategory}-${player.id || index}`}
                 idTeam={idTeam ?? undefined}
                 category={selectedCategory}
-                id={player.id}
+                id={player.id || index}
                 name={player.name}
-                fullName={player.fullName}
-                DNI={player.DNI}
+                fullName={player.full_name}
+                DNI={player.dni}
                 number={player.number}
                 position={player.position}
                 index={index}
-                image={player.image || getLogo("Default")}
+                image={player.image_url || getLogo("Default")}
               />
             ))}
 
@@ -167,6 +172,7 @@ const DetailTeam: React.FC = () => {
               >
                 COMPARTIR
               </Button>
+
               <Button
                 variant="outlined"
                 color="secondary"
@@ -180,10 +186,11 @@ const DetailTeam: React.FC = () => {
         ) : (
           <MessageContent>
             <Typography variant="h3" color="primary">
-              Aun no hay jugadores registrados.
+              Aún no hay jugadores registrados.
             </Typography>
+
             <Typography variant="h6" color="secondary">
-              Por favor contactar con el Delegado de su cominidad{" "}
+              Por favor contactar con el delegado de su comunidad
             </Typography>
           </MessageContent>
         )}

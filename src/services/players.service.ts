@@ -1,13 +1,17 @@
 import { supabase } from "../lib/supabase";
 import type { IPlayerDB } from "../types/types";
 
-// GET
+// ================= GET PLAYERS =================
 export const getPlayers = async (filters?: {
   team?: string;
   category?: string;
 }): Promise<IPlayerDB[]> => {
-  let query = supabase.from("players").select("*");
+  let query = supabase
+    .from("players")
+    .select("*")
+    .order("created_at", { ascending: false }); // ⚡ ordenado
 
+  // 🔥 filtros SQL reales
   if (filters?.team) {
     query = query.eq("team", filters.team);
   }
@@ -19,75 +23,22 @@ export const getPlayers = async (filters?: {
   const { data, error } = await query;
 
   if (error) {
-    console.error("Error fetching players:", error);
-    return [];
+    console.error("❌ Error fetching players:", error.message);
+    throw new Error(error.message);
   }
 
-  return data || [];
+  return data ?? [];
 };
 
-// CREATE
-export const createPlayer = async (player: Omit<IPlayerDB, "id">) => {
+// ================= GET PLAYER BY ID =================
+export const getPlayerById = async (
+  id: string | number
+): Promise<IPlayerDB | null> => {
   const { data, error } = await supabase
     .from("players")
-    .insert([player])
-    .select()
-    .single();
-
-  if (error) {
-    console.error("Error creating player:", error);
-    throw error;
-  }
-
-  return data;
-};
-
-// DELETE
-export const deletePlayer = async (id: number) => {
-  const { error } = await supabase.from("players").delete().eq("id", id);
-
-  if (error) throw error;
-};
-
-// UPDATE
-export const updatePlayer = async (
-  id: number,
-  updatedFields: Partial<IPlayerDB>
-) => {
-  const { data, error } = await supabase
-    .from("players")
-    .update(updatedFields)
+    .select("*") // 🔥 IMPORTANTE
     .eq("id", id)
-    .select()
-    .single();
-
-  if (error) throw error;
-
-  return data;
-};
-
-export const uploadPlayerImage = async (file: File) => {
-  const fileName = `${Date.now()}-${file.name}`;
-
-  const { error } = await supabase.storage
-    .from("players")
-    .upload(fileName, file);
-
-  if (error) throw error;
-
-  const { data } = supabase.storage
-    .from("players")
-    .getPublicUrl(fileName);
-
-  return data.publicUrl;
-};
-
-export const getPlayerById = async (id: string | number) => {
-  const { data, error } = await supabase
-    .from("players")
-    .select("*")
-    .eq("id", id)
-    .single();
+    .maybeSingle(); // mejor que single()
 
   if (error) {
     console.error("Error fetching player:", error);
@@ -95,4 +46,81 @@ export const getPlayerById = async (id: string | number) => {
   }
 
   return data as IPlayerDB;
+};
+
+// ================= CREATE =================
+export const createPlayer = async (
+  player: Omit<IPlayerDB, "id" | "created_at">
+): Promise<IPlayerDB> => {
+  const { data, error } = await supabase
+    .from("players")
+    .insert([player])
+    .select()
+    .single();
+
+  if (error) {
+    console.error("❌ Error creating player:", error.message);
+    throw new Error(error.message);
+  }
+
+  return data;
+};
+
+// ================= UPDATE =================
+export const updatePlayer = async (
+  id: number,
+  updatedFields: Partial<IPlayerDB>
+): Promise<IPlayerDB> => {
+  const { data, error } = await supabase
+    .from("players")
+    .update(updatedFields)
+    .eq("id", id)
+    .select()
+    .single();
+
+  if (error) {
+    console.error("❌ Error updating player:", error.message);
+    throw new Error(error.message);
+  }
+
+  return data;
+};
+
+// ================= DELETE =================
+export const deletePlayer = async (id: number): Promise<void> => {
+  const { error } = await supabase
+    .from("players")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    console.error("❌ Error deleting player:", error.message);
+    throw new Error(error.message);
+  }
+};
+
+// ================= UPLOAD IMAGE =================
+export const uploadPlayerImage = async (file: File): Promise<string> => {
+  const fileExt = file.name.split(".").pop();
+  const fileName = `${Date.now()}-${Math.random()
+    .toString(36)
+    .substring(2)}.${fileExt}`;
+
+  const { error } = await supabase.storage
+    .from("players")
+    .upload(fileName, file, {
+      cacheControl: "3600",
+      upsert: false,
+    });
+
+  if (error) {
+    console.error("❌ Error uploading image:", error.message);
+    throw new Error(error.message);
+  }
+
+  const { data } = supabase.storage
+    .from("players")
+    .getPublicUrl(fileName);
+
+  return data.publicUrl;
 };

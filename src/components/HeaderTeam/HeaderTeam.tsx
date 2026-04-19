@@ -11,14 +11,15 @@ import {
   HomeButton,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
+import type { CategoryType } from "../../types/types";
 
 interface HeaderTeamChipsProps {
   img: string;
   name: string;
   color: string;
-  category: string[];
-  selectedCategory: string;
-  onCategoryChange: (cat: string) => void;
+  category: CategoryType[];
+  selectedCategory: CategoryType;
+  onCategoryChange: (cat: CategoryType) => void;
 }
 
 const HeaderTeam: React.FC<HeaderTeamChipsProps> = ({

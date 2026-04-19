@@ -39,7 +39,8 @@ import {
 
 const Credenciales: React.FC = () => {
   const { teams: equipos, loading } = useTeamsWithPlayers();
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedTeam, setSelectedTeam] = useState<string>("Quirpini");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Damas");
 
   // 📸 descargar una sola credencial
   const downloadCredencial = (id: string) => {
@@ -57,7 +58,7 @@ const Credenciales: React.FC = () => {
   // 📄 PDF por lotes (100 en 100)
   const downloadPDF = async () => {
     const allCards = Array.from(
-      document.querySelectorAll("[id^='credencial-img-']")
+      document.querySelectorAll("[id^='credencial-img-']"),
     );
 
     const BATCH_SIZE = 99;
@@ -83,7 +84,7 @@ const Credenciales: React.FC = () => {
 
         const canvas = await html2canvas(element, {
           scale: 1.5,
-          useCORS: true,       // ✅ FIX imágenes
+          useCORS: true, // ✅ FIX imágenes
           allowTaint: true,
         });
 
@@ -144,41 +145,57 @@ const Credenciales: React.FC = () => {
             </MenuItem>
           ))}
         </Select>
+        <Select
+          value={selectedTeam}
+          onChange={(e) => setSelectedTeam(e.target.value)}
+          size="small"
+          style={{ marginRight: "10px", minWidth: "200px" }}
+        >
+          <MenuItem value="all">Todos los equipos</MenuItem>
 
-        <DownloadButton onClick={downloadPDF}>
-          Descargar PDF
-        </DownloadButton>
+          {equipos.map((team) => (
+            <MenuItem key={team.id} value={team.name}>
+              {team.name}
+            </MenuItem>
+          ))}
+        </Select>
+
+        <DownloadButton onClick={downloadPDF}>Descargar PDF</DownloadButton>
       </div>
 
       {/* 📋 CARDS */}
       <GridContainer>
-        {equipos.map((team) =>
-          team.teams
-            .filter((subTeam) =>
-              selectedCategory === "all"
-                ? true
-                : subTeam.category === selectedCategory
-            )
-            .map((subTeam) =>
-              subTeam.players.map((player) => {
-                const exportId = `credencial-img-${team.id}-${subTeam.id}-${player.id}`;
+  {equipos
+    .filter((team) =>
+      selectedTeam === "all" ? true : team.name === selectedTeam
+    )
+    .map((team) =>
+      team.teams
+        .filter((subTeam) =>
+          selectedCategory === "all"
+            ? true
+            : subTeam.category === selectedCategory
+        )
+        .map((subTeam) =>
+          subTeam.players.map((player) => {
+            const exportId = `credencial-img-${team.id}-${subTeam.id}-${player.id}`;
 
-                const playerUrl = `https://san-lucas.vercel.app/player-detail?idPlayer=${player.id}&idTeam=${team.id}&category=${subTeam.category}`;
+            const playerUrl = `https://san-lucas.vercel.app/player-detail?idPlayer=${player.id}&idTeam=${team.id}&category=${subTeam.category}`;
 
-                return (
-                  <div key={exportId} style={{ textAlign: "center" }}>
-                    <Card id={exportId}>
-                      <CardContent>
-                        <HederCredential>
-                          <ChampionshipLogo src={logo} />
-                          <CardTitle>SAN LUCA 2026</CardTitle>
-                        </HederCredential>
+            return (
+              <div key={exportId} style={{ textAlign: "center" }}>
+                <Card id={exportId}>
+                  <CardContent>
+                    <HederCredential>
+                      <ChampionshipLogo src={logo} />
+                      <CardTitle>SAN LUCA 2026</CardTitle>
+                    </HederCredential>
 
-                        <BodyCredential>
-                          <Watermark src={watermarker} />
+                    <BodyCredential>
+                      <Watermark src={watermarker} />
 
-                          <TeamName>
-                            {team.name} - {subTeam.category}
+                      <TeamName>
+                        {team.name} - {subTeam.category}
                           </TeamName>
 
                           <PhotoWrapper bg={flag}>
@@ -209,13 +226,9 @@ const Credenciales: React.FC = () => {
                                 </PlayerNumber>
                               </div>
 
-                              <PlayerFullName>
-                                {player.fullName}
-                              </PlayerFullName>
+                              <PlayerFullName>{player.fullName}</PlayerFullName>
 
-                              <PlayerPosition>
-                                {player.position}
-                              </PlayerPosition>
+                              <PlayerPosition>{player.position}</PlayerPosition>
                             </div>
 
                             <TeamLogo src={getLogo(team.name)} />
@@ -251,8 +264,8 @@ const Credenciales: React.FC = () => {
                     </DownloadButton>
                   </div>
                 );
-              })
-            )
+              }),
+            ),
         )}
       </GridContainer>
     </>

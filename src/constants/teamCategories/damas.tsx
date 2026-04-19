@@ -69,7 +69,8 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
     logo: getLogo("Sabala Jr."),
     delegates: [
-       { id: 1, name: "Rosalia Felix Mamani", contact: "", category: "Damas" }
+       { id: 1, name: "Rosalia Felix Mamani", contact: "", category: "Damas" },
+       { id: 2, name: "Zegarra Ávido Agustina", contact: "", category: "Damas" }
     ],
   },
     {

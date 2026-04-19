@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { getPlayers } from "../services/players.service";
 import type { IPlayerDB } from "../types/types";
 
@@ -6,19 +6,18 @@ export const usePlayers = (filters?: {
   team?: string;
   category?: string;
 }) => {
-  const [players, setPlayers] = useState<IPlayerDB[]>([]);
-  const [loading, setLoading] = useState(true);
+  return useQuery<IPlayerDB[]>({
+    queryKey: ["players", filters],
+    queryFn: () => getPlayers(filters),
 
-  useEffect(() => {
-    const fetch = async () => {
-      setLoading(true);
-      const data = await getPlayers(filters);
-      setPlayers(data);
-      setLoading(false);
-    };
+    // 🚀 cache inteligente
+    staleTime: 1000 * 60 * 5, // 5 min sin refetch
+    gcTime: 1000 * 60 * 10, // mantiene en memoria (antes cacheTime)
 
-    fetch();
-  }, [filters]);
+    // 🚀 UX - mantiene datos previos mientras carga nuevos
+    placeholderData: (previousData) => previousData,
 
-  return { players, loading };
+    // 🚀 evita queries innecesarias
+    enabled: true,
+  });
 };
