@@ -1,5 +1,5 @@
 import React from "react";
-import type { ITeamStanding } from "../../types/types";
+import type { CategoryType, ITeamStanding } from "../../types/types";
 import {
   TableContainer,
   Table,
@@ -16,12 +16,20 @@ import { getLogo } from "../../tools/tools";
 import { Typography, Button } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
-
 interface Props {
   standings: ITeamStanding[];
+  category: CategoryType;
 }
 
-const StandingsTable: React.FC<Props> = ({ standings }) => {
+const StandingsTable: React.FC<Props> = ({ standings, category }) => {
+  const QUALIFIED_BY_CATEGORY: Record<CategoryType, number> = {
+    Juvenil: 8,
+    Damas: 6,
+    Senior: 6,
+    Infantil: 4,
+  };
+
+  const qualifiedLimit = QUALIFIED_BY_CATEGORY[category] ?? 8;
   return (
     <TableContainer>
       {standings.length === 0 ? (
@@ -68,7 +76,15 @@ const StandingsTable: React.FC<Props> = ({ standings }) => {
           </TableHead>
           <TableBody>
             {standings.map((team, index) => (
-              <TableRow key={team.team}>
+              <TableRow
+                key={team.team}
+                style={{
+                  backgroundColor:
+                    index < qualifiedLimit ? "#e8f5e9" : "transparent",
+                  borderLeft:
+                    index < qualifiedLimit ? "4px solid #2e7d32" : "none",
+                }}
+              >
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>
                   <TitleTeam>

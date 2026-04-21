@@ -10,7 +10,7 @@ import { InfoContainer, Root, MessageNoTeams } from "./styles";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
-import type { ITeamCategoryItem, SerieType } from "../../types/types";
+import type { ITeamCategoryItem, SerieType, CategoryType } from "../../types/types";
 
 const TeamCategories: React.FC = () => {
   const navigate = useNavigate();
@@ -19,12 +19,12 @@ const TeamCategories: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const categoryParam = queryParams.get("category");
 
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil",
+  const [selectedCategory, setSelectedCategory] = useState<CategoryType>(
+    (categoryParam as CategoryType) || "Juvenil",
   );
   const [serie, setSerie] = useState<SerieType>("all");
 
-  const handleCategoryChange = (cat: string) => {
+  const handleCategoryChange = (cat: CategoryType) => {
     setSelectedCategory(cat);
     navigate(`/team-categories?category=${encodeURIComponent(cat)}`, {
       replace: true,

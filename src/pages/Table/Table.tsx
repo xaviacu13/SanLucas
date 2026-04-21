@@ -19,24 +19,25 @@ import { infantil as fixtureInfantil } from "../../constants/fixture/infantil";
 
 import { categories } from "../../constants/categories";
 import { orderTable } from "../../tools/tools";
-import type { ITeamStanding, SerieType } from "../../types/types";
+import type { ITeamStanding, SerieType, CategoryType } from "../../types/types";
 import { generateTable } from "../../utils/generateTable";
 import { Root } from "./styles";
 
 import { useNavigate } from "react-router-dom";
+
 
 const Table: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const categoryParam = queryParams.get("category");
 
   const [serie, setSerie] = useState<SerieType>("all");
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil",
+  const [selectedCategory, setSelectedCategory] = useState<CategoryType>(
+    (categoryParam as CategoryType) || "Juvenil",
   );
 
   const navigate = useNavigate();
 
-  const handleCategoryChange = (cat: string) => {
+  const handleCategoryChange = (cat: CategoryType) => {
     setSelectedCategory(cat);
     navigate(`/table?category=${encodeURIComponent(cat)}`, {
       replace: true,
@@ -92,7 +93,7 @@ const Table: React.FC = () => {
       {selectedCategory === "Juvenil" && (
         <SearchSerie serie={serie} setSerie={setSerie} />
       )}
-      <StandingsTable standings={filteredTable} />
+      <StandingsTable category={selectedCategory} standings={filteredTable} />
     </Root>
   );
 };

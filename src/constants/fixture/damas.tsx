@@ -267,7 +267,7 @@ export const damas: IMatch[] = [
     id: 19,
     team1: getTeamName(4),
     scorerTeam1: 2,
-    scorerTeam2: 0,
+    scorerTeam2: 1,
     team2: getTeamName(8),
     date: "19-04-2026",
     time: "13:00",

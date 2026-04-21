@@ -19,7 +19,7 @@ import logo from "../../assets/images/icons/logo1.png";
 import { categories } from "../../constants/categories";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
-import type { SerieType } from "../../types/types";
+import type { SerieType, CategoryType } from "../../types/types";
 
 const Fixture: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
@@ -42,8 +42,8 @@ const Fixture: React.FC = () => {
 
   const [team, setTeam] = useState("all");
   const [serie, setSerie] = useState<SerieType>("all");
-  const [selectedCategory, setSelectedCategory] = useState<string>(
-    categoryParam || "Juvenil",
+  const [selectedCategory, setSelectedCategory] = useState<CategoryType>(
+    (categoryParam as CategoryType) || "Juvenil",
   );
 
   const navigate = useNavigate();
@@ -59,7 +59,7 @@ const Fixture: React.FC = () => {
   const [stGame, setStGame] = useState(
     hasScheduledInitial ? "scheduled" : "played",
   );
-  const handleCategoryChange = (cat: string) => {
+  const handleCategoryChange = (cat: CategoryType) => {
     setSelectedCategory(cat);
     setSerie("all");
     setTeam("all");

@@ -10,14 +10,15 @@ import {
   HomeButton,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
+import type { CategoryType } from "../../types/types";
 
 interface HeaderCategoryChipsProps {
   img: string;
   title?: string;
   color: string;
   category: string[];
-  selectedCategory: string;
-  onCategoryChange: (cat: string) => void;
+  selectedCategory: CategoryType;
+  onCategoryChange: (cat: CategoryType) => void;
   shareUrl?: string;
 }
 
@@ -57,8 +58,8 @@ const  HeaderCategory: React.FC<HeaderCategoryChipsProps> = ({
             label={cat}
             clickable
             activecolor={color}
-            selected={selectedCategory === cat}
-            onClick={() => onCategoryChange(cat)}
+            selected={selectedCategory === (cat as CategoryType)}
+            onClick={() => onCategoryChange(cat as CategoryType)}
           />
         ))}
       </Box>
