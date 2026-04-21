@@ -49,7 +49,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
     logo: getLogo("Saka Pampa"),
     delegates: [
-      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+      { id: 1, name: "Santos Flores Norma", contact: "", category: "Damas" }
     ],
   },
   {

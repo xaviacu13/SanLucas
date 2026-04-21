@@ -15,9 +15,10 @@ import {
 } from "./styles";
 import { getLogo } from "../../tools/tools";
 import type { IFixtureCard } from "../../types/types";
-//import { teams }from "../../constants/teams/teams";
+// import { Typography } from "@mui/material";
 
 const FixtureCard: React.FC<IFixtureCard> = ({
+  // id,
   team1,
   team2,
   scorerTeam1,
@@ -70,7 +71,9 @@ const FixtureCard: React.FC<IFixtureCard> = ({
           )}
           {group > 0 && (
             <TitleItem>
-              <strong>{status === "played" ? "F - ": "Fecha:"} {group}</strong>
+              <strong>
+                {status === "played" ? "F - " : "Fecha:"} {group}
+              </strong>
               {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
             </TitleItem>
           )}
@@ -84,9 +87,11 @@ const FixtureCard: React.FC<IFixtureCard> = ({
               {date || "__/__/____"}
             </DetailItem>
           )}
-          <DetailItem>
-            <strong>Cancha:</strong> {location || "___"}
-          </DetailItem>
+          {status != "played" && (
+            <DetailItem>
+              <strong>Cancha:</strong> {location || "___"}
+            </DetailItem>
+          )}
           <DetailItem>{renderStatusLabel()}</DetailItem>
         </DetailsColumn>
 
@@ -103,6 +108,9 @@ const FixtureCard: React.FC<IFixtureCard> = ({
       {observation && observation.trim() !== "" && (
         <ObservationContainer>{observation}</ObservationContainer>
       )}
+      {/* <Typography variant="caption" align="center" color="textSecondary">
+        ID: {id}
+      </Typography> */}
     </Root>
   );
 };
