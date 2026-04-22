@@ -30,7 +30,9 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/gi2xaYg2g3vBYpBP7",
     logo: getLogo("Phullaya"),
     delegates: [
-      // { id: 1, name: "Gladys Aleida Quispe", contact: "", category: "Damas" }
+       { id: 1, name: "Nilda Alejandro Flores", contact: "", category: "Damas" },
+       { id: 2, name: "Jesusa Serruto", contact: "", category: "Damas" }
+
     ],
   },
   {
@@ -92,7 +94,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "",
     logo: getLogo("Quirpini"),
     delegates: [
-      { id: 1, name: "Eunice Paco", contact: "", category: "Damas" }
+      { id: 1, name: "Soledad Paco", contact: "", category: "Damas" }
     ],
   },
       {
