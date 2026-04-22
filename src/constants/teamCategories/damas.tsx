@@ -6,10 +6,11 @@ export const damas: ITeamCategoryItem[] = [
     id: 1,
     series: "",
     name: "Avichuca",
-    url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
+    url: "",
+    // url: "https://forms.gle/3Z8u7TgGEMZM83Zm7",
     logo: getLogo("Avichuca"),
     delegates: [
-      // { id: 1, name: "Zaida Colque Gomez", contact: "", category: "Damas" },
+      { id: 1, name: "Zaida Colque Gomez", contact: "", category: "Damas" },
     ],
   },
   {
@@ -19,7 +20,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/NTignF759P7pm9wA7",
     logo: getLogo("Andamarca"),
     delegates: [
-      // { id: 1, name: "Ibania Condori M.", contact: "", category: "Damas" },
+     { id: 1, name: "Eusebia Correa Acuña", contact: "", category: "Damas" },
     ],
   },
   {
@@ -87,17 +88,19 @@ export const damas: ITeamCategoryItem[] = [
     id: 9,
     series: "",
     name: "Quirpini",
-    url: "https://forms.gle/yMSv8uFU6rwbx5Q89",
+    // url: "https://forms.gle/yMSv8uFU6rwbx5Q89",
+    url: "",
     logo: getLogo("Quirpini"),
     delegates: [
-      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+      { id: 1, name: "Eunice Paco", contact: "", category: "Damas" }
     ],
   },
       {
     id: 10,
     series: "",
     name: "Huayllani",
-    url: "https://forms.gle/mR86DAwtSSQ3TBT47",
+    url: "",
+    //url: "https://forms.gle/mR86DAwtSSQ3TBT47",
     logo: getLogo("Huayllani"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -160,7 +163,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/ejmYwJseCk5S9SaK8",
     logo: getLogo("Tambo Kasa"),
     delegates: [
-      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+     { id: 1, name: "Martina Bravo", contact: "", category: "Damas" }
     ],
   },
         {
@@ -177,10 +180,12 @@ export const damas: ITeamCategoryItem[] = [
     id: 18,
     series: "",
     name: "Ocuri",
-    url: "https://forms.gle/M9nt3KrmDKBg15ov5",
+    url: "",
+    // url: "https://forms.gle/M9nt3KrmDKBg15ov5",
     logo: getLogo("Ocuri"),
     delegates: [
-      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+      { id: 1, name: "Marlene Silvia Ruffo Sonko", contact: "", category: "Damas" },
+      { id: 2, name: "Claudia Choque Canaza", contact: "", category: "Damas" }
     ],
   },
 ];
