@@ -40,7 +40,7 @@ export const damas: ITeamCategoryItem[] = [
     url: "https://forms.gle/Rk77ZJiaETRuNDAT6",
     logo: getLogo("Churisaya"),
     delegates: [
-      // { id: 1, name: "Eva", contact: "", category: "Damas" }
+      { id: 1, name: "Norma Mamani Ochoa", contact: "", category: "Damas" }
     ],
   },
   {
