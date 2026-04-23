@@ -17,7 +17,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 2,
     series: "",
     name: "Andamarca",
-    url: "https://forms.gle/NTignF759P7pm9wA7",
+    url: "",
+    // url: "https://forms.gle/NTignF759P7pm9wA7",
     logo: getLogo("Andamarca"),
     delegates: [
      { id: 1, name: "Eusebia Correa Acuña", contact: "", category: "Damas" },
@@ -27,7 +28,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 3,
     series: "",
     name: "Phullaya",
-    url: "https://forms.gle/gi2xaYg2g3vBYpBP7",
+    // url: "https://forms.gle/gi2xaYg2g3vBYpBP7",
+    url: "",
     logo: getLogo("Phullaya"),
     delegates: [
        { id: 1, name: "Nilda Alejandro Flores", contact: "", category: "Damas" },
@@ -39,7 +41,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 4,
     series: "",
     name: "Churisaya",
-    url: "https://forms.gle/Rk77ZJiaETRuNDAT6",
+    // url: "https://forms.gle/Rk77ZJiaETRuNDAT6",
+    url: "",
     logo: getLogo("Churisaya"),
     delegates: [
       { id: 1, name: "Norma Mamani Ochoa", contact: "", category: "Damas" }
@@ -49,7 +52,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 5,
     series: "",
     name: "Saka Pampa",
-    url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
+    url: "",
+    // url: "https://forms.gle/YtbPuvjqgRUkpnQ5A",
     logo: getLogo("Saka Pampa"),
     delegates: [
       { id: 1, name: "Santos Flores Norma", contact: "", category: "Damas" }
@@ -59,7 +63,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 6,
     series: "",
     name: "Huayllani Grande",
-    url: "https://forms.gle/8DBtQNkFQ5rbQFKT7",
+    url: "",
+    // url: "https://forms.gle/8DBtQNkFQ5rbQFKT7",
     logo: getLogo("Huayllani Grande"),
     delegates: [
      // { id: 2, name: "Reina Mollo", contact: "", category: "Damas" },
@@ -69,7 +74,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 7,
     series: "",
     name: "Sabala Jr.",
-    url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
+    url: "",
+    // url: "https://forms.gle/Vie7UJvu8qMNv2rV9",
     logo: getLogo("Sabala Jr."),
     delegates: [
        { id: 1, name: "Rosalia Felix Mamani", contact: "", category: "Damas" },
@@ -80,10 +86,11 @@ export const damas: ITeamCategoryItem[] = [
     id: 8,
     series: "",
     name: "Cruz Mayu",
-    url: "https://forms.gle/dXv7PTmpnLZGYZ3i9",
+    // url: "https://forms.gle/dXv7PTmpnLZGYZ3i9",
+    url: "",
     logo: getLogo("Cruz Mayu"),
     delegates: [
-      // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
+      { id: 1, name: "Agripina Mamani Torres ", contact: "", category: "Damas" }
     ],
   },
     {
@@ -112,7 +119,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 11,
     series: "",
     name: "Palacio",
-    url: "https://forms.gle/kuXGysPJVMphh9eD8",
+    // url: "https://forms.gle/kuXGysPJVMphh9eD8",
+    url: "",
     logo: getLogo("Palacio"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -122,7 +130,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 12,
     series: "",
     name: "Kumuni",
-    url: "https://forms.gle/zoSUGwagH68hq1kt8",
+    // url: "https://forms.gle/zoSUGwagH68hq1kt8",
+    url: "",
     logo: getLogo("Kumuni"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -132,7 +141,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 13,
     series: "",
     name: "Tuntoco",
-    url: "https://forms.gle/nE2tYNpz4HYuLErj8",
+    // url: "https://forms.gle/nE2tYNpz4HYuLErj8",
+    url: "",
     logo: getLogo("Tuntoco"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -142,7 +152,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 14,
     series: "",
     name: "Punquina",
-    url: "https://forms.gle/8gncaLo682biWj1q9",
+    // url: "https://forms.gle/8gncaLo682biWj1q9",
+    url: "",
     logo: getLogo("Punquina"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -152,7 +163,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 15,
     series: "",
     name: "Malliri",
-    url: "https://forms.gle/CV7qX2HyFeRqjEkk6",
+    // url: "https://forms.gle/CV7qX2HyFeRqjEkk6",
+    url: "",
     logo: getLogo("Malliri"),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
@@ -162,7 +174,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 16,
     series: "",
     name: "Tambo Kasa",
-    url: "https://forms.gle/ejmYwJseCk5S9SaK8",
+    // url: "https://forms.gle/ejmYwJseCk5S9SaK8",
+    url: "",
     logo: getLogo("Tambo Kasa"),
     delegates: [
      { id: 1, name: "Martina Bravo", contact: "", category: "Damas" }
@@ -172,7 +185,8 @@ export const damas: ITeamCategoryItem[] = [
     id: 17,
     series: "",
     name: 'Rodeo "A"',
-    url: "https://forms.gle/g5pETa7hFviWtJpe7",
+    // url: "https://forms.gle/g5pETa7hFviWtJpe7",
+    url: "",
     logo: getLogo('Rodeo "A"'),
     delegates: [
       // { id: 1, name: "Gladys Mollo", contact: "", category: "Damas" }
