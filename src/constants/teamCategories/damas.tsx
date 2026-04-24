@@ -67,7 +67,8 @@ export const damas: ITeamCategoryItem[] = [
     // url: "https://forms.gle/8DBtQNkFQ5rbQFKT7",
     logo: getLogo("Huayllani Grande"),
     delegates: [
-      // { id: 2, name: "Reina Mollo", contact: "", category: "Damas" },
+      { id: 1, name: "Zul Delfina Quispe Torres", contact: "", category: "Damas" },
+      { id: 2, name: "Mary Morales Bejarano", contact: "", category: "Damas" },
     ],
   },
   {
