@@ -35,6 +35,18 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+  //   events: [
+  //   { type: "goal", team: getTeamName(1), playerDni: "94025" },
+  //   { type: "goal", team: getTeamName(1), playerDni: "24897" },
+  //   { type: "goal", team: getTeamName(2), playerDni: "84060" },
+  //   { type: "goal", team: getTeamName(2), playerDni: "78537" },
+  // ],
+  events: [
+    { type: "goal", team: getTeamName(1), num: "94025" },
+    { type: "goal", team: getTeamName(1), num: "24897" },
+    { type: "goal", team: getTeamName(2), num: "84060" },
+    { type: "goal", team: getTeamName(2), num: "78537" },
+  ],
   },
   {
     id: 2,
@@ -49,6 +61,14 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+        events: [
+    { type: "goal", team: getTeamName(1), num: "2345" },
+    { type: "goal", team: getTeamName(1), num: "9999" },
+    { type: "goal", team: getTeamName(2), num: "5555" },
+    { type: "goal", team: getTeamName(2), num: "5555" },
+    { type: "yellow", team: getTeamName(1), num: "2345" },
+    { type: "red", team: getTeamName(2), num: "7777" },
+  ],
   },
   {
     id: 3,
@@ -348,7 +368,7 @@ export const juvenil: IMatch[] = [
   {
     id: 24,
     team1: getTeamName(15),
-    scorerTeam1: 1,
+    scorerTeam1: 0,
     scorerTeam2: 1,
     team2: getTeamName(24),
     date: "12-04-2026",
@@ -356,7 +376,7 @@ export const juvenil: IMatch[] = [
     location: "2",
     status: "played",
     group: 2,
-    observation: "",
+    observation: "W.O. A favor de Monte Pampa",
     serie: "B",
   },
   {

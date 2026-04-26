@@ -62,6 +62,13 @@ export interface IDelegate {
   category: string;
 }
 
+export type MatchEvent = {
+  type: "goal" | "yellow" | "red";
+  team: string;
+  num: string; // últimos 5 dígitos
+  minute?: number;
+};
+
 export interface IMatch {
   id: number;
   team1: string;
@@ -75,6 +82,7 @@ export interface IMatch {
   group: number,
   observation: string;
   serie?: SerieType;
+  events?: MatchEvent[];
 
 }
 
