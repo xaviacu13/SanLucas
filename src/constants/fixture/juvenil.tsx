@@ -35,18 +35,18 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
-  //   events: [
-  //   { type: "goal", team: getTeamName(1), playerDni: "94025" },
-  //   { type: "goal", team: getTeamName(1), playerDni: "24897" },
-  //   { type: "goal", team: getTeamName(2), playerDni: "84060" },
-  //   { type: "goal", team: getTeamName(2), playerDni: "78537" },
-  // ],
-  events: [
-    { type: "goal", team: getTeamName(1), num: "94025" },
-    { type: "goal", team: getTeamName(1), num: "24897" },
-    { type: "goal", team: getTeamName(2), num: "84060" },
-    { type: "goal", team: getTeamName(2), num: "78537" },
-  ],
+    //   events: [
+    //   { type: "goal", team: getTeamName(1), playerDni: "94025" },
+    //   { type: "goal", team: getTeamName(1), playerDni: "24897" },
+    //   { type: "goal", team: getTeamName(2), playerDni: "84060" },
+    //   { type: "goal", team: getTeamName(2), playerDni: "78537" },
+    // ],
+    events: [
+      { type: "goal", team: getTeamName(1), num: "94025" },
+      { type: "goal", team: getTeamName(1), num: "24897" },
+      { type: "goal", team: getTeamName(2), num: "84060" },
+      { type: "goal", team: getTeamName(2), num: "78537" },
+    ],
   },
   {
     id: 2,
@@ -61,14 +61,14 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
-        events: [
-    { type: "goal", team: getTeamName(1), num: "2345" },
-    { type: "goal", team: getTeamName(1), num: "9999" },
-    { type: "goal", team: getTeamName(2), num: "5555" },
-    { type: "goal", team: getTeamName(2), num: "5555" },
-    { type: "yellow", team: getTeamName(1), num: "2345" },
-    { type: "red", team: getTeamName(2), num: "7777" },
-  ],
+    events: [
+      { type: "goal", team: getTeamName(1), num: "2345" },
+      { type: "goal", team: getTeamName(1), num: "9999" },
+      { type: "goal", team: getTeamName(2), num: "5555" },
+      { type: "goal", team: getTeamName(2), num: "5555" },
+      { type: "yellow", team: getTeamName(1), num: "2345" },
+      { type: "red", team: getTeamName(2), num: "7777" },
+    ],
   },
   {
     id: 3,
@@ -1412,7 +1412,7 @@ export const juvenil: IMatch[] = [
     id: 98,
     team1: getTeamName(4),
     scorerTeam1: 2,
-    scorerTeam2: 4,
+    scorerTeam2: 5,
     team2: getTeamName(7),
     date: "26-04-2026",
     time: "16:30",
@@ -2607,7 +2607,7 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "B",
   },
-    {
+  {
     id: 39,
     team1: getTeamName(13),
     scorerTeam1: 0,
