@@ -1411,8 +1411,8 @@ export const juvenil: IMatch[] = [
   {
     id: 98,
     team1: getTeamName(4),
-    scorerTeam1: 2,
-    scorerTeam2: 5,
+    scorerTeam1: 5,
+    scorerTeam2: 2,
     team2: getTeamName(7),
     date: "26-04-2026",
     time: "16:30",
