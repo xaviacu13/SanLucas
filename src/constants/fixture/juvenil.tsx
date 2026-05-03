@@ -35,17 +35,16 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
-    //   events: [
-    //   { type: "goal", team: getTeamName(1), playerDni: "94025" },
-    //   { type: "goal", team: getTeamName(1), playerDni: "24897" },
-    //   { type: "goal", team: getTeamName(2), playerDni: "84060" },
-    //   { type: "goal", team: getTeamName(2), playerDni: "78537" },
+    // events: [
+    //   { type: "g", team: getTeamName(1), num: 10, qty: 2 },
+    //   { type: "g", team: getTeamName(2), num: 9 },
     // ],
-    events: [
-      { type: "goal", team: getTeamName(1), num: "94025" },
-      { type: "goal", team: getTeamName(1), num: "24897" },
-      { type: "goal", team: getTeamName(2), num: "84060" },
-      { type: "goal", team: getTeamName(2), num: "78537" },
+      events: [
+      { type: "g", team: getTeamName(1), num: 8 },
+      { type: "g", team: getTeamName(1), num: 10 },
+       { type: "g", team: getTeamName(2), num: 24 },
+      { type: "g", team: getTeamName(2), num: 19 },
+      { type: "y", team: getTeamName(2), num: 20 },
     ],
   },
   {
@@ -62,12 +61,17 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "B",
     events: [
-      { type: "goal", team: getTeamName(1), num: "2345" },
-      { type: "goal", team: getTeamName(1), num: "9999" },
-      { type: "goal", team: getTeamName(2), num: "5555" },
-      { type: "goal", team: getTeamName(2), num: "5555" },
-      { type: "yellow", team: getTeamName(1), num: "2345" },
-      { type: "red", team: getTeamName(2), num: "7777" },
+      { type: "g", team: getTeamName(3), num: 8 },
+      { type: "y", team: getTeamName(3), num: 5},
+      { type: "y", team: getTeamName(4), num: 4 },
+      { type: "g", team: getTeamName(4), num: 5 },
+      { type: "g", team: getTeamName(4), num: 16 },
+      { type: "g", team: getTeamName(4), num:6 },
+      { type: "g", team: getTeamName(4), num: 10 },
+      { type: "y", team: getTeamName(4), num: 33 },
+      { type: "g", team: getTeamName(4), num: 9 },
+      { type: "y", team: getTeamName(4), num: 10 },
+      { type: "y", team: getTeamName(4), num: 9 },
     ],
   },
   {
@@ -83,6 +87,14 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(5), num: 7 },
+      { type: "g", team: getTeamName(5), num: 13 },
+      { type: "g", team: getTeamName(5), num:11 },
+      { type: "g", team: getTeamName(5), num: 16, qty: 3},
+      { type: "g", team: getTeamName(6), num: 3 },
+      { type: "g", team: getTeamName(6), num: 11 },
+    ],
   },
   {
     id: 4,
@@ -97,6 +109,12 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(7), num: 9 },
+      { type: "g", team: getTeamName(7), num: 20 },
+      { type: "y", team: getTeamName(8), num: 2 },
+      { type: "y", team: getTeamName(8), num: 8 },
+    ],
   },
   {
     id: 5,
@@ -111,6 +129,15 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(10), num: 17 },
+      { type: "g", team: getTeamName(10), num: 5 },
+      { type: "g", team: getTeamName(9), num: 10, qty: 2 },
+      { type: "y", team: getTeamName(9), num: 9 },
+      { type: "y", team: getTeamName(9), num: 3 },    
+      { type: "g", team: getTeamName(9), num: 7 },
+      { type: "g", team: getTeamName(9), num: 8, qty: 3 },
+    ],
   },
   {
     id: 6,
@@ -125,6 +152,15 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(12), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(12), num: 14, qty: 2 },
+      { type: "g", team: getTeamName(12), num: 17 },
+      { type: "y", team: getTeamName(12), num: 23 },
+
+      { type: "g", team: getTeamName(11), num: 27 },
+      { type: "g", team: getTeamName(11), num: 11 },
+    ],
   },
   {
     id: 7,
@@ -139,6 +175,13 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(13), num: 18, qty: 2 },
+      { type: "g", team: getTeamName(13), num: 8 },
+      { type: "g", team: getTeamName(13), num: 5 },
+
+      { type: "g", team: getTeamName(14), num: 14 },
+    ],
   },
   {
     id: 8,
@@ -153,6 +196,15 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(15), num: 99 },
+      { type: "g", team: getTeamName(15), num: 16, qty: 3 },
+      { type: "g", team: getTeamName(15), num: 10, qty: 4 },
+      { type: "g", team: getTeamName(15), num: 86 },
+
+      { type: "g", team: getTeamName(16), num: 11 },
+      { type: "g", team: getTeamName(16), num: 20 },
+    ],
   },
   {
     id: 9,
@@ -167,6 +219,15 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(18), num: 99, qty: 2 },
+      { type: "g", team: getTeamName(18), num: 7, qty: 2 },
+      { type: "g", team: getTeamName(18), num: 9, qty: 3 },
+      
+      { type: "g", team: getTeamName(17), num: 17 },
+      { type: "y", team: getTeamName(17), num: 13 },
+      { type: "y", team: getTeamName(17), num: 2 },
+    ],
   },
   {
     id: 10,
@@ -181,6 +242,15 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(20), num: 8, qty: 2 },
+      { type: "g", team: getTeamName(20), num: 80 },
+      { type: "g", team: getTeamName(20), num: 17 },
+      { type: "g", team: getTeamName(20), num: 10 },
+      { type: "g", team: getTeamName(20), num: 7, qty: 2 },
+
+      { type: "y", team: getTeamName(19), num: 23 },
+    ],
   },
   {
     id: 11,
@@ -195,6 +265,15 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(21), num: 21 },
+      { type: "g", team: getTeamName(21), num: 10, qty: 3 },
+      { type: "g", team: getTeamName(21), num: 80, qty: 2 },
+      { type: "g", team: getTeamName(21), num: 11, qty: 2 },
+
+      { type: "g", team: getTeamName(22), num: 13 },
+      { type: "g", team: getTeamName(22), num: 18, qty: 2 },
+    ],
   },
   {
     id: 12,
@@ -209,6 +288,9 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(23), num: 4 },
+    ],
   },
   {
     id: 13,
@@ -223,6 +305,12 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(26), num: 11 },
+      { type: "g", team: getTeamName(26), num: 9 },
+
+      { type: "g", team: getTeamName(25), num: 6, qty: 2 },
+    ],
   },
   {
     id: 14,
@@ -237,6 +325,22 @@ export const juvenil: IMatch[] = [
     group: 1,
     observation: "",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(27), num: 17 },
+      { type: "g", team: getTeamName(27), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(27), num: 15 },
+      { type: "g", team: getTeamName(27), num: 2, qty: 2 },
+      { type: "y", team: getTeamName(27), num: 4, qty: 2 },
+      { type: "r", team: getTeamName(27), num: 4 },
+
+      { type: "g", team: getTeamName(28), num: 2 },
+      { type: "y", team: getTeamName(28), num: 2 },
+      { type: "y", team: getTeamName(28), num: 20 },
+      { type: "y", team: getTeamName(28), num: 66, qty: 2 },
+      { type: "r", team: getTeamName(28), num: 66 },
+      { type: "y", team: getTeamName(28), num: 3 },
+
+    ],
   },
   // FECHA 2
   {
@@ -252,6 +356,15 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(10), num: 3 },
+      { type: "g", team: getTeamName(10), num: 13, qty: 2 },
+      { type: "g", team: getTeamName(10), num: 5 },
+      { type: "g", team: getTeamName(10), num: 17 },
+      { type: "g", team: getTeamName(10), num: 15 },
+
+      { type: "g", team: getTeamName(2), num: 2, qty: 2 },
+    ],
   },
   {
     id: 16,
@@ -266,6 +379,17 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(12), num: 33 },
+      { type: "y", team: getTeamName(12), num: 4 },
+      
+      { type: "g", team: getTeamName(4), num: 9 },
+      { type: "g", team: getTeamName(4), num: 1},
+      { type: "g", team: getTeamName(4), num: 33 },
+      { type: "y", team: getTeamName(4), num: 33 },
+      { type: "g", team: getTeamName(4), num: 5 },
+      { type: "y", team: getTeamName(4), num: 14 },
+    ],
   },
   {
     id: 17,
@@ -280,6 +404,19 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(6), num: 42, qty: 2 },
+      { type: "g", team: getTeamName(6), num: 18 },
+      { type: "y", team: getTeamName(6), num: 4 },
+      { type: "y", team: getTeamName(6), num: 8 },
+      
+      { type: "y", team: getTeamName(1), num: 7 },
+      { type: "g", team: getTeamName(1), num: 19 },
+      { type: "g", team: getTeamName(1), num: 8, qty: 2 },
+      { type: "g", team: getTeamName(1), num: 20 },
+      { type: "y", team: getTeamName(1), num: 20 },
+      { type: "g", team: getTeamName(1), num: 18 },
+    ],
   },
   {
     id: 18,
@@ -294,12 +431,21 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(8), num: 3 },
+      { type: "y", team: getTeamName(8), num: 10 },
+      { type: "y", team: getTeamName(8), num: 8 },
+      
+      { type: "g", team: getTeamName(3), num: 4 },
+      { type: "g", team: getTeamName(3), num: 17 },
+   
+    ],
   },
   {
     id: 19,
     team1: getTeamName(5),
     scorerTeam1: 7,
-    scorerTeam2: 1,
+    scorerTeam2: 2,
     team2: getTeamName(14),
     date: "12-04-2026",
     time: "09:25",
@@ -308,6 +454,15 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(5), num: 20, qty: 2},
+      { type: "g", team: getTeamName(5), num: 10 },
+      { type: "g", team: getTeamName(5), num: 17 },
+      { type: "g", team: getTeamName(5), num: 9, qty: 3},
+      
+      { type: "g", team: getTeamName(14), num: 4, qty: 2 },
+   
+    ],
   },
   {
     id: 20,
@@ -322,6 +477,16 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(7), num: 1 },
+      { type: "y", team: getTeamName(7), num: 3 },
+      { type: "g", team: getTeamName(7), num: 9 },
+      { type: "y", team: getTeamName(7), num: 17 },
+      { type: "g", team: getTeamName(7), num: 20 },
+      
+      { type: "y", team: getTeamName(16), num: 11 },
+   
+    ],
   },
   {
     id: 21,
@@ -336,6 +501,17 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "y", team: getTeamName(18), num: 8 },
+      { type: "g", team: getTeamName(18), num: 17, qty: 2 },
+      { type: "g", team: getTeamName(18), num: 9 },
+      { type: "g", team: getTeamName(18), num: 10 },
+      
+      { type: "y", team: getTeamName(9), num: 26 },
+      { type: "y", team: getTeamName(9), num: 10 },
+      { type: "g", team: getTeamName(9), num: 6, qty: 2 },
+   
+    ],
   },
   {
     id: 22,
@@ -350,6 +526,17 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(11), num: 1 },
+      { type: "y", team: getTeamName(11), num: 27 },
+      { type: "y", team: getTeamName(11), num: 7 },
+      
+      { type: "g", team: getTeamName(20), num: 16 },
+      { type: "g", team: getTeamName(20), num: 8, qty: 2 },
+      { type: "g", team: getTeamName(20), num: 7, qty: 2 },
+      { type: "g", team: getTeamName(20), num: 10 },
+      { type: "g", team: getTeamName(20), num: 80 },
+    ],
   },
   {
     id: 23,
@@ -364,6 +551,17 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(13), num: 30 },
+      { type: "y", team: getTeamName(13), num: 6 },
+      { type: "g", team: getTeamName(13), num: 8 },
+      { type: "g", team: getTeamName(13), num: 9, qty: 2 },
+      
+      { type: "y", team: getTeamName(22), num: 18 },
+      { type: "y", team: getTeamName(22), num: 10 },
+      { type: "y", team: getTeamName(22), num: 6 },
+      { type: "y", team: getTeamName(22), num: 2 },
+    ],
   },
   {
     id: 24,
@@ -378,6 +576,9 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "W.O. A favor de Monte Pampa",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(24), num: 1 },
+    ],
   },
   {
     id: 25,
@@ -392,6 +593,17 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(26), num: 11 },
+      { type: "g", team: getTeamName(26), num: 5 },
+      { type: "g", team: getTeamName(26), num: 9, qty: 2 },
+      { type: "g", team: getTeamName(26), num: 7, qty: 4 },
+      { type: "g", team: getTeamName(26), num: 3 },
+      { type: "y", team: getTeamName(26), num: 3 },
+      
+      { type: "y", team: getTeamName(17), num: 14 },
+      { type: "g", team: getTeamName(17), num: 8 },
+    ],
   },
   {
     id: 26,
@@ -406,6 +618,12 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "B",
+    events: [
+      { type: "g", team: getTeamName(28), num: 14 },
+      { type: "g", team: getTeamName(28), num: 66, qty: 2 },
+      
+      { type: "y", team: getTeamName(19), num: 3 },
+    ],
   },
   {
     id: 27,
@@ -420,6 +638,12 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(25), num: 20 },
+      { type: "g", team: getTeamName(25), num: 3 },
+      
+      { type: "g", team: getTeamName(21), num: 3, qty: 2 },
+    ],
   },
   {
     id: 28,
@@ -434,6 +658,14 @@ export const juvenil: IMatch[] = [
     group: 2,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(27), num: 15 },
+      { type: "y", team: getTeamName(27), num: 7 },
+      
+      { type: "g", team: getTeamName(23), num: 2 },
+      { type: "y", team: getTeamName(23), num: 24 },
+      { type: "y", team: getTeamName(23), num: 7 },
+    ],
   },
   // FECHA 3
   {
@@ -449,6 +681,13 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(14), num: 17 },
+      
+      { type: "g", team: getTeamName(6), num: 12, qty: 2 },
+      { type: "g", team: getTeamName(6), num: 10, qty: 3 },
+      { type: "g", team: getTeamName(6), num: 9, qty: 2 },
+    ],
   },
   {
     id: 30,
@@ -463,6 +702,11 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(8), num: 7 },
+      { type: "g", team: getTeamName(8), num: 17, qty: 2 },
+      { type: "g", team: getTeamName(8), num: 9, qty: 3 },
+    ],
   },
   {
     id: 31,
@@ -477,6 +721,17 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(10), num: 11 },
+      { type: "y", team: getTeamName(10), num: 16 },
+
+      { type: "y", team: getTeamName(1), num: 19 },
+      { type: "y", team: getTeamName(1), num: 14 },
+      { type: "g", team: getTeamName(1), num: 15 },
+      { type: "g", team: getTeamName(1), num: 30, qty: 2 },
+      { type: "y", team: getTeamName(1), num: 5 },
+      { type: "y", team: getTeamName(1), num: 11 },
+    ],
   },
   {
     id: 32,
@@ -491,6 +746,16 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(12), num: 11 },
+      { type: "y", team: getTeamName(12), num: 19 },
+
+      { type: "g", team: getTeamName(3), num: 7 },
+      { type: "y", team: getTeamName(3), num: 1 },
+      { type: "g", team: getTeamName(3), num: 2 },
+      { type: "g", team: getTeamName(3), num: 20 },
+      { type: "y", team: getTeamName(3), num: 20 },
+    ],
   },
   {
     id: 33,
@@ -505,6 +770,18 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(18), num: 17 },
+      { type: "y", team: getTeamName(18), num: 17 },
+      { type: "y", team: getTeamName(18), num: 7 },
+      { type: "g", team: getTeamName(18), num: 3, qty: 2 },
+      { type: "y", team: getTeamName(18), num: 99 },
+
+      { type: "y", team: getTeamName(2), num: 10 },
+      { type: "g", team: getTeamName(2), num: 5, qty: 2 },
+      { type: "y", team: getTeamName(2), num: 5 },
+      { type: "g", team: getTeamName(2), num: 11 },
+    ],
   },
   {
     id: 34,
@@ -519,6 +796,20 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(4), num: 4 },
+      { type: "g", team: getTeamName(4), num: 5 },
+      { type: "g", team: getTeamName(4), num: 9, qty: 2 },
+      { type: "y", team: getTeamName(4), num: 9 },
+      { type: "y", team: getTeamName(4), num: 35 },
+
+      { type: "y", team: getTeamName(20), num: 80 },
+      { type: "y", team: getTeamName(20), num: 2 },
+      { type: "g", team: getTeamName(20), num: 6 },
+      { type: "g", team: getTeamName(20), num: 10, qty: 2 },
+      { type: "g", team: getTeamName(20), num: 7 },
+      { type: "y", team: getTeamName(20), num: 7 },
+    ],
   },
   {
     id: 35,
@@ -533,6 +824,14 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(5), num: 10 },
+      { type: "g", team: getTeamName(5), num: 5, qty: 2 },
+      { type: "g", team: getTeamName(5), num: 20, qty: 2 },
+
+      { type: "g", team: getTeamName(22), num: 10 },
+      { type: "y", team: getTeamName(22), num: 2 },
+    ],
   },
   {
     id: 36,
@@ -547,6 +846,12 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(24), num: 11 },
+
+      { type: "y", team: getTeamName(7), num: 9 },
+      { type: "y", team: getTeamName(7), num: 16 },
+    ],
   },
   {
     id: 37,
@@ -561,6 +866,13 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(9), num: 6 },
+
+      { type: "g", team: getTeamName(26), num: 15 },
+      { type: "g", team: getTeamName(26), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(26), num: 7, qty: 4 },
+    ],
   },
   {
     id: 38,
@@ -575,6 +887,11 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(11), num: 22 },
+      { type: "g", team: getTeamName(11), num: 9  },
+      { type: "g", team: getTeamName(11), num: 8  },
+    ],
   },
   // {
   //   id: 39,
@@ -603,6 +920,18 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(27), num: 9, qty: 3 },
+      { type: "g", team: getTeamName(27), num: 21  },
+      { type: "g", team: getTeamName(27), num: 13  },
+      { type: "g", team: getTeamName(27), num: 11  },
+
+      { type: "g", team: getTeamName(15), num: 11 },
+      { type: "g", team: getTeamName(15), num: 10, qty: 2 },
+      { type: "y", team: getTeamName(15), num: 99 },
+
+
+    ],
   },
   {
     id: 41,
@@ -617,6 +946,19 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(21), num: 5, qty: 2 },
+      { type: "g", team: getTeamName(21), num: 80  },
+      { type: "g", team: getTeamName(21), num: 21, qty: 2 },
+      { type: "g", team: getTeamName(21), num: 17, qty: 2 },
+
+      { type: "g", team: getTeamName(17), num: 13 },
+      { type: "g", team: getTeamName(17), num: 6 },
+      { type: "y", team: getTeamName(17), num: 6 },
+      { type: "y", team: getTeamName(17), num: 1 },
+      { type: "g", team: getTeamName(17), num: 13, qty: 2 },
+
+    ],
   },
   {
     id: 42,
@@ -631,6 +973,13 @@ export const juvenil: IMatch[] = [
     group: 3,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(19), num: 4 },
+
+      { type: "g", team: getTeamName(23), num: 30, qty: 2 },
+      { type: "g", team: getTeamName(23), num: 7 },
+      { type: "g", team: getTeamName(23), num: 2 },
+    ],
   },
   // ===== FECHA 4 =====
   {
@@ -646,6 +995,15 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(10), num: 5, qty: 2 },
+      { type: "g", team: getTeamName(10), num: 2 },
+
+      { type: "g", team: getTeamName(18), num: 8, qty: 3 },
+      { type: "g", team: getTeamName(18), num: 7 },
+      { type: "y", team: getTeamName(18), num: 7 },
+      { type: "y", team: getTeamName(18), num: 99 },
+    ],
   },
   {
     id: 44,
@@ -660,6 +1018,11 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(20), num: 5 },
+      { type: "g", team: getTeamName(20), num: 20, qty: 2 },
+      { type: "g", team: getTeamName(20), num: 7 },
+    ],
   },
   {
     id: 45,
@@ -674,6 +1037,13 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "y", team: getTeamName(14), num: 11 },
+      { type: "y", team: getTeamName(14), num: 4 },
+
+      { type: "g", team: getTeamName(1), num: 15, qty: 2 },
+      { type: "g", team: getTeamName(1), num: 20, qty: 2 },
+    ],
   },
   {
     id: 46,
@@ -688,6 +1058,14 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(3), num: 9 },
+      { type: "g", team: getTeamName(3), num: 2 },
+      { type: "g", team: getTeamName(3), num: 15 },
+      { type: "g", team: getTeamName(3), num: 4, qty: 3 },
+      { type: "g", team: getTeamName(3), num: 20, qty: 2 },
+      { type: "g", team: getTeamName(3), num: 11, qty: 3 },
+    ],
   },
   {
     id: 47,
@@ -702,6 +1080,13 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(6), num: 18 },
+      { type: "g", team: getTeamName(6), num: 11 },
+      { type: "g", team: getTeamName(6), num: 6 },
+
+      { type: "y", team: getTeamName(22), num: 8 },
+    ],
   },
   {
     id: 48,
@@ -716,6 +1101,9 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(8), num: 20 },
+    ],
   },
   {
     id: 49,
@@ -730,6 +1118,17 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(26), num: 13 },
+      { type: "y", team: getTeamName(26), num: 13 },
+      { type: "g", team: getTeamName(26), num: 9 },
+      { type: "g", team: getTeamName(26), num: 10 },
+      { type: "g", team: getTeamName(26), num: 7 },
+
+      { type: "g", team: getTeamName(2), num: 13 },
+      { type: "y", team: getTeamName(2), num: 16 },
+      { type: "g", team: getTeamName(2), num: 11 },
+    ],
   },
   {
     id: 50,
@@ -744,6 +1143,14 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(4), num: 11 },
+      { type: "g", team: getTeamName(4), num: 5, qty: 2 },
+      { type: "g", team: getTeamName(4), num: 9, qty: 4 },
+      { type: "g", team: getTeamName(4), num: 7, qty: 2},
+
+      { type: "g", team: getTeamName(28), num: 10 },
+    ],
   },
   {
     id: 51,
@@ -758,6 +1165,16 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(5), num: 9 },
+      { type: "g", team: getTeamName(5), num: 24 },
+      { type: "g", team: getTeamName(5), num: 5 },
+      
+      { type: "y", team: getTeamName(25), num: 9, qty: 2},
+      { type: "r", team: getTeamName(25), num: 9 },
+      { type: "g", team: getTeamName(25), num: 8 },
+      { type: "g", team: getTeamName(25), num: 16 },
+    ],
   },
   {
     id: 52,
@@ -772,6 +1189,18 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(27), num: 5 },
+      { type: "g", team: getTeamName(27), num: 17 },
+      { type: "g", team: getTeamName(27), num: 7 },
+      { type: "y", team: getTeamName(27), num: 7 },
+      { type: "y", team: getTeamName(27), num: 11 },
+      { type: "g", team: getTeamName(27), num: 22 },
+      
+      { type: "y", team: getTeamName(7), num: 30, qty: 2},
+      { type: "r", team: getTeamName(7), num: 30 },
+      { type: "y", team: getTeamName(7), num: 2 },
+    ],
   },
   {
     id: 53,
@@ -786,6 +1215,19 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "y", team: getTeamName(9), num: 2 },
+      { type: "g", team: getTeamName(9), num: 3 },
+      { type: "y", team: getTeamName(9), num: 3, qty: 2},
+      { type: "r", team: getTeamName(9), num: 3 },
+      { type: "y", team: getTeamName(9), num: 4, qty: 2},
+      { type: "r", team: getTeamName(9), num: 4 },
+      { type: "y", team: getTeamName(9), num: 7 },
+      { type: "y", team: getTeamName(9), num: 27 },
+      
+      { type: "g", team: getTeamName(21), num: 20 },
+      { type: "g", team: getTeamName(21), num: 11 },
+    ],
   },
   {
     id: 54,
@@ -800,6 +1242,9 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "W. O. a favor de Huayllani Grande",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(23), num: 1 },
+    ],
   },
   {
     id: 55,
@@ -814,6 +1259,13 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "y", team: getTeamName(17), num: 14 },
+      { type: "y", team: getTeamName(17), num: 13 },
+      
+      { type: "g", team: getTeamName(13), num: 10 },
+      { type: "g", team: getTeamName(13), num: 18, qty: 2},
+    ],
   },
   {
     id: 56,
@@ -828,6 +1280,19 @@ export const juvenil: IMatch[] = [
     group: 4,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(15), num: 83 },
+      { type: "g", team: getTeamName(15), num: 10 },
+      { type: "y", team: getTeamName(15), num: 7 },
+      { type: "g", team: getTeamName(15), num: 16 },
+      { type: "y", team: getTeamName(15), num: 5 },
+      { type: "y", team: getTeamName(15), num: 11 },
+      { type: "y", team: getTeamName(15), num: 9 },
+      
+      { type: "g", team: getTeamName(19), num: 10 },
+      { type: "y", team: getTeamName(19), num: 10 },
+      { type: "y", team: getTeamName(19), num: 6 },
+    ],
   },
 
   // ===== FECHA 5 =====
@@ -844,6 +1309,18 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(14), num: 17 },
+      { type: "y", team: getTeamName(14), num: 17 },
+      { type: "g", team: getTeamName(14), num: 7 },
+      { type: "y", team: getTeamName(14), num: 2 },
+      
+      { type: "g", team: getTeamName(22), num: 95 },
+      { type: "y", team: getTeamName(22), num: 95 },
+      { type: "g", team: getTeamName(22), num: 28 },
+      { type: "g", team: getTeamName(22), num: 22 },
+      { type: "g", team: getTeamName(22), num: 11 },
+    ],
   },
   {
     id: 58,
@@ -858,6 +1335,13 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(24), num: 10, qty: 3 },
+      { type: "y", team: getTeamName(24), num: 3 },
+      { type: "g", team: getTeamName(24), num: 5 },
+      
+      { type: "g", team: getTeamName(16), num: 19 },
+    ],
   },
   {
     id: 59,
@@ -872,6 +1356,15 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(1), num: 29 },
+      { type: "g", team: getTeamName(1), num: 19 },
+      
+      { type: "y", team: getTeamName(18), num: 9 },
+      { type: "g", team: getTeamName(18), num: 8 },
+      { type: "y", team: getTeamName(18), num: 8 },
+      { type: "y", team: getTeamName(18), num: 5 },
+    ],
   },
   {
     id: 60,
@@ -886,6 +1379,16 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(20), num: 21 },
+      { type: "g", team: getTeamName(20), num: 9 },
+      { type: "y", team: getTeamName(20), num: 14 },
+      { type: "y", team: getTeamName(20), num: 22 },
+      
+      { type: "y", team: getTeamName(3), num: 13 },
+      { type: "y", team: getTeamName(3), num: 4 },
+      { type: "y", team: getTeamName(3), num: 20 },
+    ],
   },
   {
     id: 61,
@@ -900,6 +1403,18 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(26), num: 7 },
+      { type: "g", team: getTeamName(26), num: 15 },
+      
+      { type: "g", team: getTeamName(10), num: 5 },
+      { type: "g", team: getTeamName(10), num: 18 },
+      { type: "g", team: getTeamName(10), num: 10 },
+      { type: "g", team: getTeamName(10), num: 7 },
+      { type: "g", team: getTeamName(10), num: 9 },
+      { type: "y", team: getTeamName(10), num: 17 },
+      { type: "r", team: getTeamName(10), num: 6 },
+    ],
   },
   {
     id: 62,
@@ -914,6 +1429,17 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(12), num: 5 },
+      { type: "g", team: getTeamName(12), num: 25 },
+      { type: "y", team: getTeamName(12), num: 25 },
+      { type: "g", team: getTeamName(12), num: 17 },
+      
+      { type: "g", team: getTeamName(28), num: 20 },
+      { type: "g", team: getTeamName(28), num: 10 },
+      { type: "g", team: getTeamName(28), num: 2 },
+      { type: "g", team: getTeamName(28), num: 66 },
+    ],
   },
   {
     id: 63,
@@ -928,6 +1454,12 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(12), num: 11 },
+      { type: "y", team: getTeamName(12), num: 11 },
+      { type: "y", team: getTeamName(12), num: 1 },
+      { type: "g", team: getTeamName(12), num: 18, qty: 2 },
+    ],
   },
   {
     id: 64,
@@ -942,6 +1474,18 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(27), num: 4 },
+      { type: "g", team: getTeamName(27), num: 11 },
+      { type: "g", team: getTeamName(27), num: 9, qty: 3 },
+      { type: "y", team: getTeamName(27), num: 9 },
+      { type: "y", team: getTeamName(27), num: 28 },
+
+      { type: "y", team: getTeamName(8), num: 10 },
+      { type: "y", team: getTeamName(8), num: 8, qty: 2 },
+      { type: "r", team: getTeamName(8), num: 8 },
+      { type: "g", team: getTeamName(8), num: 20 },
+    ],
   },
   {
     id: 65,
@@ -956,6 +1500,14 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "y", team: getTeamName(21), num: 32 },
+      { type: "g", team: getTeamName(21), num: 11, qty: 3 },
+      { type: "y", team: getTeamName(21), num: 11 },
+
+      { type: "g", team: getTeamName(2), num: 6 },
+      { type: "g", team: getTeamName(2), num: 16 },
+    ],
   },
   {
     id: 66,
@@ -970,6 +1522,18 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(4), num: 9, qty: 3 },
+      { type: "g", team: getTeamName(4), num: 10, qty: 2 },
+      { type: "y", team: getTeamName(4), num: 10 },
+      { type: "g", team: getTeamName(4), num: 5 },
+
+      { type: "y", team: getTeamName(23), num: 8 },
+      { type: "y", team: getTeamName(23), num: 24 },
+      { type: "g", team: getTeamName(23), num: 11 },
+      { type: "y", team: getTeamName(23), num: 30 },
+      { type: "y", team: getTeamName(23), num: 9 },
+    ],
   },
   {
     id: 67,
@@ -984,6 +1548,12 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(5), num: 8 },
+      { type: "g", team: getTeamName(5), num: 7, qty: 3 },
+
+      { type: "y", team: getTeamName(17), num: 15 },
+    ],
   },
   {
     id: 68,
@@ -998,6 +1568,12 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(7), num: 3 },
+      { type: "y", team: getTeamName(7), num: 9 },
+
+      { type: "y", team: getTeamName(19), num: 20 },
+    ],
   },
   {
     id: 69,
@@ -1012,6 +1588,8 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "A",
+    events: [      
+    ],
   },
   {
     id: 70,
@@ -1026,6 +1604,12 @@ export const juvenil: IMatch[] = [
     group: 5,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(15), num: 10, qty: 3 },
+      { type: "y", team: getTeamName(15), num: 9 },
+
+      { type: "g", team: getTeamName(11), num: 30 },
+    ],
   },
 
   // ===== FECHA 6 =====
@@ -1042,6 +1626,13 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(26), num: 7 },
+      { type: "g", team: getTeamName(26), num: 8, qty: 3 },
+
+      { type: "g", team: getTeamName(18), num: 4 },
+      { type: "g", team: getTeamName(18), num: 10 },
+    ],
   },
   {
     id: 72,
@@ -1056,6 +1647,18 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(20), num: 14 },
+      { type: "g", team: getTeamName(20), num: 7, qty: 2 },
+      { type: "y", team: getTeamName(20), num: 7 },
+      { type: "g", team: getTeamName(20), num: 20, qty: 2 },
+      { type: "y", team: getTeamName(20), num: 20 },
+
+      { type: "g", team: getTeamName(28), num: 22 },
+      { type: "y", team: getTeamName(28), num: 20 },
+      { type: "g", team: getTeamName(28), num: 11 },
+      { type: "y", team: getTeamName(28), num: 8 },
+    ],
   },
   {
     id: 73,
@@ -1070,6 +1673,13 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(1), num: 8, qty: 3 },
+      { type: "g", team: getTeamName(1), num: 30, qty: 2 },
+      { type: "g", team: getTeamName(1), num: 18, qty: 4 },
+
+      { type: "y", team: getTeamName(22), num: 95 },
+    ],
   },
   {
     id: 74,
@@ -1084,6 +1694,12 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(3), num: 4 },
+      { type: "g", team: getTeamName(3), num: 11, qty: 4 },
+
+      { type: "y", team: getTeamName(24), num: 6 },
+    ],
   },
   {
     id: 75,
@@ -1098,6 +1714,15 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(25), num: 9, qty: 2 },
+      { type: "g", team: getTeamName(25), num: 17 },
+      { type: "g", team: getTeamName(25), num: 10 },
+      { type: "g", team: getTeamName(25), num: 18 },
+
+      { type: "y", team: getTeamName(14), num: 5 },
+      { type: "y", team: getTeamName(14), num: 8 },
+    ],
   },
   {
     id: 76,
@@ -1112,6 +1737,19 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(27), num: 8 },
+      { type: "y", team: getTeamName(27), num: 8 },
+      { type: "g", team: getTeamName(27), num: 13 },
+      { type: "g", team: getTeamName(27), num: 16 },
+      { type: "g", team: getTeamName(27), num: 14 },
+
+      { type: "g", team: getTeamName(16), num: 20 },
+      { type: "y", team: getTeamName(16), num: 20 },
+      { type: "y", team: getTeamName(16), num: 8 },
+      { type: "y", team: getTeamName(16), num: 34 },
+      { type: "y", team: getTeamName(16), num: 11 },
+    ],
   },
   {
     id: 77,
@@ -1126,6 +1764,16 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(10), num: 8, qty: 2 },
+      { type: "g", team: getTeamName(10), num: 5 },
+      { type: "y", team: getTeamName(10), num: 7 },
+      { type: "y", team: getTeamName(10), num: 17 },
+      { type: "g", team: getTeamName(10), num: 10 },
+
+      { type: "g", team: getTeamName(21), num: 11 },
+      { type: "g", team: getTeamName(21), num: 19 },
+    ],
   },
   {
     id: 78,
@@ -1140,6 +1788,13 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(23), num: 5 },
+      { type: "g", team: getTeamName(23), num: 8 },
+      { type: "g", team: getTeamName(23), num: 9 },
+
+      { type: "y", team: getTeamName(12), num: 25 },
+    ],
   },
   {
     id: 79,
@@ -1154,6 +1809,19 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(6), num: 10 },
+      { type: "g", team: getTeamName(6), num: 18, qty: 2 },
+      { type: "g", team: getTeamName(6), num: 87 },
+      { type: "y", team: getTeamName(6), num: 17 },
+
+      { type: "y", team: getTeamName(17), num: 4 },
+      { type: "g", team: getTeamName(17), num: 9 },
+      { type: "y", team: getTeamName(17), num: 9 },
+      { type: "y", team: getTeamName(17), num: 15 },
+      { type: "y", team: getTeamName(17), num: 13 },
+      { type: "y", team: getTeamName(17), num: 6 },
+    ],
   },
   {
     id: 80,
@@ -1168,6 +1836,11 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(8), num: 16 },
+      { type: "g", team: getTeamName(8), num: 10 },
+      { type: "g", team: getTeamName(8), num: 22 },
+    ],
   },
   {
     id: 81,
@@ -1182,6 +1855,15 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(13), num: 20 },
+      { type: "g", team: getTeamName(13), num: 10 },
+      { type: "g", team: getTeamName(13), num: 9 },
+
+      { type: "y", team: getTeamName(2), num: 10 },
+      { type: "y", team: getTeamName(2), num: 11 },
+      { type: "y", team: getTeamName(2), num: 2 },
+    ],
   },
   {
     id: 82,
@@ -1196,6 +1878,12 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [
+      { type: "y", team: getTeamName(4), num: 10 },
+
+      { type: "g", team: getTeamName(15), num: 9 },
+      { type: "y", team: getTeamName(15), num: 45 },
+    ],
   },
   {
     id: 83,
@@ -1210,6 +1898,14 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(5), num: 21 },
+      { type: "g", team: getTeamName(5), num: 7, qty: 2 },
+      { type: "g", team: getTeamName(5), num: 15 },
+      { type: "g", team: getTeamName(5), num: 9 },
+
+      { type: "g", team: getTeamName(9), num: 26 },
+    ],
   },
   {
     id: 84,
@@ -1224,6 +1920,12 @@ export const juvenil: IMatch[] = [
     group: 6,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(11), num: 5 },
+      { type: "g", team: getTeamName(11), num: 10 },
+
+      { type: "y", team: getTeamName(7), num: 11 },
+    ],
   },
   // ===== FECHA 7 =====
   {
@@ -1239,6 +1941,21 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [
+      { type: "y", team: getTeamName(25), num: 10 },
+      { type: "y", team: getTeamName(25), num: 11 },
+      { type: "y", team: getTeamName(25), num: 17 },
+      { type: "g", team: getTeamName(25), num: 2 },
+      { type: "y", team: getTeamName(25), num: 4 },
+      { type: "g", team: getTeamName(25), num: 5 },
+
+      { type: "g", team: getTeamName(22), num: 28 },
+      { type: "y", team: getTeamName(22), num: 20 },
+      { type: "y", team: getTeamName(22), num: 19 },
+      { type: "g", team: getTeamName(22), num: 10 },
+      { type: "y", team: getTeamName(22), num: 95 },
+      { type: "g", team: getTeamName(22), num: 11 },
+    ],
   },
   {
     id: 86,
@@ -1253,6 +1970,16 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(27), num: 5 },
+      { type: "g", team: getTeamName(27), num: 19 },
+      { type: "g", team: getTeamName(27), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(27), num: 16, qty: 3 },
+      { type: "g", team: getTeamName(27), num: 22 },
+
+      { type: "g", team: getTeamName(24), num: 9 },
+      { type: "g", team: getTeamName(24), num: 6 },
+    ],
   },
   {
     id: 87,
@@ -1267,6 +1994,12 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(1), num: 5 },
+      { type: "g", team: getTeamName(1), num: 11 },
+
+      { type: "y", team: getTeamName(26), num: 10 },
+    ],
   },
   {
     id: 88,
@@ -1281,6 +2014,16 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(3), num: 13 },
+      { type: "g", team: getTeamName(3), num: 11, qty: 2 },
+      { type: "y", team: getTeamName(3), num: 17 },
+      { type: "g", team: getTeamName(3), num: 3 },
+
+      { type: "g", team: getTeamName(28), num: 10, qty: 2 },
+      { type: "y", team: getTeamName(28), num: 20, qty: 2 },
+      { type: "r", team: getTeamName(28), num: 20 },
+    ],
   },
   {
     id: 89,
@@ -1295,6 +2038,11 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(21), num: 24 },
+
+      { type: "y", team: getTeamName(18), num: 7 },
+    ],
   },
   {
     id: 90,
@@ -1309,6 +2057,14 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "y", team: getTeamName(23), num: 4, qty: 2 },
+      { type: "r", team: getTeamName(23), num: 4 },
+      { type: "y", team: getTeamName(23), num: 9 },
+
+      { type: "y", team: getTeamName(20), num: 8 },
+      { type: "g", team: getTeamName(20), num: 7, qty: 2 },
+    ],
   },
   {
     id: 91,
@@ -1323,6 +2079,16 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(14), num: 10 },
+      { type: "y", team: getTeamName(14), num: 10 },
+      { type: "g", team: getTeamName(14), num: 7 },
+      { type: "g", team: getTeamName(14), num: 8 },
+
+      { type: "g", team: getTeamName(17), num: 6, qty: 2 },
+      { type: "y", team: getTeamName(17), num: 2 },
+      { type: "g", team: getTeamName(17), num: 11 },
+    ],
   },
   {
     id: 92,
@@ -1337,6 +2103,15 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(16), num: 17, qty: 2 },
+      { type: "y", team: getTeamName(16), num: 3 },
+      { type: "y", team: getTeamName(16), num: 22 },
+
+      { type: "g", team: getTeamName(19), num: 7, qty: 2 },
+      { type: "g", team: getTeamName(19), num: 5 },
+      { type: "y", team: getTeamName(19), num: 10 },
+    ],
   },
   {
     id: 93,
@@ -1351,6 +2126,12 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(10), num: 16 },
+      { type: "g", team: getTeamName(10), num: 9 },
+
+      { type: "y", team: getTeamName(13), num: 13 },
+    ],
   },
   {
     id: 94,
@@ -1365,6 +2146,14 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(12), num: 3 },
+      { type: "g", team: getTeamName(12), num: 11, qty: 2 },
+
+      { type: "g", team: getTeamName(15), num: 10, qty: 3 },
+      { type: "g", team: getTeamName(15), num: 30 },
+      { type: "g", team: getTeamName(15), num: 16 },
+    ],
   },
   {
     id: 95,
@@ -1379,6 +2168,15 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "g", team: getTeamName(9), num: 6, qty: 4 },
+      { type: "g", team: getTeamName(9), num: 10 },
+      { type: "y", team: getTeamName(9), num: 10 },
+      { type: "y", team: getTeamName(9), num: 26 },
+
+      { type: "g", team: getTeamName(6), num: 10 },
+      { type: "y", team: getTeamName(6), num: 7 },
+    ],
   },
   {
     id: 96,
@@ -1393,6 +2191,13 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(8), num: 9, qty: 3 },
+      { type: "g", team: getTeamName(8), num: 22 },
+      { type: "g", team: getTeamName(8), num: 7 },
+
+      { type: "g", team: getTeamName(11), num: 2 },
+    ],  
   },
   {
     id: 97,
@@ -1407,6 +2212,16 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "A",
+    events: [      
+      { type: "y", team: getTeamName(2), num: 13 },
+      { type: "g", team: getTeamName(2), num: 11 },
+      { type: "g", team: getTeamName(2), num: 8 },
+
+      { type: "g", team: getTeamName(5), num: 9 },
+      { type: "y", team: getTeamName(5), num: 9 },
+      { type: "y", team: getTeamName(5), num: 2 },
+      { type: "g", team: getTeamName(5), num: 17 },
+    ],
   },
   {
     id: 98,
@@ -1421,6 +2236,17 @@ export const juvenil: IMatch[] = [
     group: 7,
     observation: "",
     serie: "B",
+    events: [      
+      { type: "g", team: getTeamName(4), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(4), num: 9 },
+      { type: "y", team: getTeamName(4), num: 9 },
+      { type: "y", team: getTeamName(4), num: 17 },
+      { type: "g", team: getTeamName(4), num: 21 },
+
+      { type: "g", team: getTeamName(7), num: 5, qty: 2 },
+      { type: "y", team: getTeamName(7), num: 16 },
+      { type: "y", team: getTeamName(7), num: 7 },
+    ],  
   },
 
   // ===== FECHA 8 =====

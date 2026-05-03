@@ -22,6 +22,10 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(1), num: 11 },
+      { type: "y", team: getTeamName(2), num: 11 },
+    ],
   },
   {
     id: 2,
@@ -36,6 +40,9 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(4), num: 10, qty: 2 },
+    ],
   },
   {
     id: 3,
@@ -50,6 +57,16 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(5), num: 11 },
+      { type: "g", team: getTeamName(5), num: 10, qty: 2 },
+      { type: "g", team: getTeamName(5), num: 5, qty: 3 },
+
+      { type: "g", team: getTeamName(6), num: 10 },
+      { type: "y", team: getTeamName(6), num: 10 },
+      { type: "g", team: getTeamName(6), num: 8 },
+    ],
+
   },
   {
     id: 4,
@@ -64,6 +81,11 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(7), num: 18 },
+      { type: "g", team: getTeamName(8), num: 17 },
+    ],
+
   },
   {
     id: 5,
@@ -78,6 +100,11 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(9), num: 9 },
+      { type: "g", team: getTeamName(9), num: 2, qty: 3},
+      { type: "g", team: getTeamName(9), num: 8 },
+    ],
   },
   {
     id: 6,
@@ -92,6 +119,11 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(11), num: 10 },
+      { type: "g", team: getTeamName(11), num: 5 },
+    ],
+
   },
   {
     id: 7,
@@ -106,6 +138,10 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(13), num: 13 },
+      { type: "g", team: getTeamName(14), num: 10 },
+    ],
   },
   {
     id: 8,
@@ -120,6 +156,13 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(15), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(15), num: 21, qty: 2 },
+      { type: "g", team: getTeamName(15), num: 5 },
+
+      { type: "g", team: getTeamName(16), num: 7 },
+    ],
   },
   {
     id: 9,
@@ -134,6 +177,10 @@ export const damas: IMatch[] = [
     group: 1,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(17), num: 11 },
+      { type: "g", team: getTeamName(18), num: 9 },
+    ],
   },
   // ===== FECHA 2 =====
   {
@@ -149,6 +196,10 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(4), num: 10 },
+      { type: "g", team: getTeamName(4), num: 25 },
+    ],
   },
   {
     id: 11,
@@ -163,6 +214,10 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(2), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(2), num: 2, qty: 2 },
+    ],
   },
   {
     id: 12,
@@ -177,6 +232,10 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(3), num: 8 },
+      { type: "g", team: getTeamName(8), num: 8 },
+    ],
   },
   {
     id: 13,
@@ -191,6 +250,10 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(5), num: 11, qty: 3 },
+      { type: "g", team: getTeamName(10), num: 5, qty: 2 },
+    ],
   },
   {
     id: 14,
@@ -205,6 +268,11 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(7), num: 18 },
+      { type: "g", team: getTeamName(12), num: 9 },
+      { type: "g", team: getTeamName(12), num: 18, qty: 2 },
+    ],
   },
   {
     id: 15,
@@ -219,6 +287,9 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "W.O. a favor de Quirpini",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(9), num: 8 },
+    ]
   },
   {
     id: 16,
@@ -233,6 +304,10 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(11), num: 10, qty: 3 },
+      { type: "g", team: getTeamName(11), num: 11, qty: 2 },
+    ]
   },
   {
     id: 17,
@@ -247,6 +322,12 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(13), num: 8, qty: 2 },
+      { type: "y", team: getTeamName(13), num: 8 },
+      { type: "g", team: getTeamName(13), num: 18 },
+      { type: "g", team: getTeamName(18), num: 9 },
+    ]
   },
   {
     id: 18,
@@ -261,6 +342,10 @@ export const damas: IMatch[] = [
     group: 2,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(17), num: 15 },
+      { type: "g", team: getTeamName(17), num: 4 },
+    ]
   },
   // ===== FECHA 3 =====
   {
@@ -276,6 +361,11 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(4), num: 10, qty: 2 },
+      { type: "g", team: getTeamName(8), num: 11 },
+      { type: "y", team: getTeamName(8), num: 7 },
+    ]
   },
   {
     id: 20,
@@ -290,6 +380,12 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(1), num: 9 },
+      { type: "g", team: getTeamName(1), num: 10 },
+      { type: "g", team: getTeamName(1), num: 7 },
+      { type: "g", team: getTeamName(1), num: 11 },
+    ]
   },
   {
     id: 21,
@@ -304,6 +400,9 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(2), num: 13 },
+    ]
   },
   {
     id: 22,
@@ -318,6 +417,10 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(3), num: 11, qty: 2 },
+      { type: "g", team: getTeamName(12), num: 7 },
+    ]
   },
   {
     id: 23,
@@ -332,6 +435,10 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(5), num: 11, qty: 3 },
+      { type: "g", team: getTeamName(14), num: 8 },
+    ]
   },
   {
     id: 24,
@@ -346,6 +453,10 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(7), num: 11 },
+      { type: "g", team: getTeamName(7), num: 30 },
+    ]
   },
   {
     id: 25,
@@ -360,6 +471,9 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(18), num: 8 },
+    ]
   },
   {
     id: 26,
@@ -374,6 +488,12 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(11), num: 11 },
+      { type: "g", team: getTeamName(11), num: 12 },
+      { type: "g", team: getTeamName(11), num: 18 },
+      { type: "g", team: getTeamName(11), num: 5 },
+    ]
   },
   {
     id: 27,
@@ -388,6 +508,11 @@ export const damas: IMatch[] = [
     group: 3,
     observation: "",
     serie: "",
+    events: [
+      { type: "g", team: getTeamName(13), num: 18 },
+      { type: "g", team: getTeamName(13), num: 11 },
+      { type: "g", team: getTeamName(15), num: 1 },
+    ]
   },
   // ===== FECHA 4 =====
     {
@@ -403,6 +528,10 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(4), num: 10, qty: 2 },
+        { type: "g", team: getTeamName(4), num: 7, qty: 2 },
+      ]
     },
     {
       id: 29,
@@ -417,6 +546,13 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(6), num: 11, qty: 2 },
+        { type: "g", team: getTeamName(6), num: 20, qty: 5 },
+        { type: "g", team: getTeamName(6), num: 9, qty: 2 },
+
+        { type: "g", team: getTeamName(10), num: 11 },
+      ]
     },
     {
       id: 30,
@@ -431,6 +567,12 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(1), num: 7 },
+        { type: "y", team: getTeamName(8), num: 1 },
+        { type: "g", team: getTeamName(8), num: 11 },
+        { type: "y", team: getTeamName(8), num: 17 },
+      ]
     },
     {
       id: 31,
@@ -445,6 +587,9 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(2), num: 7 },
+      ]
     },
     {
       id: 32,
@@ -459,6 +604,13 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(3), num: 11 },
+        { type: "g", team: getTeamName(3), num: 4 },
+
+        { type: "y", team: getTeamName(16), num: 5 },
+
+      ]
     },
     {
       id: 33,
@@ -473,6 +625,11 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(5), num: 11 },
+        { type: "g", team: getTeamName(5), num: 5 },
+        { type: "g", team: getTeamName(5), num: 3 },
+      ]
     },
     {
       id: 34,
@@ -487,6 +644,10 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(7), num: 9 },
+        { type: "g", team: getTeamName(17), num: 15, qty: 2 },
+      ]
     },
     {
       id: 35,
@@ -501,6 +662,13 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(9), num: 6, qty: 2 },
+        { type: "g", team: getTeamName(9), num: 1 },
+
+        { type: "g", team: getTeamName(15), num: 11 },
+        { type: "g", team: getTeamName(15), num: 5 },
+      ]
     },
     {
       id: 36,
@@ -515,6 +683,12 @@ export const damas: IMatch[] = [
       group: 4,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(11), num: 3, qty: 2 },
+
+        { type: "g", team: getTeamName(13), num: 4, qty: 2 },
+        { type: "y", team: getTeamName(13), num: 18 },
+      ]
     },
 
     // ===== FECHA 5 =====
@@ -531,6 +705,9 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(6), num: 20 },
+      ]
     },
     {
       id: 38,
@@ -545,6 +722,10 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(8), num: 11 },
+        { type: "y", team: getTeamName(12), num: 10 },
+      ]
     },
     {
       id: 39,
@@ -559,6 +740,10 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(1), num: 11, qty: 2 },
+        { type: "g", team: getTeamName(1), num: 7 },
+      ]
     },
     {
       id: 40,
@@ -573,6 +758,12 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(4), num: 7, qty: 2 },
+        { type: "g", team: getTeamName(4), num: 9, qty: 2 },
+        { type: "g", team: getTeamName(4), num: 10, qty: 2 },
+        { type: "g", team: getTeamName(4), num: 11, qty: 3 },
+      ]
     },
     {
       id: 41,
@@ -587,6 +778,13 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(2), num: 13 },
+        { type: "g", team: getTeamName(2), num: 2 },
+        { type: "g", team: getTeamName(2), num: 7 },
+
+        { type: "g", team: getTeamName(18), num: 4 },
+      ]
     },
     {
       id: 42,
@@ -601,6 +799,13 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(3), num: 11 },
+
+        { type: "g", team: getTeamName(17), num: 15 },
+        { type: "g", team: getTeamName(17), num: 11 },
+        { type: "g", team: getTeamName(17), num: 22 },
+      ]
     },
     {
       id: 43,
@@ -615,6 +820,10 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(5), num: 11, qty: 2 },
+        { type: "g", team: getTeamName(5), num: 5, qty: 2 },
+      ]
     },
     {
       id: 44,
@@ -629,6 +838,14 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(7), num: 10, qty: 2 },
+        { type: "y", team: getTeamName(7), num: 10 },
+        { type: "g", team: getTeamName(7), num: 3 },
+
+        { type: "g", team: getTeamName(13), num: 25 },
+        { type: "g", team: getTeamName(13), num: 4 },
+      ]
     },
     {
       id: 45,
@@ -643,6 +860,10 @@ export const damas: IMatch[] = [
       group: 5,
       observation: "",
       serie: "",
+      events: [
+        { type: "g", team: getTeamName(9), num: 9 },
+        { type: "g", team: getTeamName(11), num: 30 },
+      ]
     },
     // ===== FECHA 6 =====
     {

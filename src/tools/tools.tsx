@@ -30,9 +30,11 @@ import ocuri from "../assets/images/logoEquipos/ocuri.webp";
 import corma from "../assets/images/logoEquipos/corma.webp";
 import lajaKasa from "../assets/images/logoEquipos/lajaKasa.webp";
 import chillagua from "../assets/images/logoEquipos/chillagua.webp";
-import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp"
-import punquina from "../assets/images/logoEquipos/punquina.png"
-import tuntoco from "../assets/images/logoEquipos/tuntoco.webp"
+import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp";
+import punquina from "../assets/images/logoEquipos/punquina.png";
+import tuntoco from "../assets/images/logoEquipos/tuntoco.webp";
+
+import type { IMatch } from "../types/types";
 export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
@@ -153,3 +155,71 @@ export const orderTable = (
 //     })),
 //   }));
 // };
+export type IScorerComputed = {
+  num: number;
+  team: string;
+  goals: number;
+};
+
+export const getTopScorersFromMatches = (
+  matches: IMatch[]
+): IScorerComputed[] => {
+  const map = new Map<string, IScorerComputed>();
+
+  matches.forEach((match) => {
+    match.events?.forEach((event) => {
+      if (event.type !== "g") return;
+
+      const key = `${event.team}-${event.num}`;
+
+      if (!map.has(key)) {
+        map.set(key, {
+          num: event.num,
+          team: event.team,
+          goals: 0,
+        });
+      }
+
+      map.get(key)!.goals += event.qty || 1;
+    });
+  });
+
+  return Array.from(map.values()).sort((a, b) => b.goals - a.goals);
+};
+
+type GoalDetail = {
+  opponent: string;
+  qty: number;
+};
+
+export const getGoalDetailsByPlayer = (
+  matches: IMatch[],
+  playerNumber: number,
+  team: string
+): GoalDetail[] => {
+  const map = new Map<string, number>();
+
+  matches.forEach((match) => {
+    if (match.status !== "played") return;
+
+    const isTeam1 = match.team1 === team;
+    const opponent = isTeam1 ? match.team2 : match.team1;
+
+    match.events?.forEach((event) => {
+      if (event.type !== "g") return;
+      if (Number(event.num) !== playerNumber) return;
+      if (event.team !== team) return;
+
+      if (!map.has(opponent)) {
+        map.set(opponent, 0);
+      }
+
+      map.set(opponent, map.get(opponent)! + (event.qty || 1));
+    });
+  });
+
+  return Array.from(map.entries()).map(([opponent, qty]) => ({
+    opponent,
+    qty,
+  }));
+};

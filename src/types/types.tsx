@@ -63,11 +63,41 @@ export interface IDelegate {
 }
 
 export type MatchEvent = {
-  type: "goal" | "yellow" | "red";
+  type: "g" | "y" | "r";
   team: string;
-  num: string; // últimos 5 dígitos
+  num: number; // últimos 5 dígitos
+  qty?:  number;
   minute?: number;
 };
+
+ export type IMatchEvent = {
+  type: "g" | "y" | "r";
+  team: string;
+  num: string;
+};
+
+ export type IScorerFixture = {
+  num: string;
+  team: string;
+  goals: number;
+};
+
+export type IScorerComputed = {
+  num: number;
+  team: string;
+  goals: number;
+};
+
+export interface IScorerUI {
+  id: number;
+  name: string;
+  fullName: string;
+  number: number;
+  team: string;
+  logoteam: string;
+  goals: number;
+  profile: string;
+}
 
 export interface IMatch {
   id: number;
@@ -100,6 +130,7 @@ export interface IFixtureCard {
   observation: string;
   category: string;
   serie?: SerieType;
+  events?: MatchEvent[];
 }
 
 export interface IScorer {

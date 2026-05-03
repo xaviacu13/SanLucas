@@ -1,18 +1,24 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { HeaderCategory, ScorerCard, Title } from "../../components";
 import logo from "../../assets/images/icons/logo1.png";
 import { useNavigate, useLocation } from "react-router-dom";
-import { juvenil } from "../../constants/topScorersTable/juvenil";
-import { senior } from "../../constants/topScorersTable/senior";
-import { damas } from "../../constants/topScorersTable/damas";
 import { categories } from "../../constants/categories";
 import { getLogo } from "../../tools/tools";
 import { Typography, Button } from "@mui/material";
 import ReplyIcon from "@mui/icons-material/Reply";
 import ShareIcon from "@mui/icons-material/Share";
 import HomeIcon from "@mui/icons-material/Home";
-import type { CategoryType, IScorer } from "../../types/types";
+import Skeleton from "@mui/material/Skeleton";
+import type { CategoryType, IMatch } from "../../types/types";
+import { getGoalDetailsByPlayer } from "../../tools/tools";
 import { MessageContent, CardContainer, ButtonContainer } from "./styles";
+
+import {
+  getTopScorersWithPlayers,
+  type ScorerWithPlayer,
+} from "../../services/scorers";
+import { juvenil } from "../../constants/fixture/juvenil";
+import { damas } from "../../constants/fixture/damas";
 
 const TopScorerTable: React.FC = () => {
   const navigate = useNavigate();
@@ -21,31 +27,46 @@ const TopScorerTable: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
   const categoryParam = queryParams.get("category");
 
-  // ✅ type guard
+  const [scorers, setScorers] = useState<ScorerWithPlayer[]>([]);
+  const [loading, setLoading] = useState(true);
+
   const isValidCategory = (cat: string | null): cat is CategoryType => {
     return ["Juvenil", "Senior", "Damas", "Infantil"].includes(cat || "");
   };
 
-  // ✅ categoría segura
   const selectedCategory: CategoryType = isValidCategory(categoryParam)
     ? categoryParam
     : "Juvenil";
 
-  // 🚀 DATA DINÁMICA (sin useState ni useEffect)
-  const scorerList: IScorer[] = useMemo(() => {
-    switch (selectedCategory) {
-      case "Juvenil":
-        return juvenil;
-      case "Senior":
-        return senior;
-      case "Damas":
-        return damas;
-      default:
-        return juvenil;
-    }
-  }, [selectedCategory]);
+  const matchesByCategory: Record<CategoryType, IMatch[]> = useMemo(
+    () => ({
+      Juvenil: juvenil,
+      Senior: [],
+      Damas: damas,
+      Infantil: [],
+    }),
+    [],
+  );
 
-  // ✅ cambio de categoría
+  useEffect(() => {
+    const loadScorers = async () => {
+      setLoading(true);
+
+      const matches = matchesByCategory[selectedCategory];
+
+      const data = await getTopScorersWithPlayers(
+        matches,
+        selectedCategory,
+        3,
+      );
+
+      setScorers(data);
+      setLoading(false);
+    };
+
+    loadScorers();
+  }, [selectedCategory, matchesByCategory]);
+
   const handleCategoryChange = (cat: CategoryType) => {
     navigate(`/top-scorers-table?category=${encodeURIComponent(cat)}`, {
       replace: true,
@@ -61,7 +82,7 @@ const TopScorerTable: React.FC = () => {
 
   const onShare = () => {
     const shareUrl = `${window.location.origin}/top-scorers-table?category=${encodeURIComponent(
-      selectedCategory
+      selectedCategory,
     )}`;
 
     const shareData = {
@@ -83,7 +104,7 @@ const TopScorerTable: React.FC = () => {
       <HeaderCategory
         img={logo}
         title={`Goleadores ${selectedCategory}`}
-        color="#1abc9c"
+        color="#22b7be"
         category={categories}
         onCategoryChange={handleCategoryChange}
         selectedCategory={selectedCategory}
@@ -91,21 +112,56 @@ const TopScorerTable: React.FC = () => {
 
       <Title title={`Goleadores: ${selectedCategory}`} />
 
-      {scorerList.length > 0 ? (
+      {loading ? (
         <CardContainer>
-          {scorerList.map((player, index) => (
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div
+              key={i}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-evenly",
+                gap: "20px",
+                padding: "12px",
+                width: "100%",
+                borderBottom: "1px solid #eee",
+              }}
+            >
+              {/* Ranking */}
+              <Skeleton variant="text" width={30} height={30} />
+
+              {/* Avatar */}
+              <Skeleton variant="circular" width={50} height={50} />
+
+              {/* Info */}
+              <div style={{ flex: 1 }}>
+                <Skeleton variant="text" width="60%" height={20} />
+                <Skeleton variant="text" width="40%" height={20} />
+              </div>
+
+              {/* Goals */}
+              <Skeleton variant="text" width={40} height={30} />
+            </div>
+          ))}
+        </CardContainer>
+      ) : scorers.length > 0 ? (
+        <CardContainer>
+          {scorers.map((player) => (
             <ScorerCard
-              key={`${selectedCategory}-${player.id}-${player.fullName}-${player.goals}`}
-              category={selectedCategory}
+              key={`${player.team}-${player.number}-${player.id}`}
               id={player.id}
               name={player.name}
               fullName={player.fullName}
               number={player.number}
-              index={index}
               goals={player.goals}
               teamName={player.team}
-              image={player.profile || getLogo("Default")}
-              logoTeam={player.logoteam}
+              image={player.profile || getLogo(player.team)}
+              logoTeam={getLogo(player.team)}
+              goalDetails={getGoalDetailsByPlayer(
+                matchesByCategory[selectedCategory],
+                player.number,
+                player.team,
+              )}
             />
           ))}
 
@@ -118,6 +174,7 @@ const TopScorerTable: React.FC = () => {
             >
               COMPARTIR
             </Button>
+
             <Button
               variant="outlined"
               color="secondary"

@@ -88,8 +88,8 @@ export const PlayerTitle = styled("h3")({
 
 export const PlayerText = styled('p')(() => ({
   margin: '2px 0',
-  fontSize: '23px',
-  color: '#06602aff',
+  fontSize: '16px',
+  color: 'rgb(2, 61, 2)',
   fontWeight: 'bold',
 }));
 

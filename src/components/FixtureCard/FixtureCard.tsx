@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FixtureContainer,
   TeamColumn,
@@ -14,11 +14,12 @@ import {
   SerieLabel,
 } from "./styles";
 import { getLogo } from "../../tools/tools";
-import type { IFixtureCard } from "../../types/types";
-// import { Typography } from "@mui/material";
+import type { IFixtureCard, MatchEvent } from "../../types/types";
+import { Typography } from "@mui/material";
+import { FaSortAmountDownAlt, FaSortAmountUp } from "react-icons/fa";
 
 const FixtureCard: React.FC<IFixtureCard> = ({
-  // id,
+  id,
   team1,
   team2,
   scorerTeam1,
@@ -31,7 +32,31 @@ const FixtureCard: React.FC<IFixtureCard> = ({
   observation,
   category,
   serie,
+  events,
 }) => {
+  const [open, setOpen] = useState(false);
+
+  const isExpandable = status === "played" && events && events.length > 0;
+
+  const team1Events: MatchEvent[] =
+    events?.filter((e) => e.team === team1) || [];
+
+  const team2Events: MatchEvent[] =
+    events?.filter((e) => e.team === team2) || [];
+
+  const getIcon = (type: MatchEvent["type"]) => {
+    switch (type) {
+      case "g":
+        return "⚽";
+      case "y":
+        return "🟨";
+      case "r":
+        return "🟥";
+      default:
+        return "";
+    }
+  };
+
   const renderStatusLabel = () => {
     if (!status || status.trim() === "") return null;
 
@@ -51,8 +76,38 @@ const FixtureCard: React.FC<IFixtureCard> = ({
     }
   };
 
+  const renderEvents = (eventsList: MatchEvent[]) => {
+    if (eventsList.length === 0) return <div>—</div>;
+
+    return eventsList.map((e, i) => (
+      <div
+        key={i}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+          marginBottom: "4px",
+        }}
+      >
+        <div style={{ display: "flex", gap: "4px" }}>
+          {Array.from({ length: e.qty || 1 }).map((_, idx) => (
+            <span key={idx}>{getIcon(e.type)}</span>
+          ))}
+        </div>
+
+        <span style={{ fontWeight: 500 }}>#{e.num}</span>
+      </div>
+    ));
+  };
+
   return (
-    <Root>
+    <Root
+      onClick={() => isExpandable && setOpen(!open)}
+      style={{
+        cursor: isExpandable ? "pointer" : "default",
+        transition: "0.2s",
+      }}
+    >
       <FixtureContainer category={category}>
         <TeamColumn>
           <Logo src={getLogo(team1)} alt={team1} />
@@ -62,6 +117,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
         {["played", "playing"].includes(status) && (
           <ScorerColumn align="left">{scorerTeam1}</ScorerColumn>
         )}
+
         <DetailsColumn>
           {group === 0 && (
             <TitleItem>
@@ -69,6 +125,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
               <SerieLabel serie={"C"}>FINAL</SerieLabel>
             </TitleItem>
           )}
+
           {group > 0 && (
             <TitleItem>
               <strong>
@@ -77,6 +134,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
               {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
             </TitleItem>
           )}
+
           {status === "played" ? (
             <DetailItem>
               <strong>{date || "__/__/____"}</strong>
@@ -87,12 +145,29 @@ const FixtureCard: React.FC<IFixtureCard> = ({
               {date || "__/__/____"}
             </DetailItem>
           )}
-          {status != "played" && (
+
+          {status !== "played" && (
             <DetailItem>
               <strong>Cancha:</strong> {location || "___"}
             </DetailItem>
           )}
-          <DetailItem>{renderStatusLabel()}</DetailItem>
+          <DetailItem
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+            }}
+          >
+            {renderStatusLabel()}
+
+            {isExpandable &&
+              (open ? (
+                <FaSortAmountUp />
+              ) : (
+                <FaSortAmountDownAlt />
+              ))}
+          </DetailItem>
         </DetailsColumn>
 
         {["played", "playing"].includes(status) && (
@@ -105,12 +180,27 @@ const FixtureCard: React.FC<IFixtureCard> = ({
         </TeamColumn>
       </FixtureContainer>
 
+      {isExpandable && open && (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            padding: "12px 16px",
+            background: "#f9f9f9",
+            borderTop: "1px solid #eee",
+          }}
+        >
+          <div>{renderEvents(team1Events)}</div>
+          <div>{renderEvents(team2Events)}</div>
+        </div>
+      )}
       {observation && observation.trim() !== "" && (
         <ObservationContainer>{observation}</ObservationContainer>
       )}
-      {/* <Typography variant="caption" align="center" color="textSecondary">
+
+      <Typography variant="caption" align="center" color="textSecondary">
         ID: {id}
-      </Typography> */}
+      </Typography>
     </Root>
   );
 };

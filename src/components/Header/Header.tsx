@@ -23,6 +23,9 @@ const Header: React.FC = () => {
       case "teams":
         navigate(`/team-categories?query=${description}`);
         break;
+      case "scorers":
+        navigate(`/top-scorers-table?query=${description}`);
+        break;
       default:
         console.warn("Ruta no encontrada:", description);
         break;
@@ -76,6 +79,13 @@ const onShare = () => {
           sx={NavButtonStyle()}
         >
           {isMobile ? "TABLA" : "TABLA DE POSICIONES"}
+        </Button>
+        <Button
+          onClick={() => handleNavigate("scorers")}
+          color="secondary"
+          sx={NavButtonStyle()}
+        >
+          {isMobile ? "GOLEADORES" : "TABLA DE GOLEADORES"}
         </Button>
         <Button
           onClick={() => handleNavigate("teams")}
