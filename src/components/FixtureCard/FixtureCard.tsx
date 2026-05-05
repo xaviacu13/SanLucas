@@ -16,7 +16,7 @@ import {
 import { getLogo } from "../../tools/tools";
 import type { IFixtureCard, MatchEvent } from "../../types/types";
 import { Typography } from "@mui/material";
-import { FaSortAmountDownAlt, FaSortAmountUp } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const FixtureCard: React.FC<IFixtureCard> = ({
   id,
@@ -78,51 +78,50 @@ const FixtureCard: React.FC<IFixtureCard> = ({
     }
   };
 
-const renderEvents = (eventsList: MatchEvent[]) => {
-  if (isloading) {
-    return <div>Cargando goleadores...</div>;
-  }
+  const renderEvents = (eventsList: MatchEvent[]) => {
+    if (isloading) {
+      return <div>Cargando goleadores...</div>;
+    }
 
-  if (eventsList.length === 0) return <div>—</div>;
+    if (eventsList.length === 0) return <div>—</div>;
 
-  return eventsList.map((e, i) => {
-    const key = `${e.team}-${e.num}`;
-    const player = playerMap?.get(`${category}-${e.team}-${e.num}`);
+    return eventsList.map((e, i) => {
+      const key = `${e.team}-${e.num}`;
+      const player = playerMap?.get(`${category}-${e.team}-${e.num}`);
 
-    return (
-      <div
-        key={`${key}-${i}`}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "5px",
-          marginBottom: "4px",
-        }}
-      >
-        <img
-          src={player?.image_url || getLogo("Default")}
-          alt={player?.name || "player"}
+      return (
+        <div
+          key={`${key}-${i}`}
           style={{
-            width: 28,
-            height: 28,
-            borderRadius: "50%",
-            objectFit: "cover",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+            marginBottom: "4px",
           }}
-        />
-
-        <span style={{ fontWeight: 700, fontSize: "0.9em"}}>
-          {player?.full_name || `#${e.num}`} {player?.full_name && `(${player.number})`}
-        </span>
-        <div style={{ display: "flex", gap: "3px" }}>
-          {Array.from({ length: e.qty || 1 }).map((_, idx) => (
-            <span key={idx}>{getIcon(e.type)}</span>
-          ))}
+        >
+          <img
+            src={player?.image_url || getLogo("Default")}
+            alt={player?.name || "player"}
+            style={{
+              width: 28,
+              height: 28,
+              borderRadius: "50%",
+              objectFit: "cover",
+            }}
+          />
+          <span style={{ fontWeight: 700, fontSize: "0.9em" }}>
+            {player?.full_name || `#${e.num}`}{" "}
+            {player?.full_name && `(${player.number})`}
+          </span>
+          <div style={{ display: "flex", gap: "3px" }}>
+            {Array.from({ length: e.qty || 1 }).map((_, idx) => (
+              <span key={idx}>{getIcon(e.type)}</span>
+            ))}
+          </div>
         </div>
-
-      </div>
-    );
-  });
-};
+      );
+    });
+  };
 
   return (
     <Root
@@ -185,12 +184,7 @@ const renderEvents = (eventsList: MatchEvent[]) => {
           >
             {renderStatusLabel()}
 
-            {isExpandable &&
-              (open ? (
-                <FaSortAmountUp />
-              ) : (
-                <FaSortAmountDownAlt />
-              ))}
+            {isExpandable && (open ? <FaEye /> : <FaEyeSlash />)}
           </DetailItem>
         </DetailsColumn>
 
