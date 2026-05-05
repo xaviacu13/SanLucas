@@ -95,11 +95,10 @@ const renderEvents = (eventsList: MatchEvent[]) => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "8px",
-          marginBottom: "6px",
+          gap: "5px",
+          marginBottom: "4px",
         }}
       >
-        {/* 👤 AVATAR */}
         <img
           src={player?.image_url || getLogo("Default")}
           alt={player?.name || "player"}
@@ -111,11 +110,9 @@ const renderEvents = (eventsList: MatchEvent[]) => {
           }}
         />
 
-        {/* 🧑 NOMBRE */}
         <span style={{ fontWeight: 700, fontSize: "0.9em"}}>
           {player?.full_name || `#${e.num}`} {player?.full_name && `(${player.number})`}
         </span>
-        {/* ⚽ ICONOS */}
         <div style={{ display: "flex", gap: "3px" }}>
           {Array.from({ length: e.qty || 1 }).map((_, idx) => (
             <span key={idx}>{getIcon(e.type)}</span>
@@ -212,9 +209,10 @@ const renderEvents = (eventsList: MatchEvent[]) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            padding: "12px 16px",
+            padding: "5px 0",
             background: "#f9f9f9",
             borderTop: "1px solid #eee",
+            gap: "8px",
           }}
         >
           <div>{renderEvents(team1Events)}</div>
