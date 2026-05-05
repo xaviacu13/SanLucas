@@ -8,6 +8,7 @@ import App from "./App";
 import theme from "./theme";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { PlayerProvider } from "./context/PlayerContext";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <CssBaseline />
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
-          <App />
+          <PlayerProvider>
+            <App />
+          </PlayerProvider>
         </QueryClientProvider>
         <Toaster position="top-right" />
       </BrowserRouter>

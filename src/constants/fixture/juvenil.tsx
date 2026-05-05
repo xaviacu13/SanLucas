@@ -40,8 +40,8 @@ export const juvenil: IMatch[] = [
     //   { type: "g", team: getTeamName(2), num: 9 },
     // ],
       events: [
-      { type: "g", team: getTeamName(1), num: 8 },
       { type: "g", team: getTeamName(1), num: 10 },
+      { type: "g", team: getTeamName(1), num: 8 },
        { type: "g", team: getTeamName(2), num: 24 },
       { type: "g", team: getTeamName(2), num: 19 },
       { type: "y", team: getTeamName(2), num: 20 },
@@ -412,7 +412,7 @@ export const juvenil: IMatch[] = [
       
       { type: "y", team: getTeamName(1), num: 7 },
       { type: "g", team: getTeamName(1), num: 19 },
-      { type: "g", team: getTeamName(1), num: 8, qty: 2 },
+      { type: "g", team: getTeamName(1), num: 10, qty: 2 },
       { type: "g", team: getTeamName(1), num: 20 },
       { type: "y", team: getTeamName(1), num: 20 },
       { type: "g", team: getTeamName(1), num: 18 },
@@ -1674,7 +1674,7 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "A",
     events: [      
-      { type: "g", team: getTeamName(1), num: 8, qty: 3 },
+      { type: "g", team: getTeamName(1), num: 10, qty: 3 },
       { type: "g", team: getTeamName(1), num: 30, qty: 2 },
       { type: "g", team: getTeamName(1), num: 18, qty: 4 },
 

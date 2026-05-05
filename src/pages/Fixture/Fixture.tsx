@@ -20,6 +20,7 @@ import { categories } from "../../constants/categories";
 import { useNavigate } from "react-router-dom";
 import { Typography } from "@mui/material";
 import type { SerieType, CategoryType } from "../../types/types";
+import { useGoalPlayers } from "../../hooks/useGoalPlayers";
 
 const Fixture: React.FC = () => {
   const queryParams = new URLSearchParams(location.search);
@@ -45,6 +46,7 @@ const Fixture: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<CategoryType>(
     (categoryParam as CategoryType) || "Juvenil",
   );
+const { playerMap, loading } = useGoalPlayers();
 
   const navigate = useNavigate();
 
@@ -158,9 +160,9 @@ const Fixture: React.FC = () => {
         />
 
         {filteredMatches.length > 0 ? (
-          filteredMatches.map((match, index) => (
+          filteredMatches.map((match) => (
             <FixtureCard
-              key={`${match.id}-${index}`}
+              key={match.id}
               id={match.id}
               team1={match.team1}
               team2={match.team2}
@@ -175,6 +177,8 @@ const Fixture: React.FC = () => {
               category={selectedCategory}
               serie={match.serie}
               events={match.events}
+              playerMap={playerMap}
+              isloading={loading}
             />
           ))
         ) : (

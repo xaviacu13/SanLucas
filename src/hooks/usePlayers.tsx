@@ -10,14 +10,11 @@ export const usePlayers = (filters?: {
     queryKey: ["players", filters],
     queryFn: () => getPlayers(filters),
 
-    // 🚀 cache inteligente
     staleTime: 1000 * 60 * 5, // 5 min sin refetch
     gcTime: 1000 * 60 * 10, // mantiene en memoria (antes cacheTime)
 
-    // 🚀 UX - mantiene datos previos mientras carga nuevos
     placeholderData: (previousData) => previousData,
 
-    // 🚀 evita queries innecesarias
     enabled: true,
   });
 };

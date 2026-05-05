@@ -8,10 +8,10 @@ export const usePlayer = (id?: string | number) => {
     queryKey: ["player", id],
     queryFn: () => getPlayerById(id!),
 
-    enabled: !!id, // 🚀 no ejecuta si no hay id
+    enabled: !!id, 
 
-    staleTime: 1000 * 60 * 5, // 5 min cache
-    gcTime: 1000 * 60 * 10, // mantiene en memoria (antes cacheTime)
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10, 
 
     retry: 1,
   });

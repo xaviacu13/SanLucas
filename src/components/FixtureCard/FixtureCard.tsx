@@ -33,6 +33,8 @@ const FixtureCard: React.FC<IFixtureCard> = ({
   category,
   serie,
   events,
+  playerMap,
+  isloading,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -76,29 +78,54 @@ const FixtureCard: React.FC<IFixtureCard> = ({
     }
   };
 
-  const renderEvents = (eventsList: MatchEvent[]) => {
-    if (eventsList.length === 0) return <div>—</div>;
+const renderEvents = (eventsList: MatchEvent[]) => {
+  if (isloading) {
+    return <div>Cargando goleadores...</div>;
+  }
 
-    return eventsList.map((e, i) => (
+  if (eventsList.length === 0) return <div>—</div>;
+
+  return eventsList.map((e, i) => {
+    const key = `${e.team}-${e.num}`;
+    const player = playerMap?.get(`${category}-${e.team}-${e.num}`);
+
+    return (
       <div
-        key={i}
+        key={`${key}-${i}`}
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "6px",
-          marginBottom: "4px",
+          gap: "8px",
+          marginBottom: "6px",
         }}
       >
-        <div style={{ display: "flex", gap: "4px" }}>
+        {/* 👤 AVATAR */}
+        <img
+          src={player?.image_url || getLogo("Default")}
+          alt={player?.name || "player"}
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
+        />
+
+        {/* 🧑 NOMBRE */}
+        <span style={{ fontWeight: 700, fontSize: "0.9em"}}>
+          {player?.full_name || `#${e.num}`} {player?.full_name && `(${player.number})`}
+        </span>
+        {/* ⚽ ICONOS */}
+        <div style={{ display: "flex", gap: "3px" }}>
           {Array.from({ length: e.qty || 1 }).map((_, idx) => (
             <span key={idx}>{getIcon(e.type)}</span>
           ))}
         </div>
 
-        <span style={{ fontWeight: 500 }}>#{e.num}</span>
       </div>
-    ));
-  };
+    );
+  });
+};
 
   return (
     <Root

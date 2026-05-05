@@ -131,6 +131,8 @@ export interface IFixtureCard {
   category: string;
   serie?: SerieType;
   events?: MatchEvent[];
+  playerMap?: Map<string, IPlayerDB>;
+  isloading?: boolean;
 }
 
 export interface IScorer {

@@ -34,7 +34,7 @@ import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp";
 import punquina from "../assets/images/logoEquipos/punquina.png";
 import tuntoco from "../assets/images/logoEquipos/tuntoco.webp";
 
-import type { IMatch } from "../types/types";
+import type { IMatch, IPlayerDB } from "../types/types";
 export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
@@ -139,22 +139,6 @@ export const orderTable = (
   });
 };
 
-// export const attachPlayersToTeam = (
-//   teams: ITeam[],
-//   players: IPlayerDB[]
-// ): ITeam[] => {
-//   return teams.map((team) => ({
-//     ...team,
-//     teams: team.teams.map((cat) => ({
-//       ...cat,
-//       players: players.filter(
-//         (p) =>
-//           p.team === team.name &&
-//           p.category === cat.category
-//       ),
-//     })),
-//   }));
-// };
 export type IScorerComputed = {
   num: number;
   team: string;
@@ -222,4 +206,17 @@ export const getGoalDetailsByPlayer = (
     opponent,
     qty,
   }));
+};
+
+type PlayerMap = Map<string, IPlayerDB>;
+
+export const buildPlayerMap = (players: IPlayerDB[]): PlayerMap => {
+  const map = new Map<string, IPlayerDB>();
+
+  players.forEach((p) => {
+    const key = `${p.team}-${p.number}`;
+    map.set(key, p);
+  });
+
+  return map;
 };
