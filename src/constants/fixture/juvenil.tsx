@@ -1943,18 +1943,18 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "A",
     events: [
-      { type: "y", team: getTeamName(25), num: 10 },
-      { type: "y", team: getTeamName(25), num: 11 },
-      { type: "y", team: getTeamName(25), num: 17 },
-      { type: "g", team: getTeamName(25), num: 2 },
-      { type: "y", team: getTeamName(25), num: 4 },
+      { type: "y", team: getTeamName(25), num: 13 },
+      { type: "y", team: getTeamName(25), num: 19 },
+      { type: "y", team: getTeamName(25), num: 7 },
+      { type: "g", team: getTeamName(25), num: 3 },
+      { type: "y", team: getTeamName(25), num: 14 },
       { type: "g", team: getTeamName(25), num: 5 },
 
       { type: "g", team: getTeamName(22), num: 28 },
       { type: "y", team: getTeamName(22), num: 20 },
       { type: "y", team: getTeamName(22), num: 19 },
       { type: "g", team: getTeamName(22), num: 10 },
-      { type: "y", team: getTeamName(22), num: 95 },
+      { type: "y", team: getTeamName(22), num: 22 },
       { type: "g", team: getTeamName(22), num: 11 },
     ],
   },
@@ -1974,12 +1974,12 @@ export const juvenil: IMatch[] = [
     events: [      
       { type: "y", team: getTeamName(27), num: 5 },
       { type: "g", team: getTeamName(27), num: 19 },
-      { type: "g", team: getTeamName(27), num: 11, qty: 2 },
-      { type: "g", team: getTeamName(27), num: 16, qty: 3 },
+      { type: "g", team: getTeamName(27), num: 10, qty: 2 },
+      { type: "g", team: getTeamName(27), num: 9, qty: 3 },
       { type: "g", team: getTeamName(27), num: 22 },
 
-      { type: "g", team: getTeamName(24), num: 9 },
-      { type: "g", team: getTeamName(24), num: 6 },
+      { type: "g", team: getTeamName(24), num: 26 },
+      { type: "g", team: getTeamName(24), num: 29 },
     ],
   },
   {
@@ -1996,7 +1996,7 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "A",
     events: [      
-      { type: "g", team: getTeamName(1), num: 5 },
+      { type: "g", team: getTeamName(1), num: 20 },
       { type: "g", team: getTeamName(1), num: 11 },
 
       { type: "y", team: getTeamName(26), num: 10 },
@@ -2018,12 +2018,12 @@ export const juvenil: IMatch[] = [
     events: [      
       { type: "g", team: getTeamName(3), num: 13 },
       { type: "g", team: getTeamName(3), num: 11, qty: 2 },
-      { type: "y", team: getTeamName(3), num: 17 },
+      { type: "y", team: getTeamName(3), num: 10 },
       { type: "g", team: getTeamName(3), num: 3 },
 
       { type: "g", team: getTeamName(28), num: 10, qty: 2 },
-      { type: "y", team: getTeamName(28), num: 20, qty: 2 },
-      { type: "r", team: getTeamName(28), num: 20 },
+      { type: "y", team: getTeamName(28), num: 21, qty: 2 },
+      { type: "r", team: getTeamName(28), num: 21 },
     ],
   },
   {
@@ -2042,7 +2042,7 @@ export const juvenil: IMatch[] = [
     events: [      
       { type: "g", team: getTeamName(21), num: 24 },
 
-      { type: "y", team: getTeamName(18), num: 7 },
+      { type: "y", team: getTeamName(18), num: 19 },
     ],
   },
   {
@@ -2059,9 +2059,9 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "B",
     events: [      
-      { type: "y", team: getTeamName(23), num: 4, qty: 2 },
-      { type: "r", team: getTeamName(23), num: 4 },
-      { type: "y", team: getTeamName(23), num: 9 },
+      { type: "y", team: getTeamName(23), num: 5, qty: 2 },
+      { type: "r", team: getTeamName(23), num: 5 },
+      { type: "y", team: getTeamName(23), num: 27 },
 
       { type: "y", team: getTeamName(20), num: 8 },
       { type: "g", team: getTeamName(20), num: 7, qty: 2 },
@@ -2081,14 +2081,14 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "A",
     events: [      
-      { type: "g", team: getTeamName(14), num: 10 },
-      { type: "y", team: getTeamName(14), num: 10 },
-      { type: "g", team: getTeamName(14), num: 7 },
-      { type: "g", team: getTeamName(14), num: 8 },
+      { type: "g", team: getTeamName(14), num: 37 },
+      { type: "y", team: getTeamName(14), num: 37 },
+      { type: "g", team: getTeamName(14), num: 30 },
+      { type: "g", team: getTeamName(14), num: 16 },
 
-      { type: "g", team: getTeamName(17), num: 6, qty: 2 },
+      { type: "g", team: getTeamName(17), num: 21, qty: 2 },
       { type: "y", team: getTeamName(17), num: 2 },
-      { type: "g", team: getTeamName(17), num: 11 },
+      { type: "g", team: getTeamName(17), num: 1 },
     ],
   },
   {
@@ -2105,13 +2105,13 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "B",
     events: [      
-      { type: "g", team: getTeamName(16), num: 17, qty: 2 },
       { type: "y", team: getTeamName(16), num: 3 },
-      { type: "y", team: getTeamName(16), num: 22 },
+      { type: "g", team: getTeamName(16), num: 23, qty: 2 },
+      { type: "y", team: getTeamName(16), num: 11 },
 
-      { type: "g", team: getTeamName(19), num: 7, qty: 2 },
-      { type: "g", team: getTeamName(19), num: 5 },
-      { type: "y", team: getTeamName(19), num: 10 },
+      { type: "g", team: getTeamName(19), num: 10, qty: 2 },
+      { type: "g", team: getTeamName(19), num: 19 },
+      { type: "y", team: getTeamName(19), num: 7 },
     ],
   },
   {
@@ -2128,7 +2128,7 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "A",
     events: [      
-      { type: "g", team: getTeamName(10), num: 16 },
+      { type: "g", team: getTeamName(10), num: 11 },
       { type: "g", team: getTeamName(10), num: 9 },
 
       { type: "y", team: getTeamName(13), num: 13 },
@@ -2193,9 +2193,9 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "B",
     events: [      
-      { type: "g", team: getTeamName(8), num: 9, qty: 3 },
-      { type: "g", team: getTeamName(8), num: 22 },
-      { type: "g", team: getTeamName(8), num: 7 },
+      { type: "g", team: getTeamName(8), num: 32 },
+      { type: "g", team: getTeamName(8), num: 21, qty: 3 },
+      { type: "g", team: getTeamName(8), num: 20 },
 
       { type: "g", team: getTeamName(11), num: 2 },
     ],  
@@ -2238,15 +2238,12 @@ export const juvenil: IMatch[] = [
     observation: "",
     serie: "B",
     events: [      
-      { type: "g", team: getTeamName(4), num: 11, qty: 2 },
-      { type: "g", team: getTeamName(4), num: 9 },
-      { type: "y", team: getTeamName(4), num: 9 },
-      { type: "y", team: getTeamName(4), num: 17 },
-      { type: "g", team: getTeamName(4), num: 21 },
+      { type: "g", team: getTeamName(4), num: 8 },
+      { type: "g", team: getTeamName(4), num: 5, qty: 2 },
+      { type: "g", team: getTeamName(4), num: 3 },
+      { type: "g", team: getTeamName(4), num: 6 },
 
-      { type: "g", team: getTeamName(7), num: 5, qty: 2 },
-      { type: "y", team: getTeamName(7), num: 16 },
-      { type: "y", team: getTeamName(7), num: 7 },
+      { type: "g", team: getTeamName(7), num: 11, qty: 2 },
     ],  
   },
 
