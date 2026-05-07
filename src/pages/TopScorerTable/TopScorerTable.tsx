@@ -157,6 +157,7 @@ const TopScorerTable: React.FC = () => {
               teamName={player.team}
               image={player.profile || getLogo(player.team)}
               logoTeam={getLogo(player.team)}
+              category={selectedCategory}
               goalDetails={getGoalDetailsByPlayer(
                 matchesByCategory[selectedCategory],
                 player.number,

@@ -10,8 +10,8 @@ export const usePlayers = (filters?: {
     queryKey: ["players", filters],
     queryFn: () => getPlayers(filters),
 
-    staleTime: 1000 * 60 * 5, // 5 min sin refetch
-    gcTime: 1000 * 60 * 10, // mantiene en memoria (antes cacheTime)
+    staleTime: 1000 * 60 * 5,
+    gcTime: 1000 * 60 * 10,
 
     placeholderData: (previousData) => previousData,
 

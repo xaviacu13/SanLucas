@@ -18,27 +18,6 @@ interface TeamResumeProps {
 }
 
 const TeamResume: FC<TeamResumeProps> = ({id,   title, delegates, url }) => {
-  // const onShare = () => {
-  //   if (!url) return;
-
-  //   const shareUrl = url;
-
-  //   const shareData = {
-  //     title: `Comunidad: ${title}`,
-  //     text: `Formulario de pre-inscripción para la comunidad ${title}`,
-  //     url: shareUrl,
-  //   };
-
-  //   if (navigator.share) {
-  //     navigator.share(shareData).catch((error) => {
-  //       console.error("Error sharing:", error);
-  //     });
-  //   } else {
-  //     navigator.clipboard.writeText(shareUrl).then(() => {
-  //       alert("URL copiada al portapapeles!");
-  //     });
-  //   }
-  // };
 
   return (
     <Root>
@@ -79,11 +58,6 @@ const TeamResume: FC<TeamResumeProps> = ({id,   title, delegates, url }) => {
             PRE-INSCRIPCION
           </Button>
           
-        {/* <Tooltip title="Compartir">
-          <HomeButton color="secondary" onClick={onShare}>
-             <ShareIcon/>
-          </HomeButton>
-        </Tooltip> */}
         </ButtonContainer>
       )}
     </Root>

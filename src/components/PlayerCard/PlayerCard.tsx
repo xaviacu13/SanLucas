@@ -9,6 +9,8 @@ import {
   PositionContainmer, 
   PlayerName
 } from './styles';
+import type { ITeam } from '../../types/types';
+import { teams } from '../../constants/teams/teams';
 
 interface PlayerCardProps {
   idTeam?: number | string;
@@ -40,8 +42,13 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
     navigate(`/player-detail?idPlayer=${id}&idTeam=${idTeam}&category=${category}`);
   };
 
+  const getTeamColor = (id?: number | string) => {
+  const team = teams.find((t: ITeam) => t.id === id);
+  return team?.color || "#1abc9c";
+};
+
   return (
-    <PlayerCardWrapper onClick={handleClick} style={{ cursor: 'pointer' }}>
+    <PlayerCardWrapper onClick={handleClick} teamcolor={getTeamColor(idTeam)} >
       <PlayerImage src={image} alt={name} />
       <PlayerInfo>
         <PlayerTitle>{name} <strong>({number})</strong></PlayerTitle>

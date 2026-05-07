@@ -1,28 +1,67 @@
 import styled from "@emotion/styled";
 
-export const PlayerCardWrapper = styled("div")({
-  display: "flex",
-  flexDirection: "row",
-  backgroundColor: "#ffffff",
-  border: "1px solid #ddd",
-  alignItems: "center",
-  borderRadius: "8px",
-  overflow: "hidden",
-  marginBottom: "16px",
-  width: "100%",
-  maxWidth: "1200px",
-  boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
-  margin: "8px",
-  ":hover": {
-    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.2)",
-    transform: "scale(1.02)",
-    transition: "transform 0.2s ease-in-out",
-  },
-  paddingLeft: "5rem",
-  "@media (max-width: 600px)": {
-    paddingLeft: 0,
-  }
-});
+interface PlayerCardWrapperProps {
+  teamcolor?: string;
+}
+
+export const PlayerCardWrapper = styled("div")<PlayerCardWrapperProps>(
+  ({ teamcolor }) => ({
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "#ffffff",
+    border: "1px solid #ddd",
+    alignItems: "center",
+    borderRadius: "12px",
+    overflow: "hidden",
+    width: "100%",
+    maxWidth: "1200px",
+    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.1)",
+    position: "relative",
+    transition: "all 0.25s ease",
+    padding: "4px",
+    gap: "14px",
+
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      right: 0,
+      width: "5px",
+      height: "100%",
+      background: `linear-gradient(
+        180deg,
+        ${teamcolor || "#1abc9c"},
+        rgba(255,255,255,0.2),
+        ${teamcolor || "#1abc9c"}
+      )`,
+      boxShadow: `0 0 12px ${teamcolor || "#1abc9c"}`,
+    },
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "5px",
+      height: "100%",
+      background: `linear-gradient(
+        180deg,
+        ${teamcolor || "#1abc9c"},
+        rgba(255,255,255,0.2),
+        ${teamcolor || "#1abc9c"}
+      )`,
+      boxShadow: `0 0 12px ${teamcolor || "#1abc9c"}`,
+    },
+
+    ":hover": {
+      boxShadow: `0 6px 18px ${teamcolor || "#1abc9c"}55`,
+      transform: "translateY(-2px)",
+    },
+
+    "@media (max-width: 600px)": {
+      gap: "4px",
+    },
+  }),
+);
 
 export const PlayerImage = styled("img")({
  justifyItems: "center",
@@ -50,7 +89,7 @@ export const PlayerInfo = styled("div")({
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  padding: "12px",
+  padding: "4px",
   textAlign: "center",
 });
 

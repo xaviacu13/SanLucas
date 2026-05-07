@@ -4,6 +4,7 @@ export const CardContainer = styled("div") ({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  gap: '6px',
   height: '100%',
   padding: '10px',
 });
