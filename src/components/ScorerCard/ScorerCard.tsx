@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IconButton, Collapse, Box, Typography } from "@mui/material";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { getLogo } from "../../tools/tools";
 
 import {
   PlayerCardWrapper,
@@ -13,6 +14,12 @@ import {
   PlayerName,
   LogoImage,
   CardContainer,
+  TitleTeam,
+  Logo,
+  TeamName,
+  OponentGoals,
+  GoalRow,
+  
 } from "./styles";
 import type { ITeam } from "../../types/types";
 import { teams } from "../../constants/teams/teams";
@@ -69,7 +76,10 @@ const ScorerCard: React.FC<PlayerCardProps> = ({
   return (
     <>
       <CardContainer>
-        <PlayerCardWrapper onClick={handleClick} teamcolor={getTeamColor(teamName)}>
+        <PlayerCardWrapper
+          onClick={handleClick}
+          teamcolor={getTeamColor(teamName)}
+        >
           <PlayerImage src={image} alt={name} />
           <LogoImage src={logoTeam} alt={teamName} />
 
@@ -82,7 +92,7 @@ const ScorerCard: React.FC<PlayerCardProps> = ({
 
             <PlayerName>{fullName}</PlayerName>
             <PlayerTitle>
-               <strong>{teamName}</strong>
+              <strong>{teamName}</strong>
             </PlayerTitle>
           </PlayerInfo>
         </PlayerCardWrapper>
@@ -113,23 +123,32 @@ const ScorerCard: React.FC<PlayerCardProps> = ({
             marginTop: "-8px",
           }}
         >
-          <Box mt={1}>
-            {goalDetails.length === 0 ? (
-              <Typography variant="body2">Sin goles registrados</Typography>
-            ) : (
-              goalDetails.map((goal, index) => (
-                <Box
-                  key={index}
-                  display="flex"
-                  justifyContent="space-between"
-                  mb={0.5}
-                >
-                  <Typography variant="body2">⚽ vs {goal.opponent}</Typography>
-                  <Typography variant="body2">{goal.qty}</Typography>
-                </Box>
-              ))
-            )}
-          </Box>
+<Box mt={1}>
+  {goalDetails.length === 0 ? (
+    <Typography variant="body2">
+      Sin goles registrados
+    </Typography>
+  ) : (
+    goalDetails.map((goal, index) => (
+      <GoalRow key={index}>
+        <TitleTeam>
+          <Logo
+            src={getLogo(goal.opponent)}
+            alt={goal.opponent}
+          />
+
+          <TeamName>
+            {goal.opponent}
+          </TeamName>
+        </TitleTeam>
+
+        <OponentGoals>
+          ⚽ {goal.qty}
+        </OponentGoals>
+      </GoalRow>
+    ))
+  )}
+</Box>
         </Collapse>
       </CardContainer>
     </>

@@ -1,4 +1,5 @@
-import styled from "@emotion/styled";
+import { styled } from "@mui/material/styles";
+import { Box } from "@mui/material";
 
 interface PlayerCardWrapperProps {
   teamcolor: string;
@@ -146,3 +147,73 @@ export const PositionContainmer = styled("div")({
   marginTop: "8px",
   gap: "10px",
 });
+
+// export const TitleTeam = styled('div')({
+//   display: 'flex',
+//   alignItems: 'center',
+//   textAlign: 'left',
+//   width: '100%',
+//   padding: '0.1rem 0',
+//   color: '#333',
+//   fontSize: '14px',
+//   lineHeight: '1.5',
+// });
+
+export const Logo = styled('img')({
+  width: '25px',
+  height: '25px',
+  objectFit: 'contain',
+  marginRight: '0.5rem',
+});
+
+export const TeamName = styled('span')(() => ({
+  verticalAlign: 'middle',
+  marginLeft: '0.15rem',
+}));
+
+// export const OponentGoals = styled('span')({
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'flex-end',
+//   width: '100%',
+//   padding: '0.1rem 0',
+//   color: '#333',
+//   fontSize: '14px',
+//   lineHeight: '1.5',
+// });
+
+export const GoalRow = styled(Box)(({ theme }) => ({
+  display: "grid",
+  gridTemplateColumns: "1fr auto",
+  alignItems: "center",
+  gap: "12px",
+  padding: "5px 6px",
+  borderRadius: "10px",
+  background: theme.palette.background.paper,
+  border: `1px solid ${theme.palette.divider}`,
+  marginBottom: "4px",
+  transition: "0.2s ease",
+
+  "&:hover": {
+    transform: "translateY(-1px)",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+  },
+}));
+
+export const TitleTeam = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+});
+
+export const OponentGoals = styled("div")(() => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  minWidth: "45px",
+  borderRadius: "999px",
+  background: "#6ce9ef",
+  fontWeight: 700,
+  fontSize: "14px",
+  gap: "10px",
+}));
