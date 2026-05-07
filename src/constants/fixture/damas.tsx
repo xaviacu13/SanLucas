@@ -325,7 +325,7 @@ export const damas: IMatch[] = [
     events: [
       { type: "g", team: getTeamName(13), num: 18, qty: 2 },
       { type: "y", team: getTeamName(13), num: 18 },
-      { type: "g", team: getTeamName(13), num: 4 },
+      { type: "y", team: getTeamName(13), num: 4 },
       { type: "g", team: getTeamName(18), num: 9 },
     ]
   },

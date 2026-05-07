@@ -199,8 +199,8 @@ export const juvenil: IMatch[] = [
       { type: "g", team: getTeamName(15), num: 86 },
       { type: "y", team: getTeamName(15), num: 30 },
 
-      { type: "g", team: getTeamName(16), num: 11 },
-      { type: "g", team: getTeamName(16), num: 20 },
+      { type: "g", team: getTeamName(16), num: 25 },
+      { type: "g", team: getTeamName(16), num: 10 },
     ],
   },
   {
@@ -1608,7 +1608,7 @@ export const juvenil: IMatch[] = [
       { type: "g", team: getTeamName(15), num: 10, qty: 3 },
       { type: "y", team: getTeamName(15), num: 9 },
 
-      { type: "g", team: getTeamName(11), num: 30 },
+      { type: "g", team: getTeamName(11), num: 1 },// gol en contra
     ],
   },
 
