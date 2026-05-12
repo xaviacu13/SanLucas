@@ -30,7 +30,12 @@ export const malliri: ITeam[] = [
         players: [
         ],
       },
-     
+    {
+        id: 2,
+        category: "Senior",
+        players: [
+        ],
+      },   
     ],
   },
 ];

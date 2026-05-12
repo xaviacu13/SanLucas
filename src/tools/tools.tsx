@@ -33,6 +33,7 @@ import chillagua from "../assets/images/logoEquipos/chillagua.webp";
 import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp";
 import punquina from "../assets/images/logoEquipos/punquina.png";
 import tuntoco from "../assets/images/logoEquipos/tuntoco.webp";
+import miscamayu from "../assets/images/logoEquipos/miscamayu.png";
 
 import type { IMatch, IPlayerDB } from "../types/types";
 export const getLogo = (name: string) => {
@@ -103,6 +104,8 @@ export const getLogo = (name: string) => {
       return punquina
     case "Tuntoco":
       return tuntoco
+    case "Miska Mayu":
+      return miscamayu
     default:
       return logoDefault;
   }

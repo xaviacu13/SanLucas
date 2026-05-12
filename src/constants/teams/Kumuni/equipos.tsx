@@ -23,6 +23,12 @@ export const kumuni: ITeam[] = [
         players: [
         ],
       },
+      {
+        id: 2,
+        category: "Senior",
+        players: [
+        ],
+      },
     ],
   },
 ];

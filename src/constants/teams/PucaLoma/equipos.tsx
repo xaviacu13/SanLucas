@@ -17,6 +17,12 @@ export const pucaLoma: ITeam[] = [
         players: [
         ],
       },
+      {
+        id: 2,
+        category: "Senior",
+        players: [
+        ],
+      },    
     ],
   },
 ];

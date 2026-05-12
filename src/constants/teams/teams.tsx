@@ -30,6 +30,7 @@ import { cruzMayu } from "../teams/CruzMayu/equipo";
 import { ocuri } from "../teams/Ocuri/equipo";
 import { punquina } from "../teams/Punquina/equipo";
 import { tuntoco } from "../teams/Tuntoco/equipo";
+import { miskamayu } from "../teams/MiskaMayu/equipo";
 
 export const teams = [
   pucaLoma,
@@ -64,4 +65,5 @@ export const teams = [
   punquina,
   tuntoco,
   ocuri,
+  miskamayu,
 ].flat();
