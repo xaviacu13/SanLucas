@@ -986,23 +986,25 @@ export const damas: IMatch[] = [
       id: 52,
       team1: getTeamName(3),
       team2: getTeamName(13),
-      scorerTeam1: 4,
-      scorerTeam2: 2,
+      // scorerTeam1: 4,
+      // scorerTeam2: 2,
+      scorerTeam1: 0,
+      scorerTeam2: 0,
       date: "10-05-2026",
       time: "11:00",
       location: "1",
       status: "played",
       group: 6,
-      observation: "",
+      observation: "Observado: Ambos equipos no cumplieron la cantidad minina de jugadoras  que exije el reglamento",
       serie: "",
-      events: [
-        { type: "g", team: getTeamName(3), num: 7 },
-        { type: "g", team: getTeamName(3), num: 11 },
-        { type: "g", team: getTeamName(3), num: 4 },
-        { type: "g", team: getTeamName(3), num: 24 },
+      // events: [
+      //   { type: "g", team: getTeamName(3), num: 7 },
+      //   { type: "g", team: getTeamName(3), num: 11 },
+      //   { type: "g", team: getTeamName(3), num: 4 },
+      //   { type: "g", team: getTeamName(3), num: 24 },
 
-        { type: "g", team: getTeamName(13), num: 9, qty: 2 },
-      ]
+      //   { type: "g", team: getTeamName(13), num: 9, qty: 2 },
+      // ]
     },
     {
       id: 53,
