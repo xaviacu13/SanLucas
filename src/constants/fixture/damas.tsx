@@ -995,7 +995,7 @@ export const damas: IMatch[] = [
       location: "1",
       status: "played",
       group: 6,
-      observation: "Observado: Ambos equipos no cumplieron con la cantidad minina de jugadoras  que exije el reglamento y sera considerado como doble W.O. ningun eqquipo sumara puntos",
+      observation: "Partido declarado doble W.O. por incumplimiento de ambos equipos al no presentar la cantidad mínima de jugadoras establecida en el reglamento. Ningún equipo sumará puntos.",
       serie: "",
       resultType: "double_wo",
       // events: [
