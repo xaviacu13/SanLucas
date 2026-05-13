@@ -2343,8 +2343,9 @@ export const juvenil: IMatch[] = [
     location: "1",
     status: "played",
     group: 8,
-    observation: "W.O. No se presentaron ninguno de los dos equipos",
+    observation: "W.O. No se presentaron ninguno de los dos equipos, ningun equipo sumara puntos",
     serie: "A",
+    resultType: "double_wo",
   },
     {
     id: 104,

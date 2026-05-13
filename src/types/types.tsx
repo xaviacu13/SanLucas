@@ -99,6 +99,8 @@ export interface IScorerUI {
   profile: string;
 }
 
+
+
 export interface IMatch {
   id: number;
   team1: string;
@@ -108,12 +110,19 @@ export interface IMatch {
   date: string;
   time: string;
   location: string;
-  status:"played"| "willPlay" | "playing" | "finished" | "scheduled" | "canceled" | ""; 
-  group: number,
+  status:
+    | "played"
+    | "willPlay"
+    | "playing"
+    | "finished"
+    | "scheduled"
+    | "canceled"
+    | "";
+  group: number;
   observation: string;
   serie?: SerieType;
   events?: MatchEvent[];
-
+  resultType?: "normal" | "wo_team1" | "wo_team2" | "double_wo";
 }
 
 export interface IFixtureCard {

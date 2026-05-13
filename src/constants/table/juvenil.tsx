@@ -12,7 +12,7 @@ export const juvenil: ITeamStanding[] = [
     goalsFor: 0,
     goalsAgainst: 0,
     goalDifference: 0,
-    points: -1,
+    points: 0,
   },
   {
     id: 2,
@@ -324,7 +324,7 @@ export const juvenil: ITeamStanding[] = [
     goalsFor: 0,
     goalsAgainst: 0,
     goalDifference: 0,
-    points: -1,
+    points: 0,
   },
   {
     id: 26,

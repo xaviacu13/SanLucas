@@ -38,7 +38,7 @@ export const damas: ITeamStanding[] = [
     goalsFor: 0,
     goalsAgainst: 0,
     goalDifference: 0,
-    points: -1,
+    points: 0,
   },
   {
     id: 4,
@@ -168,7 +168,7 @@ export const damas: ITeamStanding[] = [
     goalsFor: 0,
     goalsAgainst: 0,
     goalDifference: 0,
-    points: -1,
+    points: 0,
   },
   {
     id: 14,

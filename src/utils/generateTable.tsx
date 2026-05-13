@@ -2,9 +2,8 @@ import type { IMatch, ITeamStanding, SerieType } from "../types/types";
 
 export const generateTable = (
   matches: IMatch[],
-  baseTable: ITeamStanding[]
+  baseTable: ITeamStanding[],
 ): ITeamStanding[] => {
-
   const table: ITeamStanding[] = baseTable.map((t) => ({
     ...t,
     matchesPlayed: 0,
@@ -30,15 +29,26 @@ export const generateTable = (
   matches.forEach((match) => {
     if (match.status !== "played") return;
 
+    const resultType = match.resultType || "normal";
+
     const serie: SerieType =
-      match.serie === "A" || match.serie === "B"
-        ? match.serie
-        : undefined;
+      match.serie === "A" || match.serie === "B" ? match.serie : undefined;
 
     const teamA = getTeam(match.team1, serie);
     const teamB = getTeam(match.team2, serie);
 
     if (!teamA || !teamB) return;
+
+    // 🔥 DOBLE WO
+    if (resultType === "double_wo") {
+      teamA.losses++;
+      teamB.losses++;
+
+      teamA.matchesPlayed++;
+      teamB.matchesPlayed++;
+
+      return;
+    }
 
     // PJ
     teamA.matchesPlayed++;

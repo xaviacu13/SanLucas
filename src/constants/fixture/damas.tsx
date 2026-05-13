@@ -997,6 +997,7 @@ export const damas: IMatch[] = [
       group: 6,
       observation: "Observado: Ambos equipos no cumplieron la cantidad minina de jugadoras  que exije el reglamento",
       serie: "",
+      resultType: "double_wo",
       // events: [
       //   { type: "g", team: getTeamName(3), num: 7 },
       //   { type: "g", team: getTeamName(3), num: 11 },
