@@ -2343,7 +2343,7 @@ export const juvenil: IMatch[] = [
     location: "1",
     status: "played",
     group: 8,
-    observation: "W.O. No se presentaron ninguno de los dos equipos, ningun equipo sumara puntos",
+    observation: "Ninguno de los dos equipos se presentó al campo de juego, por lo que el encuentro queda declarado como doble W.O. En consecuencia, ningún equipo sumará puntos.",
     serie: "A",
     resultType: "double_wo",
   },
