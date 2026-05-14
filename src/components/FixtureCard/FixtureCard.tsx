@@ -109,7 +109,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
               objectFit: "cover",
             }}
           />
-          <span style={{ fontWeight: 700, fontSize: "0.9em" }}>
+          <span style={{ fontWeight: 600, fontSize: "0.5em" }}>
             {player?.full_name || `#${e.num}`}{" "}
             {player?.full_name && `(${player.number})`}
           </span>
