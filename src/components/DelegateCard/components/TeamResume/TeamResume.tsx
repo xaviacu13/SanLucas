@@ -29,13 +29,20 @@ const TeamResume: FC<TeamResumeProps> = ({
   url,
   category,
 }) => {
+
+const normalizeTeamName = (name: string) => {
+  return name
+    .replace(/\s+['"]?[AB]['"]?\s*$/i, "")
+    .trim()
+    .toLowerCase();
+};
+
 const getIdTeam = (name: string) => {
-  const normalizedName = name
-    .replace(/\s*['"]?[AB]['"]?\s*$/i, "")
-    .trim();
+  const normalizedName = normalizeTeamName(name);
 
   const team = teams.find(
-    (t: ITeam) => t.name.toLowerCase() === normalizedName.toLowerCase()
+    (t: ITeam) =>
+      normalizeTeamName(t.name) === normalizedName
   );
 
   return team ? team.id : null;
