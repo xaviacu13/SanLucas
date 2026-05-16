@@ -29,10 +29,17 @@ const TeamResume: FC<TeamResumeProps> = ({
   url,
   category,
 }) => {
-  const getIdTeam = (name: string) => {
-    const team = teams.find((t: ITeam) => t.name === name);
-    return team ? team.id : null;
-  }
+const getIdTeam = (name: string) => {
+  const normalizedName = name
+    .replace(/\s*['"]?[AB]['"]?\s*$/i, "")
+    .trim();
+
+  const team = teams.find(
+    (t: ITeam) => t.name.toLowerCase() === normalizedName.toLowerCase()
+  );
+
+  return team ? team.id : null;
+};
   const navigate = useNavigate();
   const handleShowTeam = (name: string, category: string) => {
     navigate(`/team-detail?id=${getIdTeam(name)}&category=${encodeURIComponent(category)}`);
@@ -57,8 +64,8 @@ const TeamResume: FC<TeamResumeProps> = ({
           Delegados:
         </Typography>
         {delegates.length > 0 ? (
-          delegates.map((del) => (
-            <div key={del.id}>
+          delegates.map((del, index) => (
+            <div key={`${del.id}-${del.category}-${index}`}>
               <Typography variant="body1">
                 {del.name} <strong>Categoría:</strong> {del.category}
               </Typography>

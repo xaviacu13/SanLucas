@@ -64,31 +64,25 @@ export const senior: ITeamCategoryItem[] = [
     ],
     series: "",
   },
-  // {
-  //   id: 7,
-  //   name: "Churqui Pampa",
-  //   url: "",
-  //   logo: getLogo("Churqui Pampa"),
-  //   delegates: [
-  //     { id: 1, name: "Modesto Quispe", contact: "", category: "Senior" },
-  //   ],
-  // },
-  // {
-  //   id: 8,
-  //   name: "Sivinga Mayu",
-  //   url: "",
-  //   logo: getLogo("Sivinga Mayu"),
-  //   delegates: [
-  //     { id: 1, name: "Gilberto Quira", contact: "", category: "Senior" },
-  //   ],
-  // },
-  // {
-  //   id: 9,
-  //   name: "Monte Pampa",
-  //   url: "",
-  //   logo: getLogo("Monte Pampa"),
-  //   delegates: [
-  //     { id: 1, name: "Feliciano Alvarado", contact: "", category: "Senior" },
-  //   ],
-  // },
+  {
+    id: 7,
+    name: "Palacio",
+    url: "",
+    logo: getLogo("Palacio"),
+    delegates: [
+      // { id: 1, name: "Wilber Mollo", contact: "", category: "Senior" },
+    ],
+    series: "",
+  },
+  {
+    id: 8,
+    name: 'Puca Loma "B"',
+    url: "",
+    logo: getLogo('Puca Loma "B"'),
+    delegates: [
+       { id: 1, name: "Carlos Rodriguez", contact: "", category: "Senior" },
+       { id: 1, name: "Gabriel Moscoso", contact: "", category: "Senior" },
+    ],
+    series: "",
+  },
 ];

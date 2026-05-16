@@ -34,6 +34,7 @@ import cruzMayu from "../assets/images/logoEquipos/cruzMayu.webp";
 import punquina from "../assets/images/logoEquipos/punquina.png";
 import tuntoco from "../assets/images/logoEquipos/tuntoco.webp";
 import miscamayu from "../assets/images/logoEquipos/miscamayu.png";
+import pucalomaB from "../assets/images/logoEquipos/pucaLomaB.png";
 
 import type { IMatch, IPlayerDB } from "../types/types";
 export const getLogo = (name: string) => {
@@ -106,6 +107,8 @@ export const getLogo = (name: string) => {
       return tuntoco
     case "Miska Mayu":
       return miscamayu
+    case 'Puca Loma "B"':
+      return pucalomaB
     default:
       return logoDefault;
   }
