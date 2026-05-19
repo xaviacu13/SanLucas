@@ -87,7 +87,7 @@ export const senior: IMatch[] = [
     location: "1",
     status: "played",
     group: 2,
-    observation: "",
+    observation: "Observación: El equipo Miska Mayu solicita la aclaración de la situación del jugador N.º 14, Fidel Quispe, por la presunta observación de que no pertenecería a la comunidad de Kumuni.",
   },
     {
     id: 7,

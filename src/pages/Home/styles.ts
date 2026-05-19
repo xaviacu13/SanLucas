@@ -90,5 +90,36 @@ export const FooterContainer = styled("div")({
   },
 });
 
+export const UpdateInfo = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "8px",
+  marginTop: "10px",
+  fontSize: "14px",
+  color: "#f41509",
+  fontWeight: 500,
+});
 
+export const LiveDot = styled("span")({
+  width: "10px",
+  height: "10px",
+  borderRadius: "50%",
+  backgroundColor: "#2e7d32",
+  animation: "pulse 1.5s infinite",
 
+  "@keyframes pulse": {
+    "0%": {
+      transform: "scale(1)",
+      opacity: 1,
+    },
+    "50%": {
+      transform: "scale(1.3)",
+      opacity: 0.6,
+    },
+    "100%": {
+      transform: "scale(1)",
+      opacity: 1,
+    },
+  },
+});

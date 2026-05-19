@@ -21,6 +21,8 @@ import {
   NotificationDot,
   FooterContainer,
   PageContainer,
+  UpdateInfo,
+  LiveDot,
 } from "./styles";
 
 import { Button, Box } from "@mui/material";
@@ -111,7 +113,14 @@ const Home: React.FC = () => {
           <TitleText>
             Campeonato de Fútbol Intercomunal | San Lucas 2026
           </TitleText>
+          <UpdateInfo>
+            <LiveDot />
 
+            <span>
+              Última actualización: <strong>19 Mayo 2026  15:57</strong>
+              hs
+            </span>
+          </UpdateInfo>
           <p>
             Aquí encontrarás toda la información sobre los equipos, jugadores y
             estadísticas del campeonato intercomunal municipio San Lucas.
