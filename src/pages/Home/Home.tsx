@@ -111,14 +111,13 @@ const Home: React.FC = () => {
       <div style={{ textAlign: "center" }}>
         <TitleContainer>
           <TitleText>
-            Campeonato de Fútbol Intercomunal | San Lucas 2026
+            Campeonato de Fútbol Intercomunal San Lucas 2026
           </TitleText>
           <UpdateInfo>
             <LiveDot />
 
             <span>
-              Última actualización: <strong>19 Mayo 2026  15:57</strong>
-              hs
+              Última actualización: <strong>19 Mayo 2026 • 15:57</strong> hs
             </span>
           </UpdateInfo>
           <p>
