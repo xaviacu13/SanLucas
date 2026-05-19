@@ -25,7 +25,7 @@ const StandingsTable: React.FC<Props> = ({ standings, category }) => {
   const QUALIFIED_BY_CATEGORY: Record<CategoryType, number> = {
     Juvenil: 8,
     Damas: 6,
-    Senior: 6,
+    Senior: 4,
     Infantil: 4,
   };
 
