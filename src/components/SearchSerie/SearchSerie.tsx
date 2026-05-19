@@ -19,7 +19,7 @@ const SearchSerie: React.FC<ISearchSerieProp> = ({
           serie="all"
           selected={serie === "all"}
         >
-          Ambos
+          General
         </SerieLabel>
         <SerieLabel
           onClick={() => setSerie("A")}
