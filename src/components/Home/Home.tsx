@@ -89,7 +89,7 @@ function Home() {
       <SectionTitle>Organiza</SectionTitle>
 
       <Description>
-        Monte Pampa - Rodeo Cocha - Tambo K’asa - Sabala - Huayllani Grande
+        Monte Pampa - Rodeo Cocha - Tambo Kasa - Sabala - Huayllani Grande
       </Description>
 
       <Footer>

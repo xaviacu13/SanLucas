@@ -7,6 +7,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AddToHomeScreenIcon from "@mui/icons-material/AddToHomeScreen";
+// import SchemaIcon from '@mui/icons-material/Schema';
 
 import { Header, Hero, Footer } from "../../components";
 import { useNotifications } from "../../hooks/useNotifications";
@@ -139,6 +140,10 @@ const Home: React.FC = () => {
             <ArticleIcon fontSize="large" />
             <span>Convocatoria</span>
           </Cards>
+          {/* <Cards to="/playoffs">
+            <SchemaIcon fontSize="large" />
+            <span>Playoffs</span>
+          </Cards> */}
 
           <Cards to="/about">
             <QuestionAnswerIcon fontSize="large" />

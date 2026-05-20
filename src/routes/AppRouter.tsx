@@ -17,6 +17,7 @@ import {
   Dashboard,
   NotificationsAdmin,
   PlayersAdmin,
+  PlayOffs,
 } from "../pages";
 import TeamCategories from "../pages/TeamCategories";
 import TopScorerTable from "../pages/TopScorerTable";
@@ -31,6 +32,7 @@ const AppRouter: React.FC = () => {
         <Route path="/call-up" element={<CallUp />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/inscriptions" element={<Inscriptions />} />
+        <Route path="/playoffs" element={<PlayOffs />} />
       </Route>
       <Route path="/team-detail" element={<TeamDetail />} />
       <Route path="/player-detail" element={<PlayerDetail />} />

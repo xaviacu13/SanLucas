@@ -57,7 +57,7 @@ const TopScorerTable: React.FC = () => {
       const data = await getTopScorersWithPlayers(
         matches,
         selectedCategory,
-       // 3, // Limitar a los 3 mejores goleadores por categoría
+       5, // Limitar a los 5 mejores goleadores por categoría
       );
 
       setScorers(data);

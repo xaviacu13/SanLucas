@@ -13,3 +13,4 @@ export { default as LiveMatch } from './LiveMatch';
 export { default as Dashboard } from './Dashboard';
 export { default as NotificationsAdmin } from './NotificationsAdmin';
 export { default as PlayersAdmin } from './PlayersAdmin';
+export { default as PlayOffs } from './PlayOffs';
