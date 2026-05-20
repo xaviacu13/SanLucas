@@ -2904,9 +2904,9 @@ export const juvenil: IMatch[] = [
 
       { type: "g", team: getTeamName(13), num: 30 },
       { type: "g", team: getTeamName(13), num: 9 },
-      { type: "g", team: getTeamName(13), num: 10 },
+      { type: "g", team: getTeamName(13), num: 10, qty: 2 },
       { type: "y", team: getTeamName(13), num: 77 },
-      { type: "g", team: getTeamName(13), num: 15, qty: 4 },
+      { type: "g", team: getTeamName(13), num: 15, qty: 3 },
     ],
   },
   {

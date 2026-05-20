@@ -356,7 +356,7 @@ export const senior: IMatch[] = [
   },
     {
     id: 27,
-    team1: getTeamName(4),
+    team1: getTeamName(7),
     scorerTeam1: 0,
     scorerTeam2: 0,
     team2: getTeamName(4),
