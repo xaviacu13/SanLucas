@@ -1,3 +1,4 @@
+import type { ITeam } from "../../types/types";
 import { kumuni } from "../teams/Kumuni/equipos";
 import { montePampa } from "../teams/MontePampa/equipos";
 import { pucaLoma } from "../teams/PucaLoma/equipos";
@@ -32,7 +33,7 @@ import { punquina } from "../teams/Punquina/equipo";
 import { tuntoco } from "../teams/Tuntoco/equipo";
 import { miskamayu } from "../teams/MiskaMayu/equipo";
 
-export const teams = [
+export const teams: ITeam[] = [
   pucaLoma,
   montePampa,
   sivingaMayu,

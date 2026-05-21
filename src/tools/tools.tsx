@@ -37,6 +37,8 @@ import miscamayu from "../assets/images/logoEquipos/miscamayu.png";
 import pucalomaB from "../assets/images/logoEquipos/pucaLomaB.png";
 
 import type { IMatch, IPlayerDB } from "../types/types";
+
+
 export const getLogo = (name: string) => {
   switch (name) {
     case "Puca Loma":
@@ -113,6 +115,8 @@ export const getLogo = (name: string) => {
       return logoDefault;
   }
 };
+import { 
+} from "../constants/teams/teams";
 
 export const orderTable = (
   arr: {
@@ -226,3 +230,4 @@ export const buildPlayerMap = (players: IPlayerDB[]): PlayerMap => {
 
   return map;
 };
+    

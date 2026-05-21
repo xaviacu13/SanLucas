@@ -39,7 +39,6 @@ export const generateTable = (
 
     if (!teamA || !teamB) return;
 
-    // 🔥 DOBLE WO
     if (resultType === "double_wo") {
       teamA.losses++;
       teamB.losses++;

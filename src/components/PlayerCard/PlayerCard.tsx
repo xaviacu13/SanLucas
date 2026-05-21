@@ -49,7 +49,7 @@ const PlayerCard: React.FC<PlayerCardProps> = ({
 
   return (
     <PlayerCardWrapper onClick={handleClick} teamcolor={getTeamColor(idTeam)} >
-      <PlayerImage src={image} alt={name} />
+      <PlayerImage src={image} alt={name} loading="lazy"/>
       <PlayerInfo>
         <PlayerTitle>{name} <strong>({number})</strong></PlayerTitle>
         <PlayerName>{fullName}</PlayerName>

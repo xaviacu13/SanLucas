@@ -2,25 +2,18 @@ import styled from '@emotion/styled';
 
 export const Page = styled('div')({
   minHeight: '100vh',
-  padding: '20px',
+  padding: '5px',
   background: '#f5f7fb',
 });
 
-export const Title = styled('h1')({
-  textAlign: 'center',
-  marginBottom: '30px',
-  color: '#0b2545',
-});
 
 export const BracketContainer = styled('div')({
-  display: 'grid',
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexWrap: 'wrap',
   gridTemplateColumns: '1fr auto 1fr',
   gap: '30px',
   alignItems: 'center',
-
-  '@media (max-width: 900px)': {
-    gridTemplateColumns: '1fr',
-  },
 });
 
 export const Side = styled('div')({

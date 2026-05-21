@@ -1,127 +1,161 @@
-import React from 'react';
+import React from "react";
+import { MatchCard, Title } from "../../components";
+import { orderTable } from "../../tools/tools";
+import type { ITeamStanding } from "../../types/types";
 
-import { TeamBracketCard } from '../../components';
+import {
+  juvenil as fixtureJuvenil,
+} from "../../constants/fixture/juvenil";
+
+import {
+  juvenil as teamsJuvenil,
+} from "../../constants/teamCategories/juvenil";
+
+import { generateTable } from "../../utils/generateTable";
 
 import {
   Page,
-  Title,
   BracketContainer,
   Side,
   Center,
   FinalBox,
-} from './styles';
+} from "./styles";
 
-const leftTeams = [
+const Playoffs: React.FC = () => {
+
+  const initialTable: ITeamStanding[] = teamsJuvenil.map(
+  (team) => ({
+    id: team.id,
+    team: team.name,
+    serie: team.series,
+    matchesPlayed: 0,
+    wins: 0,
+    draws: 0,
+    losses: 0,
+    goalsFor: 0,
+    goalsAgainst: 0,
+    goalDifference: 0,
+    points: 0,
+  })
+);
+
+const table = React.useMemo<ITeamStanding[]>(() => {
+  const standings = generateTable(
+    fixtureJuvenil,
+    initialTable
+  );
+
+  return orderTable(standings);
+}, []);
+
+  const filterTableBySerie = React.useCallback(
+    (
+      tableData: ITeamStanding[],
+      serie: string
+    ): ITeamStanding[] => {
+      if (!serie || serie === "all") {
+        return tableData;
+      }
+
+      return tableData.filter(
+        (team) => team.serie === serie
+      );
+    },
+    []
+  );
+
+  const serieA = React.useMemo(() => {
+    return filterTableBySerie(table, "A")
+    .slice(0, 8);
+  }, [table, filterTableBySerie]);
+
+  const serieB = React.useMemo(() => {
+    return filterTableBySerie(table, "B")
+    .slice(0, 8);
+  }, [table, filterTableBySerie]);
+
+  console.log("Equipos serie A====", serieA);
+  console.log("Equipos serie B-----", serieB);
+
+  const leftTeams = [
   {
-    name: 'San Lucas FC',
-    community: 'San Lucas',
-    logo: '/logos/sanlucas.png',
+    team1: serieA[0]?.id || 0,
+    team2: serieB[7]?.id || 0,
+    isExpanded: true,
   },
   {
-    name: 'Juventud Unida',
-    community: 'Villa Nueva',
-    logo: '/logos/juventud.png',
+    team1: serieA[2]?.id || 0,
+    team2: serieB[5]?.id || 0,
+    isExpanded: true,
   },
   {
-    name: 'Deportivo Norte',
-    community: 'Norte',
-    logo: '/logos/norte.png',
+    team1: serieA[3]?.id || 0,
+    team2: serieB[4]?.id || 0,
+    isExpanded: true,
   },
   {
-    name: 'Atlético Sur',
-    community: 'Sur',
-    logo: '/logos/sur.png',
-  },
-  {
-    name: 'Real Esperanza',
-    community: 'Esperanza',
-    logo: '/logos/esperanza.png',
-  },
-  {
-    name: 'Municipal FC',
-    community: 'Municipio',
-    logo: '/logos/municipal.png',
-  },
-  {
-    name: 'Los Andes',
-    community: 'Andes',
-    logo: '/logos/andes.png',
-  },
-  {
-    name: 'Sporting Club',
-    community: 'Sporting',
-    logo: '/logos/sporting.png',
+    team1: serieA[1]?.id || 0,
+    team2: serieB[6]?.id || 0,
+    isExpanded: true,
   },
 ];
 
 const rightTeams = [
   {
-    name: 'Estrella Roja',
-    community: 'Roja',
-    logo: '/logos/roja.png',
+    team1: serieB[0]?.id || 0,
+    team2: serieA[7]?.id || 0,
+    isExpanded: true,
   },
   {
-    name: 'Inter Comunal',
-    community: 'Inter',
-    logo: '/logos/inter.png',
+    team1: serieB[2]?.id || 0,
+    team2: serieA[5]?.id || 0,
+    isExpanded: true,
   },
   {
-    name: 'Academia FC',
-    community: 'Academia',
-    logo: '/logos/academia.png',
+    team1: serieB[3]?.id || 0,
+    team2: serieA[4]?.id || 0,
+    isExpanded: true,
   },
   {
-    name: 'Racing Club',
-    community: 'Racing',
-    logo: '/logos/racing.png',
-  },
-  {
-    name: 'Bolívar Unido',
-    community: 'Bolívar',
-    logo: '/logos/bolivar.png',
-  },
-    {
-    name: 'Estrella Roja',
-    community: 'Roja',
-    logo: '/logos/roja.png',
-  },
-  {
-    name: 'Inter Comunal',
-    community: 'Inter',
-    logo: '/logos/inter.png',
-  },
-  {
-    name: 'Academia FC',
-    community: 'Academia',
-    logo: '/logos/academia.png',
+    team1: serieB[1]?.id || 0,
+    team2: serieA[6]?.id || 0,
+    isExpanded: true,
   },
 ];
 
-const Playoffs: React.FC = () => {
+
   return (
     <Page>
-      <Title>Playoffs</Title>
+      <Title title="Octavos de final" />
+
       <BracketContainer>
+        {/* IZQUIERDA */}
         <Side>
           {leftTeams.map((team, index) => (
-            <TeamBracketCard
+            <MatchCard
               key={index}
-              logo={team.logo}
-              name={team.name}
-              community={team.community}
+              team1={team.team1}
+              team2={team.team2}
+              position="left"
+              isExpanded={team.isExpanded}
             />
           ))}
         </Side>
+
+        {/* CENTRO */}
         <Center>
-          <FinalBox>Final</FinalBox>
+          <FinalBox>FINAL</FinalBox>
         </Center>
+
+        {/* DERECHA */}
         <Side>
           {rightTeams.map((team, index) => (
-            <TeamBracketCard
+            <MatchCard
               key={index}
-              logo={team.logo}
-              name={team.name}
-              community={team.community}
+              team1={team.team1}
+              team2={team.team2}
+              position="right"
+              isExpanded={team.isExpanded}
             />
           ))}
         </Side>

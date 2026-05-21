@@ -196,3 +196,8 @@ export interface IPlayerDB {
   rating: number;
   created_at?: string;
 }
+
+export interface ITeamCategoryItem {
+  id: number;
+  name: string;
+}

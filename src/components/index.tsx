@@ -16,3 +16,5 @@ export { default as Home } from './Home';
 export { default as Menu } from './Menu';
 export { default as SearchSerie } from './SearchSerie';
 export { default as TeamBracketCard } from './TeamBracketCard';
+export { default as MatchCard } from './MatchCard';
+export { default as TeamMatchCard } from './TeamMatchCard';
