@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Card,
-  TeamLogo,
-  TeamInfo,
-  TeamName,
-  Result,
-} from "./styles";
+import { Card, TeamLogo, TeamInfo, TeamName, Result } from "./styles";
 import { getTeamLogoById, getTeamNameById } from "../../tools/geters";
 
 interface Props {
@@ -21,23 +15,21 @@ const TeamMatchCard: React.FC<Props> = ({
   result,
   position = "left",
   isExpanded = true,
-
 }) => {
   return (
-<Card position={position}>
-  <TeamLogo
-    src={getTeamLogoById(team)}
-    alt={getTeamNameById(team)}
-  />
+    <Card position={position}>
+      <TeamLogo src={getTeamLogoById(team)} alt={getTeamNameById(team)} />
 
-  <TeamInfo position={position}>
-    {isExpanded && (
-      <TeamName>{getTeamNameById(team)}</TeamName>
-    )}
+      <TeamInfo position={position}>
+        {isExpanded && (
+          <TeamName>
+            {getTeamNameById(team).length > 12 ? `${getTeamNameById(team).slice(0, 11)}.` : getTeamNameById(team)}
+          </TeamName>
+        )}
 
-   {result && <Result>{result}</Result>}
-  </TeamInfo>
-</Card>
+        {result && <Result>{result}</Result>}
+      </TeamInfo>
+    </Card>
   );
 };
 

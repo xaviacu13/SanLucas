@@ -39,6 +39,7 @@ export const Card = styled("div", {
     minWidth: "10px",
     maxWidth: "200px",
     padding: "4px",
+    gap: "5px",
   },
 }));
   
@@ -56,7 +57,7 @@ type TeamInfoProps = {
 export const TeamInfo = styled("div")<TeamInfoProps>(
   ({ position }) => ({
     display: "flex",
-    gap: "10px",
+    gap: "5px",
     alignItems: "center",
 
     flexDirection:
@@ -68,7 +69,7 @@ export const TeamInfo = styled("div")<TeamInfoProps>(
 
 export const TeamName = styled("span")({
   fontWeight: 700,
-  fontSize: "10px",
+  fontSize: "8px",
   color: "#0b2545",
 });
 
