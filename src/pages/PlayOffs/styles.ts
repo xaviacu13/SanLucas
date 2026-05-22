@@ -43,3 +43,8 @@ export const FinalBox = styled('div')({
   textAlign: 'center',
   boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
 });
+
+export const SchemaContent = styled('img')({
+  maxWidth: '100%',
+  height: 'auto',
+});

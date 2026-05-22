@@ -1,6 +1,7 @@
 import React from "react";
 import { MatchCard, Title } from "../../components";
 import { orderTable } from "../../tools/tools";
+import schema from "../../assets/images/logos/squema2.webp";
 import type { ITeamStanding } from "../../types/types";
 
 import {
@@ -19,7 +20,9 @@ import {
   Side,
   Center,
   FinalBox,
+  SchemaContent
 } from "./styles";
+import { Divider } from "@mui/material";
 
 const Playoffs: React.FC = () => {
 
@@ -160,6 +163,9 @@ const rightTeams = [
           ))}
         </Side>
       </BracketContainer>
+      <Divider style={{ marginTop: "20px" }} />
+       <Title title="Esquema de playoffs" />
+      <SchemaContent src={schema} alt="Esquema de playoffs" />
     </Page>
   );
 };
