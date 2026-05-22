@@ -216,10 +216,10 @@ const FixtureCard: React.FC<IFixtureCard> = ({
       {observation && observation.trim() !== "" && (
         <ObservationContainer>{observation}</ObservationContainer>
       )}
-{/* 
+
       <Typography variant="caption" align="center" color="textSecondary">
         ID: {id}
-      </Typography> */}
+      </Typography>
     </Root>
   );
 };
