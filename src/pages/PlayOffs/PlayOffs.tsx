@@ -49,7 +49,7 @@ const table = React.useMemo<ITeamStanding[]>(() => {
   );
 
   return orderTable(standings);
-}, []);
+}, [initialTable]);
 
   const filterTableBySerie = React.useCallback(
     (
@@ -76,9 +76,6 @@ const table = React.useMemo<ITeamStanding[]>(() => {
     return filterTableBySerie(table, "B")
     .slice(0, 8);
   }, [table, filterTableBySerie]);
-
-  console.log("Equipos serie A====", serieA);
-  console.log("Equipos serie B-----", serieB);
 
   const leftTeams = [
   {

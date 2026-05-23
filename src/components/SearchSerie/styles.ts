@@ -32,7 +32,7 @@ export const SerieLabel = styled("span")<{
 
   if (serie === "A") color = "#eaae17";
   if (serie === "B") color = "#bb085c";
-  if (serie === "C") color = "#0af812";
+  if (serie === "C") color = "#158e17";
 
   return {
     display: "inline-block",

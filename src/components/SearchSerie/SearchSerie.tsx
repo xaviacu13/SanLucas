@@ -1,6 +1,7 @@
 import React from "react";
 import { Root, SerieLabel, LabelContainer } from "./styles";
 import type { SerieType } from "../../types/types";
+import { useNavigate } from "react-router-dom";
 
 interface ISearchSerieProp {
   serie: SerieType;
@@ -11,6 +12,7 @@ const SearchSerie: React.FC<ISearchSerieProp> = ({
   serie,
   setSerie,
 }) => {
+  const navigate = useNavigate();
   return (
     <Root>
       <LabelContainer>
@@ -35,6 +37,13 @@ const SearchSerie: React.FC<ISearchSerieProp> = ({
           selected={serie === "B"}
         >
           Serie B
+        </SerieLabel>
+        <SerieLabel
+          onClick={() => navigate("/playoffs")}
+          serie="C"
+          selected={serie === "C"}
+        >
+          Ver Octavos
         </SerieLabel>
       </LabelContainer>
     </Root>
