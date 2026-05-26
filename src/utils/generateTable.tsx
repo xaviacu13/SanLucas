@@ -39,15 +39,15 @@ export const generateTable = (
 
     if (!teamA || !teamB) return;
 
-    if (resultType === "double_wo") {
-      teamA.losses++;
-      teamB.losses++;
+    // if (resultType === "double_wo") {
+    //   teamA.losses++;
+    //   teamB.losses++;
 
-      teamA.matchesPlayed++;
-      teamB.matchesPlayed++;
+    //   teamA.matchesPlayed++;
+    //   teamB.matchesPlayed++;
 
-      return;
-    }
+    //   return;
+    // }
 
     // PJ
     teamA.matchesPlayed++;
@@ -61,19 +61,33 @@ export const generateTable = (
     teamB.goalsAgainst += match.scorerTeam1;
 
     // RESULTADO
-    if (match.scorerTeam1 > match.scorerTeam2) {
+    if (resultType === "wo_team1") {
       teamA.wins++;
       teamB.losses++;
       teamA.points += 3;
-    } else if (match.scorerTeam1 < match.scorerTeam2) {
+    } else if (resultType === "wo_team2") {
       teamB.wins++;
       teamA.losses++;
       teamB.points += 3;
+    } else if (resultType === "double_wo") {
+      teamA.losses++;
+      teamB.losses++;
     } else {
-      teamA.draws++;
-      teamB.draws++;
-      teamA.points += 1;
-      teamB.points += 1;
+      // RESULTADO NORMAL POR GOLES
+      if (match.scorerTeam1 > match.scorerTeam2) {
+        teamA.wins++;
+        teamB.losses++;
+        teamA.points += 3;
+      } else if (match.scorerTeam1 < match.scorerTeam2) {
+        teamB.wins++;
+        teamA.losses++;
+        teamB.points += 3;
+      } else {
+        teamA.draws++;
+        teamB.draws++;
+        teamA.points += 1;
+        teamB.points += 1;
+      }
     }
   });
 
