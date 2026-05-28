@@ -69,7 +69,7 @@ const Sponsors: FC<SponsorsProps> = ({ data = [] }) => {
           <CarouselWrapper>
             <SlidesContainer
               style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
+                transform: `translate3d(-${currentIndex * 100}%, 0, 0)`,
               }}
             >
               {validSponsors.map((sponsor, index) => (

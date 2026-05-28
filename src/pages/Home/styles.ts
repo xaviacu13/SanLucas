@@ -40,11 +40,11 @@ export const Cards = styled(Link)({
 export const CardsContainer = styled('div')(()=>({
   display: 'flex',
   gap: '1.5rem',
-  marginTop: '5px',  
+  marginTop: '3px',  
   justifyContent: 'center',
   "@media (max-width: 600px)": {
-    gap: '1rem',
-    marginTop: '10px',
+    gap: '0.5rem',
+    marginTop: '4px',
   },
 
 }))
@@ -95,8 +95,7 @@ export const UpdateInfo = styled("div")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  gap: "8px",
-  marginTop: "10px",
+  gap: "4px",
   fontSize: "14px",
   color: "#f41509",
   fontWeight: 500,
