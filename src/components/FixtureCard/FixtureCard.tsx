@@ -80,7 +80,7 @@ const FixtureCard: React.FC<IFixtureCard> = ({
 
   const renderEvents = (eventsList: MatchEvent[]) => {
     if (isloading) {
-      return <div>Cargando goleadores...</div>;
+      return <div>Cargando eventos...</div>;
     }
 
     if (eventsList.length === 0) return <div>—</div>;

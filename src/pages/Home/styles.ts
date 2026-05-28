@@ -23,7 +23,8 @@ export const Cards = styled(Link)({
   border: '1px solid #ddd',
   borderRadius: '8px',
   padding: '1rem',
-  width: '150px',
+  width: '146px',
+  height: '82px',
   boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
   transition: 'transform 0.2s',
   '&:hover': {
@@ -38,11 +39,11 @@ export const Cards = styled(Link)({
 
 export const CardsContainer = styled('div')(()=>({
   display: 'flex',
-  gap: '1rem',
-  marginTop: '20px',  
+  gap: '1.5rem',
+  marginTop: '5px',  
   justifyContent: 'center',
   "@media (max-width: 600px)": {
-    gap: '0.6rem',
+    gap: '1rem',
     marginTop: '10px',
   },
 
@@ -123,3 +124,20 @@ export const LiveDot = styled("span")({
     },
   },
 });
+
+export const SponsorContainer = styled("div")(({
+  width: "100%",
+  borderRadius: "20px",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+
+  border: "1px solid rgba(4,47,81,0.1)",
+
+  transition: "all 0.3s ease",
+
+  "@media (max-width: 600px)": {
+    borderRadius: "14px",
+  },
+}));

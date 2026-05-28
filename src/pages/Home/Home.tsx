@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import portada1 from "../../assets/images/portada/por1.png";
 //import portada2 from "../../assets/images/portada/por2.png";
-import portada3 from "../../assets/images/portada/por3.png";
+//import portada3 from "../../assets/images/portada/por3.png";
+
+import ga from "../../assets/images/sponsors/ga.jpeg";
+import beto from "../../assets/images/sponsors/beto.jpeg";
 
 // import ArticleIcon from "@mui/icons-material/Article";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AddToHomeScreenIcon from "@mui/icons-material/AddToHomeScreen";
-import SchemaIcon from '@mui/icons-material/Schema';
+import SchemaIcon from "@mui/icons-material/Schema";
 
 import { Header, Hero, Footer } from "../../components";
 import { useNotifications } from "../../hooks/useNotifications";
@@ -24,11 +27,19 @@ import {
   PageContainer,
   UpdateInfo,
   LiveDot,
+  SponsorContainer,
 } from "./styles";
 
 import { Button, Box } from "@mui/material";
+import { Sponsors } from "../../components";
 
-const portada = [portada1, portada3];
+const portada = [portada1];
+const sponsorsData = [
+  { banner: ga, phoneNumber: 1127305021, url: "", message: "Hola Gerado soy de la app, me puedes pasar mas informacion por favor?" },
+  { banner: beto, phoneNumber: 1151762134, url: "", message: "Hola Beto soy de la app, estoy buscando..." },
+  { banner: ga, phoneNumber: 1127305021, url: "", message: "Hola Gerado soy de la app, me puedes pasar mas informacion por favor?" }, 
+  { banner: beto, phoneNumber: 1151762134, url: "", message: "Hola Beto soy de la app, estoy buscando..." },
+];
 
 const LAST_SEEN_KEY = "lastSeenNotificationId";
 
@@ -111,9 +122,7 @@ const Home: React.FC = () => {
 
       <div style={{ textAlign: "center" }}>
         <TitleContainer>
-          <TitleText>
-            Campeonato de Fútbol Intercomunal San Lucas 2026
-          </TitleText>
+          <TitleText>San Lucas 2026</TitleText>
           <UpdateInfo>
             <LiveDot />
 
@@ -135,7 +144,7 @@ const Home: React.FC = () => {
             </NotificationIconWrapper>
             <span>Notificaciones</span>
           </Cards>
-{/* 
+          {/* 
           <Cards to="/call-up">
             <ArticleIcon fontSize="large" />
             <span>Convocatoria</span>
@@ -177,6 +186,20 @@ const Home: React.FC = () => {
             </Box>
           </Cards> */}
         </CardsContainer>
+        <SponsorContainer>
+          <h3
+            style={{
+              marginBottom: 0,
+              color: '#22b7be',
+              fontWeight: 700,
+              fontSize: 20,
+            }}
+          >
+            Sponsors Oficiales:
+          </h3>
+
+          <Sponsors data={sponsorsData} />
+        </SponsorContainer>
 
         {showInstall && (
           <Box
