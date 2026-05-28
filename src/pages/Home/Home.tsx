@@ -126,13 +126,13 @@ const Home: React.FC = () => {
           <UpdateInfo>
             <LiveDot />
             <span>
-              Última actualización: <strong>21 Mayo 2026 • 23:18 </strong> hs
+              Última actualización: <strong>28 Mayo 2026 • 01:52 </strong> hs
             </span>
           </UpdateInfo>
-          <p>
+          {/* <p>
             Aquí encontrarás toda la información sobre los equipos, jugadores y
             estadísticas del campeonato intercomunal municipio San Lucas.
-          </p>
+          </p> */}
         </TitleContainer>
 
         <CardsContainer>

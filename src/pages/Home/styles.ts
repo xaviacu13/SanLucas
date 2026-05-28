@@ -40,7 +40,7 @@ export const Cards = styled(Link)({
 export const CardsContainer = styled('div')(()=>({
   display: 'flex',
   gap: '1.5rem',
-  marginTop: '3px',  
+  marginTop: '14px',  
   justifyContent: 'center',
   "@media (max-width: 600px)": {
     gap: '0.5rem',
@@ -52,12 +52,11 @@ export const CardsContainer = styled('div')(()=>({
 export const TitleContainer = styled('div')({
   display: 'flex',
   flexDirection: 'column',
-  marginTop: '10px',  
   justifyContent: 'center',
 })
 
 export const TitleText = styled('h1')(() => ({
-  fontSize: '24px',
+  fontSize: '20px',
   color: 'rgba(4, 47, 81, 0.9)',
   "@media (max-width: 600px)": {    
     fontSize: '18px',

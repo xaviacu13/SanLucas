@@ -22,7 +22,7 @@ export const StyledImage = styled("img")(({ theme }) => ({
   display: "block",
   objectFit: "contain",
   backgroundColor: "#fff",
-  height: 139,
+  height: 151,
 
   [theme.breakpoints.up("sm")]: {
     height: 240,
