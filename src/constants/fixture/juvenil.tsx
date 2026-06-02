@@ -4174,15 +4174,18 @@ export const juvenil: IMatch[] = [
   {
     id: 39,
     team1: getTeamName(13),
-    scorerTeam1: 0,
+    scorerTeam1: 1,
     scorerTeam2: 0,
     team2: getTeamName(25),
     date: "31-05-2026",
     time: "10:00",
     location: "1",
-    status: "scheduled",
+    status: "played",
     group: 3,
-    observation: "",
+    observation: "W.O. a favor de Puca Loma.",
     serie: "A",
+    events: [
+      { type: "g", team: getTeamName(13), num: 10 },    
+    ],
   },
 ];

@@ -4,7 +4,8 @@ import portada1 from "../../assets/images/portada/por1.png";
 //import portada3 from "../../assets/images/portada/por3.png";
 
 import ga from "../../assets/images/sponsors/ga.jpeg";
-import beto from "../../assets/images/sponsors/beto.jpeg";
+import beto1 from "../../assets/images/sponsors/beto1.png";
+//import nr from "../../assets/images/sponsors/nr.png";
 
 // import ArticleIcon from "@mui/icons-material/Article";
 import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
@@ -36,9 +37,10 @@ import { Sponsors } from "../../components";
 const portada = [portada1];
 const sponsorsData = [
   { banner: ga, phoneNumber: 1127305021, url: "", message: "Hola Gerado soy de la app, me puedes pasar mas informacion por favor?" },
-  { banner: beto, phoneNumber: 1151762134, url: "", message: "Hola Beto soy de la app, estoy buscando..." },
+  { banner: beto1, phoneNumber: 1151762134, url: "", message: "Hola Beto soy de la app, estoy buscando..." },
   { banner: ga, phoneNumber: 1127305021, url: "", message: "Hola Gerado soy de la app, me puedes pasar mas informacion por favor?" }, 
-  { banner: beto, phoneNumber: 1151762134, url: "", message: "Hola Beto soy de la app, estoy buscando..." },
+  { banner: beto1, phoneNumber: 1151762134, url: "", message: "Hola Beto soy de la app, estoy buscando..." },
+  // { banner: nr, phoneNumber: 1133697922, url: "", message: "Hola Nestor tengo una consulta sobre mi automovil." },
 ];
 
 const LAST_SEEN_KEY = "lastSeenNotificationId";
