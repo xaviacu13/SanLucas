@@ -78,6 +78,23 @@ const FixtureCard: React.FC<IFixtureCard> = ({
     }
   };
 
+  const getPhaseName = (group: number) => {
+    switch (group) {
+      case 25:
+        return "OCTAVOS";
+      case 26:
+        return "CUARTOS";
+      case 27:
+        return "SEMIFINAL";
+      case 28:
+        return "3° PUESTO";
+        case 29:
+        return "FINAL";
+      default:
+        return null;
+    }
+  };
+
   const renderEvents = (eventsList: MatchEvent[]) => {
     if (isloading) {
       return <div>Cargando eventos...</div>;
@@ -123,6 +140,8 @@ const FixtureCard: React.FC<IFixtureCard> = ({
     });
   };
 
+  const phaseName = getPhaseName(group);
+
   return (
     <Root
       onClick={() => isExpandable && setOpen(!open)}
@@ -152,9 +171,16 @@ const FixtureCard: React.FC<IFixtureCard> = ({
           {group > 0 && (
             <TitleItem>
               <strong>
-                {status === "played" ? "F - " : "Fecha:"} {group}
+                {phaseName
+                  ? phaseName
+                  : `${status === "played" ? "F -" : "Fecha:"} ${group}`}
               </strong>
-              {serie && <SerieLabel serie={serie}>Serie: {serie}</SerieLabel>}
+
+              {serie && (
+                <SerieLabel serie={serie}>
+                  {group >= 25 ? `G: ${serie}` : `Serie: ${serie}`}
+                </SerieLabel>
+              )}
             </TitleItem>
           )}
 
