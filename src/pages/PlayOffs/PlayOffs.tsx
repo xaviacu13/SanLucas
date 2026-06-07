@@ -105,28 +105,28 @@ const Playoffs: React.FC = () => {
     {
       team1: 4,
       team2: 5,
-      result1: 0,
-      result2: 0,
+      result1: 1,
+      result2: 4,
       isExpanded: false,
     },
     {
       team1: 27,
       team2: 9,
-      result1: 0,
-      result2: 0,
+      result1: 7,
+      result2: 6,
       isExpanded: false,
     },
     {
       team1: 23,
       team2: 10,
-      result1: 0,
-      result2: 0,
+      result1: 1,
+      result2: 7,
       isExpanded: false,
     },
     {
       team1: 20,
       team2: 26,
-      result1: 0,
+      result1: 2,
       result2: 0,
       isExpanded: false,
     },
@@ -147,18 +147,18 @@ const Playoffs: React.FC = () => {
     },
   ];
 
-  // const rightTeams4 = [
-  //   {
-  //     team1: 100,
-  //     team2: 101,
-  //     isExpanded: true,
-  //   },
-  //   {
-  //     team1: 102,
-  //     team2: 103,
-  //     isExpanded: true,
-  //   },
-  // ];
+  const rightTeams4 = [
+    {
+      team1: 5,
+      team2: 27,
+      isExpanded: true,
+    },
+    {
+      team1: 10,
+      team2: 20,
+      isExpanded: true,
+    },
+  ];
 
   return (
     <Page>
@@ -202,7 +202,7 @@ const Playoffs: React.FC = () => {
         {/* DERECHA */}
         <RightContent>
           <Side grade="4">
-            {/* {rightTeams4.map((team, index) => (
+            {rightTeams4.map((team, index) => (
               <MatchCard
                 key={index}
                 team1={team.team1}
@@ -210,7 +210,7 @@ const Playoffs: React.FC = () => {
                 position="right"
                 isExpanded={team.isExpanded}
               />
-            ))} */}
+            ))}
           </Side>
           <Side grade="8">
             {rightTeams8.map((team, index) => (
