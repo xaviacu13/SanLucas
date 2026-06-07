@@ -19,7 +19,6 @@ import {
   TeamName,
   OponentGoals,
   GoalRow,
-  
 } from "./styles";
 import type { ITeam } from "../../types/types";
 import { teams } from "../../constants/teams/teams";
@@ -48,6 +47,7 @@ const ScorerCard: React.FC<PlayerCardProps> = ({
   fullName,
   image,
   logoTeam,
+  number,
   goals,
   teamName,
   goalDetails = [],
@@ -90,7 +90,7 @@ const ScorerCard: React.FC<PlayerCardProps> = ({
               </PlayerText>
             </PositionContainmer>
 
-            <PlayerName>{fullName}</PlayerName>
+            <PlayerName>{fullName ? `${fullName} (${number})` : `Jugador - ${number}`}</PlayerName>
             <PlayerTitle>
               <strong>{teamName}</strong>
             </PlayerTitle>

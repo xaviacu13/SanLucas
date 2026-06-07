@@ -19,6 +19,7 @@ import {
 } from "../../services/scorers";
 import { juvenil } from "../../constants/fixture/juvenil";
 import { damas } from "../../constants/fixture/damas";
+import { senior } from "../../constants/fixture/senior";
 
 const TopScorerTable: React.FC = () => {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ const TopScorerTable: React.FC = () => {
   const matchesByCategory: Record<CategoryType, IMatch[]> = useMemo(
     () => ({
       Juvenil: juvenil,
-      Senior: [],
+      Senior: senior,
       Damas: damas,
       Infantil: [],
     }),

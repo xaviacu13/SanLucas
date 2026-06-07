@@ -22,6 +22,12 @@ export const senior: IMatch[] = [
     status: "played",
     group: 1,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(2), num: 7, qty: 2 },
+        { type: "g", team: getTeamName(2), num: 17 },
+        { type: "g", team: getTeamName(2), num: 11, qty: 3 },
+        { type: "g", team: getTeamName(2), num: 10 },
+      ]
   },
   {
     id: 2,
@@ -35,6 +41,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 1,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(3), num: 13 },
+        { type: "g", team: getTeamName(3), num: 16 },
+      ]
   },
   {
     id: 3,
@@ -48,6 +58,13 @@ export const senior: IMatch[] = [
     status: "played",
     group: 1,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(5), num: 7, qty: 2 },
+        { type: "g", team: getTeamName(5), num: 9, qty: 4 },
+        { type: "g", team: getTeamName(5), num: 10 },
+
+        { type: "g", team: getTeamName(6), num: 9 },
+    ]
   },
   {
     id: 4,
@@ -61,6 +78,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 1,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(7), num: 19 },
+        { type: "g", team: getTeamName(7), num: 21 },
+      ]
   },
   // // FECHA 2
     {
@@ -75,6 +96,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 2,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(4), num: 20 },
+        { type: "g", team: getTeamName(4), num: 18 },
+      ]
   },
     {
     id: 6,
@@ -89,6 +114,15 @@ export const senior: IMatch[] = [
     group: 2,
     observation: "Miska Mayu gano los puntos por observar a un jugador de Quirpini",
     resultType: "wo_team2",
+    events: [
+        { type: "g", team: getTeamName(2), num: 14 },
+        { type: "g", team: getTeamName(2), num: 17 },
+        { type: "g", team: getTeamName(2), num: 11 },
+
+        { type: "g", team: getTeamName(6), num: 7 },
+        { type: "g", team: getTeamName(6), num: 19 },
+        { type: "g", team: getTeamName(6), num: 21 },
+      ]
   },
     {
     id: 7,
@@ -102,6 +136,11 @@ export const senior: IMatch[] = [
     status: "played",
     group: 2,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(8), num: 99, qty: 3 },
+
+        { type: "g", team: getTeamName(3), num: 5 },
+      ]
   },
     {
     id: 8,
@@ -115,6 +154,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 2,
     observation: "",
+    events: [
+        { type: "g", team: getTeamName(5), num: 7, qty: 2 },
+        { type: "g", team: getTeamName(5), num: 9 },
+      ]
   },
   // FECHA 3
     {
@@ -129,6 +172,15 @@ export const senior: IMatch[] = [
     status: "played",
     group: 3,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(6), num: 10 },
+      { type: "g", team: getTeamName(6), num: 21, qty: 3 },
+      { type: "g", team: getTeamName(6), num: 7 },
+
+      { type: "g", team: getTeamName(1), num: 7 },
+      { type: "g", team: getTeamName(1), num: 6 },
+      { type: "g", team: getTeamName(1), num: 11 },
+    ]
   },
     {
     id: 10,
@@ -142,6 +194,9 @@ export const senior: IMatch[] = [
     status: "played",
     group: 3,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(4), num: 8 },
+    ]
   },
     {
     id: 11,
@@ -155,6 +210,11 @@ export const senior: IMatch[] = [
     status: "played",
     group: 3,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(7), num: 19, qty: 2 },
+
+      { type: "g", team: getTeamName(2), num: 11 },
+    ]
   },
     {
     id: 12,
@@ -168,6 +228,13 @@ export const senior: IMatch[] = [
     status: "played",
     group: 3,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(5), num: 7 },
+      { type: "g", team: getTeamName(5), num: 10 },
+      { type: "g", team: getTeamName(5), num: 5 },
+
+      { type: "g", team: getTeamName(3), num: 5 },
+    ]
   },
    // FECHA 4
     {
@@ -182,6 +249,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 4,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(6), num: 46 },
+      { type: "g", team: getTeamName(6), num: 10 },
+    ]
   },
     {
     id: 14,
@@ -195,6 +266,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 4,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(1), num: 11 },
+      { type: "g", team: getTeamName(1), num: 14 },
+    ]
   },
     {
     id: 15,
@@ -208,6 +283,10 @@ export const senior: IMatch[] = [
     status: "played",
     group: 4,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(5), num: 10 },
+      { type: "g", team: getTeamName(5), num: 7 },
+    ]
   },
     {
     id: 16,
@@ -221,6 +300,12 @@ export const senior: IMatch[] = [
     status: "played",
     group: 4,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(2), num: 11, qty: 3 },
+      { type: "g", team: getTeamName(2), num: 14, qty: 2 },
+
+      { type: "g", team: getTeamName(3), num: 10 },
+    ]
   },
    // FECHA 5
     {
@@ -235,6 +320,13 @@ export const senior: IMatch[] = [
     status: "played",
     group: 5,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(5), num: 9, qty: 3 },
+      { type: "g", team: getTeamName(5), num: 10, qty: 2 },
+      { type: "g", team: getTeamName(5), num: 7, qty: 5 },
+
+      { type: "g", team: getTeamName(8), num: 99, qty: 2 },
+    ]
   },
     {
     id: 18,
@@ -248,6 +340,11 @@ export const senior: IMatch[] = [
     status: "played",
     group: 5,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(1), num: 17, qty: 2 },
+
+      { type: "g", team: getTeamName(7), num: 19 },
+    ]
   },
     {
     id: 19,
@@ -261,6 +358,12 @@ export const senior: IMatch[] = [
     status: "played",
     group: 5,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(6), num: 20 },
+      { type: "g", team: getTeamName(6), num: 21, qty: 2 },
+
+      { type: "g", team: getTeamName(3), num: 25 },
+    ]
   },
     {
     id: 20,
@@ -274,6 +377,12 @@ export const senior: IMatch[] = [
     status: "played",
     group: 5,
     observation: "",
+    events: [
+      { type: "g", team: getTeamName(2), num: 27 },
+      { type: "g", team: getTeamName(2), num: 11 },
+
+      { type: "g", team: getTeamName(4), num: 9 },
+    ]
   },
    // FECHA 6
     {
