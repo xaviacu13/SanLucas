@@ -3,14 +3,10 @@ import { MatchCard, Title } from "../../components";
 import { orderTable } from "../../tools/tools";
 import schema from "../../assets/images/logos/squema2.webp";
 import type { ITeamStanding } from "../../types/types";
+import logo from "../../assets/images/logos/logoChampionship.png";
 
-import {
-  juvenil as fixtureJuvenil,
-} from "../../constants/fixture/juvenil";
-
-import {
-  juvenil as teamsJuvenil,
-} from "../../constants/teamCategories/juvenil";
+import { juvenil as fixtureJuvenil } from "../../constants/fixture/juvenil";
+import { juvenil as teamsJuvenil } from "../../constants/teamCategories/juvenil";
 
 import { generateTable } from "../../utils/generateTable";
 
@@ -18,16 +14,17 @@ import {
   Page,
   BracketContainer,
   Side,
-  Center,
-  FinalBox,
-  SchemaContent
+  // Center,
+  // FinalBox,
+  SchemaContent,
+  LeftContent,
+  RightContent,
+  LogoCenter,
 } from "./styles";
 import { Divider } from "@mui/material";
 
 const Playoffs: React.FC = () => {
-
-  const initialTable: ITeamStanding[] = teamsJuvenil.map(
-  (team) => ({
+  const initialTable: ITeamStanding[] = teamsJuvenil.map((team) => ({
     id: team.id,
     team: team.name,
     serie: team.series,
@@ -39,129 +36,199 @@ const Playoffs: React.FC = () => {
     goalsAgainst: 0,
     goalDifference: 0,
     points: 0,
-  })
-);
+  }));
 
-const table = React.useMemo<ITeamStanding[]>(() => {
-  const standings = generateTable(
-    fixtureJuvenil,
-    initialTable
-  );
+  const table = React.useMemo<ITeamStanding[]>(() => {
+    const standings = generateTable(fixtureJuvenil, initialTable);
 
-  return orderTable(standings);
-}, [initialTable]);
+    return orderTable(standings);
+  }, [initialTable]);
 
   const filterTableBySerie = React.useCallback(
-    (
-      tableData: ITeamStanding[],
-      serie: string
-    ): ITeamStanding[] => {
+    (tableData: ITeamStanding[], serie: string): ITeamStanding[] => {
       if (!serie || serie === "all") {
         return tableData;
       }
 
-      return tableData.filter(
-        (team) => team.serie === serie
-      );
+      return tableData.filter((team) => team.serie === serie);
     },
-    []
+    [],
   );
 
   const serieA = React.useMemo(() => {
-    return filterTableBySerie(table, "A")
-    .slice(0, 8);
+    return filterTableBySerie(table, "A").slice(0, 8);
   }, [table, filterTableBySerie]);
 
   const serieB = React.useMemo(() => {
-    return filterTableBySerie(table, "B")
-    .slice(0, 8);
+    return filterTableBySerie(table, "B").slice(0, 8);
   }, [table, filterTableBySerie]);
 
-  const leftTeams = [
-  {
-    team1: serieA[0]?.id || 0,
-    team2: serieB[7]?.id || 0,
-    isExpanded: true,
-  },
-  {
-    team1: serieA[2]?.id || 0,
-    team2: serieB[5]?.id || 0,
-    isExpanded: true,
-  },
-  {
-    team1: serieA[3]?.id || 0,
-    team2: serieB[4]?.id || 0,
-    isExpanded: true,
-  },
-  {
-    team1: serieA[1]?.id || 0,
-    team2: serieB[6]?.id || 0,
-    isExpanded: true,
-  },
-];
+  // octavos
 
-const rightTeams = [
-  {
-    team1: serieB[0]?.id || 0,
-    team2: serieA[7]?.id || 0,
-    isExpanded: true,
-  },
-  {
-    team1: serieB[2]?.id || 0,
-    team2: serieA[5]?.id || 0,
-    isExpanded: true,
-  },
-  {
-    team1: serieB[3]?.id || 0,
-    team2: serieA[4]?.id || 0,
-    isExpanded: true,
-  },
-  {
-    team1: serieB[1]?.id || 0,
-    team2: serieA[6]?.id || 0,
-    isExpanded: true,
-  },
-];
+  console.log(serieA, 'seie A');
+  console.log(serieB, 'seie B');
 
+  const leftTeams8 = [
+    {
+      // team1: serieA[0]?.id || 0,
+      // team2: serieB[7]?.id || 0,
+      team1: 1,
+      team2: 8,
+      isExpanded: false,
+      result1: 4,
+      result2: 5,
+    },
+    {
+      team1: 21,
+      team2: 3,
+      isExpanded: false,
+      result1: 2,
+      result2: 3,
+    },
+    {
+      team1: 18,
+      team2: 24,
+      isExpanded: false,
+      result1: 1,
+      result2: 0,
+    },
+    {
+      team1: 13,
+      team2: 15,
+      isExpanded: false,
+      result1: 5,
+      result2: 4,
+    },
+  ];
+
+  const rightTeams8 = [
+    {
+      team1: 4,
+      team2: 5,
+      result1: 0,
+      result2: 0,
+      isExpanded: false,
+    },
+    {
+      team1: 27,
+      team2: 9,
+      result1: 0,
+      result2: 0,
+      isExpanded: false,
+    },
+    {
+      team1: 23,
+      team2: 10,
+      result1: 0,
+      result2: 0,
+      isExpanded: false,
+    },
+    {
+      team1: 20,
+      team2: 26,
+      result1: 0,
+      result2: 0,
+      isExpanded: false,
+    },
+  ];
+
+  // octavos
+
+  const leftTeams4 = [
+    {
+      team1: 8,
+      team2: 3,
+      isExpanded: true,
+    },
+    {
+      team1: 18,
+      team2: 13,
+      isExpanded: true,
+    },
+  ];
+
+  // const rightTeams4 = [
+  //   {
+  //     team1: 100,
+  //     team2: 101,
+  //     isExpanded: true,
+  //   },
+  //   {
+  //     team1: 102,
+  //     team2: 103,
+  //     isExpanded: true,
+  //   },
+  // ];
 
   return (
     <Page>
       <Title title="Octavos de final" />
 
-      <BracketContainer>
+      <BracketContainer >
+         <LogoCenter src={logo} alt="Logo Campeonato" />
         {/* IZQUIERDA */}
-        <Side>
-          {leftTeams.map((team, index) => (
-            <MatchCard
-              key={index}
-              team1={team.team1}
-              team2={team.team2}
-              position="left"
-              isExpanded={team.isExpanded}
-            />
-          ))}
-        </Side>
+        <LeftContent>
+          <Side grade="8">
+            {leftTeams8.map((team, index) => (
+              <MatchCard
+                key={index}
+                team1={team.team1}
+                team2={team.team2}
+                result1={team.result1}
+                result2={team.result2}
+                position="left"
+                isExpanded={team.isExpanded}
+              />
+            ))}
+          </Side>
+          <Side grade="4">
+            {leftTeams4.map((team, index) => (
+              <MatchCard
+                key={index}
+                team1={team.team1}
+                team2={team.team2}
+                position="left"
+                isExpanded={team.isExpanded}
+              />
+            ))}
+          </Side>
+        </LeftContent>
 
         {/* CENTRO */}
-        <Center>
+        {/* <Center>
           <FinalBox>FINAL</FinalBox>
-        </Center>
+        </Center> */}
 
         {/* DERECHA */}
-        <Side>
-          {rightTeams.map((team, index) => (
-            <MatchCard
-              key={index}
-              team1={team.team1}
-              team2={team.team2}
-              position="right"
-              isExpanded={team.isExpanded}
-            />
-          ))}
-        </Side>
+        <RightContent>
+          <Side grade="4">
+            {/* {rightTeams4.map((team, index) => (
+              <MatchCard
+                key={index}
+                team1={team.team1}
+                team2={team.team2}
+                position="right"
+                isExpanded={team.isExpanded}
+              />
+            ))} */}
+          </Side>
+          <Side grade="8">
+            {rightTeams8.map((team, index) => (
+              <MatchCard
+                key={index}
+                team1={team.team1}
+                team2={team.team2}
+                result1={team.result1}
+                result2={team.result2}
+                position="right"
+                isExpanded={team.isExpanded}
+              />
+            ))}
+          </Side>
+        </RightContent>
       </BracketContainer>
       <Divider style={{ marginTop: "20px" }} />
-       <Title title="Esquema de playoffs" />
+      <Title title="Esquema de playoffs" />
       <SchemaContent src={schema} alt="Esquema de playoffs" />
     </Page>
   );

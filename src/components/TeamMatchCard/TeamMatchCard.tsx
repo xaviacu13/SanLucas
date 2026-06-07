@@ -27,7 +27,7 @@ const TeamMatchCard: React.FC<Props> = ({
           </TeamName>
         )}
 
-        {result && <Result>{result}</Result>}
+        <Result>{result}</Result>
       </TeamInfo>
     </Card>
   );

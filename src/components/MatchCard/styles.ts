@@ -26,7 +26,7 @@ export const Card = styled("div")({
   "@media (max-width: 600px)": {
     minWidth: "12px",
     maxWidth: "200px",
-    padding: "5px",
+    padding: "2px",
     borderRadius: "14px",
   },
 });
