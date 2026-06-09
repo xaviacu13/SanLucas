@@ -128,7 +128,7 @@ const Home: React.FC = () => {
           <UpdateInfo>
             <LiveDot />
             <span>
-              Última actualización: <strong>03 Junio 2026 • 23:25 </strong> hs
+              Última actualización: <strong>09 Junio 2026 • 09:00 </strong> hs
             </span>
           </UpdateInfo>
           {/* <p>
