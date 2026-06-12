@@ -84,12 +84,20 @@ export const LeftContent = styled('div')({
   display: 'flex',
   //flexDirection: 'column',
   alignItems: "center",
-  gap: '8px',
+  gap: '10px',
+      '@media (max-width: 900px)': {
+      gap: '0px',
+
+  },
 });
 
 export const RightContent = styled('div')({
   display: 'flex',
   //flexDirection: 'column',
   alignItems: 'center',
-  gap: '16px',
+  gap: '10px',
+    '@media (max-width: 900px)': {
+      gap: '0px',
+
+  },
 });

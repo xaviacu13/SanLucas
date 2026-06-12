@@ -36,10 +36,10 @@ export const Card = styled("div", {
   },
 
   "@media (max-width: 600px)": {
-    minWidth: "10px",
+    minWidth: "8px",
     maxWidth: "200px",
-    padding: "4px",
-    gap: "5px",
+    padding: "1px",
+    gap: "0px",
   },
 }));
   
@@ -82,11 +82,11 @@ export const Result = styled("span")({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  minWidth: "25px",
+  minWidth: "15px",
   borderRadius: "999px",
   background: "#6ce9ef",
   fontWeight: 600,
-  fontSize: "16px",
+  fontSize: "10px",
   color: "#0b2545",
 });
 

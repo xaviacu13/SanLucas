@@ -3,7 +3,7 @@ import { MatchCard, Title } from "../../components";
 import { orderTable } from "../../tools/tools";
 import schema from "../../assets/images/logos/squema2.webp";
 import type { ITeamStanding } from "../../types/types";
-import logo from "../../assets/images/logos/logoChampionship.png";
+//import logo from "../../assets/images/logos/logoChampionship.png";
 
 import { juvenil as fixtureJuvenil } from "../../constants/fixture/juvenil";
 import { juvenil as teamsJuvenil } from "../../constants/teamCategories/juvenil";
@@ -19,7 +19,7 @@ import {
   SchemaContent,
   LeftContent,
   RightContent,
-  LogoCenter,
+  //LogoCenter,
 } from "./styles";
 import { Divider } from "@mui/material";
 
@@ -138,12 +138,16 @@ const Playoffs: React.FC = () => {
     {
       team1: 8,
       team2: 3,
-      isExpanded: true,
+      result1: 0,
+      result2: 1,
+      isExpanded: false,
     },
     {
       team1: 18,
       team2: 13,
-      isExpanded: true,
+      result1: 1,
+      result2: 0,
+      isExpanded: false,
     },
   ];
 
@@ -151,12 +155,33 @@ const Playoffs: React.FC = () => {
     {
       team1: 5,
       team2: 27,
-      isExpanded: true,
+      result1: 1,
+      result2: 5,
+      isExpanded: false,
     },
     {
       team1: 10,
       team2: 20,
-      isExpanded: true,
+      result1: 5,
+      result2: 4,
+      isExpanded: false,
+    },
+  ];
+
+  // semis
+    const leftTeams2 = [
+    {
+      team1: 3,
+      team2: 18,
+      isExpanded: false,
+    },
+  ];
+
+  const rightTeams2 = [
+    {
+      team1: 27,
+      team2: 10,
+      isExpanded: false,
     },
   ];
 
@@ -165,7 +190,7 @@ const Playoffs: React.FC = () => {
       <Title title="Octavos de final" />
 
       <BracketContainer >
-         <LogoCenter src={logo} alt="Logo Campeonato" />
+         {/* <LogoCenter src={logo} alt="Logo Campeonato" /> */}
         {/* IZQUIERDA */}
         <LeftContent>
           <Side grade="8">
@@ -187,6 +212,19 @@ const Playoffs: React.FC = () => {
                 key={index}
                 team1={team.team1}
                 team2={team.team2}
+                result1={team.result1}
+                result2={team.result2}
+                position="left"
+                isExpanded={team.isExpanded}
+              />
+            ))}
+          </Side>
+            <Side grade="4">
+            {leftTeams2.map((team, index) => (
+              <MatchCard
+                key={index}
+                team1={team.team1}
+                team2={team.team2}
                 position="left"
                 isExpanded={team.isExpanded}
               />
@@ -202,11 +240,24 @@ const Playoffs: React.FC = () => {
         {/* DERECHA */}
         <RightContent>
           <Side grade="4">
+            {rightTeams2.map((team, index) => (
+              <MatchCard
+                key={index}
+                team1={team.team1}
+                team2={team.team2}
+                position="right"
+                isExpanded={team.isExpanded}
+              />
+            ))}
+          </Side>
+          <Side grade="4">
             {rightTeams4.map((team, index) => (
               <MatchCard
                 key={index}
                 team1={team.team1}
                 team2={team.team2}
+                result1={team.result1}
+                result2={team.result2}
                 position="right"
                 isExpanded={team.isExpanded}
               />
