@@ -44,24 +44,32 @@ const Table: React.FC = () => {
     });
   };
 
-  const table = React.useMemo<ITeamStanding[]>(() => {
-    switch (selectedCategory) {
-      case "Juvenil":
-        return orderTable(generateTable(fixtureJuvenil, juvenil));
+const table = React.useMemo<ITeamStanding[]>(() => {
+  switch (selectedCategory) {
+    case "Juvenil":
+      return orderTable(
+        generateTable(fixtureJuvenil.filter(match => match.group < 25), juvenil)
+      );
 
-      case "Senior":
-        return orderTable(generateTable(fixtureSenior, senior));
+    case "Senior":
+      return orderTable(
+        generateTable(fixtureSenior, senior)
+      );
 
-      case "Damas":
-        return orderTable(generateTable(fixtureDamas, damas));
+    case "Damas":
+      return orderTable(
+        generateTable(fixtureDamas, damas)
+      );
 
-      case "Infantil":
-        return orderTable(generateTable(fixtureInfantil, infantil));
+    case "Infantil":
+      return orderTable(
+        generateTable(fixtureInfantil, infantil)
+      );
 
-      default:
-        return [];
-    }
-  }, [selectedCategory]);
+    default:
+      return [];
+  }
+}, [selectedCategory]);
 
   const filterTableBySerie = (
     table: ITeamStanding[],

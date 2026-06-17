@@ -29,7 +29,7 @@ export const BracketContainer = styled("div")({
 export const LogoCenter = styled("img")({
   position: "absolute",
   left: "50%",
-  top: "40%",
+  top: "35%",
   transform: "translate(-50%, -50%)",
   width: "90px",
   height: "90px",
@@ -100,4 +100,34 @@ export const RightContent = styled('div')({
       gap: '0px',
 
   },
+});
+
+export const TeamContent = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
+  padding: "10px 15px",
+  marginBottom: "8px",
+  background: "#fff",
+  borderRadius: "10px",
+  boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+});
+
+export const TeamName = styled("span")({
+  fontWeight: 700,
+  fontSize: "12px",
+  color: "#0b2545",
+  flex: 1,
+});
+
+export const TeamLogo = styled("img")({
+  width: "35px",
+  height: "35px",
+  objectFit: "contain",
+});
+
+export const ChampeonTitle = styled("span")({
+  fontWeight: 700,
+  color: '#22b7be',
+  fontSize: "15px",
 });

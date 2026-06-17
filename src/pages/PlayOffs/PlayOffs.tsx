@@ -1,9 +1,10 @@
 import React from "react";
-import { MatchCard, Title } from "../../components";
+import { MatchCard, Title, TeamMatchCard } from "../../components";
 import { orderTable } from "../../tools/tools";
 import schema from "../../assets/images/logos/squema2.webp";
 import type { ITeamStanding } from "../../types/types";
-//import logo from "../../assets/images/logos/logoChampionship.png";
+import logo from "../../assets/images/logoEquipos/chillagua.webp";
+import { getTeamLogoById, getTeamNameById } from "../../tools/geters";
 
 import { juvenil as fixtureJuvenil } from "../../constants/fixture/juvenil";
 import { juvenil as teamsJuvenil } from "../../constants/teamCategories/juvenil";
@@ -19,7 +20,11 @@ import {
   SchemaContent,
   LeftContent,
   RightContent,
-  //LogoCenter,
+  LogoCenter,
+  TeamName,
+  TeamLogo,
+  ChampeonTitle,
+  TeamContent,
 } from "./styles";
 import { Divider } from "@mui/material";
 
@@ -65,8 +70,8 @@ const Playoffs: React.FC = () => {
 
   // octavos
 
-  console.log(serieA, 'seie A');
-  console.log(serieB, 'seie B');
+  console.log(serieA, "seie A");
+  console.log(serieB, "seie B");
 
   const leftTeams8 = [
     {
@@ -169,10 +174,12 @@ const Playoffs: React.FC = () => {
   ];
 
   // semis
-    const leftTeams2 = [
+  const leftTeams2 = [
     {
       team1: 3,
       team2: 18,
+      result1: 1,
+      result2: 0,
       isExpanded: false,
     },
   ];
@@ -181,16 +188,26 @@ const Playoffs: React.FC = () => {
     {
       team1: 27,
       team2: 10,
+      result1: 2,
+      result2: 1,
       isExpanded: false,
     },
+  ];
+
+  const finalPositions = [
+    { position: "🥇 Campeón", teamId: 27 },
+    { position: "🥈 Subcampeón", teamId: 3 },
+    { position: "🥉 3° Lugar", teamId: 18 },
+    { position: "4° Lugar", teamId: 10 },
+    { position: "5° Lugar", teamId: 20 },
+    { position: "6° Lugar", teamId: 13 },
   ];
 
   return (
     <Page>
       <Title title="Octavos de final" />
-
-      <BracketContainer >
-         {/* <LogoCenter src={logo} alt="Logo Campeonato" /> */}
+      <BracketContainer>
+        <LogoCenter src={logo} alt="Logo Campeonato" />
         {/* IZQUIERDA */}
         <LeftContent>
           <Side grade="8">
@@ -219,16 +236,26 @@ const Playoffs: React.FC = () => {
               />
             ))}
           </Side>
-            <Side grade="4">
+          <Side grade="4">
             {leftTeams2.map((team, index) => (
               <MatchCard
                 key={index}
                 team1={team.team1}
                 team2={team.team2}
+                result1={team.result1}
+                result2={team.result2}
                 position="left"
                 isExpanded={team.isExpanded}
               />
             ))}
+          </Side>
+          <Side>
+            <TeamMatchCard
+              team={3}
+              result={3}
+              isExpanded={false}
+              position="left"
+            />
           </Side>
         </LeftContent>
 
@@ -239,12 +266,22 @@ const Playoffs: React.FC = () => {
 
         {/* DERECHA */}
         <RightContent>
+          <Side>
+            <TeamMatchCard
+              team={27}
+              result={4}
+              isExpanded={false}
+              position="right"
+            />
+          </Side>
           <Side grade="4">
             {rightTeams2.map((team, index) => (
               <MatchCard
                 key={index}
                 team1={team.team1}
                 team2={team.team2}
+                result1={team.result1}
+                result2={team.result2}
                 position="right"
                 isExpanded={team.isExpanded}
               />
@@ -279,6 +316,21 @@ const Playoffs: React.FC = () => {
         </RightContent>
       </BracketContainer>
       <Divider style={{ marginTop: "20px" }} />
+      <Title title="Ranking Final" />
+      <>
+        {finalPositions.map((item) => (
+          <TeamContent key={item.teamId}>
+            <TeamLogo
+              src={getTeamLogoById(item.teamId)}
+              alt={getTeamNameById(item.teamId)}
+            />
+
+            <TeamName>{getTeamNameById(item.teamId)}</TeamName>
+
+            <ChampeonTitle>{item.position}</ChampeonTitle>
+          </TeamContent>
+        ))}
+      </>
       <Title title="Esquema de playoffs" />
       <SchemaContent src={schema} alt="Esquema de playoffs" />
     </Page>
