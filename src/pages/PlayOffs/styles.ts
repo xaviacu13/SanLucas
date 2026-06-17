@@ -1,15 +1,14 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 interface SideProps {
   grade?: "8" | "4" | "2";
 }
 
-export const Page = styled('div')({
-  minHeight: '100vh',
-  padding: '5px',
-  background: '#f5f7fb',
+export const Page = styled("div")({
+  minHeight: "100vh",
+  padding: "5px",
+  background: "#f5f7fb",
 });
-
 
 // export const BracketContainer = styled('div')({
 //   display: 'flex',
@@ -35,9 +34,10 @@ export const LogoCenter = styled("img")({
   height: "90px",
   objectFit: "contain",
   zIndex: 10,
-    '@media (max-width: 600px)': {
-       width: "80px",
-  height: "80px",
+  "@media (max-width: 600px)": {
+    top: "33%",
+    width: "66px",
+    height: "66px",
   },
 });
 
@@ -53,52 +53,50 @@ export const Side = styled("div")<SideProps>(({ grade }) => ({
         : "16px", // octavos
 }));
 
-export const Center = styled('div')({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  minWidth: '120px',
+export const Center = styled("div")({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  minWidth: "120px",
 
-  '@media (max-width: 900px)': {
-    display: 'none',
+  "@media (max-width: 900px)": {
+    display: "none",
   },
 });
 
-export const FinalBox = styled('div')({
-  background: '#0b2545',
-  color: '#fff',
-  padding: '20px',
-  borderRadius: '20px',
+export const FinalBox = styled("div")({
+  background: "#0b2545",
+  color: "#fff",
+  padding: "20px",
+  borderRadius: "20px",
   fontWeight: 700,
-  fontSize: '20px',
-  textAlign: 'center',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+  fontSize: "20px",
+  textAlign: "center",
+  boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
 });
 
-export const SchemaContent = styled('img')({
-  maxWidth: '100%',
-  height: 'auto',
+export const SchemaContent = styled("img")({
+  maxWidth: "100%",
+  height: "auto",
 });
 
-export const LeftContent = styled('div')({
-  display: 'flex',
+export const LeftContent = styled("div")({
+  display: "flex",
   //flexDirection: 'column',
   alignItems: "center",
-  gap: '10px',
-      '@media (max-width: 900px)': {
-      gap: '0px',
-
+  gap: "10px",
+  "@media (max-width: 900px)": {
+    gap: "0px",
   },
 });
 
-export const RightContent = styled('div')({
-  display: 'flex',
+export const RightContent = styled("div")({
+  display: "flex",
   //flexDirection: 'column',
-  alignItems: 'center',
-  gap: '10px',
-    '@media (max-width: 900px)': {
-      gap: '0px',
-
+  alignItems: "center",
+  gap: "10px",
+  "@media (max-width: 900px)": {
+    gap: "0px",
   },
 });
 
@@ -128,6 +126,6 @@ export const TeamLogo = styled("img")({
 
 export const ChampeonTitle = styled("span")({
   fontWeight: 700,
-  color: '#22b7be',
+  color: "#22b7be",
   fontSize: "15px",
 });
